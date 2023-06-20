@@ -1,0 +1,38 @@
+# //  ModelSim SE-64 10.5 Feb 13 2016 
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do {tb_riscv_top_simulate.do}
+# vsim -voptargs=""+acc"" -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -lib xil_defaultlib xil_defaultlib.tb_riscv_top xil_defaultlib.glbl 
+# Start time: 10:11:14 on Jun 20,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading work.tb_riscv_top(fast)
+# Loading work.RISCV_TOP(fast)
+# Loading work.IF_UNIT(fast)
+# Loading work.pc(fast)
+# Loading work.rom(fast)
+# Loading work.ir(fast)
+# Loading work.ID_UNIT(fast)
+# Loading work.id(fast)
+# Loading work.id_ex(fast)
+# Loading work.RF_UNIT(fast)
+# Loading work.EX_UNIT(fast)
+# Loading work.cu(fast)
+# Loading work.alu(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+# ** Warning: (vsim-3015) ../../../../../rtl/top/RISCV_TOP.v(76): [PCDPC] - Port size (5) does not match connection size (32) for port 'reg_wr_addr_o'. The port definition is at: ../../../../../rtl/top/ID_UNIT.v(52).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_riscv_top/u_RISCV_TOP/INST_ID_UNIT File: ../../../../../rtl/top/ID_UNIT.v
+# ** Warning: (vsim-3015) ../../../../../rtl/top/RISCV_TOP.v(108): [PCDPC] - Port size (5) does not match connection size (32) for port 'reg_wr_addr_i'. The port definition is at: ../../../../../rtl/top/EX_UNIT.v(36).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_riscv_top/u_RISCV_TOP/INST_EX_UNIT File: ../../../../../rtl/top/EX_UNIT.v
+# End time: 10:11:15 on Jun 20,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 2
