@@ -9,378 +9,412 @@ z2
 cModel Technology
 Z0 dD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/vivado_prj/cpu_prj.sim/sim_1/behav/modelsim
 T_opt
-!s110 1687704507
-VG6>Y=ie]]gW70=IbJKDTa0
-Z1 04 12 4 work tb_riscv_top fast 0
-Z2 04 4 4 work glbl fast 0
-=1-88a4c2fcbd21-649853bb-1be-52a4
-Z3 o-quiet -auto_acc_if_foreign -work xil_defaultlib -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip +acc
-Z4 tCvgOpt 0
+!s110 1687860220
+VEjOiIa:LCS;3^8nnPW4@=0
+04 12 4 work tb_riscv_top fast 0
+04 4 4 work glbl fast 0
+=1-88a4c2fcbd21-649ab3fb-3e7-3490
+o-quiet -auto_acc_if_foreign -work xil_defaultlib -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip +acc
+Z1 tCvgOpt 0
 n@_opt
-Z5 OL;O;10.5;63
-T_opt1
-!s110 1687686952
-VS]J6am=cWb:Q[n5RFBPMi3
-R1
-R2
-=1-88a4c2fcbd21-64980f22-da-32a0
-R3
-R4
-n@_opt1
-R5
-R0
+OL;O;10.5;63
 valu
 !s10a 1687143320
-Z6 !s110 1687227069
+Z2 !s110 1687857547
 !i10b 1
 !s100 DSja6>FgJz;@WU92i4FW22
 I^df7dOJmc26Lh4TAjb:@G2
-Z7 VDg1SIo80bB@j0V0VzS_@n1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
 R0
 w1687143320
 8../../../../../rtl/core/alu.v
 F../../../../../rtl/core/alu.v
-Z8 L0 25
-Z9 OL;L;10.5;63
+Z4 L0 25
+Z5 OL;L;10.5;63
 r1
 !s85 0
 31
-Z10 !s108 1687227069.000000
-Z11 !s107 ..\..\..\..\..\rtl\perips\..\core\defines.v|..\..\..\..\..\rtl\core\defines.v|..\..\..\..\..\rtl\top\..\core\defines.v|../../../../../sim/tb_riscv_top.v|../../../../../rtl/perips/rom.v|../../../../../rtl/perips/ram.v|../../../../../rtl/core/pc.v|../../../../../rtl/core/ir.v|../../../../../rtl/core/id_ex.v|../../../../../rtl/core/id.v|../../../../../rtl/core/cu.v|../../../../../rtl/core/alu.v|../../../../../rtl/top/RISCV_TOP.v|../../../../../rtl/top/RF_UNIT.v|../../../../../rtl/top/IF_UNIT.v|../../../../../rtl/top/ID_UNIT.v|../../../../../rtl/top/EX_UNIT.v|
-Z12 !s90 -64|-incr|-work|xil_defaultlib|../../../../../rtl/top/EX_UNIT.v|../../../../../rtl/top/ID_UNIT.v|../../../../../rtl/top/IF_UNIT.v|../../../../../rtl/top/RF_UNIT.v|../../../../../rtl/top/RISCV_TOP.v|../../../../../rtl/core/alu.v|../../../../../rtl/core/cu.v|../../../../../rtl/core/id.v|../../../../../rtl/core/id_ex.v|../../../../../rtl/core/ir.v|../../../../../rtl/core/pc.v|../../../../../rtl/perips/ram.v|../../../../../rtl/perips/rom.v|../../../../../sim/tb_riscv_top.v|
+Z6 !s108 1687857547.000000
+Z7 !s107 ..\..\..\..\..\rtl\perips\..\core\defines.v|..\..\..\..\..\rtl\core\defines.v|..\..\..\..\..\rtl\top\..\core\defines.v|../../../../../sim/tb_riscv_top.v|../../../../../rtl/perips/uart.v|../../../../../rtl/perips/rom.v|../../../../../rtl/perips/ram.v|../../../../../rtl/core/pc.v|../../../../../rtl/core/if_id.v|../../../../../rtl/core/id_ex.v|../../../../../rtl/core/id.v|../../../../../rtl/utils/delay_buffer.v|../../../../../rtl/core/cu.v|../../../../../rtl/core/alu.v|../../../../../rtl/top/RISCV_SOC_TOP.v|../../../../../rtl/top/RISCV.v|../../../../../rtl/top/RF_UNIT.v|../../../../../rtl/top/IF_UNIT.v|../../../../../rtl/top/ID_UNIT.v|../../../../../rtl/top/EX_UNIT.v|
+Z8 !s90 -64|-incr|-work|xil_defaultlib|../../../../../rtl/top/EX_UNIT.v|../../../../../rtl/top/ID_UNIT.v|../../../../../rtl/top/IF_UNIT.v|../../../../../rtl/top/RF_UNIT.v|../../../../../rtl/top/RISCV.v|../../../../../rtl/top/RISCV_SOC_TOP.v|../../../../../rtl/core/alu.v|../../../../../rtl/core/cu.v|../../../../../rtl/utils/delay_buffer.v|../../../../../rtl/core/id.v|../../../../../rtl/core/id_ex.v|../../../../../rtl/core/if_id.v|../../../../../rtl/core/pc.v|../../../../../rtl/perips/ram.v|../../../../../rtl/perips/rom.v|../../../../../rtl/perips/uart.v|../../../../../sim/tb_riscv_top.v|
 !i113 0
-Z13 o-work xil_defaultlib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-R4
+Z9 o-work xil_defaultlib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
 vcu
 !s10a 1687244586
-Z14 !s110 1687244688
+R2
 !i10b 1
 !s100 Tmn9h3<;]dHl<emS_1ec:1
 InEOckeP]c2TLJgh:M?PH_2
-R7
+R3
 R0
 w1687244586
 8../../../../../rtl/core/cu.v
 F../../../../../rtl/core/cu.v
-R8
-R9
+R4
+R5
 r1
 !s85 0
 31
-Z15 !s108 1687244688.000000
-R11
-R12
+R6
+R7
+R8
 !i113 0
-R13
-R4
+R9
+R1
+vdelay_buffer
+!s10a 1687846766
+R2
+!i10b 1
+!s100 jG]eJ]8`km7383C9M8n6R2
+I=[<o^<c634Yce@a05QMF20
+R3
+R0
+w1687846766
+8../../../../../rtl/utils/delay_buffer.v
+F../../../../../rtl/utils/delay_buffer.v
+Z10 L0 23
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R1
 vEX_UNIT
 !s10a 1687688010
-R6
+R2
 !i10b 1
 !s100 0<1VRX5@QJW0Y8ikRB;lg1
 IRhRk3dA@`I0<>oV05nW7G3
-R7
+R3
 R0
-w1687180444
+w1687688010
 8../../../../../rtl/top/EX_UNIT.v
 F../../../../../rtl/top/EX_UNIT.v
-R8
-R9
+R4
+R5
 r1
 !s85 0
 31
-R10
-R11
-R12
+R6
+R7
+R8
 !i113 0
-R13
-R4
+R9
+R1
 n@e@x_@u@n@i@t
 vglbl
-Z16 !s110 1687704501
+Z11 !s110 1687860214
 !i10b 1
 !s100 JWZ^meD<P7inSF0<1SiO32
 IAl?5;D^:bf?I5A^M>WzmU1
-R7
+R3
 R0
 w1544155481
 8glbl.v
 Fglbl.v
 L0 6
-R9
+R5
 r1
 !s85 0
 31
-Z17 !s108 1687704501.000000
+Z12 !s108 1687860214.000000
 !s107 glbl.v|
 !s90 -work|xil_defaultlib|glbl.v|
 !i113 0
-R13
-R4
+R9
+R1
 vid
 !s10a 1687244646
-R14
+R2
 !i10b 1
 !s100 :RhAmfRm>2MKK2[5A1^0d3
 IVS_@@FjVgQOX`iBE5W2BX1
-R7
+R3
 R0
 w1687244646
 8../../../../../rtl/core/id.v
 F../../../../../rtl/core/id.v
-R8
-R9
+R4
+R5
 r1
 !s85 0
 31
-R15
-R11
-R12
+R6
+R7
+R8
 !i113 0
-R13
-R4
+R9
+R1
 vid_ex
 !s10a 1687156470
-R6
+R2
 !i10b 1
 !s100 <Ghl=nP=@UH?7iN7]5=2A2
 Iz4CkBJ[IMecz<SPD`<UiD1
-R7
+R3
 R0
 w1687156470
 8../../../../../rtl/core/id_ex.v
 F../../../../../rtl/core/id_ex.v
-R8
-R9
+R4
+R5
 r1
 !s85 0
 31
-R10
-R11
-R12
+R6
+R7
+R8
 !i113 0
-R13
-R4
+R9
+R1
 vID_UNIT
 !s10a 1687077462
-R6
+R2
 !i10b 1
 !s100 fOi3fzPn=9<fgG2A4MdbB2
 IcHYi:<WL:;E=WK]>?D_=52
-R7
+R3
 R0
 w1687077462
 8../../../../../rtl/top/ID_UNIT.v
 F../../../../../rtl/top/ID_UNIT.v
-R8
-R9
+R4
+R5
 r1
 !s85 0
 31
-R10
-R11
-R12
+R6
+R7
+R8
 !i113 0
-R13
-R4
+R9
+R1
 n@i@d_@u@n@i@t
 vif_id
 !s10a 1687696101
-!s110 1687696213
+R2
 !i10b 1
 !s100 67:kdhFhU;CDocU6P0X4z0
 ImLJzO;Kk>N5`jWbGk7jAP1
-R7
+R3
 R0
 w1687696101
 8../../../../../rtl/core/if_id.v
 F../../../../../rtl/core/if_id.v
-R8
-R9
+R4
+R5
 r1
 !s85 0
 31
-!s108 1687696213.000000
-Z18 !s107 ..\..\..\..\..\rtl\perips\..\core\defines.v|..\..\..\..\..\rtl\core\defines.v|..\..\..\..\..\rtl\top\..\core\defines.v|../../../../../sim/tb_riscv_top.v|../../../../../rtl/perips/rom.v|../../../../../rtl/perips/ram.v|../../../../../rtl/core/pc.v|../../../../../rtl/core/if_id.v|../../../../../rtl/core/id_ex.v|../../../../../rtl/core/id.v|../../../../../rtl/core/cu.v|../../../../../rtl/core/alu.v|../../../../../rtl/top/RISCV_TOP.v|../../../../../rtl/top/RF_UNIT.v|../../../../../rtl/top/IF_UNIT.v|../../../../../rtl/top/ID_UNIT.v|../../../../../rtl/top/EX_UNIT.v|
-Z19 !s90 -64|-incr|-work|xil_defaultlib|../../../../../rtl/top/EX_UNIT.v|../../../../../rtl/top/ID_UNIT.v|../../../../../rtl/top/IF_UNIT.v|../../../../../rtl/top/RF_UNIT.v|../../../../../rtl/top/RISCV_TOP.v|../../../../../rtl/core/alu.v|../../../../../rtl/core/cu.v|../../../../../rtl/core/id.v|../../../../../rtl/core/id_ex.v|../../../../../rtl/core/if_id.v|../../../../../rtl/core/pc.v|../../../../../rtl/perips/ram.v|../../../../../rtl/perips/rom.v|../../../../../sim/tb_riscv_top.v|
+R6
+R7
+R8
 !i113 0
-R13
-R4
+R9
+R1
 vIF_UNIT
-R16
+!s10a 1687702294
+R2
 !i10b 1
 !s100 M=Fm5[S:]<V;K^G=K87GU0
 I8>;bbH;foB_2fO7dXAPlk0
-R7
+R3
 R0
 w1687702294
 8../../../../../rtl/top/IF_UNIT.v
 F../../../../../rtl/top/IF_UNIT.v
-R8
-R9
+R4
+R5
 r1
 !s85 0
 31
-R17
-R18
-R19
-!i113 0
-R13
-R4
-n@i@f_@u@n@i@t
-vir
-!s10a 1687156449
 R6
-!i10b 1
-!s100 j:eYFAW1V3lE;YfR2G:Wz2
-IH7Z>mLn>M;2d3]L`8l9V:1
 R7
-R0
-w1687156449
-8../../../../../rtl/core/ir.v
-F../../../../../rtl/core/ir.v
 R8
-R9
-r1
-!s85 0
-31
-R10
-R11
-R12
 !i113 0
-R13
-R4
+R9
+R1
+n@i@f_@u@n@i@t
 vpc
 !s10a 1687057345
-R6
+R2
 !i10b 1
 !s100 d8[gOdbKHCSCMf9mn7WkG1
 ISd8AbogXH^i6LI`c:9SLD2
-R7
+R3
 R0
 w1687057345
 8../../../../../rtl/core/pc.v
 F../../../../../rtl/core/pc.v
-R8
-R9
+R4
+R5
 r1
 !s85 0
 31
-R10
-R11
-R12
-!i113 0
-R13
-R4
-vram
-!s10a 1687167878
-Z20 !s110 1687695450
-!i10b 1
-!s100 B4f7]a6k`0XK^MTcjB_m91
-IabIGeU]R]8Hj6eMIjomNX0
+R6
 R7
+R8
+!i113 0
+R9
+R1
+vram
+R11
+!i10b 1
+!s100 S;^ZXn5AEac8jk;]0EMH41
+I?jYMWD6B1SEOABjUg_z2H2
+R3
 R0
-w1687167878
+w1687860209
 8../../../../../rtl/perips/ram.v
 F../../../../../rtl/perips/ram.v
-R8
-R9
+R4
+R5
 r1
 !s85 0
 31
-Z21 !s108 1687695450.000000
-R11
 R12
-!i113 0
-R13
-R4
-vRF_UNIT
-!s10a 1687695446
-R20
-!i10b 1
-!s100 dPUbz2aU?T`dTU`]f`DB<3
-IHgMl5Pl06eB>^kaVo0L2]2
 R7
+R8
+!i113 0
+R9
+R1
+vRF_UNIT
+!s10a 1687857680
+!s110 1687857687
+!i10b 1
+!s100 EOFZ@7JazMCoga8@dJU[71
+IU4h]42HJ5U=GBDeegLFN@1
+R3
 R0
-w1687695446
+w1687857680
 8../../../../../rtl/top/RF_UNIT.v
 F../../../../../rtl/top/RF_UNIT.v
-R8
-R9
+R4
+R5
 r1
 !s85 0
 31
-R21
-R11
-R12
+!s108 1687857687.000000
+R7
+R8
 !i113 0
-R13
-R4
+R9
+R1
 n@r@f_@u@n@i@t
-vRISCV_TOP
-!s10a 1687680857
-!s110 1687680880
+vRISCV
+!s10a 1687837351
+R2
 !i10b 1
-!s100 gZEAD20m<m17=9_Jej?1T1
-I8SWaZ>79][M3OB9L@2Pmd0
-R7
+!s100 _>Dl7[QbNaf9lC5zhM_nb1
+I5`VOSg?FA7VY7[@4Nb:1T0
+R3
 R0
-w1687680857
-8../../../../../rtl/top/RISCV_TOP.v
-F../../../../../rtl/top/RISCV_TOP.v
-R8
-R9
+w1687837351
+8../../../../../rtl/top/RISCV.v
+F../../../../../rtl/top/RISCV.v
+R4
+R5
 r1
 !s85 0
 31
-!s108 1687680880.000000
-R11
-R12
-!i113 0
-R13
-R4
-n@r@i@s@c@v_@t@o@p
-vrom
-!s10a 1687680556
-!s110 1687680561
-!i10b 1
-!s100 lK279:_nJF1NIQVc6[jzg0
-IKhW4dzJR_EmMYU;;:j_;f3
+R6
 R7
+R8
+!i113 0
+R9
+R1
+n@r@i@s@c@v
+vRISCV_SOC_TOP
+!s10a 1687860110
+!s110 1687860121
+!i10b 1
+!s100 A=aWPmdBfb76X^jK?3da11
+IG78]^QE@aToF>;60=i=4X2
+R3
 R0
-w1687680556
+w1687860110
+8../../../../../rtl/top/RISCV_SOC_TOP.v
+F../../../../../rtl/top/RISCV_SOC_TOP.v
+R4
+R5
+r1
+!s85 0
+31
+!s108 1687860121.000000
+R7
+R8
+!i113 0
+R9
+R1
+n@r@i@s@c@v_@s@o@c_@t@o@p
+vrom
+!s10a 1687859790
+!s110 1687857644
+!i10b 1
+!s100 Hb2bg5SoaILK4Xh6bUA?c0
+IDW2db271CW`E;:`:<`=T61
+R3
+R0
+w1687857638
 8../../../../../rtl/perips/rom.v
 F../../../../../rtl/perips/rom.v
 L0 24
-R9
+R5
 r1
 !s85 0
 31
-!s108 1687680561.000000
-R11
-R12
-!i113 0
-R13
-R4
-vtb_riscv_top
-!s10a 1687144122
-R6
-!i10b 1
-!s100 ?K:M;QNDoQ4Ho>DK7MJUM3
-I_L2mgQnYG7Dll93_<W2Ub0
+!s108 1687857644.000000
 R7
+R8
+!i113 0
+R9
+R1
+vtb_riscv_top
+!s10a 1687859596
+!s110 1687859610
+!i10b 1
+!s100 1XkEz=4=f]3VY5D5]HmIV1
+IJ3?UG^WR52]6<`:1392i]1
+R3
 R0
-w1687144122
+w1687859596
 8../../../../../sim/tb_riscv_top.v
 F../../../../../sim/tb_riscv_top.v
-L0 23
-R9
+R10
+R5
 r1
 !s85 0
 31
-R10
-R11
-R12
+!s108 1687859610.000000
+R7
+R8
 !i113 0
-R13
+R9
+R1
+vuart
+!s10a 1687859318
+!s110 1687859326
+!i10b 1
+!s100 FNLCkWTmi:llMC2k7zOFX0
+I]1kJ<ka=gYceEjCcNbgKJ3
+R3
+R0
+w1687859318
+8../../../../../rtl/perips/uart.v
+F../../../../../rtl/perips/uart.v
 R4
+R5
+r1
+!s85 0
+31
+!s108 1687859326.000000
+R7
+R8
+!i113 0
+R9
+R1

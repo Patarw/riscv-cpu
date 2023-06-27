@@ -26,26 +26,40 @@ module rom(
     input   wire                    clk         ,
     input   wire                    rst_n       ,
     
-    input   wire                    wr_en       , // write enable
-    input   wire[`INST_ADDR_BUS]    addr        , // address
+    input   wire                    erase_en    ,
+    
+    input   wire                    wr_en_i     , // write enable
+    input   wire[`INST_ADDR_BUS]    wr_addr_i   , // address
     input   wire[`INST_DATA_BUS]    data_i      , // write data
     
-    output  reg [`INST_DATA_BUS]   data_o        // read data
+    input   wire[`INST_ADDR_BUS]    rd_addr_i   , // address
+    output  reg [`INST_DATA_BUS]    data_o        // read data
     
     );
     
-    initial begin
-        $readmemb("D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/instructions.txt", _rom);
+    //initial begin
+    //    $readmemb("D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/instructions.txt", _rom);
+    //end
+    integer i;
+    reg[`INST_DATA_BUS] _rom[0:`ROM_NUM - 1];                               
+    
+    always @ (posedge clk or negedge rst_n) begin
+        if(erase_en) begin
+            for(i = 0; i < `ROM_NUM; i = i + 1) begin
+                _rom[i] <= `ZERO_WORD;
+            end
+        end
+        else if(wr_en_i == 1'b1) begin
+            _rom[wr_addr_i[31:2]] <= data_i;
+        end
     end
     
-    reg[`INST_DATA_BUS] _rom[0:`ROM_NUM - 1];                               
-       
     always @ (*) begin
         if (!rst_n) begin
             data_o = `ZERO_WORD;
         end 
         else begin
-            data_o = _rom[addr[31:2]];
+            data_o = _rom[rd_addr_i[31:2]];
         end
     end
    
