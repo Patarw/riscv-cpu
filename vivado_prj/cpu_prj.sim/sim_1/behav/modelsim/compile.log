@@ -7,7 +7,7 @@
 # Modifying modelsim.ini
 # ** Warning: (vlog-159) Mode option -64 is not supported in this context and will be ignored.
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 18:03:34 on Jun 27,2023
+# Start time: 18:22:55 on Jun 27,2023
 # vlog -64 -incr -work xil_defaultlib ../../../../../rtl/top/EX_UNIT.v ../../../../../rtl/top/ID_UNIT.v ../../../../../rtl/top/IF_UNIT.v ../../../../../rtl/top/RF_UNIT.v ../../../../../rtl/top/RISCV.v ../../../../../rtl/top/RISCV_SOC_TOP.v ../../../../../rtl/core/alu.v ../../../../../rtl/core/cu.v ../../../../../rtl/utils/delay_buffer.v ../../../../../rtl/core/id.v ../../../../../rtl/core/id_ex.v ../../../../../rtl/core/if_id.v ../../../../../rtl/core/pc.v ../../../../../rtl/perips/ram.v ../../../../../rtl/perips/rom.v ../../../../../rtl/perips/uart.v ../../../../../sim/tb_riscv_top.v 
 # -- Skipping module EX_UNIT
 # -- Skipping module ID_UNIT
@@ -22,21 +22,21 @@
 # -- Skipping module id_ex
 # -- Skipping module if_id
 # -- Skipping module pc
-# -- Compiling module ram
-# -- Skipping module rom
+# -- Skipping module ram
+# -- Compiling module rom
 # -- Skipping module uart
 # -- Skipping module tb_riscv_top
 # 
 # Top level modules:
 # 	tb_riscv_top
-# End time: 18:03:34 on Jun 27,2023, Elapsed time: 0:00:00
+# End time: 18:22:55 on Jun 27,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 18:03:34 on Jun 27,2023
+# Start time: 18:22:55 on Jun 27,2023
 # vlog -work xil_defaultlib glbl.v 
 # -- Compiling module glbl
 # 
 # Top level modules:
 # 	glbl
-# End time: 18:03:34 on Jun 27,2023, Elapsed time: 0:00:00
+# End time: 18:22:55 on Jun 27,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0

@@ -13,7 +13,7 @@
 # //
 # do {tb_riscv_top_simulate.do}
 # vsim -voptargs=""+acc"" -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -lib xil_defaultlib xil_defaultlib.tb_riscv_top xil_defaultlib.glbl 
-# Start time: 18:03:39 on Jun 27,2023
+# Start time: 18:23:00 on Jun 27,2023
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading work.tb_riscv_top(fast)
 # Loading work.RISCV_SOC_TOP(fast)
@@ -40,6 +40,9 @@
 # .main_pane.objects.interior.cs.body.tree
 add wave  \
 sim:/tb_riscv_top/tb_RISCV_SOC_TOP/res_data
+add wave  \
+sim:/tb_riscv_top/tb_RISCV_SOC_TOP/u_ram/_ram
+# Can't move the Now cursor.
 restart
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading work.tb_riscv_top(fast)
@@ -61,5 +64,3 @@ restart
 # Loading work.delay_buffer(fast)
 # Loading work.glbl(fast)
 run -all
-# End time: 18:04:10 on Jun 27,2023, Elapsed time: 0:00:31
-# Errors: 0, Warnings: 0

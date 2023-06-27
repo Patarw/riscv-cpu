@@ -9,11 +9,11 @@ z2
 cModel Technology
 Z0 dD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/vivado_prj/cpu_prj.sim/sim_1/behav/modelsim
 T_opt
-!s110 1687860220
-VEjOiIa:LCS;3^8nnPW4@=0
+!s110 1687861381
+VlSZiM3?1Ig5NP2[lKdI5z0
 04 12 4 work tb_riscv_top fast 0
 04 4 4 work glbl fast 0
-=1-88a4c2fcbd21-649ab3fb-3e7-3490
+=1-88a4c2fcbd21-649ab884-38e-4868
 o-quiet -auto_acc_if_foreign -work xil_defaultlib -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip +acc
 Z1 tCvgOpt 0
 n@_opt
@@ -108,7 +108,7 @@ R9
 R1
 n@e@x_@u@n@i@t
 vglbl
-Z11 !s110 1687860214
+Z11 !s110 1687861375
 !i10b 1
 !s100 JWZ^meD<P7inSF0<1SiO32
 IAl?5;D^:bf?I5A^M>WzmU1
@@ -122,7 +122,7 @@ R5
 r1
 !s85 0
 31
-Z12 !s108 1687860214.000000
+Z12 !s108 1687861375.000000
 !s107 glbl.v|
 !s90 -work|xil_defaultlib|glbl.v|
 !i113 0
@@ -263,13 +263,14 @@ R8
 R9
 R1
 vram
-R11
+!s10a 1687860254
+Z13 !s110 1687861216
 !i10b 1
-!s100 S;^ZXn5AEac8jk;]0EMH41
-I?jYMWD6B1SEOABjUg_z2H2
+!s100 7DiVa@W^fG03nGENOWFe52
+IQzn5V1`LSU4<C[1C94YQj0
 R3
 R0
-w1687860209
+w1687860254
 8../../../../../rtl/perips/ram.v
 F../../../../../rtl/perips/ram.v
 R4
@@ -277,7 +278,7 @@ R5
 r1
 !s85 0
 31
-R12
+Z14 !s108 1687861216.000000
 R7
 R8
 !i113 0
@@ -353,14 +354,13 @@ R9
 R1
 n@r@i@s@c@v_@s@o@c_@t@o@p
 vrom
-!s10a 1687859790
-!s110 1687857644
+R11
 !i10b 1
-!s100 Hb2bg5SoaILK4Xh6bUA?c0
-IDW2db271CW`E;:`:<`=T61
+!s100 Z_SmEcMH0<oVYm_9X1U@=0
+IW40aVUmI1Ijb]jNZhR?4z2
 R3
 R0
-w1687857638
+w1687861366
 8../../../../../rtl/perips/rom.v
 F../../../../../rtl/perips/rom.v
 L0 24
@@ -368,21 +368,21 @@ R5
 r1
 !s85 0
 31
-!s108 1687857644.000000
+R12
 R7
 R8
 !i113 0
 R9
 R1
 vtb_riscv_top
-!s10a 1687859596
-!s110 1687859610
+!s10a 1687860918
+R13
 !i10b 1
-!s100 1XkEz=4=f]3VY5D5]HmIV1
-IJ3?UG^WR52]6<`:1392i]1
+!s100 ><=LA41b^=iAY:8DM`B661
+IEi;zlj=19UEP=7AZW;J0G0
 R3
 R0
-w1687859596
+w1687860918
 8../../../../../sim/tb_riscv_top.v
 F../../../../../sim/tb_riscv_top.v
 R10
@@ -390,7 +390,7 @@ R5
 r1
 !s85 0
 31
-!s108 1687859610.000000
+R14
 R7
 R8
 !i113 0

@@ -32,6 +32,20 @@ module tb_riscv_top();
     
     always # (10) clk <= ~clk;
     
+    initial begin
+        clk = 1'b1;
+        rst_n <= 1'b0;
+        data_bit <= 1'b1;
+        // 四条指令
+        ins1 <= 32'b00000000000100000000000010010011;
+        ins2 <= 32'b00000000001000000000000100010011;
+        ins3 <= 32'b00000000000100001000000010110011;
+        ins4 <= 32'b11111110001000001000111011100011;
+        #17
+        rst_n <= 1'b1;
+    end
+    
+    
     // 串口发送数据任务
     task rx_bit(
         input   [7:0]   data
@@ -54,20 +68,8 @@ module tb_riscv_top();
         end
     endtask
     
-    initial begin
-        clk = 1'b1;
-        rst_n <= 1'b0;
-        data_bit <= 1'b1;
-        // 四条指令
-        ins1 <= 32'b00000000000100000000000010010011;
-        ins2 <= 32'b00000000001000000000000100010011;
-        ins3 <= 32'b00000000000100001000000010110011;
-        ins4 <= 32'b11111110001000001000111011100011;
-        #17
-        rst_n <= 1'b1;
-    end
-    
-    initial begin
+    // 通过串口将四条指令ins1、ins2、ins3、ins4写到rom中
+    /* initial begin
         // ins1
         #200
         rx_bit(ins1[31:24]);
@@ -128,7 +130,7 @@ module tb_riscv_top();
         rst_n <= 1'b0;
         #17
         rst_n <= 1'b1;
-    end
+    end */
 
 
     RISCV_SOC_TOP tb_RISCV_SOC_TOP(

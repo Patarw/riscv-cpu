@@ -1,39 +1,31 @@
-# cpu_prj
+# RISC-V 处理器设计
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+### 介绍
 
-#### 软件架构
-软件架构说明
+本人小白一枚，在学习FPGA的过程中偶然刷到了tinyriscv这个开源项目，并且自己对计算机体系结构的知识也很感兴趣，所以想参考这个开源项目做一个基于RISC-V指令集的CPU，下面是tinyriscv这个开源项目的地址，本项目很多思路和设计都参考了tinyriscv开源项目：
 
+[从零开始写RISC-V处理器 | liangkangnan的博客](https://liangkangnan.gitee.io/2020/04/29/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%86%99RISC-V%E5%A4%84%E7%90%86%E5%99%A8/)
 
-#### 安装教程
+[tinyriscv: 一个从零开始写的极简、非常易懂的RISC-V处理器核](https://gitee.com/liangkangnan/tinyriscv#https://gitee.com/liangkangnan/tinyriscv_vivado)
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### 项目说明
+本项目是一个采用三级流水线设计，顺序、单发射、单核的32位RISC-V处理器。
 
-#### 使用说明
+目前已经实现了RV32I 基本指令集中的37条指令：
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+![](./img/image1.png)
 
-#### 参与贡献
+项目架构图：
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+![](./img/image2.png)
 
+### 使用说明
+项目文件结构
+1.  rtl：rtl代码存放目录
+2.  sim：仿真文件存放目录
+3.  vivado_prj：vivado工程目录
+4.  FPGA：移植到板子上的工程（目前还在更新中）
+### 博客传送门
 
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+1.  [RISC-V处理器的设计与实现（一）—— 基本指令集](https://blog.csdn.net/qq_51103378/article/details/131201501?spm=1001.2014.3001.5501)
+2.  [RISC-V处理器的设计与实现（二）—— CPU框架设计](https://blog.csdn.net/qq_51103378/article/details/131383341?spm=1001.2014.3001.5501)

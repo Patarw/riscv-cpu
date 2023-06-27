@@ -37,9 +37,10 @@ module rom(
     
     );
     
-    //initial begin
-    //    $readmemb("D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/instructions.txt", _rom);
-    //end
+    initial begin
+        $readmemb("../../../../../rtl/perips/instructions.txt", _rom);
+    end
+    
     integer i;
     reg[`INST_DATA_BUS] _rom[0:`ROM_NUM - 1];                               
     
