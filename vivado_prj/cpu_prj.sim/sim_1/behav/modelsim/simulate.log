@@ -13,14 +13,13 @@
 # //
 # do {tb_riscv_top_simulate.do}
 # vsim -voptargs=""+acc"" -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -lib xil_defaultlib xil_defaultlib.tb_riscv_top xil_defaultlib.glbl 
-# Start time: 10:11:14 on Jun 20,2023
-# ** Note: (vsim-3812) Design is being optimized...
+# Start time: 22:48:27 on Jun 25,2023
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # Loading work.tb_riscv_top(fast)
 # Loading work.RISCV_TOP(fast)
 # Loading work.IF_UNIT(fast)
 # Loading work.pc(fast)
-# Loading work.rom(fast)
-# Loading work.ir(fast)
+# Loading work.if_id(fast)
 # Loading work.ID_UNIT(fast)
 # Loading work.id(fast)
 # Loading work.id_ex(fast)
@@ -28,11 +27,37 @@
 # Loading work.EX_UNIT(fast)
 # Loading work.cu(fast)
 # Loading work.alu(fast)
+# Loading work.rom(fast)
 # Loading work.ram(fast)
 # Loading work.glbl(fast)
-# ** Warning: (vsim-3015) ../../../../../rtl/top/RISCV_TOP.v(76): [PCDPC] - Port size (5) does not match connection size (32) for port 'reg_wr_addr_o'. The port definition is at: ../../../../../rtl/top/ID_UNIT.v(52).
-#    Time: 0 ps  Iteration: 0  Instance: /tb_riscv_top/u_RISCV_TOP/INST_ID_UNIT File: ../../../../../rtl/top/ID_UNIT.v
-# ** Warning: (vsim-3015) ../../../../../rtl/top/RISCV_TOP.v(108): [PCDPC] - Port size (5) does not match connection size (32) for port 'reg_wr_addr_i'. The port definition is at: ../../../../../rtl/top/EX_UNIT.v(36).
-#    Time: 0 ps  Iteration: 0  Instance: /tb_riscv_top/u_RISCV_TOP/INST_EX_UNIT File: ../../../../../rtl/top/EX_UNIT.v
-# End time: 10:11:15 on Jun 20,2023, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 2
+# 1
+# 1
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+add wave  \
+sim:/tb_riscv_top/u_RISCV_TOP/u_ram/_ram
+restart
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.tb_riscv_top(fast)
+# Loading work.RISCV_TOP(fast)
+# Loading work.IF_UNIT(fast)
+# Loading work.pc(fast)
+# Loading work.if_id(fast)
+# Loading work.ID_UNIT(fast)
+# Loading work.id(fast)
+# Loading work.id_ex(fast)
+# Loading work.RF_UNIT(fast)
+# Loading work.EX_UNIT(fast)
+# Loading work.cu(fast)
+# Loading work.alu(fast)
+# Loading work.rom(fast)
+# Loading work.ram(fast)
+# Loading work.glbl(fast)
+run -all
+# ** Note: $stop    : ../../../../../sim/tb_riscv_top.v(36)
+#    Time: 1017 ns  Iteration: 0  Instance: /tb_riscv_top
+# Break in Module tb_riscv_top at ../../../../../sim/tb_riscv_top.v line 36
+run -continue
+# End time: 22:54:14 on Jun 25,2023, Elapsed time: 0:05:47
+# Errors: 0, Warnings: 0
