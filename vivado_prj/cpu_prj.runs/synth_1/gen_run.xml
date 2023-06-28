@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010iclg225-1L" LaunchTime="1687696207">
-  <File Type="PA-TCL" Name="RISCV_TOP.tcl"/>
-  <File Type="REPORTS-TCL" Name="RISCV_TOP_reports.tcl"/>
-  <File Type="RDS-RDS" Name="RISCV_TOP.vds"/>
-  <File Type="RDS-UTIL" Name="RISCV_TOP_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="RISCV_TOP_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="RISCV_TOP.dcp"/>
+<GenRun Id="synth_1" LaunchPart="xc7z010iclg225-1L" LaunchTime="1687870843">
+  <File Type="PA-TCL" Name="RISCV_SOC_TOP.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="RISCV_SOC_TOP_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="RISCV_SOC_TOP_reports.tcl"/>
+  <File Type="RDS-RDS" Name="RISCV_SOC_TOP.vds"/>
+  <File Type="RDS-UTIL" Name="RISCV_SOC_TOP_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="RISCV_SOC_TOP_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="RISCV_SOC_TOP.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="RISCV_SOC_TOP_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="RISCV_SOC_TOP_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../rtl/core/defines.v">
@@ -43,6 +46,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../rtl/top/RISCV.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../rtl/core/alu.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -51,6 +61,13 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/../rtl/core/cu.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../rtl/utils/delay_buffer.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -99,7 +116,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../rtl/top/RISCV_TOP.v">
+    <File Path="$PPRDIR/../rtl/perips/uart.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../rtl/top/RISCV_SOC_TOP.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -108,7 +132,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="RISCV_TOP"/>
+      <Option Name="TopModule" Val="RISCV_SOC_TOP"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>

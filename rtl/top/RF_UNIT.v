@@ -83,7 +83,7 @@ module RF_UNIT(
                 regs[i] <= `ZERO_WORD;
             end
             // 栈地址不能为0，不然无法正常执行持续
-            regs[2] <= 32'h0000_0fff;
+            regs[2] <= 32'h0000_00ff;
         end
         else begin
             // 写使能有效并且写地址不为0

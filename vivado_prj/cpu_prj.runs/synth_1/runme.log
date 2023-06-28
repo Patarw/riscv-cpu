@@ -1,6 +1,6 @@
 
 *** Running vivado
-    with args -log RISCV_TOP.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source RISCV_TOP.tcl
+    with args -log RISCV_SOC_TOP.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source RISCV_SOC_TOP.tcl
 
 
 ****** Vivado v2018.3 (64-bit)
@@ -8,17 +8,18 @@
   **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
     ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 
-source RISCV_TOP.tcl -notrace
-Command: synth_design -top RISCV_TOP -part xc7z010iclg225-1L
+source RISCV_SOC_TOP.tcl -notrace
+Command: synth_design -top RISCV_SOC_TOP -part xc7z010iclg225-1L
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010i'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010i'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 17360 
+INFO: Helper process launched with PID 15720 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 343.520 ; gain = 69.984
+Starting Synthesize : Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 342.945 ; gain = 74.684
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'RISCV_TOP' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RISCV_TOP.v:25]
+INFO: [Synth 8-6157] synthesizing module 'RISCV_SOC_TOP' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RISCV_SOC_TOP.v:25]
+INFO: [Synth 8-6157] synthesizing module 'RISCV' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RISCV.v:25]
 INFO: [Synth 8-6157] synthesizing module 'IF_UNIT' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/IF_UNIT.v:25]
 INFO: [Synth 8-6157] synthesizing module 'pc' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/core/pc.v:25]
 INFO: [Synth 8-6155] done synthesizing module 'pc' (1#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/core/pc.v:25]
@@ -34,36 +35,6 @@ INFO: [Synth 8-6157] synthesizing module 'id_ex' [D:/Users/Desktop/FPGA/tinyrisc
 INFO: [Synth 8-6155] done synthesizing module 'id_ex' (5#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/core/id_ex.v:25]
 INFO: [Synth 8-6155] done synthesizing module 'ID_UNIT' (6#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/ID_UNIT.v:25]
 INFO: [Synth 8-6157] synthesizing module 'RF_UNIT' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:25]
-WARNING: [Synth 8-5788] Register regs_reg[1] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[3] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[4] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[5] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[6] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[7] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[8] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[9] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[10] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[11] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[12] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[13] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[14] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[15] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[16] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[17] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[18] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[19] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[20] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[21] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[22] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[23] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[24] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[25] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[26] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[27] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[28] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[29] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[30] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
-WARNING: [Synth 8-5788] Register regs_reg[31] in module RF_UNIT is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:81]
 INFO: [Synth 8-6155] done synthesizing module 'RF_UNIT' (7#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RF_UNIT.v:25]
 INFO: [Synth 8-6157] synthesizing module 'EX_UNIT' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/EX_UNIT.v:25]
 INFO: [Synth 8-6157] synthesizing module 'cu' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/core/cu.v:25]
@@ -73,177 +44,60 @@ INFO: [Synth 8-6155] done synthesizing module 'cu' (8#1) [D:/Users/Desktop/FPGA/
 INFO: [Synth 8-6157] synthesizing module 'alu' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/core/alu.v:25]
 INFO: [Synth 8-6155] done synthesizing module 'alu' (9#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/core/alu.v:25]
 INFO: [Synth 8-6155] done synthesizing module 'EX_UNIT' (10#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/EX_UNIT.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'RISCV' (11#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RISCV.v:25]
 INFO: [Synth 8-6157] synthesizing module 'rom' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:24]
-CRITICAL WARNING: [Synth 8-4445] could not open $readmem data file '../../../../../rtl/perips/instructions.txt'; please make sure the file is added to project and has read permission, ignoring [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:38]
-
-Warning: Trying to implement RAM in registers. Block RAM or DRAM implementation is not possible for one or more of the following reasons :
-	1: Unable to determine number of words or word size in RAM. 
-	2: No valid read/write found for RAM. 
-RAM dissolved into registers
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-WARNING: [Synth 8-3848] Net _rom in module/entity rom does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
-INFO: [Common 17-14] Message 'Synth 8-3848' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-6155] done synthesizing module 'rom' (11#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:24]
+WARNING: [Synth 8-2898] ignoring malformed $readmem task: invalid memory name [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'rom' (12#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/rom.v:24]
 INFO: [Synth 8-6157] synthesizing module 'ram' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/ram.v:25]
-INFO: [Synth 8-6155] done synthesizing module 'ram' (12#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/ram.v:25]
-INFO: [Synth 8-6155] done synthesizing module 'RISCV_TOP' (13#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RISCV_TOP.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'ram' (13#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/ram.v:25]
+INFO: [Synth 8-6157] synthesizing module 'uart' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/uart.v:25]
+	Parameter BAUD_CNT_MAX bound to: 5208 - type: integer 
+	Parameter IDLE bound to: 4'b0000 
+	Parameter BEGIN bound to: 4'b0001 
+	Parameter BIT0 bound to: 4'b0010 
+	Parameter BIT1 bound to: 4'b0011 
+	Parameter BIT2 bound to: 4'b0100 
+	Parameter BIT3 bound to: 4'b0101 
+	Parameter BIT4 bound to: 4'b0110 
+	Parameter BIT5 bound to: 4'b0111 
+	Parameter BIT6 bound to: 4'b1000 
+	Parameter BIT7 bound to: 4'b1001 
+	Parameter END bound to: 4'b1010 
+INFO: [Synth 8-6157] synthesizing module 'delay_buffer' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/utils/delay_buffer.v:23]
+	Parameter DEPTH bound to: 4 - type: integer 
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'delay_buffer' (14#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/utils/delay_buffer.v:23]
+WARNING: [Synth 8-3848] Net uart_tx in module/entity uart does not have driver. [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/uart.v:31]
+INFO: [Synth 8-6155] done synthesizing module 'uart' (15#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/perips/uart.v:25]
+INFO: [Synth 8-6155] done synthesizing module 'RISCV_SOC_TOP' (16#1) [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/top/RISCV_SOC_TOP.v:25]
+WARNING: [Synth 8-3331] design uart has unconnected port uart_tx
 WARNING: [Synth 8-3331] design ram has unconnected port addr_i[1]
 WARNING: [Synth 8-3331] design ram has unconnected port addr_i[0]
-WARNING: [Synth 8-3331] design rom has unconnected port clk
-WARNING: [Synth 8-3331] design rom has unconnected port wr_en
-WARNING: [Synth 8-3331] design rom has unconnected port addr[31]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[30]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[29]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[28]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[27]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[26]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[25]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[24]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[23]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[22]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[21]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[20]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[19]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[18]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[17]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[16]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[15]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[14]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[13]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[12]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[11]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[1]
-WARNING: [Synth 8-3331] design rom has unconnected port addr[0]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[31]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[30]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[29]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[28]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[27]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[26]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[25]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[24]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[23]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[22]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[21]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[20]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[19]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[18]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[17]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[16]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[15]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[14]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[13]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[12]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[11]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[10]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[9]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[8]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[7]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[6]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[5]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[4]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[3]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[2]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[1]
-WARNING: [Synth 8-3331] design rom has unconnected port data_i[0]
+WARNING: [Synth 8-3331] design rom has unconnected port wr_addr_i[1]
+WARNING: [Synth 8-3331] design rom has unconnected port wr_addr_i[0]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[31]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[30]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[29]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[28]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[27]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[26]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[25]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[24]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[23]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[22]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[21]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[20]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[19]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[18]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[17]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[16]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[15]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[14]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[13]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[12]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[11]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[1]
+WARNING: [Synth 8-3331] design rom has unconnected port rd_addr_i[0]
 WARNING: [Synth 8-3331] design cu has unconnected port ins_i[24]
 WARNING: [Synth 8-3331] design cu has unconnected port ins_i[23]
 WARNING: [Synth 8-3331] design cu has unconnected port ins_i[22]
@@ -285,19 +139,50 @@ WARNING: [Synth 8-3331] design cu has unconnected port ins_addr_i[9]
 WARNING: [Synth 8-3331] design cu has unconnected port ins_addr_i[8]
 WARNING: [Synth 8-3331] design cu has unconnected port ins_addr_i[7]
 WARNING: [Synth 8-3331] design cu has unconnected port ins_addr_i[6]
+WARNING: [Synth 8-3331] design cu has unconnected port ins_addr_i[5]
+WARNING: [Synth 8-3331] design cu has unconnected port ins_addr_i[4]
+WARNING: [Synth 8-3331] design cu has unconnected port ins_addr_i[3]
+WARNING: [Synth 8-3331] design cu has unconnected port ins_addr_i[2]
+WARNING: [Synth 8-3331] design cu has unconnected port ins_addr_i[1]
+WARNING: [Synth 8-3331] design cu has unconnected port ins_addr_i[0]
+WARNING: [Synth 8-3331] design cu has unconnected port alu_overflow_flag
+WARNING: [Synth 8-3331] design EX_UNIT has unconnected port clk
+WARNING: [Synth 8-3331] design EX_UNIT has unconnected port rst_n
+WARNING: [Synth 8-3331] design id has unconnected port clk
+WARNING: [Synth 8-3331] design id has unconnected port rst_n
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[31]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[30]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[29]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[28]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[27]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[26]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[25]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[24]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[23]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[22]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[21]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[20]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[19]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[18]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[17]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[16]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[15]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[14]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[13]
+WARNING: [Synth 8-3331] design id has unconnected port ins_addr_i[12]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 738.484 ; gain = 464.949
+Finished Synthesize : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 769.457 ; gain = 501.195
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 738.484 ; gain = 464.949
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 769.457 ; gain = 501.195
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010iclg225-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 738.484 ; gain = 464.949
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 769.457 ; gain = 501.195
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z010iclg225-1L
 INFO: [Synth 8-5546] ROM "reg1_rd_addr_o" won't be mapped to RAM because it is too sparse
@@ -342,107 +227,121 @@ INFO: [Synth 8-5587] ROM size for "reg_wr_en_o" is below threshold of ROM addres
 INFO: [Synth 8-5546] ROM "mem_wr_en_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "alu_op_code" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "alu_op_code" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5545] ROM "_ram_reg[0]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[1]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[2]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[3]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[4]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[5]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[6]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[7]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[8]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[9]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[10]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[11]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[12]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[13]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[14]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[15]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[16]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[17]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[18]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[19]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[20]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[21]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[22]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[23]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[24]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[25]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[26]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[27]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[28]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[29]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[30]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[31]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[32]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[33]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[34]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[35]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[36]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[37]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[38]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[39]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[40]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[41]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[42]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[43]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[44]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[45]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[46]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[47]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[48]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[49]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[50]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[51]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[52]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[53]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[54]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[55]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[56]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[57]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[58]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[59]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[60]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[61]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[62]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[63]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[64]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[65]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[66]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[67]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[68]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[69]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[70]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[71]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[72]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[73]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[74]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[75]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[76]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[77]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[78]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[79]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[80]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[81]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[82]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[83]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[84]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[85]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[86]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[87]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[88]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[89]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[90]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[91]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[92]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[93]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[94]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[95]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[96]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[97]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[98]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "_ram_reg[99]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[0]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[1]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[2]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[3]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[4]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[5]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[6]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[7]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[8]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[9]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[10]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[11]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[12]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[13]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[14]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[15]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[16]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[17]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[18]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[19]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[20]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[21]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[22]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[23]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[24]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[25]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[26]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[27]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[28]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[29]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[30]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[31]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[32]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[33]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[34]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[35]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[36]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[37]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[38]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[39]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[40]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[41]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[42]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[43]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[44]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[45]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[46]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[47]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[48]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[49]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[50]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[51]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[52]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[53]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[54]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[55]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[56]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[57]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[58]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[59]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[60]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[61]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[62]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[63]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[64]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[65]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[66]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[67]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[68]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[69]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[70]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[71]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[72]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[73]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[74]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[75]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[76]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[77]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[78]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[79]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[80]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[81]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[82]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[83]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[84]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[85]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[86]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[87]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[88]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[89]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[90]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[91]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[92]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[93]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[94]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[95]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[96]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[97]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[98]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "_rom_reg[99]" won't be mapped to RAM because address size (30) is larger than maximum supported(25)
 INFO: [Common 17-14] Message 'Synth 8-5545' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-802] inferred FSM for state register 'uart_state_reg' in module 'uart'
+INFO: [Synth 8-5544] ROM "data_rd_flag" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "byte_data" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "uart_state" won't be mapped to RAM because it is too sparse
 WARNING: [Synth 8-327] inferring latch for variable 'reg1_rd_addr_o_reg' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/core/id.v:69]
 WARNING: [Synth 8-327] inferring latch for variable 'reg2_rd_addr_o_reg' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/core/id.v:70]
 WARNING: [Synth 8-327] inferring latch for variable 'reg_wr_addr_o_reg' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/core/id.v:71]
@@ -450,34 +349,52 @@ WARNING: [Synth 8-327] inferring latch for variable 'imm_o_reg' [D:/Users/Deskto
 WARNING: [Synth 8-327] inferring latch for variable 'alu_op_code_reg' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/core/cu.v:79]
 WARNING: [Synth 8-327] inferring latch for variable 'pc_imm_flag_reg' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/core/cu.v:74]
 WARNING: [Synth 8-327] inferring latch for variable 'jump_flag_reg' [D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/rtl/core/cu.v:72]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                      00000010000 |                             0000
+                   BEGIN |                      00001000000 |                             0001
+                    BIT0 |                      00000001000 |                             0010
+                    BIT1 |                      00000000001 |                             0011
+                    BIT2 |                      00000000010 |                             0100
+                    BIT3 |                      00000000100 |                             0101
+                    BIT4 |                      10000000000 |                             0110
+                    BIT5 |                      00010000000 |                             0111
+                    BIT6 |                      00100000000 |                             1000
+                    BIT7 |                      01000000000 |                             1001
+                     END |                      00000100000 |                             1010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'uart_state_reg' using encoding 'one-hot' in module 'uart'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:57 ; elapsed = 00:01:03 . Memory (MB): peak = 1113.484 ; gain = 839.949
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:08 ; elapsed = 00:01:13 . Memory (MB): peak = 1181.195 ; gain = 912.934
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+------+------------------+------------+----------+
-|      |RTL Partition     |Replication |Instances |
-+------+------------------+------------+----------+
-|1     |muxpart__4127_ram |           1|    131040|
-|2     |ram__GB1          |           1|      8896|
-|3     |ram__GB2          |           1|     17664|
-|4     |ram__GB3          |           1|     17344|
-|5     |ram__GB4          |           1|     22023|
-|6     |ram__GB5          |           1|     22317|
-|7     |ram__GB6          |           1|     22208|
-|8     |ram__GB7          |           1|     21888|
-|9     |ram__GB8          |           1|     22016|
-|10    |ram__GB9          |           1|     21824|
-|11    |ram__GB10         |           1|     22081|
-|12    |ram__GB11         |           1|     22958|
-|13    |ram__GB12         |           1|     22470|
-|14    |ram__GB13         |           1|     23942|
-|15    |ram__GB14         |           1|     39890|
-|16    |ram__GB15         |           1|     40910|
-|17    |ram__GB16         |           1|     31645|
-|18    |ram__GB17         |           1|     29556|
-|19    |RISCV_TOP__GC0    |           1|     25202|
-+------+------------------+------------+----------+
++------+-------------------+------------+----------+
+|      |RTL Partition      |Replication |Instances |
++------+-------------------+------------+----------+
+|1     |rom__GB0           |           1|     35372|
+|2     |rom__GB1           |           1|     15060|
+|3     |muxpart__4639_ram  |           1|    131040|
+|4     |ram__GB1           |           1|      9472|
+|5     |ram__GB2           |           1|     17728|
+|6     |ram__GB3           |           1|     17408|
+|7     |ram__GB4           |           1|     22144|
+|8     |ram__GB5           |           1|     22222|
+|9     |ram__GB6           |           1|     21952|
+|10    |ram__GB7           |           1|     21696|
+|11    |ram__GB8           |           1|     21824|
+|12    |ram__GB9           |           1|     21568|
+|13    |ram__GB10          |           1|     22242|
+|14    |ram__GB11          |           1|     23018|
+|15    |ram__GB12          |           1|     23834|
+|16    |ram__GB13          |           1|     22606|
+|17    |ram__GB14          |           1|     40136|
+|18    |ram__GB15          |           1|     36949|
+|19    |ram__GB16          |           1|     33890|
+|20    |ram__GB17          |           1|     30943|
+|21    |RISCV_SOC_TOP__GC0 |           1|     10602|
++------+-------------------+------------+----------+
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -486,28 +403,37 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input     32 Bit       Adders := 3     
 	   3 Input     32 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
 +---XORs : 
 	   2 Input     32 Bit         XORs := 1     
 +---Registers : 
-	               32 Bit    Registers := 4135  
+	               32 Bit    Registers := 4649  
+	                8 Bit    Registers := 1     
 	                5 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 8     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 21    
 	   3 Input     32 Bit        Muxes := 1     
 	   9 Input     32 Bit        Muxes := 1     
 	   4 Input     32 Bit        Muxes := 3     
 	   2 Input     16 Bit        Muxes := 1     
+	  11 Input     11 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 11    
 	   4 Input      8 Bit        Muxes := 1     
+	  11 Input      8 Bit        Muxes := 1     
 	   9 Input      5 Bit        Muxes := 3     
 	   2 Input      5 Bit        Muxes := 1     
 	   9 Input      4 Bit        Muxes := 1     
 	  11 Input      4 Bit        Muxes := 1     
 	   7 Input      4 Bit        Muxes := 1     
 	  10 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 4131  
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4647  
 	   9 Input      1 Bit        Muxes := 1     
 	  10 Input      1 Bit        Muxes := 11    
 	   7 Input      1 Bit        Muxes := 1     
+	  11 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -515,6 +441,13 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
+Module rom 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 512   
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 512   
 Module ram 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -577,10 +510,26 @@ Detailed RTL Component Info :
 	   2 Input     32 Bit        Muxes := 8     
 	   2 Input     16 Bit        Muxes := 1     
 	   4 Input      8 Bit        Muxes := 1     
-Module rom 
+Module delay_buffer 
 Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 4     
+Module uart 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 2     
+	                8 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 1     
+	  11 Input     11 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 11    
+	  11 Input      8 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	  11 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -639,152 +588,119 @@ INFO: [Synth 8-5546] ROM "u_cu/load_ins_flag" won't be mapped to RAM because it 
 INFO: [Synth 8-5587] ROM size for "u_cu/reg_wr_en_o" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5546] ROM "u_cu/mem_wr_en_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "u_cu/alu_op_code" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "INST_ID_UNIT/u_id/reg1_rd_addr_o" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[8]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[9]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[10]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[11]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[7]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[23]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[24]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[22]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[21]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[20]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[18]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[19]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[17]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[16]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[15]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[31]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[30]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[30]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[29]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[29]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[28]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[28]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[27]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[27]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[26]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[26]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[25]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[25]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[14]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[12]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[14]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[13]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[14]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[14]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[6]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[0]' (FDP) to 'INST_IF_UNIT/u_if_id/ins_o_reg[4]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[2]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[6]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[6]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[5]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[4]' (FDP) to 'INST_IF_UNIT/u_if_id/ins_o_reg[1]'
-INFO: [Synth 8-3886] merging instance 'INST_IF_UNIT/u_if_id/ins_o_reg[3]' (FDC) to 'INST_IF_UNIT/u_if_id/ins_o_reg[5]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_IF_UNIT/u_if_id/ins_o_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (INST_EX_UNIT/\u_cu/pc_imm_flag_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg_wr_addr_o_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg_wr_addr_o_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg_wr_addr_o_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg_wr_addr_o_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg_wr_addr_o_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[18] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[22] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[23] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[28] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[29] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[30] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/imm_o_reg[31] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg2_rd_addr_o_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg2_rd_addr_o_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg2_rd_addr_o_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg2_rd_addr_o_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg2_rd_addr_o_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg1_rd_addr_o_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg1_rd_addr_o_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg1_rd_addr_o_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg1_rd_addr_o_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\INST_ID_UNIT/u_id/reg1_rd_addr_o_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (INST_EX_UNIT/\u_cu/jump_flag_reg )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (INST_EX_UNIT/\u_cu/alu_op_code_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (INST_EX_UNIT/\u_cu/alu_op_code_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (INST_EX_UNIT/\u_cu/alu_op_code_reg[1] )
-INFO: [Synth 8-3886] merging instance 'INST_ID_UNIT/u_id_ex/ins_o_reg[0]' (FDP) to 'INST_ID_UNIT/u_id_ex/ins_o_reg[4]'
-INFO: [Synth 8-3886] merging instance 'INST_ID_UNIT/u_id_ex/ins_o_reg[4]' (FDP) to 'INST_ID_UNIT/u_id_ex/ins_o_reg[1]'
-WARNING: [Synth 8-3332] Sequential element (u_cu/alu_op_code_reg[3]) is unused and will be removed from module EX_UNIT.
-WARNING: [Synth 8-3332] Sequential element (u_cu/alu_op_code_reg[2]) is unused and will be removed from module EX_UNIT.
-WARNING: [Synth 8-3332] Sequential element (u_cu/alu_op_code_reg[1]) is unused and will be removed from module EX_UNIT.
-WARNING: [Synth 8-3332] Sequential element (u_cu/alu_op_code_reg[0]) is unused and will be removed from module EX_UNIT.
-WARNING: [Synth 8-3332] Sequential element (u_cu/pc_imm_flag_reg) is unused and will be removed from module EX_UNIT.
-WARNING: [Synth 8-3332] Sequential element (u_cu/jump_flag_reg) is unused and will be removed from module EX_UNIT.
+INFO: [Synth 8-5546] ROM "u_uart/uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_uart/uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_uart/uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_uart/uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_uart/uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_uart/uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_uart/uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_uart/uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_uart/uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_uart/uart_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "u_uart/data_rd_flag" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "u_RISCV/INST_ID_UNIT/u_id/reg1_rd_addr_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "u_uart/byte_data" won't be mapped to RAM because it is too sparse
+INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/\u_uart/rom_wr_addr_o_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_2/\u_uart/rom_wr_addr_o_reg[1] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:04 ; elapsed = 00:02:28 . Memory (MB): peak = 1148.332 ; gain = 874.797
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:34 ; elapsed = 00:02:56 . Memory (MB): peak = 1187.137 ; gain = 918.875
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+------+------------------+------------+----------+
-|      |RTL Partition     |Replication |Instances |
-+------+------------------+------------+----------+
-|1     |muxpart__4127_ram |           1|    131040|
-|2     |ram__GB1          |           1|      4449|
-|3     |ram__GB2          |           1|      8833|
-|4     |ram__GB3          |           1|      8673|
-|5     |ram__GB4          |           1|     11016|
-|6     |ram__GB5          |           1|     10727|
-|7     |ram__GB6          |           1|     11105|
-|8     |ram__GB7          |           1|     10945|
-|9     |ram__GB8          |           1|     11009|
-|10    |ram__GB9          |           1|     10913|
-|11    |ram__GB10         |           1|      8346|
-|12    |ram__GB11         |           1|      7585|
-|13    |ram__GB12         |           1|      8089|
-|14    |ram__GB13         |           1|      6854|
-|15    |ram__GB14         |           1|      9214|
-|16    |ram__GB15         |           1|      8813|
-|17    |ram__GB16         |           1|      1571|
-|18    |ram__GB17         |           1|      1726|
-|19    |RISCV_TOP__GC0    |           1|         0|
-+------+------------------+------------+----------+
++------+-------------------+------------+----------+
+|      |RTL Partition      |Replication |Instances |
++------+-------------------+------------+----------+
+|1     |rom__GB0           |           1|     33001|
+|2     |rom__GB1           |           1|       745|
+|3     |muxpart__4639_ram  |           1|    131040|
+|4     |ram__GB1           |           1|      4737|
+|5     |ram__GB2           |           1|      8865|
+|6     |ram__GB3           |           1|      8705|
+|7     |ram__GB4           |           1|     11073|
+|8     |ram__GB5           |           1|     10821|
+|9     |ram__GB6           |           1|     10977|
+|10    |ram__GB7           |           1|     10849|
+|11    |ram__GB8           |           1|     10913|
+|12    |ram__GB9           |           1|     10785|
+|13    |ram__GB10          |           1|      8256|
+|14    |ram__GB11          |           1|      7637|
+|15    |ram__GB12          |           1|      7287|
+|16    |ram__GB13          |           1|      7657|
+|17    |ram__GB14          |           1|      7990|
+|18    |ram__GB15          |           1|      9798|
+|19    |ram__GB16          |           1|      1570|
+|20    |ram__GB17          |           1|      1587|
+|21    |RISCV_SOC_TOP__GC0 |           1|      6874|
++------+-------------------+------------+----------+
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:05 ; elapsed = 00:02:30 . Memory (MB): peak = 1148.332 ; gain = 874.797
+Finished Timing Optimization : Time (s): cpu = 00:02:35 ; elapsed = 00:02:58 . Memory (MB): peak = 1187.137 ; gain = 918.875
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+-------------------+------------+----------+
+|      |RTL Partition      |Replication |Instances |
++------+-------------------+------------+----------+
+|1     |rom__GB0           |           1|     33001|
+|2     |rom__GB1           |           1|       745|
+|3     |muxpart__4639_ram  |           1|    131040|
+|4     |ram__GB1           |           1|      4737|
+|5     |ram__GB2           |           1|      8865|
+|6     |ram__GB3           |           1|      8705|
+|7     |ram__GB4           |           1|     11073|
+|8     |ram__GB5           |           1|     10821|
+|9     |ram__GB6           |           1|     10977|
+|10    |ram__GB7           |           1|     10849|
+|11    |ram__GB8           |           1|     10913|
+|12    |ram__GB9           |           1|     10785|
+|13    |ram__GB10          |           1|      8256|
+|14    |ram__GB11          |           1|      7637|
+|15    |ram__GB12          |           1|      7287|
+|16    |ram__GB13          |           1|      7657|
+|17    |ram__GB14          |           1|      7990|
+|18    |ram__GB15          |           1|      9798|
+|19    |ram__GB16          |           1|      1570|
+|20    |ram__GB17          |           1|      1587|
+|21    |RISCV_SOC_TOP__GC0 |           1|      6874|
++------+-------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
-Warning: Parallel synthesis criteria is not met 
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:05 ; elapsed = 00:02:30 . Memory (MB): peak = 1148.332 ; gain = 874.797
+Finished Technology Mapping : Time (s): cpu = 00:02:58 ; elapsed = 00:03:21 . Memory (MB): peak = 1187.137 ; gain = 918.875
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+-------------------+------------+----------+
+|      |RTL Partition      |Replication |Instances |
++------+-------------------+------------+----------+
+|1     |rom__GB0           |           1|     24131|
+|2     |rom__GB1           |           1|       500|
+|3     |muxpart__4639_ram  |           1|     61152|
+|4     |ram__GB1           |           1|      4737|
+|5     |ram__GB2           |           1|      8865|
+|6     |ram__GB3           |           1|      8705|
+|7     |ram__GB4           |           1|     11073|
+|8     |ram__GB5           |           1|     10732|
+|9     |ram__GB6           |           1|     10977|
+|10    |ram__GB7           |           1|     10849|
+|11    |ram__GB8           |           1|     10913|
+|12    |ram__GB9           |           1|     10785|
+|13    |ram__GB10          |           1|      8049|
+|14    |ram__GB11          |           1|      7279|
+|15    |ram__GB12          |           1|      6877|
+|16    |ram__GB13          |           1|      7385|
+|17    |ram__GB14          |           1|      7505|
+|18    |ram__GB15          |           1|      9398|
+|19    |ram__GB16          |           1|      1081|
+|20    |ram__GB17          |           1|      1025|
+|21    |RISCV_SOC_TOP__GC0 |           1|      3737|
++------+-------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -797,11 +713,43 @@ Finished Flattening Before IO Insertion
 ---------------------------------------------------------------------------------
 Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_RISCV/INST_RF_UNIT/regs_reg[0][3] )
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:06 ; elapsed = 00:02:30 . Memory (MB): peak = 1148.332 ; gain = 874.797
+Finished IO Insertion : Time (s): cpu = 00:03:32 ; elapsed = 00:03:55 . Memory (MB): peak = 1335.672 ; gain = 1067.410
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -814,7 +762,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:06 ; elapsed = 00:02:30 . Memory (MB): peak = 1148.332 ; gain = 874.797
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:33 ; elapsed = 00:03:56 . Memory (MB): peak = 1335.672 ; gain = 1067.410
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -826,25 +774,39 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:06 ; elapsed = 00:02:30 . Memory (MB): peak = 1148.332 ; gain = 874.797
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:37 ; elapsed = 00:04:00 . Memory (MB): peak = 1335.672 ; gain = 1067.410
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:06 ; elapsed = 00:02:30 . Memory (MB): peak = 1148.332 ; gain = 874.797
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:38 ; elapsed = 00:04:01 . Memory (MB): peak = 1335.672 ; gain = 1067.410
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:06 ; elapsed = 00:02:30 . Memory (MB): peak = 1148.332 ; gain = 874.797
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:40 ; elapsed = 00:04:03 . Memory (MB): peak = 1335.672 ; gain = 1067.410
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:06 ; elapsed = 00:02:30 . Memory (MB): peak = 1148.332 ; gain = 874.797
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:40 ; elapsed = 00:04:03 . Memory (MB): peak = 1335.672 ; gain = 1067.410
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++--------------+----------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name   | RTL Name                               | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++--------------+----------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|RISCV_SOC_TOP | u_uart/u_delay_buffer/buffer_reg[3][0] | 4      | 1     | NO           | YES                | YES               | 1      | 0       | 
++--------------+----------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -857,38 +819,74 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+------+------+
-|      |Cell  |Count |
-+------+------+------+
-|1     |OBUFT |     1|
-+------+------+------+
++------+-------+-------+
+|      |Cell   |Count  |
++------+-------+-------+
+|1     |BUFG   |      2|
+|2     |CARRY4 |     60|
+|3     |LUT1   |      3|
+|4     |LUT2   |    404|
+|5     |LUT3   |    244|
+|6     |LUT4   |    333|
+|7     |LUT5   |   1280|
+|8     |LUT6   |  46881|
+|9     |MUXF7  |  19959|
+|10    |MUXF8  |   9800|
+|11    |SRL16E |      1|
+|12    |FDCE   | 132756|
+|13    |FDPE   |     19|
+|14    |FDRE   |  16387|
+|15    |LD     |     53|
+|16    |IBUF   |      3|
+|17    |OBUF   |      5|
++------+-------+-------+
 
 Report Instance Areas: 
-+------+---------+-------+------+
-|      |Instance |Module |Cells |
-+------+---------+-------+------+
-|1     |top      |       |     1|
-+------+---------+-------+------+
++------+-------------------+-------------+-------+
+|      |Instance           |Module       |Cells  |
++------+-------------------+-------------+-------+
+|1     |top                |             | 228190|
+|2     |  u_RISCV          |RISCV        |  10802|
+|3     |    INST_EX_UNIT   |EX_UNIT      |     45|
+|4     |      u_alu        |alu          |     24|
+|5     |      u_cu         |cu           |     21|
+|6     |    INST_ID_UNIT   |ID_UNIT      |   8590|
+|7     |      u_id         |id           |    154|
+|8     |      u_id_ex      |id_ex        |   8436|
+|9     |    INST_IF_UNIT   |IF_UNIT      |    343|
+|10    |      u_if_id      |if_id        |    175|
+|11    |      u_pc         |pc           |    168|
+|12    |    INST_RF_UNIT   |RF_UNIT      |   1824|
+|13    |  u_ram            |ram          | 192297|
+|14    |  u_rom            |rom          |  24029|
+|15    |  u_uart           |uart         |   1052|
+|16    |    u_delay_buffer |delay_buffer |      5|
++------+-------------------+-------------+-------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:06 ; elapsed = 00:02:30 . Memory (MB): peak = 1148.332 ; gain = 874.797
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:40 ; elapsed = 00:04:03 . Memory (MB): peak = 1335.672 ; gain = 1067.410
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 1 critical warnings and 775 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:06 ; elapsed = 00:02:31 . Memory (MB): peak = 1148.332 ; gain = 874.797
-Synthesis Optimization Complete : Time (s): cpu = 00:02:06 ; elapsed = 00:02:31 . Memory (MB): peak = 1148.332 ; gain = 874.797
+Synthesis finished with 0 errors, 0 critical warnings and 138 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:03:40 ; elapsed = 00:04:04 . Memory (MB): peak = 1335.672 ; gain = 1067.410
+Synthesis Optimization Complete : Time (s): cpu = 00:03:40 ; elapsed = 00:04:04 . Memory (MB): peak = 1335.672 ; gain = 1067.410
 INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 29872 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'RISCV_SOC_TOP' is not ideal for floorplanning, since the cellview 'ram' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1148.332 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.041 . Memory (MB): peak = 1335.672 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 53 instances were transformed.
+  LD => LDCE: 53 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-310 Infos, 243 Warnings, 1 Critical Warnings and 0 Errors encountered.
+294 Infos, 110 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:09 ; elapsed = 00:02:35 . Memory (MB): peak = 1148.332 ; gain = 874.797
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1148.332 ; gain = 0.000
+synth_design: Time (s): cpu = 00:04:00 ; elapsed = 00:04:25 . Memory (MB): peak = 1335.672 ; gain = 1067.410
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 1335.672 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/vivado_prj/cpu_prj.runs/synth_1/RISCV_TOP.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file RISCV_TOP_utilization_synth.rpt -pb RISCV_TOP_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Jun 25 20:32:47 2023...
+INFO: [Common 17-1381] The checkpoint 'D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/vivado_prj/cpu_prj.runs/synth_1/RISCV_SOC_TOP.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:18 ; elapsed = 00:00:14 . Memory (MB): peak = 1335.672 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_utilization -file RISCV_SOC_TOP_utilization_synth.rpt -pb RISCV_SOC_TOP_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Jun 27 21:05:28 2023...

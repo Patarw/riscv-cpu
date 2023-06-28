@@ -39,6 +39,7 @@ module RF_UNIT(
     
     );
     
+    integer i;
     // 32个通用寄存器定义
     reg[`INST_REG_DATA]     regs[0 : `REG_NUM - 1];
     
@@ -78,8 +79,11 @@ module RF_UNIT(
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
             // 寄存器x0是只读寄存器并且其值固定为0
-            regs[0] <= `ZERO_WORD;
-            regs[2] <= 32'h0000_0fff;
+            for(i = 0;i < `REG_NUM;i=i+1) begin
+                regs[i] <= `ZERO_WORD;
+            end
+            // 栈地址不能为0，不然无法正常执行持续
+            regs[2] <= 32'h0000_003f;
         end
         else begin
             // 写使能有效并且写地址不为0

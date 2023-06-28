@@ -37,6 +37,7 @@ module rom(
     
     );
     
+    // 读取instructions.txt的指令到rom中
     initial begin
         $readmemb("../../../../../rtl/perips/instructions.txt", _rom);
     end
@@ -44,7 +45,7 @@ module rom(
     integer i;
     reg[`INST_DATA_BUS] _rom[0:`ROM_NUM - 1];                               
     
-    always @ (posedge clk or negedge rst_n) begin
+    always @ (posedge clk) begin
         if(erase_en) begin
             for(i = 0; i < `ROM_NUM; i = i + 1) begin
                 _rom[i] <= `ZERO_WORD;

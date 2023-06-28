@@ -13,8 +13,11 @@
 # //
 # do {tb_riscv_top_simulate.do}
 # vsim -voptargs=""+acc"" -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -lib xil_defaultlib xil_defaultlib.tb_riscv_top xil_defaultlib.glbl 
-# Start time: 18:23:00 on Jun 27,2023
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Start time: 20:49:13 on Jun 27,2023
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 1 FSM in module "uart(fast)".
+# ** Warning: ../../../../../sim/tb_riscv_top.v(136): (vopt-2685) [TFMPC] - Too few port connections for 'tb_RISCV_SOC_TOP'.  Expected 5, found 4.
+# ** Warning: ../../../../../sim/tb_riscv_top.v(136): (vopt-2718) [TFMPC] - Missing connection for port 'res_data'.
 # Loading work.tb_riscv_top(fast)
 # Loading work.RISCV_SOC_TOP(fast)
 # Loading work.RISCV(fast)
@@ -40,8 +43,6 @@
 # .main_pane.objects.interior.cs.body.tree
 add wave  \
 sim:/tb_riscv_top/tb_RISCV_SOC_TOP/res_data
-add wave  \
-sim:/tb_riscv_top/tb_RISCV_SOC_TOP/u_ram/_ram
 # Can't move the Now cursor.
 restart
 # ** Note: (vsim-8009) Loading existing optimized design _opt
@@ -64,3 +65,5 @@ restart
 # Loading work.delay_buffer(fast)
 # Loading work.glbl(fast)
 run -all
+# End time: 20:50:01 on Jun 27,2023, Elapsed time: 0:00:48
+# Errors: 1, Warnings: 4

@@ -9,18 +9,17 @@ z2
 cModel Technology
 Z0 dD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/vivado_prj/cpu_prj.sim/sim_1/behav/modelsim
 T_opt
-!s110 1687861381
-VlSZiM3?1Ig5NP2[lKdI5z0
+!s110 1687870161
+V4bfoXkS7HaKl4MPm6eiB[2
 04 12 4 work tb_riscv_top fast 0
 04 4 4 work glbl fast 0
-=1-88a4c2fcbd21-649ab884-38e-4868
+=1-88a4c2fcbd21-649adaca-ce-251c
 o-quiet -auto_acc_if_foreign -work xil_defaultlib -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip +acc
 Z1 tCvgOpt 0
 n@_opt
 OL;O;10.5;63
 valu
-!s10a 1687143320
-Z2 !s110 1687857547
+Z2 !s110 1687870147
 !i10b 1
 !s100 DSja6>FgJz;@WU92i4FW22
 I^df7dOJmc26Lh4TAjb:@G2
@@ -34,14 +33,13 @@ Z5 OL;L;10.5;63
 r1
 !s85 0
 31
-Z6 !s108 1687857547.000000
+Z6 !s108 1687870147.000000
 Z7 !s107 ..\..\..\..\..\rtl\perips\..\core\defines.v|..\..\..\..\..\rtl\core\defines.v|..\..\..\..\..\rtl\top\..\core\defines.v|../../../../../sim/tb_riscv_top.v|../../../../../rtl/perips/uart.v|../../../../../rtl/perips/rom.v|../../../../../rtl/perips/ram.v|../../../../../rtl/core/pc.v|../../../../../rtl/core/if_id.v|../../../../../rtl/core/id_ex.v|../../../../../rtl/core/id.v|../../../../../rtl/utils/delay_buffer.v|../../../../../rtl/core/cu.v|../../../../../rtl/core/alu.v|../../../../../rtl/top/RISCV_SOC_TOP.v|../../../../../rtl/top/RISCV.v|../../../../../rtl/top/RF_UNIT.v|../../../../../rtl/top/IF_UNIT.v|../../../../../rtl/top/ID_UNIT.v|../../../../../rtl/top/EX_UNIT.v|
 Z8 !s90 -64|-incr|-work|xil_defaultlib|../../../../../rtl/top/EX_UNIT.v|../../../../../rtl/top/ID_UNIT.v|../../../../../rtl/top/IF_UNIT.v|../../../../../rtl/top/RF_UNIT.v|../../../../../rtl/top/RISCV.v|../../../../../rtl/top/RISCV_SOC_TOP.v|../../../../../rtl/core/alu.v|../../../../../rtl/core/cu.v|../../../../../rtl/utils/delay_buffer.v|../../../../../rtl/core/id.v|../../../../../rtl/core/id_ex.v|../../../../../rtl/core/if_id.v|../../../../../rtl/core/pc.v|../../../../../rtl/perips/ram.v|../../../../../rtl/perips/rom.v|../../../../../rtl/perips/uart.v|../../../../../sim/tb_riscv_top.v|
 !i113 0
 Z9 o-work xil_defaultlib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R1
 vcu
-!s10a 1687244586
 R2
 !i10b 1
 !s100 Tmn9h3<;]dHl<emS_1ec:1
@@ -63,7 +61,6 @@ R8
 R9
 R1
 vdelay_buffer
-!s10a 1687846766
 R2
 !i10b 1
 !s100 jG]eJ]8`km7383C9M8n6R2
@@ -85,7 +82,6 @@ R8
 R9
 R1
 vEX_UNIT
-!s10a 1687688010
 R2
 !i10b 1
 !s100 0<1VRX5@QJW0Y8ikRB;lg1
@@ -108,7 +104,7 @@ R9
 R1
 n@e@x_@u@n@i@t
 vglbl
-Z11 !s110 1687861375
+!s110 1687870148
 !i10b 1
 !s100 JWZ^meD<P7inSF0<1SiO32
 IAl?5;D^:bf?I5A^M>WzmU1
@@ -122,14 +118,13 @@ R5
 r1
 !s85 0
 31
-Z12 !s108 1687861375.000000
+R6
 !s107 glbl.v|
 !s90 -work|xil_defaultlib|glbl.v|
 !i113 0
 R9
 R1
 vid
-!s10a 1687244646
 R2
 !i10b 1
 !s100 :RhAmfRm>2MKK2[5A1^0d3
@@ -151,7 +146,6 @@ R8
 R9
 R1
 vid_ex
-!s10a 1687156470
 R2
 !i10b 1
 !s100 <Ghl=nP=@UH?7iN7]5=2A2
@@ -173,7 +167,6 @@ R8
 R9
 R1
 vID_UNIT
-!s10a 1687077462
 R2
 !i10b 1
 !s100 fOi3fzPn=9<fgG2A4MdbB2
@@ -196,7 +189,6 @@ R9
 R1
 n@i@d_@u@n@i@t
 vif_id
-!s10a 1687696101
 R2
 !i10b 1
 !s100 67:kdhFhU;CDocU6P0X4z0
@@ -218,7 +210,6 @@ R8
 R9
 R1
 vIF_UNIT
-!s10a 1687702294
 R2
 !i10b 1
 !s100 M=Fm5[S:]<V;K^G=K87GU0
@@ -241,7 +232,6 @@ R9
 R1
 n@i@f_@u@n@i@t
 vpc
-!s10a 1687057345
 R2
 !i10b 1
 !s100 d8[gOdbKHCSCMf9mn7WkG1
@@ -263,8 +253,7 @@ R8
 R9
 R1
 vram
-!s10a 1687860254
-Z13 !s110 1687861216
+R2
 !i10b 1
 !s100 7DiVa@W^fG03nGENOWFe52
 IQzn5V1`LSU4<C[1C94YQj0
@@ -278,15 +267,14 @@ R5
 r1
 !s85 0
 31
-Z14 !s108 1687861216.000000
+R6
 R7
 R8
 !i113 0
 R9
 R1
 vRF_UNIT
-!s10a 1687857680
-!s110 1687857687
+R2
 !i10b 1
 !s100 EOFZ@7JazMCoga8@dJU[71
 IU4h]42HJ5U=GBDeegLFN@1
@@ -300,7 +288,7 @@ R5
 r1
 !s85 0
 31
-!s108 1687857687.000000
+R6
 R7
 R8
 !i113 0
@@ -308,7 +296,6 @@ R9
 R1
 n@r@f_@u@n@i@t
 vRISCV
-!s10a 1687837351
 R2
 !i10b 1
 !s100 _>Dl7[QbNaf9lC5zhM_nb1
@@ -331,8 +318,7 @@ R9
 R1
 n@r@i@s@c@v
 vRISCV_SOC_TOP
-!s10a 1687860110
-!s110 1687860121
+R2
 !i10b 1
 !s100 A=aWPmdBfb76X^jK?3da11
 IG78]^QE@aToF>;60=i=4X2
@@ -346,7 +332,7 @@ R5
 r1
 !s85 0
 31
-!s108 1687860121.000000
+R6
 R7
 R8
 !i113 0
@@ -354,13 +340,13 @@ R9
 R1
 n@r@i@s@c@v_@s@o@c_@t@o@p
 vrom
-R11
+R2
 !i10b 1
-!s100 Z_SmEcMH0<oVYm_9X1U@=0
-IW40aVUmI1Ijb]jNZhR?4z2
+!s100 4]ge>FS9@3M7:cnOAO@jm1
+Ilhkgeh2ZL2<NjKUPUf_5D2
 R3
 R0
-w1687861366
+w1687869768
 8../../../../../rtl/perips/rom.v
 F../../../../../rtl/perips/rom.v
 L0 24
@@ -368,15 +354,14 @@ R5
 r1
 !s85 0
 31
-R12
+R6
 R7
 R8
 !i113 0
 R9
 R1
 vtb_riscv_top
-!s10a 1687860918
-R13
+R2
 !i10b 1
 !s100 ><=LA41b^=iAY:8DM`B661
 IEi;zlj=19UEP=7AZW;J0G0
@@ -390,15 +375,14 @@ R5
 r1
 !s85 0
 31
-R14
+R6
 R7
 R8
 !i113 0
 R9
 R1
 vuart
-!s10a 1687859318
-!s110 1687859326
+R2
 !i10b 1
 !s100 FNLCkWTmi:llMC2k7zOFX0
 I]1kJ<ka=gYceEjCcNbgKJ3
@@ -412,7 +396,7 @@ R5
 r1
 !s85 0
 31
-!s108 1687859326.000000
+R6
 R7
 R8
 !i113 0

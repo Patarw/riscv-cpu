@@ -31,16 +31,20 @@ module ram(
     input   wire[`INST_ADDR_BUS]    addr_i      , // address
     input   wire[`INST_DATA_BUS]    data_i      , // write data
     
-    output  reg [`INST_DATA_BUS]    data_o        // read data
+    output  reg [`INST_DATA_BUS]    data_o      , // read data
+    
+    output  wire[3:0]               res_data      // 输出ram地址为0的数据的低四位
     
     );
     
     reg[`INST_DATA_BUS] _ram[0:`RAM_NUM - 1];
     integer     i;
     
+    assign res_data = ~_ram[0][3:0];
+    
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
-            for(i = 0;i < `RAM_NUM;i=i+1) begin
+            for(i = 0; i < `RAM_NUM; i = i + 1) begin
                 _ram[i] <= `ZERO_WORD;
             end
         end

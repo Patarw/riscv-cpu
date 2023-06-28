@@ -1,0 +1,14 @@
+
+State Machine - |RISCV_SOC_TOP|uart:u_uart|uart_state
+Name uart_state.END uart_state.BIT7 uart_state.BIT6 uart_state.BIT5 uart_state.BIT4 uart_state.BIT3 uart_state.BIT2 uart_state.BIT1 uart_state.BIT0 uart_state.BEGIN uart_state.IDLE 
+uart_state.IDLE 0 0 0 0 0 0 0 0 0 0 0 
+uart_state.BEGIN 0 0 0 0 0 0 0 0 0 1 1 
+uart_state.BIT0 0 0 0 0 0 0 0 0 1 0 1 
+uart_state.BIT1 0 0 0 0 0 0 0 1 0 0 1 
+uart_state.BIT2 0 0 0 0 0 0 1 0 0 0 1 
+uart_state.BIT3 0 0 0 0 0 1 0 0 0 0 1 
+uart_state.BIT4 0 0 0 0 1 0 0 0 0 0 1 
+uart_state.BIT5 0 0 0 1 0 0 0 0 0 0 1 
+uart_state.BIT6 0 0 1 0 0 0 0 0 0 0 1 
+uart_state.BIT7 0 1 0 0 0 0 0 0 0 0 1 
+uart_state.END 1 0 0 0 0 0 0 0 0 0 1 
