@@ -1,5 +1,6 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="cpu_prj">
+		<CBX_INST_ENTRY INSTANCE_NAME="|RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_0" CBX_FILE_NAME="altsyncram_olg1.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

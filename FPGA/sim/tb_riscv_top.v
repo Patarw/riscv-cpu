@@ -69,7 +69,7 @@ module tb_riscv_top();
     endtask
     
     // 通过串口将四条指令ins1、ins2、ins3、ins4写到rom中
-    initial begin
+    /* initial begin
         // ins1
         #200
         rx_bit(ins1[31:24]);
@@ -130,7 +130,7 @@ module tb_riscv_top();
         rst_n <= 1'b0;
         #17
         rst_n <= 1'b1;
-    end
+    end */
 
 
     RISCV_SOC_TOP tb_RISCV_SOC_TOP(

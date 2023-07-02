@@ -14,8 +14,8 @@
 `define CLK_FREQ            'd50_000_000  // 系统时钟频率(Hz)
 `define UART_BPS            'd9600        // 串口波特率(Bps)
 `define REG_NUM             32
-`define ROM_NUM             64
-`define RAM_NUM             64
+`define ROM_NUM             4096
+`define RAM_NUM             129
 `define REG_ADDR_WIDTH      5
 
 //ALU运算类型

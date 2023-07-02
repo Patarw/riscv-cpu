@@ -24,31 +24,23 @@
 // ram
 module ram(
 
-    input   wire                    clk         ,
-    input   wire                    rst_n       ,
+    input   wire                    clk                 ,
+    input   wire                    rst_n               ,
     
-    input   wire                    wr_en_i     , // write enable
-    input   wire[`INST_ADDR_BUS]    addr_i      , // address
-    input   wire[`INST_DATA_BUS]    data_i      , // write data
+    input   wire                    wr_en_i             , // write enable
+    input   wire[`INST_ADDR_BUS]    addr_i              , // write address, read address
+    input   wire[`INST_DATA_BUS]    data_i              , // write data
     
-    output  reg [`INST_DATA_BUS]    data_o      , // read data
+    output  reg[`INST_DATA_BUS]     data_o              , // read data
     
-    output  wire[3:0]               res_data      // 输出ram地址为0的数据的低四位
+    output  reg[3:0]                led_ctl
     
     );
     
     reg[`INST_DATA_BUS] _ram[0:`RAM_NUM - 1];
-    integer     i;
     
-    assign res_data = ~_ram[0][3:0];
-    
-    always @ (posedge clk or negedge rst_n) begin
-        if(!rst_n) begin
-            for(i = 0; i < `RAM_NUM; i = i + 1) begin
-                _ram[i] <= `ZERO_WORD;
-            end
-        end
-        else if(wr_en_i == 1'b1) begin
+    always @ (posedge clk) begin
+        if(wr_en_i == 1'b1) begin
             _ram[addr_i[31:2]] <= data_i;
         end
     end
@@ -59,6 +51,15 @@ module ram(
         end 
         else begin
             data_o = _ram[addr_i[31:2]];
+        end
+    end
+    
+    always @ (*) begin
+        if (!rst_n) begin
+            led_ctl = 4'd0;
+        end 
+        else begin
+            led_ctl = ~_ram[0][3:0];
         end
     end
     

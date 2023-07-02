@@ -37,31 +37,18 @@ module rom(
     
     );
     
-    //initial begin
-    //    $readmemb("D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/instructions.txt", _rom);
-    //end
-    
-    integer i;
-    reg[`INST_DATA_BUS] _rom[0:`ROM_NUM - 1];                               
-    
-    always @ (posedge clk) begin
-        if(erase_en) begin
-            for(i = 0; i < `ROM_NUM; i = i + 1) begin
-                _rom[i] <= `ZERO_WORD;
-            end
-        end
-        else if(wr_en_i == 1'b1) begin
-            _rom[wr_addr_i[31:2]] <= data_i;
-        end
+    initial begin
+        $readmemb("D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/instructions.txt", _rom);
     end
     
-    always @ (*) begin
-        if (!rst_n) begin
-            data_o = `ZERO_WORD;
-        end 
-        else begin
-            data_o = _rom[rd_addr_i[31:2]];
+    reg[`INST_DATA_BUS] _rom[0:`ROM_NUM - 1];                               
+    
+    // write before read
+    always @ (posedge clk) begin
+        if(wr_en_i == 1'b1) begin
+            _rom[wr_addr_i[31:2]] = data_i;
         end
+        data_o = _rom[rd_addr_i[31:2]];
     end
    
 endmodule

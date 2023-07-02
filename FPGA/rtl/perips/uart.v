@@ -122,7 +122,7 @@ module uart(
             wr_data_reg <= 32'd0;
         end
         else if(uart_state == END && byte_cnt != 3'd0 && baud_cnt == 13'd1) begin
-            wr_data_reg <= {wr_data_reg[23:0], byte_data};
+            wr_data_reg <= {byte_data, wr_data_reg[31:8]};
         end
         else begin
             wr_data_reg <= wr_data_reg;

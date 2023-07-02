@@ -13,11 +13,11 @@
 
 目前已经实现了RV32I 基本指令集中的37条指令：
 
-![](./img/image1.png)
+![](../doc/img/image1.png)
 
 项目架构图：
 
-![](./img/image2.png)
+![](../doc/img/image2.png)
 
 ### 使用说明
 项目文件结构

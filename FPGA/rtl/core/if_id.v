@@ -21,7 +21,7 @@
 
 `include "defines.v"
 
-// 将指令打一拍输出到译码模块
+// 将指令地址打一拍输出到译码模块
 module if_id(
 
     input   wire                    clk         ,
@@ -39,16 +39,26 @@ module if_id(
     
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
-            ins_o <= `INS_NOP;
             ins_addr_o <= `RESET_ADDR;
         end
         else if(hold_flag == 1'b1) begin
-            ins_o <= `INS_NOP;
             ins_addr_o <= `RESET_ADDR;
         end
         else begin
-            ins_o <= ins_i;
             ins_addr_o <= ins_addr_i;
+        end
+    end
+    
+    // 因为从rom中读取的指令本身就会延迟一拍，所以无需延迟
+    always @ (*) begin
+        if(!rst_n) begin
+            ins_o = `INS_NOP;
+        end
+        else if(hold_flag == 1'b1) begin
+            ins_o = `INS_NOP;
+        end
+        else begin
+            ins_o = ins_i;
         end
     end
     

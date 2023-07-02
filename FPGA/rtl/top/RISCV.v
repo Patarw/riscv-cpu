@@ -27,8 +27,8 @@ module RISCV(
     input   wire                        clk                 ,
     input   wire                        rst_n               ,
     // rom相关引脚
-    output  wire[`INST_ADDR_BUS]        rom_addr_o          ,
-    input   wire[`INST_DATA_BUS]        rom_data_i          ,
+    output  wire[`INST_ADDR_BUS]        rom_rd_addr_o       ,
+    input   wire[`INST_DATA_BUS]        rom_rd_data_i       ,
     
     // ram相关引脚
     output  wire                        mem_wr_en_o         ,
@@ -80,8 +80,8 @@ module RISCV(
         .jump_addr           (ex_jump_addr_o),
         .ins_o               (if_ins_o),      // 指令
         .ins_addr_o          (if_ins_addr_o), // 指令地址
-        .pc_o                (rom_addr_o),          
-        .ins_i               (rom_data_i)
+        .pc_o                (rom_rd_addr_o),          
+        .ins_i               (rom_rd_data_i)
     );
     
     // 译码单元例化
