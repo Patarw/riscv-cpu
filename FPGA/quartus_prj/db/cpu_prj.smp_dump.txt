@@ -1,14 +1,21 @@
 
-State Machine - |RISCV_SOC_TOP|uart:u_uart|uart_state
-Name uart_state.END uart_state.BIT7 uart_state.BIT6 uart_state.BIT5 uart_state.BIT4 uart_state.BIT3 uart_state.BIT2 uart_state.BIT1 uart_state.BIT0 uart_state.BEGIN uart_state.IDLE 
-uart_state.IDLE 0 0 0 0 0 0 0 0 0 0 0 
-uart_state.BEGIN 0 0 0 0 0 0 0 0 0 1 1 
-uart_state.BIT0 0 0 0 0 0 0 0 0 1 0 1 
-uart_state.BIT1 0 0 0 0 0 0 0 1 0 0 1 
-uart_state.BIT2 0 0 0 0 0 0 1 0 0 0 1 
-uart_state.BIT3 0 0 0 0 0 1 0 0 0 0 1 
-uart_state.BIT4 0 0 0 0 1 0 0 0 0 0 1 
-uart_state.BIT5 0 0 0 1 0 0 0 0 0 0 1 
-uart_state.BIT6 0 0 1 0 0 0 0 0 0 0 1 
-uart_state.BIT7 0 1 0 0 0 0 0 0 0 0 1 
-uart_state.END 1 0 0 0 0 0 0 0 0 0 1 
+State Machine - |RISCV_SOC_TOP|uart:u_uart|uart_rx_state
+Name uart_rx_state.IDLE uart_rx_state.END uart_rx_state.RX_BYTE uart_rx_state.BEGIN 
+uart_rx_state.IDLE 0 0 0 0 
+uart_rx_state.BEGIN 1 0 0 1 
+uart_rx_state.RX_BYTE 1 0 1 0 
+uart_rx_state.END 1 1 0 0 
+
+State Machine - |RISCV_SOC_TOP|uart:u_uart|uart_tx_state
+Name uart_tx_state.BEGIN uart_tx_state.IDLE uart_tx_state.END uart_tx_state.TX_BYTE 
+uart_tx_state.IDLE 0 0 0 0 
+uart_tx_state.BEGIN 1 1 0 0 
+uart_tx_state.TX_BYTE 0 1 0 1 
+uart_tx_state.END 0 1 1 0 
+
+State Machine - |RISCV_SOC_TOP|uart_debug:u_uart_debug|uart_state
+Name uart_state.END uart_state.SEND_BYTE uart_state.BEGIN uart_state.IDLE 
+uart_state.IDLE 0 0 0 0 
+uart_state.BEGIN 0 0 1 1 
+uart_state.SEND_BYTE 0 1 0 1 
+uart_state.END 1 0 0 1 

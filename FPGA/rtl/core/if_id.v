@@ -27,7 +27,7 @@ module if_id(
     input   wire                    clk         ,
     input   wire                    rst_n       ,
     
-    input   wire                    hold_flag   ,
+    input   wire[2:0]               hold_flag   ,
     
     input   wire[`INST_DATA_BUS]    ins_i       , 
     input   wire[`INST_ADDR_BUS]    ins_addr_i  ,
@@ -37,11 +37,23 @@ module if_id(
     
     );
     
+    reg[2:0]               hold_flag_reg;
+    
+    
+    always @ (posedge clk or negedge rst_n) begin
+        if(!rst_n) begin
+            hold_flag_reg <= `HOLD_NONE;
+        end
+        else begin
+            hold_flag_reg <= hold_flag;
+        end
+    end
+    
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
             ins_addr_o <= `RESET_ADDR;
         end
-        else if(hold_flag == 1'b1) begin
+        else if(hold_flag >= `HOLD_IF_ID) begin
             ins_addr_o <= `RESET_ADDR;
         end
         else begin
@@ -51,10 +63,7 @@ module if_id(
     
     // 因为从rom中读取的指令本身就会延迟一拍，所以无需延迟
     always @ (*) begin
-        if(!rst_n) begin
-            ins_o = `INS_NOP;
-        end
-        else if(hold_flag == 1'b1) begin
+        if(hold_flag_reg >= `HOLD_IF_ID) begin
             ins_o = `INS_NOP;
         end
         else begin

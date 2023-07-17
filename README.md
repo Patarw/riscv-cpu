@@ -21,11 +21,11 @@
 
 ### 使用说明
 项目文件结构
-1.  rtl：rtl代码存放目录
-2.  sim：仿真文件存放目录
-3.  vivado_prj：vivado工程目录
-4.  FPGA：移植到板子上的工程（目前还在更新中）
+1.  doc：相关文档
+2.  serial_utils：串口烧录脚本，通过串口把二进制程序烧录到处理器的存储空间上
+3.  FPGA：移植到板子上的工程（目前还在更新中）
 ### 博客传送门
 
 1.  [RISC-V处理器的设计与实现（一）—— 基本指令集](https://blog.csdn.net/qq_51103378/article/details/131201501?spm=1001.2014.3001.5501)
 2.  [RISC-V处理器的设计与实现（二）—— CPU框架设计](https://blog.csdn.net/qq_51103378/article/details/131383341?spm=1001.2014.3001.5501)
+3.  [RISC-V处理器的设计与实现（三）—— 上板验证（基于野火征途Pro开发板）](https://blog.csdn.net/qq_51103378/article/details/131430334?spm=1001.2014.3001.5502)

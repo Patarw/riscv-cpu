@@ -3,195 +3,39 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -27.676
-TNS   : -130563.506
-
-Type  : Slow 1200mV 85C Model Setup 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : -20.802
-TNS   : -61.250
-
-Type  : Slow 1200mV 85C Model Setup 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[0]'
-Slack : -18.856
-TNS   : -30.989
-
-Type  : Slow 1200mV 85C Model Setup 'rst_n'
-Slack : -11.508
-TNS   : -471.758
-
-Type  : Slow 1200mV 85C Model Hold 'rst_n'
-Slack : -6.665
-TNS   : -143.167
-
-Type  : Slow 1200mV 85C Model Hold 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[0]'
-Slack : -4.557
-TNS   : -15.512
-
-Type  : Slow 1200mV 85C Model Hold 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : -4.557
-TNS   : -14.618
+Slack : -20.161
+TNS   : -21866.052
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : 0.034
+Slack : 0.452
 TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Recovery 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : -4.238
-TNS   : -4.238
-
-Type  : Slow 1200mV 85C Model Recovery 'clk'
-Slack : 0.032
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Removal 'clk'
-Slack : -1.002
-TNS   : -46.823
-
-Type  : Slow 1200mV 85C Model Removal 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : -0.060
-TNS   : -0.060
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.201
-TNS   : -8412.609
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'rst_n'
-Slack : -3.000
-TNS   : -865.102
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : -2.733
-TNS   : -70.374
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[0]'
-Slack : -0.003
-TNS   : -0.003
+TNS   : -2651.834
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -26.224
-TNS   : -123811.004
-
-Type  : Slow 1200mV 0C Model Setup 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : -19.386
-TNS   : -57.383
-
-Type  : Slow 1200mV 0C Model Setup 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[0]'
-Slack : -17.548
-TNS   : -29.274
-
-Type  : Slow 1200mV 0C Model Setup 'rst_n'
-Slack : -11.128
-TNS   : -451.618
-
-Type  : Slow 1200mV 0C Model Hold 'rst_n'
-Slack : -6.062
-TNS   : -131.949
-
-Type  : Slow 1200mV 0C Model Hold 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : -4.193
-TNS   : -13.425
-
-Type  : Slow 1200mV 0C Model Hold 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[0]'
-Slack : -4.004
-TNS   : -14.010
+Slack : -18.753
+TNS   : -20588.003
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.029
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Recovery 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : -3.915
-TNS   : -3.915
-
-Type  : Slow 1200mV 0C Model Recovery 'clk'
-Slack : 0.105
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Removal 'clk'
-Slack : -0.901
-TNS   : -44.421
-
-Type  : Slow 1200mV 0C Model Removal 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : 0.034
+Slack : 0.401
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.201
-TNS   : -8413.319
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'rst_n'
-Slack : -3.000
-TNS   : -783.718
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : -2.656
-TNS   : -63.391
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[0]'
-Slack : -0.122
-TNS   : -0.785
+TNS   : -2651.834
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -12.168
-TNS   : -57070.930
-
-Type  : Fast 1200mV 0C Model Setup 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : -8.859
-TNS   : -25.313
-
-Type  : Fast 1200mV 0C Model Setup 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[0]'
-Slack : -7.917
-TNS   : -11.859
-
-Type  : Fast 1200mV 0C Model Setup 'rst_n'
-Slack : -4.499
-TNS   : -172.394
-
-Type  : Fast 1200mV 0C Model Hold 'rst_n'
-Slack : -3.022
-TNS   : -69.140
-
-Type  : Fast 1200mV 0C Model Hold 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[0]'
-Slack : -2.317
-TNS   : -7.778
-
-Type  : Fast 1200mV 0C Model Hold 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : -1.978
-TNS   : -6.733
+Slack : -8.199
+TNS   : -8681.625
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : -0.095
-TNS   : -0.196
-
-Type  : Fast 1200mV 0C Model Recovery 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : -1.360
-TNS   : -1.360
-
-Type  : Fast 1200mV 0C Model Recovery 'clk'
-Slack : -0.124
-TNS   : -39.254
-
-Type  : Fast 1200mV 0C Model Removal 'clk'
-Slack : -0.528
-TNS   : -25.329
-
-Type  : Fast 1200mV 0C Model Removal 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : -0.145
-TNS   : -0.145
+Slack : 0.186
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -5959.388
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'rst_n'
-Slack : -3.000
-TNS   : -263.592
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[13]'
-Slack : -0.857
-TNS   : -19.109
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[0]'
-Slack : 0.134
-TNS   : 0.000
+TNS   : -1855.499
 
 ------------------------------------------------------------

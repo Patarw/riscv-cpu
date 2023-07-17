@@ -71,18 +71,10 @@ module RF_UNIT(
     end
     
     // 写数据
-    always @ (posedge clk or negedge rst_n) begin
-        if(!rst_n) begin
-            // 寄存器x0是只读寄存器并且其值固定为0
-            regs[0] <= 32'd0;
-            // 栈地址不能为0，不然无法正常执行程序
-            regs[2] <= 32'h0000_007f;
-        end
-        else begin
-            // 写使能有效并且写地址不为0
-            if(wr_en == 1'b1 && wr_addr != `REG_ADDR_WIDTH'd0) begin
-                regs[wr_addr] <= wr_data;
-            end
+    always @ (posedge clk) begin
+        // 写使能有效并且写地址不为0
+        if(wr_en == 1'b1 && wr_addr != `REG_ADDR_WIDTH'd0) begin
+            regs[wr_addr] <= wr_data;
         end
     end
     

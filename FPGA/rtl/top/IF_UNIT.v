@@ -27,7 +27,7 @@ module IF_UNIT(
     input   wire                     clk          ,
     input   wire                     rst_n        ,
     
-    input   wire                     hold_flag    ,
+    input   wire[2:0]                hold_flag_i  ,
     input   wire                     jump_flag    ,
     input   wire[`INST_REG_DATA]     jump_addr    ,
         
@@ -47,6 +47,7 @@ module IF_UNIT(
     pc u_pc(
         .clk         (clk)  ,
         .rst_n       (rst_n),
+        .hold_flag   (hold_flag_i),
         .jump_flag   (jump_flag),
         .jump_addr   (jump_addr),
         .pc_out      (pc)
@@ -56,7 +57,7 @@ module IF_UNIT(
     if_id u_if_id(
         .clk         (clk),
         .rst_n       (rst_n),
-        .hold_flag   (hold_flag),
+        .hold_flag   (hold_flag_i),
         .ins_i       (ins_i), 
         .ins_addr_i  (pc),
         .ins_o       (ins_o), 

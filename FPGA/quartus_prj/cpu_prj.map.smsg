@@ -1,1 +1,4 @@
-Warning (10268): Verilog HDL information at ram.v(59): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at uart.v(80): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at uart.v(42): object "UART_CTRL" differs only in case from object "uart_ctrl" in the same scope
+Info (10281): Verilog HDL Declaration information at uart.v(43): object "UART_TX_DATA_BUF" differs only in case from object "uart_tx_data_buf" in the same scope
+Info (10281): Verilog HDL Declaration information at uart.v(44): object "UART_RX_DATA_BUF" differs only in case from object "uart_rx_data_buf" in the same scope

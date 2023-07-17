@@ -21,43 +21,171 @@
 
 `include "../core/defines.v"
 
-// 串口模块，目前只用于下载程序到rom中，波特率为9600，系统时钟频率为50MHz，传输一位需要5208个时钟周期
+// 串口模块，默认波特率为9600
 module uart(
 
     input   wire                        clk                 ,
     input   wire                        rst_n               ,
     
-    input   wire                        uart_rx             ,
-    output  wire                        uart_tx             ,
-
-    output  reg                         rom_erase_en_o      , // rom全擦除使能信号
-    output  reg                         rom_wr_en_o         , // rom写使能信号
-    output  reg[`INST_ADDR_BUS]         rom_wr_addr_o       , // rom写地址信号
-    output  reg[`INST_DATA_BUS]         rom_wr_data_o         // rom写数据信号
+    input   wire                        uart_rx             , // uart接收引脚
+    output  reg                         uart_tx             , // uart发送引脚
+    
+    input   wire                        wr_en_i             , // uart寄存器写使能信号
+    input   wire[`INST_ADDR_BUS]        wr_addr_i           , // uart寄存器写地址
+    input   wire[`INST_DATA_BUS]        wr_data_i           , // uart写数据
+    input   wire[`INST_ADDR_BUS]        rd_addr_i           , // uart寄存器读地址
+    output  reg[`INST_DATA_BUS]         rd_data_o             // uart读数据
 
     );
+    
+    // 寄存器地址定义
+    parameter   UART_CTRL = 4'd0,
+                UART_TX_DATA_BUF= 4'd4,
+                UART_RX_DATA_BUF= 4'd8;
+    // addr: 0x0
+    // 低两位（1:0）为TI和RI
+    // TI：发送完成中断位，该位在数据发送完成时被设置为高电平
+    // RI：接收完成中断位，该位在数据接收完成时被设置为高电平
+    reg[31:0]   uart_ctrl;
+    
+    // addr: 0x4
+    // 发送数据寄存器
+    reg[31:0]   uart_tx_data_buf;
+    
+    // addr: 0x8
+    // 接收数据寄存器
+    reg[31:0]   uart_rx_data_buf;
     
     parameter   BAUD_CNT_MAX = `CLK_FREQ / `UART_BPS;
     parameter   IDLE = 4'd0,
                 BEGIN= 4'd1,
-                BIT0 = 4'd2,
-                BIT1 = 4'd3,
-                BIT2 = 4'd4,
-                BIT3 = 4'd5,
-                BIT4 = 4'd6,
-                BIT5 = 4'd7,
-                BIT6 = 4'd8,
-                BIT7 = 4'd9,
-                END  = 4'd10;
+                RX_BYTE = 4'd2,
+                TX_BYTE = 4'd3,
+                END  = 4'd4;
     
     wire                        uart_rx_temp;
-    reg                         uart_rx_delay; // 延迟后的rx输入
-    reg[12:0]                   baud_cnt;      // 计数器
-    reg[2:0]                    byte_cnt;      // 接收到的字节数
-    reg[3:0]                    uart_state;    // 状态机
-    reg[7:0]                    byte_data;     // 接收到的字节数据
-    reg[`INST_DATA_BUS]         wr_data_reg;   // 字节数据拼接成的32位数据
-    reg                         data_rd_flag;  // 数据就绪标志位
+    reg                         uart_rx_delay; // rx延迟后的输入
+    reg[3:0]                    uart_rx_state; // rx状态机
+    reg[12:0]                   rx_baud_cnt;   // rx计数器
+    reg[3:0]                    rx_bit_cnt;    // rx比特计数
+    reg[7:0]                    rx_byte_data;  // rx接收到的字节数据
+    
+    reg[3:0]                    uart_tx_state; // rx状态机
+    reg[12:0]                   tx_baud_cnt;   // rx计数器
+    reg[3:0]                    tx_bit_cnt;    // rx比特计数
+    reg                         tx_data_rd;    // 发送数据就绪信号
+    
+    
+    // 读写寄存器，uart_ctrl和uart_tx_data_buf
+    always @ (posedge clk or negedge rst_n) begin
+        if(!rst_n) begin
+            uart_ctrl <= `ZERO_WORD;
+            uart_tx_data_buf <= `ZERO_WORD;
+            tx_data_rd <= 1'b0;  
+            rd_data_o <= `ZERO_WORD;
+        end
+        else begin
+            if(wr_en_i == 1'b1) begin
+                case(wr_addr_i[3:0])
+                    UART_CTRL: begin
+                        uart_ctrl = wr_data_i;
+                    end
+                    UART_TX_DATA_BUF: begin
+                        tx_data_rd <= 1'b1;
+                        uart_tx_data_buf = wr_data_i;
+                    end
+                endcase
+            end
+            else if(uart_tx_state == END && tx_baud_cnt == 1) begin
+                tx_data_rd <= 1'b0;
+                uart_ctrl[1] = 1'b1; // TI置1，代表发送完毕，需要软件置0
+            end
+            case(rd_addr_i[3:0])
+                UART_CTRL: begin
+                    rd_data_o = uart_ctrl;
+                end
+                UART_TX_DATA_BUF: begin
+                    rd_data_o = uart_tx_data_buf;
+                end
+            endcase
+        end
+    end
+    
+    
+    /* TX发送模块 */
+    
+    // tx_baud_cnt计数
+    always @ (posedge clk or negedge rst_n) begin
+        if(!rst_n) begin 
+            tx_baud_cnt <= 13'd0;
+        end
+        else if(uart_tx_state == IDLE || tx_baud_cnt == BAUD_CNT_MAX - 1) begin
+            tx_baud_cnt <= 13'd0;
+        end
+        else begin
+            tx_baud_cnt <= tx_baud_cnt + 1'b1;
+        end
+    end
+    
+    // TX发送模块
+    always @ (posedge clk or negedge rst_n) begin
+        if(!rst_n) begin
+            uart_tx_state <= IDLE;
+            tx_bit_cnt <= 4'd0;
+            uart_tx <= 1'b1;
+        end
+        else begin
+            case(uart_tx_state)
+                IDLE: begin
+                    uart_tx <= 1'b1;
+                    if(tx_data_rd == 1'b1) begin
+                        uart_tx_state <= BEGIN; 
+                    end
+                    else begin
+                        uart_tx_state <= uart_tx_state;
+                    end
+                end
+                BEGIN: begin
+                    uart_tx <= 1'b0;
+                    if(tx_baud_cnt == BAUD_CNT_MAX - 1) begin
+                        uart_tx_state <= TX_BYTE; 
+                    end
+                    else begin
+                        uart_tx_state <= uart_tx_state;
+                    end
+                end
+                TX_BYTE: begin
+                    if(tx_bit_cnt == 4'd7 && tx_baud_cnt == BAUD_CNT_MAX - 1) begin
+                        tx_bit_cnt <= 4'd0;
+                        uart_tx_state <= END; 
+                    end
+                    else if(tx_baud_cnt == BAUD_CNT_MAX - 1) begin
+                        tx_bit_cnt <= tx_bit_cnt + 1'b1; 
+                    end
+                    else begin
+                        uart_tx <= uart_tx_data_buf[tx_bit_cnt];
+                    end
+                end
+                END: begin
+                    uart_tx <= 1'b1;
+                    if(tx_baud_cnt == BAUD_CNT_MAX - 1) begin
+                        uart_tx_state <= IDLE; 
+                    end
+                    else begin
+                        uart_tx_state <= uart_tx_state;
+                    end
+                end
+                default: begin
+                    uart_tx <= 1'b0;
+                    tx_bit_cnt <= 4'd0;
+                    uart_tx_state <= IDLE;
+                end
+            endcase
+        end
+    end
+    
+    
+    /* RX接收模块 */
     
     // 将输入rx延迟4个时钟周期，减少亚稳态的影响
     delay_buffer #(
@@ -69,232 +197,75 @@ module uart(
         .data_o        (uart_rx_temp)    //  Data Output
     );
     
-    
     always @ (posedge clk) begin
         uart_rx_delay <= uart_rx_temp;
     end
     
-    // baud_cnt计数
+    // rx_baud_cnt计数
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin 
-            baud_cnt <= 13'd0;
+            rx_baud_cnt <= 13'd0;
         end
-        else if(uart_state == IDLE || baud_cnt == BAUD_CNT_MAX - 1) begin
-            baud_cnt <= 13'd0;
+        else if(uart_rx_state == IDLE || rx_baud_cnt == BAUD_CNT_MAX - 1) begin
+            rx_baud_cnt <= 13'd0;
         end
         else begin
-            baud_cnt <= baud_cnt + 1'b1;
+            rx_baud_cnt <= rx_baud_cnt + 1'b1;
         end
     end
     
-    // byte_cnt计数
-    always @ (posedge clk or negedge rst_n) begin
-        if(!rst_n) begin 
-            byte_cnt <= 3'd0;
-        end
-        else if(byte_cnt == 3'd4) begin
-            byte_cnt <= 3'd0;
-        end
-        else if(uart_state == END && baud_cnt == 13'd0) begin
-            byte_cnt <= byte_cnt + 1'b1;
-        end
-        else begin
-            byte_cnt <= byte_cnt;
-        end            
-    end
-    
-    // data_rd_flag
-    always @ (posedge clk or negedge rst_n) begin
-        if(!rst_n) begin 
-            data_rd_flag <= 1'b0;
-        end
-        else if(byte_cnt == 3'd4) begin
-            data_rd_flag <= 1'd1;
-        end
-        else begin
-            data_rd_flag <= 1'b0;
-        end            
-    end
-    
-    // wr_data_reg
-    always @ (posedge clk or negedge rst_n) begin
-        if(!rst_n) begin 
-            wr_data_reg <= 32'd0;
-        end
-        else if(uart_state == END && byte_cnt != 3'd0 && baud_cnt == 13'd1) begin
-            wr_data_reg <= {byte_data, wr_data_reg[31:8]};
-        end
-        else begin
-            wr_data_reg <= wr_data_reg;
-        end            
-    end
-    
-    // rom_wr_en_o，rom_wr_data_o
-    always @ (posedge clk or negedge rst_n) begin
-        if(!rst_n) begin 
-            rom_wr_en_o <= 1'b0;
-            rom_wr_data_o <= 32'd0;
-        end
-        else if(data_rd_flag == 1'b1) begin
-            rom_wr_en_o <= 1'b1;
-            rom_wr_data_o <= wr_data_reg;
-        end
-        else begin
-            rom_wr_en_o <= 1'b0;
-            rom_wr_data_o <= rom_wr_data_o;
-        end            
-    end
-    
-    // rom_wr_addr_o
-    always @ (posedge clk or negedge rst_n) begin
-        if(!rst_n) begin 
-            rom_wr_addr_o <= 32'd0;
-        end
-        // 待数据写入后，地址+4
-        else if(rom_wr_en_o == 1'b1) begin
-            rom_wr_addr_o <= rom_wr_addr_o + 3'd4;
-        end
-        else begin
-            rom_wr_addr_o <= rom_wr_addr_o;
-        end            
-    end
-    
-    // rom_erase_en_o
-    always @ (posedge clk or negedge rst_n) begin
-        if(!rst_n) begin 
-            rom_erase_en_o <= 1'b0;
-        end
-        else if(uart_state == BEGIN && baud_cnt == 13'd0 && byte_cnt == 3'd0 && rom_wr_addr_o == 32'd0) begin
-            rom_erase_en_o <= 1'b1;
-        end
-        else begin
-            rom_erase_en_o <= 1'b0;
-        end            
-    end
-    
-    // uart_state状态机
+    // RX接收模块
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
-            uart_state <= IDLE;
-            byte_data <= 8'd0;
+            uart_rx_state <= IDLE;
+            rx_byte_data <= 8'd0;
+            rx_bit_cnt <= 4'd0;
         end
         else begin
-            case(uart_state)
+            case(uart_rx_state)
                 IDLE: begin
                     if(uart_rx_temp == 1'b0 && uart_rx_delay == 1'b1) begin
-                        uart_state <= BEGIN; 
+                        uart_rx_state <= BEGIN; 
                     end
                     else begin
-                        uart_state <= uart_state;
+                        uart_rx_state <= uart_rx_state;
                     end
                 end
                 BEGIN: begin
-                    if(baud_cnt == BAUD_CNT_MAX - 1) begin
-                        uart_state <= BIT0; 
+                    if(rx_baud_cnt == BAUD_CNT_MAX - 1) begin
+                        uart_rx_state <= RX_BYTE; 
                     end
                     else begin
-                        uart_state <= uart_state;
+                        uart_rx_state <= uart_rx_state;
                     end
                 end
-                BIT0: begin
-                    if(baud_cnt == BAUD_CNT_MAX / 2 - 1) begin
-                        byte_data <= {uart_rx_delay, byte_data[7:1]};
+                RX_BYTE: begin
+                    if(rx_bit_cnt == 4'd7 && rx_baud_cnt == BAUD_CNT_MAX - 1) begin
+                        rx_bit_cnt <= 4'd0;
+                        uart_rx_state <= END; 
                     end
-                    else if(baud_cnt == BAUD_CNT_MAX - 1) begin
-                        uart_state <= BIT1; 
+                    else if(rx_baud_cnt == BAUD_CNT_MAX / 2 - 1) begin
+                        rx_byte_data <= {uart_rx_delay, rx_byte_data[7:1]};
                     end
-                    else begin
-                        uart_state <= uart_state;
-                    end
-                end
-                BIT1: begin
-                    if(baud_cnt == BAUD_CNT_MAX / 2 - 1) begin
-                        byte_data <= {uart_rx_delay, byte_data[7:1]};
-                    end
-                    else if(baud_cnt == BAUD_CNT_MAX - 1) begin
-                        uart_state <= BIT2; 
+                    else if(rx_baud_cnt == BAUD_CNT_MAX - 1) begin
+                        rx_bit_cnt <= rx_bit_cnt + 1'b1; 
                     end
                     else begin
-                        uart_state <= uart_state;
-                    end
-                end
-                BIT2: begin
-                    if(baud_cnt == BAUD_CNT_MAX / 2 - 1) begin
-                        byte_data <= {uart_rx_delay, byte_data[7:1]};
-                    end
-                    else if(baud_cnt == BAUD_CNT_MAX - 1) begin
-                        uart_state <= BIT3; 
-                    end
-                    else begin
-                        uart_state <= uart_state;
-                    end
-                end
-                BIT3: begin
-                    if(baud_cnt == BAUD_CNT_MAX / 2 - 1) begin
-                        byte_data <= {uart_rx_delay, byte_data[7:1]};
-                    end
-                    else if(baud_cnt == BAUD_CNT_MAX - 1) begin
-                        uart_state <= BIT4; 
-                    end
-                    else begin
-                        uart_state <= uart_state;
-                    end
-                end
-                BIT4: begin
-                    if(baud_cnt == BAUD_CNT_MAX / 2 - 1) begin
-                        byte_data <= {uart_rx_delay, byte_data[7:1]};
-                    end
-                    else if(baud_cnt == BAUD_CNT_MAX - 1) begin
-                        uart_state <= BIT5; 
-                    end
-                    else begin
-                        uart_state <= uart_state;
-                    end
-                end
-                BIT5: begin
-                    if(baud_cnt == BAUD_CNT_MAX / 2 - 1) begin
-                        byte_data <= {uart_rx_delay, byte_data[7:1]};
-                    end
-                    else if(baud_cnt == BAUD_CNT_MAX - 1) begin
-                        uart_state <= BIT6; 
-                    end
-                    else begin
-                        uart_state <= uart_state;
-                    end
-                end
-                BIT6: begin
-                    if(baud_cnt == BAUD_CNT_MAX / 2 - 1) begin
-                        byte_data <= {uart_rx_delay, byte_data[7:1]};
-                    end
-                    else if(baud_cnt == BAUD_CNT_MAX - 1) begin
-                        uart_state <= BIT7; 
-                    end
-                    else begin
-                        uart_state <= uart_state;
-                    end
-                end
-                BIT7: begin
-                    if(baud_cnt == BAUD_CNT_MAX / 2 - 1) begin
-                        byte_data <= {uart_rx_delay, byte_data[7:1]};
-                    end
-                    else if(baud_cnt == BAUD_CNT_MAX - 1) begin
-                        uart_state <= END; 
-                    end
-                    else begin
-                        uart_state <= uart_state;
+                        uart_rx_state <= uart_rx_state;
                     end
                 end
                 END: begin
-                    if(baud_cnt == 2) begin
-                        uart_state <= IDLE; 
+                    if(rx_baud_cnt == 2) begin
+                        uart_rx_state <= IDLE; 
                     end
                     else begin
-                        uart_state <= uart_state;
+                        uart_rx_state <= uart_rx_state;
                     end
                 end
                 default: begin
-                    byte_data <= 8'd0;
-                    uart_state <= IDLE;
+                    rx_bit_cnt <= 4'd0;
+                    rx_byte_data <= 8'd0;
+                    uart_rx_state <= IDLE;
                 end
             endcase
         end

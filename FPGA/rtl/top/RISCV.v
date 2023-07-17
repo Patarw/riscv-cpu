@@ -26,16 +26,24 @@ module RISCV(
 
     input   wire                        clk                 ,
     input   wire                        rst_n               ,
-    // rom相关引脚
-    output  wire[`INST_ADDR_BUS]        rom_rd_addr_o       ,
-    input   wire[`INST_DATA_BUS]        rom_rd_data_i       ,
     
-    // ram相关引脚
+    input   wire                        rib_hold_flag_i     ,
+    
+    // 取指相关
+    output  wire[`INST_ADDR_BUS]        pc_o                ,
+    input   wire[`INST_DATA_BUS]        ins_i               ,
+    
+    // 访存相关
+    output  wire                        mem_wr_rib_req_o    , 
     output  wire                        mem_wr_en_o         ,
-    output  wire[`INST_ADDR_BUS]        mem_wd_addr_o       ,
+    output  wire[`INST_ADDR_BUS]        mem_wr_addr_o       ,
     output  wire[`INST_DATA_BUS]        mem_wr_data_o       ,
+    output  wire                        mem_rd_rib_req_o    , 
+    output  wire[`INST_ADDR_BUS]        mem_rd_addr_o       ,
     input   wire[`INST_DATA_BUS]        mem_rd_data_i
+    
     );
+    
     
     // IF单元输出信号
     wire[`INST_DATA_BUS]     if_ins_o;
@@ -45,6 +53,9 @@ module RISCV(
     // ID单元输出信号
     wire[`INST_DATA_BUS]     id_ins_o;
     wire[`INST_ADDR_BUS]     id_ins_addr_o;
+    wire[6:0]                id_opcode_o;
+    wire[2:0]                id_funct3_o;
+    wire[6:0]                id_funct7_o;
     wire[`INST_REG_ADDR]     id_reg1_rd_addr_o;
     wire[`INST_REG_ADDR]     id_reg2_rd_addr_o;
     wire[`INST_REG_DATA]     id_reg1_rd_data_o;
@@ -57,50 +68,49 @@ module RISCV(
     wire[`INST_REG_DATA]     rf_reg2_rd_data_o;
     
     // EX单元输出信号
-    wire                     ex_reg_wr_en_o  ;
+    wire                     ex_reg_wr_en_o;
     wire[`INST_REG_ADDR]     ex_reg_wr_addr_o;
     wire[`INST_REG_DATA]     ex_reg_wr_data_o;
     wire                     ex_jump_flag_o;
     wire[`INST_REG_DATA]     ex_jump_addr_o;
-    wire                     ex_hold_flag_o;
-    wire                     ex_mem_wr_en_o;  
-    wire[`INST_ADDR_BUS]     ex_mem_wd_addr_o;
-    wire[`INST_DATA_BUS]     ex_mem_wr_data_o;
+    wire[2:0]                ex_hold_flag_o;
     
-    // ram rom输出信号
-    wire[`INST_DATA_BUS]     ram_mem_rd_data_o;
-    wire[`INST_DATA_BUS]     rom_ins_o;
     
     // 取指单元例化
     IF_UNIT INST_IF_UNIT(
         .clk                 (clk),
         .rst_n               (rst_n),
-        .hold_flag           (ex_hold_flag_o),
+        .hold_flag_i         (ex_hold_flag_o),
         .jump_flag           (ex_jump_flag_o),
         .jump_addr           (ex_jump_addr_o),
         .ins_o               (if_ins_o),      // 指令
         .ins_addr_o          (if_ins_addr_o), // 指令地址
-        .pc_o                (rom_rd_addr_o),          
-        .ins_i               (rom_rd_data_i)
+        .pc_o                (pc_o),          
+        .ins_i               (ins_i)
     );
     
     // 译码单元例化
     ID_UNIT INST_ID_UNIT(
         .clk                 (clk),
         .rst_n               (rst_n),
-        .hold_flag           (ex_hold_flag_o),
+        .hold_flag_i         (ex_hold_flag_o),
         .ins_i               (if_ins_o), 
         .ins_addr_i          (if_ins_addr_o), 
         .reg1_rd_addr_o      (id_reg1_rd_addr_o), 
         .reg2_rd_addr_o      (id_reg2_rd_addr_o),
         .reg1_rd_data_i      (rf_reg1_rd_data_o), 
         .reg2_rd_data_i      (rf_reg2_rd_data_o),
-        .ins_o               (id_ins_o), 
+        .ins_o               (id_ins_o),
         .ins_addr_o          (id_ins_addr_o), 
+        .opcode_o            (id_opcode_o),
+        .funct3_o            (id_funct3_o),
+        .funct7_o            (id_funct7_o),
+        .imm_o               (id_imm_o),
         .reg1_rd_data_o      (id_reg1_rd_data_o), 
         .reg2_rd_data_o      (id_reg2_rd_data_o),
         .reg_wr_addr_o       (id_reg_wr_addr_o),
-        .imm_o               (id_imm_o)
+        .mem_rd_rib_req_o    (mem_rd_rib_req_o),
+        .mem_rd_addr_o       (mem_rd_addr_o)
     );
     
     // 通用寄存器模块例化
@@ -119,22 +129,28 @@ module RISCV(
     // 执行单元例化
     EX_UNIT INST_EX_UNIT(
         .clk                 (clk),
-        .rst_n               (rst_n),        
-        .ins_i               (id_ins_o), 
-        .ins_addr_i          (id_ins_addr_o),           
+        .rst_n               (rst_n),  
+        .ins_i               (id_ins_o),
+        .ins_addr_i          (id_ins_addr_o), 
+        .opcode_i            (id_opcode_o),
+        .funct3_i            (id_funct3_o),
+        .funct7_i            (id_funct7_o),  
+        .imm_i               (id_imm_o),  
         .reg1_rd_data_i      (id_reg1_rd_data_o), 
-        .reg2_rd_data_i      (id_reg2_rd_data_o),          
-        .reg_wr_addr_i       (id_reg_wr_addr_o), 
-        .imm_i               (id_imm_o),
+        .reg2_rd_data_i      (id_reg2_rd_data_o),
+        .reg_wr_addr_i       (id_reg_wr_addr_o),
         .reg_wr_en_o         (ex_reg_wr_en_o),
         .reg_wr_addr_o       (ex_reg_wr_addr_o),
         .reg_wr_data_o       (ex_reg_wr_data_o),
-        .jump_flag           (ex_jump_flag_o),
-        .jump_addr           (ex_jump_addr_o),
-        .hold_flag           (ex_hold_flag_o),
-        .mem_rd_data_i       (mem_rd_data_i),   
-        .mem_wr_en_o         (mem_wr_en_o),
-        .mem_wd_addr_o       (mem_wd_addr_o),
+        .rib_hold_flag_i     (rib_hold_flag_i),
+        .jump_flag_o         (ex_jump_flag_o),
+        .jump_addr_o         (ex_jump_addr_o),
+        .hold_flag_o         (ex_hold_flag_o),
+        .mem_rd_addr_i       (mem_rd_addr_o),
+        .mem_rd_data_i       (mem_rd_data_i),
+        .mem_wr_rib_req_o    (mem_wr_rib_req_o),
+        .mem_wr_en_o         (mem_wr_en_o), 
+        .mem_wr_addr_o       (mem_wr_addr_o), 
         .mem_wr_data_o       (mem_wr_data_o)
     );
     

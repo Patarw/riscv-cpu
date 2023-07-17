@@ -42,24 +42,6 @@ set_global_assignment -name TOP_LEVEL_ENTITY RISCV_SOC_TOP
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:35:12  JUNE 29, 2023"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
-set_global_assignment -name VERILOG_FILE ../sim/tb_riscv_top.v
-set_global_assignment -name VERILOG_FILE ../rtl/utils/delay_buffer.v
-set_global_assignment -name VERILOG_FILE ../rtl/top/RISCV_SOC_TOP.v
-set_global_assignment -name VERILOG_FILE ../rtl/top/RISCV.v
-set_global_assignment -name VERILOG_FILE ../rtl/top/RF_UNIT.v
-set_global_assignment -name VERILOG_FILE ../rtl/top/IF_UNIT.v
-set_global_assignment -name VERILOG_FILE ../rtl/top/ID_UNIT.v
-set_global_assignment -name VERILOG_FILE ../rtl/top/EX_UNIT.v
-set_global_assignment -name VERILOG_FILE ../rtl/perips/uart.v
-set_global_assignment -name VERILOG_FILE ../rtl/perips/rom.v
-set_global_assignment -name VERILOG_FILE ../rtl/perips/ram.v
-set_global_assignment -name VERILOG_FILE ../rtl/core/pc.v
-set_global_assignment -name VERILOG_FILE ../rtl/core/if_id.v
-set_global_assignment -name VERILOG_FILE ../rtl/core/id_ex.v
-set_global_assignment -name VERILOG_FILE ../rtl/core/id.v
-set_global_assignment -name VERILOG_FILE ../rtl/core/defines.v
-set_global_assignment -name VERILOG_FILE ../rtl/core/cu.v
-set_global_assignment -name VERILOG_FILE ../rtl/core/alu.v
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
@@ -80,9 +62,6 @@ set_global_assignment -name TIMEQUEST_DO_CCPP_REMOVAL ON
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
 set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS ON
 set_global_assignment -name ALLOW_ANY_RAM_SIZE_FOR_RECOGNITION OFF
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_L7 -to led_ctl[3]
 set_location_assignment PIN_M6 -to led_ctl[2]
 set_location_assignment PIN_P3 -to led_ctl[1]
@@ -91,4 +70,28 @@ set_location_assignment PIN_M15 -to rst_n
 set_location_assignment PIN_N6 -to uart_rx
 set_location_assignment PIN_N5 -to uart_tx
 set_location_assignment PIN_E1 -to clk
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name TEXT_FILE ../rtl/perips/instructions.txt
+set_global_assignment -name VERILOG_FILE ../rtl/debug/uart_debug.v
+set_global_assignment -name VERILOG_FILE ../rtl/core/rib.v
+set_global_assignment -name VERILOG_FILE ../sim/tb_riscv_top.v
+set_global_assignment -name VERILOG_FILE ../rtl/utils/delay_buffer.v
+set_global_assignment -name VERILOG_FILE ../rtl/top/RISCV_SOC_TOP.v
+set_global_assignment -name VERILOG_FILE ../rtl/top/RISCV.v
+set_global_assignment -name VERILOG_FILE ../rtl/top/RF_UNIT.v
+set_global_assignment -name VERILOG_FILE ../rtl/top/IF_UNIT.v
+set_global_assignment -name VERILOG_FILE ../rtl/top/ID_UNIT.v
+set_global_assignment -name VERILOG_FILE ../rtl/top/EX_UNIT.v
+set_global_assignment -name VERILOG_FILE ../rtl/perips/uart.v
+set_global_assignment -name VERILOG_FILE ../rtl/perips/rom.v
+set_global_assignment -name VERILOG_FILE ../rtl/perips/ram.v
+set_global_assignment -name VERILOG_FILE ../rtl/core/pc.v
+set_global_assignment -name VERILOG_FILE ../rtl/core/if_id.v
+set_global_assignment -name VERILOG_FILE ../rtl/core/id_ex.v
+set_global_assignment -name VERILOG_FILE ../rtl/core/id.v
+set_global_assignment -name VERILOG_FILE ../rtl/core/defines.v
+set_global_assignment -name VERILOG_FILE ../rtl/core/cu.v
+set_global_assignment -name VERILOG_FILE ../rtl/core/alu.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

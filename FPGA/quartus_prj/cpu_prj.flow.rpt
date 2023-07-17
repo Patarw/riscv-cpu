@@ -1,5 +1,5 @@
 Flow report for cpu_prj
-Sat Jul 01 21:29:15 2023
+Wed Jul 12 20:58:25 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -40,20 +40,20 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Flow Summary                                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Flow Status                        ; Successful - Sat Jul 01 21:29:15 2023            ;
+; Flow Status                        ; Successful - Wed Jul 12 20:58:25 2023            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; cpu_prj                                          ;
 ; Top-level Entity Name              ; RISCV_SOC_TOP                                    ;
 ; Family                             ; Cyclone IV E                                     ;
 ; Device                             ; EP4CE10F17C8                                     ;
 ; Timing Models                      ; Final                                            ;
-; Total logic elements               ; 8,919 / 10,320 ( 86 % )                          ;
-;     Total combinational functions  ; 5,861 / 10,320 ( 57 % )                          ;
-;     Dedicated logic registers      ; 5,509 / 10,320 ( 53 % )                          ;
-; Total registers                    ; 5509                                             ;
+; Total logic elements               ; 4,403 / 10,320 ( 43 % )                          ;
+;     Total combinational functions  ; 3,586 / 10,320 ( 35 % )                          ;
+;     Dedicated logic registers      ; 1,678 / 10,320 ( 16 % )                          ;
+; Total registers                    ; 1678                                             ;
 ; Total pins                         ; 8 / 180 ( 4 % )                                  ;
 ; Total virtual pins                 ; 0                                                ;
-; Total memory bits                  ; 131,072 / 423,936 ( 31 % )                       ;
+; Total memory bits                  ; 98,304 / 423,936 ( 23 % )                        ;
 ; Embedded Multiplier 9-bit elements ; 0 / 46 ( 0 % )                                   ;
 ; Total PLLs                         ; 0 / 2 ( 0 % )                                    ;
 +------------------------------------+--------------------------------------------------+
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/01/2023 21:27:22 ;
+; Start date & time ; 07/12/2023 20:57:48 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cpu_prj             ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+---------------+----------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name   ; Section Id     ;
 +--------------------------------------+---------------------------------------+---------------+---------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 150241227357473.168821804203764       ; --            ; --            ; --             ;
+; COMPILER_SIGNATURE_ID                ; 150241227357473.168916666820836       ; --            ; --            ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --            ; tb_riscv_top   ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; tb_riscv_top                          ; --            ; --            ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                           ; --            ; --            ; eda_simulation ;
@@ -101,12 +101,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:18     ; 1.0                     ; 4697 MB             ; 00:00:18                           ;
-; Fitter                    ; 00:01:13     ; 8.5                     ; 5904 MB             ; 00:01:58                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 4574 MB             ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:11     ; 1.3                     ; 4911 MB             ; 00:00:13                           ;
-; EDA Netlist Writer        ; 00:00:05     ; 1.0                     ; 4627 MB             ; 00:00:05                           ;
-; Total                     ; 00:01:48     ; --                      ; --                  ; 00:02:35                           ;
+; Analysis & Synthesis      ; 00:00:08     ; 1.0                     ; 4693 MB             ; 00:00:08                           ;
+; Fitter                    ; 00:00:19     ; 7.2                     ; 5979 MB             ; 00:00:32                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 4560 MB             ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 2.5                     ; 4778 MB             ; 00:00:04                           ;
+; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 4574 MB             ; 00:00:03                           ;
+; Total                     ; 00:00:33     ; --                      ; --                  ; 00:00:48                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

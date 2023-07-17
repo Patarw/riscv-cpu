@@ -27,6 +27,7 @@ module pc(
     input   wire                    clk         ,
     input   wire                    rst_n       ,
     
+    input   wire[2:0]               hold_flag   ,
     input   wire                    jump_flag   ,
     input   wire[`INST_REG_DATA]    jump_addr   ,
     
@@ -42,6 +43,10 @@ module pc(
         // 跳转
         else if(jump_flag == 1'b1) begin
             pc_out <= jump_addr;
+        end
+        // 暂停
+        else if(hold_flag >= `HOLD_PC) begin
+            pc_out <= pc_out;
         end
         // 地址加4
         else begin

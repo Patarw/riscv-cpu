@@ -24,43 +24,26 @@
 // ram
 module ram(
 
-    input   wire                    clk                 ,
-    input   wire                    rst_n               ,
+    input   wire                    clk         ,
+    input   wire                    rst_n       ,
     
-    input   wire                    wr_en_i             , // write enable
-    input   wire[`INST_ADDR_BUS]    addr_i              , // write address, read address
-    input   wire[`INST_DATA_BUS]    data_i              , // write data
+    input   wire                    wr_en_i     , // write enable
+    input   wire[`INST_ADDR_BUS]    wr_addr_i   , // write address
+    input   wire[`INST_DATA_BUS]    wr_data_i   , // write data
     
-    output  reg[`INST_DATA_BUS]     data_o              , // read data
-    
-    output  reg[3:0]                led_ctl
+    input   wire[`INST_ADDR_BUS]    rd_addr_i   , // read address
+    output  reg [`INST_DATA_BUS]    rd_data_o     // read data
     
     );
     
     reg[`INST_DATA_BUS] _ram[0:`RAM_NUM - 1];
     
+    // write before read
     always @ (posedge clk) begin
         if(wr_en_i == 1'b1) begin
-            _ram[addr_i[31:2]] <= data_i;
+            _ram[wr_addr_i[31:2]] = wr_data_i;
         end
-    end
-    
-    always @ (*) begin
-        if (!rst_n) begin
-            data_o = `ZERO_WORD;
-        end 
-        else begin
-            data_o = _ram[addr_i[31:2]];
-        end
-    end
-    
-    always @ (*) begin
-        if (!rst_n) begin
-            led_ctl = 4'd0;
-        end 
-        else begin
-            led_ctl = ~_ram[0][3:0];
-        end
+        rd_data_o = _ram[rd_addr_i[31:2]];
     end
     
 endmodule

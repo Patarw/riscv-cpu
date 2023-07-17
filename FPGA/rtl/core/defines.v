@@ -12,10 +12,10 @@
 
 // 常数定义
 `define CLK_FREQ            'd50_000_000  // 系统时钟频率(Hz)
-`define UART_BPS            'd9600        // 串口波特率(Bps)
+`define UART_BPS            'd19200       // 串口波特率(Bps)
 `define REG_NUM             32
-`define ROM_NUM             4096
-`define RAM_NUM             129
+`define ROM_NUM             1024
+`define RAM_NUM             1024
 `define REG_ADDR_WIDTH      5
 
 //ALU运算类型
@@ -96,3 +96,9 @@
 `define INS_LW          3'b010  // 取32位
 `define INS_LBU         3'b100  // 取8位，无符号拓展
 `define INS_LHU         3'b101  // 取16位，无符号拓展
+
+// 暂停流水线
+`define HOLD_NONE    3'b000
+`define HOLD_PC      3'b001
+`define HOLD_IF_ID   3'b010
+`define HOLD_ID_EX   3'b011

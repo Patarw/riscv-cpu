@@ -27,72 +27,169 @@ module RISCV_SOC_TOP(
     input   wire                        clk                 ,
     input   wire                        rst_n               ,
     
-    output  wire                        uart_tx             , // uart发送引脚
     input   wire                        uart_rx             , // uart接收引脚
+    output  wire                        uart_tx             , // uart发送引脚
     
-    output  wire[3:0]                   led_ctl               
+    output  wire[3:0]                   gpio_pins             // led引脚资源               
     
     );
     
+    wire                     rib_hold_flag_o;
+    
+    // master0
+    wire[`INST_DATA_BUS]     m0_rd_data_o;
+    
+    // master1
+    wire[`INST_DATA_BUS]     m1_rd_data_o;
+    
+    // master2
+    wire[`INST_DATA_BUS]     m2_rd_data_o;
+    
+    // slave0
+    wire                     s0_wr_en_o;  
+    wire[`INST_ADDR_BUS]     s0_wr_addr_o;
+    wire[`INST_DATA_BUS]     s0_wr_data_o;
+    wire[`INST_ADDR_BUS]     s0_rd_addr_o;
+    
+    // slave1
+    wire                     s1_wr_en_o;  
+    wire[`INST_ADDR_BUS]     s1_wr_addr_o;
+    wire[`INST_DATA_BUS]     s1_wr_data_o;
+    wire[`INST_ADDR_BUS]     s1_rd_addr_o;
+    
+    // slave2
+    wire                     s2_wr_en_o;  
+    wire[`INST_ADDR_BUS]     s2_wr_addr_o;
+    wire[`INST_DATA_BUS]     s2_wr_data_o;
+    wire[`INST_ADDR_BUS]     s2_rd_addr_o;
+    
     // RISCV模块输出信号
-    wire[`INST_ADDR_BUS]     riscv_rom_rd_addr_o;
+    wire[`INST_ADDR_BUS]     riscv_pc_o;
+    wire                     riscv_mem_wr_rib_req_o;
     wire                     riscv_mem_wr_en_o;
-    wire[`INST_ADDR_BUS]     riscv_mem_wd_addr_o;
+    wire[`INST_ADDR_BUS]     riscv_mem_wr_addr_o;
     wire[`INST_DATA_BUS]     riscv_mem_wr_data_o;
+    wire                     riscv_mem_rd_rib_req_o;
+    wire[`INST_ADDR_BUS]     riscv_mem_rd_addr_o;
     
-    // ram模块输出信号
-    wire[`INST_DATA_BUS]     ram_rd_data_o;
-    
-    // rom模块输出信号
-    wire[`INST_DATA_BUS]     rom_rd_data_o;
-    
-    // uart模块输出信号
-    wire                     uart_rom_erase_en_o;
+    // uart_debug模块输出信号
+    wire                     uart_rib_wr_req_o;
     wire                     uart_rom_wr_en_o;  
     wire[`INST_ADDR_BUS]     uart_rom_wr_addr_o; 
     wire[`INST_DATA_BUS]     uart_rom_wr_data_o; 
     
+    // rom模块输出信号
+    wire[`INST_DATA_BUS]     rom_rd_data_o;
+    wire[`INST_DATA_BUS]     rom_ins_o;
+    
+    // ram模块输出信号
+    wire[`INST_DATA_BUS]     ram_rd_data_o;
+    
+    // uart模块输出信号
+    wire[`INST_DATA_BUS]     uart_rd_data_o;
+    
+    
     RISCV u_RISCV(
+        .clk               (clk),
+        .rst_n             (rst_n),
+        .rib_hold_flag_i   (rib_hold_flag_o),
+        .pc_o              (riscv_pc_o),
+        .ins_i             (rom_ins_o),
+        .mem_wr_rib_req_o  (riscv_mem_wr_rib_req_o),
+        .mem_wr_en_o       (riscv_mem_wr_en_o),
+        .mem_wr_addr_o     (riscv_mem_wr_addr_o),
+        .mem_wr_data_o     (riscv_mem_wr_data_o),
+        .mem_rd_rib_req_o  (riscv_mem_rd_rib_req_o),
+        .mem_rd_addr_o     (riscv_mem_rd_addr_o),
+        .mem_rd_data_i     (m0_rd_data_o)
+    );
+    
+    uart_debug u_uart_debug(
+        .clk               (clk),
+        .rst_n             (rst_n),
+        .uart_rx           (uart_rx),
+        .rib_wr_req_o      (uart_rib_wr_req_o),
+        .rom_wr_en_o       (uart_rom_wr_en_o), 
+        .rom_wr_addr_o     (uart_rom_wr_addr_o), 
+        .rom_wr_data_o     (uart_rom_wr_data_o)  
+    );
+    
+    rib u_rib(
         .clk            (clk),
         .rst_n          (rst_n),
-        .rom_rd_addr_o  (riscv_rom_rd_addr_o),
-        .rom_rd_data_i  (rom_rd_data_o),
-        .mem_wr_en_o    (riscv_mem_wr_en_o),
-        .mem_wd_addr_o  (riscv_mem_wd_addr_o),
-        .mem_wr_data_o  (riscv_mem_wr_data_o),
-        .mem_rd_data_i  (ram_rd_data_o)
+        .m0_wr_req_i    (riscv_mem_wr_rib_req_o), 
+        .m0_wr_en_i     (riscv_mem_wr_en_o), 
+        .m0_wr_addr_i   (riscv_mem_wr_addr_o), 
+        .m0_wr_data_i   (riscv_mem_wr_data_o), 
+        .m0_rd_req_i    (riscv_mem_rd_rib_req_o), 
+        .m0_rd_addr_i   (riscv_mem_rd_addr_o), 
+        .m0_rd_data_o   (m0_rd_data_o), 
+        .m1_wr_req_i    (uart_rib_wr_req_o), 
+        .m1_wr_en_i     (uart_rom_wr_en_o), 
+        .m1_wr_addr_i   (uart_rom_wr_addr_o), 
+        .m1_wr_data_i   (uart_rom_wr_data_o), 
+        .m1_rd_req_i    (), 
+        .m1_rd_addr_i   (), 
+        .m1_rd_data_o   (), 
+        .m2_wr_req_i    (), 
+        .m2_wr_en_i     (), 
+        .m2_wr_addr_i   (), 
+        .m2_wr_data_i   (), 
+        .m2_rd_req_i    (), 
+        .m2_rd_addr_i   (), 
+        .m2_rd_data_o   (), 
+        .s0_wr_en_o     (s0_wr_en_o), 
+        .s0_wr_addr_o   (s0_wr_addr_o), 
+        .s0_wr_data_o   (s0_wr_data_o), 
+        .s0_rd_addr_o   (s0_rd_addr_o), 
+        .s0_rd_data_i   (rom_rd_data_o), 
+        .s1_wr_en_o     (s1_wr_en_o), 
+        .s1_wr_addr_o   (s1_wr_addr_o), 
+        .s1_wr_data_o   (s1_wr_data_o), 
+        .s1_rd_addr_o   (s1_rd_addr_o), 
+        .s1_rd_data_i   (ram_rd_data_o), 
+        .s2_wr_en_o     (s2_wr_en_o), 
+        .s2_wr_addr_o   (s2_wr_addr_o), 
+        .s2_wr_data_o   (s2_wr_data_o), 
+        .s2_rd_addr_o   (s2_rd_addr_o), 
+        .s2_rd_data_i   (uart_rd_data_o), 
+        .rib_hold_flag_o(rib_hold_flag_o) 
     );
     
     rom u_rom(
         .clk            (clk),
         .rst_n          (rst_n),
-        .erase_en       (uart_rom_erase_en_o),
-        .wr_en_i        (uart_rom_wr_en_o), 
-        .wr_addr_i      (uart_rom_wr_addr_o), 
-        .data_i         (uart_rom_wr_data_o), 
-        .rd_addr_i      (riscv_rom_rd_addr_o), 
-        .data_o         (rom_rd_data_o) 
+        .wr_en_i        (s0_wr_en_o), 
+        .wr_addr_i      (s0_wr_addr_o), 
+        .wr_data_i      (s0_wr_data_o), 
+        .rd_addr_i      (s0_rd_addr_o), 
+        .rd_data_o      (rom_rd_data_o),
+        .pc_addr_i      (riscv_pc_o),
+        .ins_o          (rom_ins_o)
     );
+    
     
     ram u_ram(
         .clk            (clk),
         .rst_n          (rst_n),
-        .wr_en_i        (riscv_mem_wr_en_o), 
-        .addr_i         (riscv_mem_wd_addr_o), 
-        .data_i         (riscv_mem_wr_data_o), 
-        .data_o         (ram_rd_data_o),
-        .led_ctl        (led_ctl)
+        .wr_en_i        (s1_wr_en_o), 
+        .wr_addr_i      (s1_wr_addr_o), 
+        .wr_data_i      (s1_wr_data_o), 
+        .rd_addr_i      (s1_rd_addr_o), 
+        .rd_data_o      (ram_rd_data_o)
     );
     
     uart u_uart(
-        .clk                 (clk),
-        .rst_n               (rst_n),
-        .uart_rx             (uart_rx),
-        .uart_tx             (uart_tx),
-        .rom_erase_en_o      (uart_rom_erase_en_o), 
-        .rom_wr_en_o         (uart_rom_wr_en_o), 
-        .rom_wr_addr_o       (uart_rom_wr_addr_o), 
-        .rom_wr_data_o       (uart_rom_wr_data_o)  
+        .clk            (clk),
+        .rst_n          (rst_n),
+        .uart_rx        (uart_rx), 
+        .uart_tx        (uart_tx), 
+        .wr_en_i        (s2_wr_en_o), 
+        .wr_addr_i      (s2_wr_addr_o), 
+        .wr_data_i      (s2_wr_data_o), 
+        .rd_addr_i      (s2_rd_addr_o), 
+        .rd_data_o      (uart_rd_data_o)  
     );
+    
     
 endmodule

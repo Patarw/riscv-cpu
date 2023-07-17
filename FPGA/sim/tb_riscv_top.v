@@ -29,6 +29,7 @@ module tb_riscv_top();
     reg[31:0]   ins2;
     reg[31:0]   ins3;
     reg[31:0]   ins4;
+    wire        tx;
     
     always # (10) clk <= ~clk;
     
@@ -72,71 +73,71 @@ module tb_riscv_top();
     /* initial begin
         // ins1
         #200
-        rx_bit(ins1[31:24]);
-        data_bit = 1'b1;
-        #200
-        rx_bit(ins1[23:16]);
+        rx_bit(ins1[7:0]);
         data_bit = 1'b1;
         #200
         rx_bit(ins1[15:8]);
         data_bit = 1'b1;
         #200
-        rx_bit(ins1[7:0]);
+        rx_bit(ins1[23:16]);
+        data_bit = 1'b1;
+        #200
+        rx_bit(ins1[31:24]);
         data_bit = 1'b1;
     
         // ins2
         #200
-        rx_bit(ins2[31:24]);
-        data_bit = 1'b1;
-        #200
-        rx_bit(ins2[23:16]);
+        rx_bit(ins2[7:0]);
         data_bit = 1'b1;
         #200
         rx_bit(ins2[15:8]);
         data_bit = 1'b1;
         #200
-        rx_bit(ins2[7:0]);
+        rx_bit(ins2[23:16]);
+        data_bit = 1'b1;
+        #200
+        rx_bit(ins2[31:24]);
         data_bit = 1'b1;
         
         // ins3
         #200
-        rx_bit(ins3[31:24]);
-        data_bit = 1'b1;
-        #200
-        rx_bit(ins3[23:16]);
+        rx_bit(ins3[7:0]);
         data_bit = 1'b1;
         #200
         rx_bit(ins3[15:8]);
         data_bit = 1'b1;
         #200
-        rx_bit(ins3[7:0]);
+        rx_bit(ins3[23:16]);
+        data_bit = 1'b1;
+        #200
+        rx_bit(ins3[31:24]);
         data_bit = 1'b1;
         
         // ins4
         #200
-        rx_bit(ins4[31:24]);
-        data_bit = 1'b1;
-        #200
-        rx_bit(ins4[23:16]);
+        rx_bit(ins4[7:0]);
         data_bit = 1'b1;
         #200
         rx_bit(ins4[15:8]);
         data_bit = 1'b1;
         #200
-        rx_bit(ins4[7:0]);
+        rx_bit(ins4[23:16]);
+        data_bit = 1'b1;
+        #200
+        rx_bit(ins4[31:24]);
         data_bit = 1'b1;
         
         #200
         rst_n <= 1'b0;
         #17
         rst_n <= 1'b1;
-    end */
+    end  */
 
 
     RISCV_SOC_TOP tb_RISCV_SOC_TOP(
         .clk                 (clk),
         .rst_n               (rst_n),
-        .uart_tx             (), // uart发送引脚
+        .uart_tx             (tx), // uart发送引脚
         .uart_rx             (data_bit) // uart接收引脚
     );
 
