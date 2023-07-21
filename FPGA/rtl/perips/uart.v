@@ -34,7 +34,7 @@ module uart(
     input   wire[`INST_ADDR_BUS]        wr_addr_i           , // uart寄存器写地址
     input   wire[`INST_DATA_BUS]        wr_data_i           , // uart写数据
     input   wire[`INST_ADDR_BUS]        rd_addr_i           , // uart寄存器读地址
-    output  reg[`INST_DATA_BUS]         rd_data_o             // uart读数据
+    output  reg [`INST_DATA_BUS]        rd_data_o             // uart读数据
 
     );
     
@@ -68,7 +68,6 @@ module uart(
     reg[3:0]                    uart_rx_state; // rx状态机
     reg[12:0]                   rx_baud_cnt;   // rx计数器
     reg[3:0]                    rx_bit_cnt;    // rx比特计数
-    reg[7:0]                    rx_byte_data;  // rx接收到的字节数据
     
     reg[3:0]                    uart_tx_state; // rx状态机
     reg[12:0]                   tx_baud_cnt;   // rx计数器
@@ -76,13 +75,11 @@ module uart(
     reg                         tx_data_rd;    // 发送数据就绪信号
     
     
-    // 读写寄存器，uart_ctrl和uart_tx_data_buf
+    // 读写寄存器，write before read
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
             uart_ctrl <= `ZERO_WORD;
             uart_tx_data_buf <= `ZERO_WORD;
-            tx_data_rd <= 1'b0;  
-            rd_data_o <= `ZERO_WORD;
         end
         else begin
             if(wr_en_i == 1'b1) begin
@@ -91,14 +88,17 @@ module uart(
                         uart_ctrl = wr_data_i;
                     end
                     UART_TX_DATA_BUF: begin
-                        tx_data_rd <= 1'b1;
                         uart_tx_data_buf = wr_data_i;
+                    end
+                    default: begin
                     end
                 endcase
             end
-            else if(uart_tx_state == END && tx_baud_cnt == 1) begin
-                tx_data_rd <= 1'b0;
+            if(uart_tx_state == END && tx_baud_cnt == 1) begin
                 uart_ctrl[1] = 1'b1; // TI置1，代表发送完毕，需要软件置0
+            end
+            if(uart_rx_state == END && rx_baud_cnt == 1) begin
+                uart_ctrl[0] = 1'b1; // RI置1，代表接收完毕，需要软件置0
             end
             case(rd_addr_i[3:0])
                 UART_CTRL: begin
@@ -107,12 +107,33 @@ module uart(
                 UART_TX_DATA_BUF: begin
                     rd_data_o = uart_tx_data_buf;
                 end
+                UART_RX_DATA_BUF: begin
+                    rd_data_o = uart_rx_data_buf;
+                end
+                default: begin
+                    rd_data_o = `ZERO_WORD;
+                end
             endcase
         end
     end
     
-    
     /* TX发送模块 */
+    
+    // tx数据就绪信号 tx_data_rd
+    always @ (posedge clk or negedge rst_n) begin
+        if(!rst_n) begin
+            tx_data_rd <= 1'b0;  
+        end
+        else if(wr_en_i == 1'b1 && wr_addr_i[3:0] == UART_TX_DATA_BUF) begin
+            tx_data_rd <= 1'b1;
+        end
+        else if(uart_tx_state == END && tx_baud_cnt == 1) begin
+            tx_data_rd <= 1'b0;
+        end
+        else begin
+            tx_data_rd <= tx_data_rd;
+        end
+    end
     
     // tx_baud_cnt计数
     always @ (posedge clk or negedge rst_n) begin
@@ -176,9 +197,9 @@ module uart(
                     end
                 end
                 default: begin
-                    uart_tx <= 1'b0;
-                    tx_bit_cnt <= 4'd0;
                     uart_tx_state <= IDLE;
+                    tx_bit_cnt <= 4'd0;
+                    uart_tx <= 1'b1;
                 end
             endcase
         end
@@ -218,8 +239,8 @@ module uart(
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
             uart_rx_state <= IDLE;
-            rx_byte_data <= 8'd0;
             rx_bit_cnt <= 4'd0;
+            uart_rx_data_buf <= `ZERO_WORD;
         end
         else begin
             case(uart_rx_state)
@@ -245,7 +266,7 @@ module uart(
                         uart_rx_state <= END; 
                     end
                     else if(rx_baud_cnt == BAUD_CNT_MAX / 2 - 1) begin
-                        rx_byte_data <= {uart_rx_delay, rx_byte_data[7:1]};
+                        uart_rx_data_buf[rx_bit_cnt] <= uart_rx_delay;
                     end
                     else if(rx_baud_cnt == BAUD_CNT_MAX - 1) begin
                         rx_bit_cnt <= rx_bit_cnt + 1'b1; 
@@ -255,7 +276,7 @@ module uart(
                     end
                 end
                 END: begin
-                    if(rx_baud_cnt == 2) begin
+                    if(rx_baud_cnt == 1) begin
                         uart_rx_state <= IDLE; 
                     end
                     else begin
@@ -263,9 +284,9 @@ module uart(
                     end
                 end
                 default: begin
-                    rx_bit_cnt <= 4'd0;
-                    rx_byte_data <= 8'd0;
                     uart_rx_state <= IDLE;
+                    rx_bit_cnt <= 4'd0;
+                    uart_rx_data_buf <= `ZERO_WORD;
                 end
             endcase
         end

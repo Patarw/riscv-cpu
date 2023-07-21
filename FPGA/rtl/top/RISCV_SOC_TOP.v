@@ -27,6 +27,7 @@ module RISCV_SOC_TOP(
     input   wire                        clk                 ,
     input   wire                        rst_n               ,
     
+    input   wire                        uart_debug_pin      , // uart_debug使能引脚
     input   wire                        uart_rx             , // uart接收引脚
     output  wire                        uart_tx             , // uart发送引脚
     
@@ -63,6 +64,12 @@ module RISCV_SOC_TOP(
     wire[`INST_DATA_BUS]     s2_wr_data_o;
     wire[`INST_ADDR_BUS]     s2_rd_addr_o;
     
+    // slave3
+    wire                     s3_wr_en_o;  
+    wire[`INST_ADDR_BUS]     s3_wr_addr_o;
+    wire[`INST_DATA_BUS]     s3_wr_data_o;
+    wire[`INST_ADDR_BUS]     s3_rd_addr_o;
+    
     // RISCV模块输出信号
     wire[`INST_ADDR_BUS]     riscv_pc_o;
     wire                     riscv_mem_wr_rib_req_o;
@@ -74,9 +81,9 @@ module RISCV_SOC_TOP(
     
     // uart_debug模块输出信号
     wire                     uart_rib_wr_req_o;
-    wire                     uart_rom_wr_en_o;  
-    wire[`INST_ADDR_BUS]     uart_rom_wr_addr_o; 
-    wire[`INST_DATA_BUS]     uart_rom_wr_data_o; 
+    wire                     uart_mem_wr_en_o;  
+    wire[`INST_ADDR_BUS]     uart_mem_wr_addr_o; 
+    wire[`INST_DATA_BUS]     uart_mem_wr_data_o; 
     
     // rom模块输出信号
     wire[`INST_DATA_BUS]     rom_rd_data_o;
@@ -87,6 +94,9 @@ module RISCV_SOC_TOP(
     
     // uart模块输出信号
     wire[`INST_DATA_BUS]     uart_rd_data_o;
+    
+    // gpio模块输出信号
+    wire[`INST_DATA_BUS]     gpio_rd_data_o;
     
     
     RISCV u_RISCV(
@@ -107,11 +117,12 @@ module RISCV_SOC_TOP(
     uart_debug u_uart_debug(
         .clk               (clk),
         .rst_n             (rst_n),
+        .debug_en_i        (!uart_debug_pin),
         .uart_rx           (uart_rx),
         .rib_wr_req_o      (uart_rib_wr_req_o),
-        .rom_wr_en_o       (uart_rom_wr_en_o), 
-        .rom_wr_addr_o     (uart_rom_wr_addr_o), 
-        .rom_wr_data_o     (uart_rom_wr_data_o)  
+        .mem_wr_en_o       (uart_mem_wr_en_o), 
+        .mem_wr_addr_o     (uart_mem_wr_addr_o), 
+        .mem_wr_data_o     (uart_mem_wr_data_o)  
     );
     
     rib u_rib(
@@ -125,9 +136,9 @@ module RISCV_SOC_TOP(
         .m0_rd_addr_i   (riscv_mem_rd_addr_o), 
         .m0_rd_data_o   (m0_rd_data_o), 
         .m1_wr_req_i    (uart_rib_wr_req_o), 
-        .m1_wr_en_i     (uart_rom_wr_en_o), 
-        .m1_wr_addr_i   (uart_rom_wr_addr_o), 
-        .m1_wr_data_i   (uart_rom_wr_data_o), 
+        .m1_wr_en_i     (uart_mem_wr_en_o), 
+        .m1_wr_addr_i   (uart_mem_wr_addr_o), 
+        .m1_wr_data_i   (uart_mem_wr_data_o), 
         .m1_rd_req_i    (), 
         .m1_rd_addr_i   (), 
         .m1_rd_data_o   (), 
@@ -153,6 +164,11 @@ module RISCV_SOC_TOP(
         .s2_wr_data_o   (s2_wr_data_o), 
         .s2_rd_addr_o   (s2_rd_addr_o), 
         .s2_rd_data_i   (uart_rd_data_o), 
+        .s3_wr_en_o     (s3_wr_en_o), 
+        .s3_wr_addr_o   (s3_wr_addr_o), 
+        .s3_wr_data_o   (s3_wr_data_o), 
+        .s3_rd_addr_o   (s3_rd_addr_o), 
+        .s3_rd_data_i   (gpio_rd_data_o), 
         .rib_hold_flag_o(rib_hold_flag_o) 
     );
     
@@ -191,5 +207,15 @@ module RISCV_SOC_TOP(
         .rd_data_o      (uart_rd_data_o)  
     );
     
+    gpio u_gpio(
+        .clk            (clk),
+        .rst_n          (rst_n),
+        .wr_en_i        (s3_wr_en_o),
+        .wr_addr_i      (s3_wr_addr_o),
+        .wr_data_i      (s3_wr_data_o),
+        .rd_addr_i      (s3_rd_addr_o), 
+        .rd_data_o      (gpio_rd_data_o),
+        .gpio_pins      (gpio_pins) 
+    );
     
 endmodule

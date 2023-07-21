@@ -21,18 +21,19 @@
 
 `include "../core/defines.v"
 
-// 串口模块，目前只用于下载程序到rom中，波特率为9600，系统时钟频率为50MHz，传输一位需要5208个时钟周期
+// 串口模块，目前只用于下载程序到memory中，波特率为9600，系统时钟频率为50MHz，传输一位需要5208个时钟周期
 module uart_debug(
 
     input   wire                        clk                 ,
     input   wire                        rst_n               ,
     
+    input   wire                        debug_en_i          , // 模块使能信号
     input   wire                        uart_rx             ,
 
     output  reg                         rib_wr_req_o        , // 总线请求信号
-    output  reg                         rom_wr_en_o         , // rom写使能信号
-    output  reg[`INST_ADDR_BUS]         rom_wr_addr_o       , // rom写地址信号
-    output  reg[`INST_DATA_BUS]         rom_wr_data_o         // rom写数据信号
+    output  reg                         mem_wr_en_o         , // mem写使能信号
+    output  reg[`INST_ADDR_BUS]         mem_wr_addr_o       , // mem写地址信号
+    output  reg[`INST_DATA_BUS]         mem_wr_data_o         // mem写数据信号
 
     );
     
@@ -72,6 +73,9 @@ module uart_debug(
         if(!rst_n) begin 
             rib_wr_req_o <= 1'b0;
         end
+        else if(debug_en_i == 1'b0) begin
+            rib_wr_req_o <= 1'b0;
+        end
         else if(data_rd_flag == 1'b1) begin
             rib_wr_req_o <= 1'b1;
         end
@@ -85,6 +89,9 @@ module uart_debug(
         if(!rst_n) begin 
             baud_cnt <= 13'd0;
         end
+        else if(debug_en_i == 1'b0) begin
+            baud_cnt <= 13'd0;
+        end
         else if(uart_state == IDLE || baud_cnt == BAUD_CNT_MAX - 1) begin
             baud_cnt <= 13'd0;
         end
@@ -96,6 +103,9 @@ module uart_debug(
     // byte_cnt计数
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin 
+            byte_cnt <= 3'd0;
+        end
+        else if(debug_en_i == 1'b0) begin
             byte_cnt <= 3'd0;
         end
         else if(byte_cnt == 3'd4) begin
@@ -114,6 +124,9 @@ module uart_debug(
         if(!rst_n) begin 
             data_rd_flag <= 1'b0;
         end
+        else if(debug_en_i == 1'b0) begin
+            data_rd_flag <= 1'b0;
+        end
         else if(byte_cnt == 3'd4) begin
             data_rd_flag <= 1'd1;
         end
@@ -127,6 +140,9 @@ module uart_debug(
         if(!rst_n) begin 
             wr_data_reg <= 32'd0;
         end
+        else if(debug_en_i == 1'b0) begin
+            wr_data_reg <= 32'd0;
+        end
         else if(uart_state == END && byte_cnt != 3'd0 && baud_cnt == 13'd1) begin
             wr_data_reg <= {byte_data, wr_data_reg[31:8]};
         end
@@ -135,39 +151,51 @@ module uart_debug(
         end            
     end
     
-    // rom_wr_en_o，rom_wr_data_o
+    // mem_wr_en_o，mem_wr_data_o
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin 
-            rom_wr_en_o <= 1'b0;
-            rom_wr_data_o <= 32'd0;
+            mem_wr_en_o <= 1'b0;
+            mem_wr_data_o <= 32'd0;
+        end
+        else if(debug_en_i == 1'b0) begin
+            mem_wr_en_o <= 1'b0;
+            mem_wr_data_o <= 32'd0;
         end
         else if(data_rd_flag == 1'b1) begin
-            rom_wr_en_o <= 1'b1;
-            rom_wr_data_o <= wr_data_reg;
+            mem_wr_en_o <= 1'b1;
+            mem_wr_data_o <= wr_data_reg;
         end
         else begin
-            rom_wr_en_o <= 1'b0;
-            rom_wr_data_o <= rom_wr_data_o;
+            mem_wr_en_o <= 1'b0;
+            mem_wr_data_o <= mem_wr_data_o;
         end            
     end
     
-    // rom_wr_addr_o
+    // mem_wr_addr_o
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin 
-            rom_wr_addr_o <= 32'd0;
+            mem_wr_addr_o <= 32'd0;
+        end
+        else if(debug_en_i == 1'b0) begin
+            mem_wr_addr_o <= 32'd0;
         end
         // 待数据写入后，地址+4
-        else if(rom_wr_en_o == 1'b1) begin
-            rom_wr_addr_o <= rom_wr_addr_o + 3'd4;
+        else if(mem_wr_en_o == 1'b1) begin
+            mem_wr_addr_o <= mem_wr_addr_o + 3'd4;
         end
         else begin
-            rom_wr_addr_o <= rom_wr_addr_o;
+            mem_wr_addr_o <= mem_wr_addr_o;
         end            
     end
     
     // uart_state状态机
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
+            uart_state <= IDLE;
+            byte_data <= 8'd0;
+            bit_cnt <= 4'd0;
+        end
+        else if(debug_en_i == 1'b0) begin
             uart_state <= IDLE;
             byte_data <= 8'd0;
             bit_cnt <= 4'd0;

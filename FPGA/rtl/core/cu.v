@@ -42,7 +42,19 @@ module cu(
     output  reg [3:0]               alu_op_code_o       ,
     output  reg [`INST_REG_DATA]    alu_data1_o         , 
     output  reg [`INST_REG_DATA]    alu_data2_o         ,
+    
+    // mul相关参数
+    input   wire[`INST_DB_REG_DATA] mul_res_i           ,   
+    output  reg [2:0]               mul_op_code_o       ,       
 
+    // div相关参数
+    input   wire[`INST_REG_DATA]    div_res_i           ,   
+    input   wire                    div_busy_i          , 
+    input   wire                    div_res_ready_i     ,
+    input   wire[`INST_REG_ADDR]    div_reg_wr_addr_i   , 
+    output  reg                     div_req_o           , 
+    output  reg [2:0]               div_op_code_o       ,       
+    
     // 跳转和暂停流水线相关参数
     input   wire                    rib_hold_flag_i     ,          
     output  reg                     jump_flag_o         ,
@@ -75,7 +87,7 @@ module cu(
     // 暂停流水线控制信号 hold_flag_o
     always @ (*) begin
         // 暂停整个流水线
-        if(hold_flag == 1'b1) begin
+        if(hold_flag == 1'b1 || div_busy_i) begin
             hold_flag_o = `HOLD_ID_EX;
         end
         // 暂停PC
@@ -91,18 +103,22 @@ module cu(
     always @ (*) begin
         // alu计算相关
         alu_op_code_o = 4'd0;
-        alu_data1_o = reg1_rd_data_i;
-        alu_data2_o = reg2_rd_data_i;
+        alu_data1_o = `ZERO_WORD;
+        alu_data2_o = `ZERO_WORD;
+        
+        mul_op_code_o = 3'd0;
+        div_op_code_o = 3'd0;
+        div_req_o = 1'b0;
         
         // 跳转相关
         jump_flag_o = 1'b0;
         jump_addr_o = `ZERO_WORD;
         hold_flag = 1'b0;
         
-        // 寄存器相关
-        reg_wr_en_o = 1'b0;
-        reg_wr_addr_o = reg_wr_addr_i;
-        reg_wr_data_o = alu_res_i;
+        // 寄存器相关, 根据div_res_ready_i判断是否要写div计算结果到寄存器
+        reg_wr_en_o = div_res_ready_i ? 1'b1 : 1'b0;
+        reg_wr_addr_o = div_res_ready_i ? div_reg_wr_addr_i : reg_wr_addr_i;
+        reg_wr_data_o = div_res_ready_i ? div_res_i : alu_res_i;
         
         // 内存相关
         mem_wr_rib_req_o = 1'b0;
@@ -113,6 +129,7 @@ module cu(
             // I型指令
             `INS_TYPE_I: begin
                 reg_wr_en_o = 1'b1;
+                alu_data1_o = reg1_rd_data_i;
                 alu_data2_o = imm_i;
                 case(funct3_i)
                     `INS_ADDI: begin
@@ -146,39 +163,117 @@ module cu(
                     end
                 endcase
             end
-            // R型指令
-            `INS_TYPE_R: begin
-                reg_wr_en_o = 1'b1;
+            // R和M型指令
+            `INS_TYPE_R_M: begin
                 case({funct7_i,funct3_i}) 
                     `INS_ADD: begin
+                        alu_data1_o = reg1_rd_data_i;
+                        alu_data2_o = reg2_rd_data_i;
                         alu_op_code_o = `ALU_ADD;
+                        reg_wr_en_o = 1'b1;
                     end
                     `INS_SUB: begin
+                        alu_data1_o = reg1_rd_data_i;
+                        alu_data2_o = reg2_rd_data_i;
                         alu_op_code_o = `ALU_SUB;
+                        reg_wr_en_o = 1'b1;
                     end
                     `INS_SLL: begin
+                        alu_data1_o = reg1_rd_data_i;
+                        alu_data2_o = reg2_rd_data_i;
                         alu_op_code_o = `ALU_SLL;
+                        reg_wr_en_o = 1'b1;
                     end
                     `INS_SLT: begin
+                        alu_data1_o = reg1_rd_data_i;
+                        alu_data2_o = reg2_rd_data_i;
                         alu_op_code_o = `ALU_SLT;
+                        reg_wr_en_o = 1'b1;
                     end
                     `INS_SLTU: begin
+                        alu_data1_o = reg1_rd_data_i;
+                        alu_data2_o = reg2_rd_data_i;
                         alu_op_code_o = `ALU_SLTU;
+                        reg_wr_en_o = 1'b1;
                     end
                     `INS_XOR: begin
+                        alu_data1_o = reg1_rd_data_i;
+                        alu_data2_o = reg2_rd_data_i;
                         alu_op_code_o = `ALU_XOR;
+                        reg_wr_en_o = 1'b1;
                     end
                     `INS_SRL: begin
+                        alu_data1_o = reg1_rd_data_i;
+                        alu_data2_o = reg2_rd_data_i;
                         alu_op_code_o = `ALU_SRL;
+                        reg_wr_en_o = 1'b1;
                     end
                     `INS_SRA: begin
+                        alu_data1_o = reg1_rd_data_i;
+                        alu_data2_o = reg2_rd_data_i;
                         alu_op_code_o = `ALU_SRA;
+                        reg_wr_en_o = 1'b1;
                     end
                     `INS_OR: begin
+                        alu_data1_o = reg1_rd_data_i;
+                        alu_data2_o = reg2_rd_data_i;
                         alu_op_code_o = `ALU_OR;
+                        reg_wr_en_o = 1'b1;
                     end
                     `INS_AND: begin
+                        alu_data1_o = reg1_rd_data_i;
+                        alu_data2_o = reg2_rd_data_i;
                         alu_op_code_o = `ALU_AND;
+                        reg_wr_en_o = 1'b1;
+                    end
+                    `INS_MUL: begin
+                        mul_op_code_o = `MUL;
+                        reg_wr_en_o = 1'b1;
+                        reg_wr_data_o = mul_res_i[31:0];
+                    end
+                    `INS_MULH: begin
+                        mul_op_code_o = `MUL;
+                        reg_wr_en_o = 1'b1;
+                        reg_wr_data_o = mul_res_i[63:32];
+                    end
+                    `INS_MULHSU: begin
+                        mul_op_code_o = `MULSU;
+                        reg_wr_en_o = 1'b1;
+                        reg_wr_data_o = mul_res_i[63:32];
+                    end
+                    `INS_MULHU: begin
+                        mul_op_code_o = `MULU;
+                        reg_wr_en_o = 1'b1;
+                        reg_wr_data_o = mul_res_i[63:32];
+                    end
+                    // 因为div指令需要暂停流水线，所以执行完后需要跳回div的下一条指令继续执行
+                    `INS_DIV: begin
+                        jump_flag_o = 1'b1;
+                        jump_addr_o = ins_addr_i + 4'd4;
+                        hold_flag = 1'b1;
+                        div_op_code_o = `DIV;
+                        div_req_o = 1'b1;
+                    end
+                    `INS_DIVU: begin
+                        jump_flag_o = 1'b1;
+                        jump_addr_o = ins_addr_i + 4'd4;
+                        hold_flag = 1'b1;
+                        div_op_code_o = `DIVU;
+                        div_req_o = 1'b1;
+                    end
+                    `INS_REM: begin
+                        jump_flag_o = 1'b1;
+                        jump_addr_o = ins_addr_i + 4'd4;
+                        hold_flag = 1'b1;
+                        div_op_code_o = `REM;
+                        div_req_o = 1'b1;
+                    end
+                    `INS_REMU: begin
+                        jump_flag_o = 1'b1;
+                        jump_addr_o = ins_addr_i + 4'd4;
+                        hold_flag = 1'b1;
+                        div_op_code_o = `REMU;
+                        div_req_o = 1'b1;
                     end
                     default: begin 
                     end
@@ -186,12 +281,13 @@ module cu(
             end 
             `INS_LUI: begin
                 reg_wr_en_o = 1'b1;
+                alu_data1_o = reg1_rd_data_i;
                 alu_data2_o = imm_i;
                 alu_op_code_o = `ALU_ADD;
             end
             `INS_AUIPC: begin
                 reg_wr_en_o = 1'b1;
-                alu_data1_o =ins_addr_i;
+                alu_data1_o = ins_addr_i;
                 alu_data2_o = imm_i;
                 alu_op_code_o = `ALU_ADD;
             end
@@ -199,7 +295,7 @@ module cu(
             `INS_JAL: begin
                 reg_wr_en_o = 1'b1;
                 reg_wr_data_o = ins_addr_i + 4'd4;
-                alu_data1_o =ins_addr_i;
+                alu_data1_o = ins_addr_i;
                 alu_data2_o = imm_i;
                 alu_op_code_o = `ALU_ADD;
                 jump_flag_o = 1'b1;
@@ -209,6 +305,7 @@ module cu(
             `INS_JALR: begin
                 reg_wr_en_o = 1'b1;
                 reg_wr_data_o = ins_addr_i + 4'd4;
+                alu_data1_o = reg1_rd_data_i;
                 alu_data2_o = imm_i;
                 alu_op_code_o = `ALU_ADD;
                 jump_flag_o = 1'b1;
@@ -216,6 +313,8 @@ module cu(
                 hold_flag = 1'b1;
             end
             `INS_TYPE_BRANCH: begin
+                alu_data1_o = reg1_rd_data_i;
+                alu_data2_o = reg2_rd_data_i;
                 case(funct3_i)
                     `INS_BEQ: begin
                         alu_op_code_o = `ALU_SUB;

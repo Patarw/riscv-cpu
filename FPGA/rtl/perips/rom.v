@@ -39,7 +39,7 @@ module rom(
     
     );
     
-    // 读取需要固化在rom里面的程序
+    // 读取需要固化在rom里面的程序，方便仿真
     //initial begin
     //    $readmemb("D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/instructions.txt", _rom);
     //end

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_prj
-Wed Jul 12 20:57:56 2023
+Fri Jul 21 22:30:20 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -14,32 +14,37 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. State Machine - |RISCV_SOC_TOP|uart:u_uart|uart_rx_state
- 10. State Machine - |RISCV_SOC_TOP|uart:u_uart|uart_tx_state
- 11. State Machine - |RISCV_SOC_TOP|uart_debug:u_uart_debug|uart_state
- 12. Registers Removed During Synthesis
- 13. Removed Registers Triggering Further Register Optimizations
- 14. General Register Statistics
- 15. Inverted Register Statistics
- 16. Registers Added for RAM Pass-Through Logic
- 17. Registers Packed Into Inferred Megafunctions
- 18. Multiplexer Restructuring Statistics (Restructuring Performed)
- 19. Source assignments for ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_ilc1:auto_generated
- 20. Source assignments for rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_ilc1:auto_generated
- 21. Source assignments for rom:u_rom|altsyncram:_rom_rtl_1|altsyncram_ilc1:auto_generated
- 22. Parameter Settings for User Entity Instance: uart_debug:u_uart_debug
- 23. Parameter Settings for User Entity Instance: uart_debug:u_uart_debug|delay_buffer:u_delay_buffer
- 24. Parameter Settings for User Entity Instance: rib:u_rib
- 25. Parameter Settings for User Entity Instance: uart:u_uart
- 26. Parameter Settings for User Entity Instance: uart:u_uart|delay_buffer:u_delay_buffer
- 27. Parameter Settings for Inferred Entity Instance: ram:u_ram|altsyncram:_ram_rtl_0
- 28. Parameter Settings for Inferred Entity Instance: rom:u_rom|altsyncram:_rom_rtl_0
- 29. Parameter Settings for Inferred Entity Instance: rom:u_rom|altsyncram:_rom_rtl_1
- 30. altsyncram Parameter Settings by Entity Instance
- 31. Port Connectivity Checks: "rib:u_rib"
- 32. Elapsed Time Per Partition
- 33. Analysis & Synthesis Messages
- 34. Analysis & Synthesis Suppressed Messages
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. State Machine - |RISCV_SOC_TOP|uart:u_uart|uart_rx_state
+ 11. State Machine - |RISCV_SOC_TOP|uart:u_uart|uart_tx_state
+ 12. State Machine - |RISCV_SOC_TOP|uart_debug:u_uart_debug|uart_state
+ 13. State Machine - |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state
+ 14. User-Specified and Inferred Latches
+ 15. Registers Removed During Synthesis
+ 16. Removed Registers Triggering Further Register Optimizations
+ 17. General Register Statistics
+ 18. Inverted Register Statistics
+ 19. Registers Added for RAM Pass-Through Logic
+ 20. Registers Packed Into Inferred Megafunctions
+ 21. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 22. Source assignments for ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_ilc1:auto_generated
+ 23. Source assignments for rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_ilc1:auto_generated
+ 24. Source assignments for rom:u_rom|altsyncram:_rom_rtl_1|altsyncram_ilc1:auto_generated
+ 25. Parameter Settings for User Entity Instance: uart_debug:u_uart_debug
+ 26. Parameter Settings for User Entity Instance: uart_debug:u_uart_debug|delay_buffer:u_delay_buffer
+ 27. Parameter Settings for User Entity Instance: rib:u_rib
+ 28. Parameter Settings for User Entity Instance: uart:u_uart
+ 29. Parameter Settings for User Entity Instance: uart:u_uart|delay_buffer:u_delay_buffer
+ 30. Parameter Settings for Inferred Entity Instance: ram:u_ram|altsyncram:_ram_rtl_0
+ 31. Parameter Settings for Inferred Entity Instance: rom:u_rom|altsyncram:_rom_rtl_0
+ 32. Parameter Settings for Inferred Entity Instance: rom:u_rom|altsyncram:_rom_rtl_1
+ 33. Parameter Settings for Inferred Entity Instance: RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|lpm_mult:Mult0
+ 34. altsyncram Parameter Settings by Entity Instance
+ 35. lpm_mult Parameter Settings by Entity Instance
+ 36. Port Connectivity Checks: "rib:u_rib"
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
+ 39. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -65,19 +70,19 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jul 12 20:57:56 2023            ;
+; Analysis & Synthesis Status        ; Successful - Fri Jul 21 22:30:20 2023            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; cpu_prj                                          ;
 ; Top-level Entity Name              ; RISCV_SOC_TOP                                    ;
 ; Family                             ; Cyclone IV E                                     ;
-; Total logic elements               ; 4,749                                            ;
-;     Total combinational functions  ; 3,586                                            ;
-;     Dedicated logic registers      ; 1,678                                            ;
-; Total registers                    ; 1678                                             ;
-; Total pins                         ; 8                                                ;
+; Total logic elements               ; 5,840                                            ;
+;     Total combinational functions  ; 4,713                                            ;
+;     Dedicated logic registers      ; 1,958                                            ;
+; Total registers                    ; 1958                                             ;
+; Total pins                         ; 9                                                ;
 ; Total virtual pins                 ; 0                                                ;
 ; Total memory bits                  ; 98,304                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                                ;
+; Embedded Multiplier 9-bit elements ; 8                                                ;
 ; Total PLLs                         ; 0                                                ;
 +------------------------------------+--------------------------------------------------+
 
@@ -192,6 +197,9 @@ applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                        ; Library ;
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+; ../rtl/perips/gpio.v             ; yes             ; User Verilog HDL File        ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/gpio.v                  ;         ;
+; ../rtl/core/div.v                ; yes             ; User Verilog HDL File        ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/div.v                     ;         ;
+; ../rtl/core/mul.v                ; yes             ; User Verilog HDL File        ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/mul.v                     ;         ;
 ; ../rtl/debug/uart_debug.v        ; yes             ; User Verilog HDL File        ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug/uart_debug.v             ;         ;
 ; ../rtl/core/rib.v                ; yes             ; User Verilog HDL File        ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/rib.v                     ;         ;
 ; ../rtl/utils/delay_buffer.v      ; yes             ; User Verilog HDL File        ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/utils/delay_buffer.v           ;         ;
@@ -221,6 +229,12 @@ applicable agreement for further details.
 ; altram.inc                       ; yes             ; Megafunction                 ; d:/software/quartus/quartus/libraries/megafunctions/altram.inc                      ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                 ; d:/software/quartus/quartus/libraries/megafunctions/altdpram.inc                    ;         ;
 ; db/altsyncram_ilc1.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/db/altsyncram_ilc1.tdf ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; d:/software/quartus/quartus/libraries/megafunctions/lpm_mult.tdf                    ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; d:/software/quartus/quartus/libraries/megafunctions/lpm_add_sub.inc                 ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; d:/software/quartus/quartus/libraries/megafunctions/multcore.inc                    ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; d:/software/quartus/quartus/libraries/megafunctions/bypassff.inc                    ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; d:/software/quartus/quartus/libraries/megafunctions/altshift.inc                    ;         ;
+; db/mult_7dt.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/db/mult_7dt.tdf        ;         ;
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
 
 
@@ -229,62 +243,67 @@ applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 4,749     ;
+; Estimated Total logic elements              ; 5,840     ;
 ;                                             ;           ;
-; Total combinational functions               ; 3586      ;
+; Total combinational functions               ; 4713      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 2708      ;
-;     -- 3 input functions                    ; 648       ;
-;     -- <=2 input functions                  ; 230       ;
+;     -- 4 input functions                    ; 3017      ;
+;     -- 3 input functions                    ; 1105      ;
+;     -- <=2 input functions                  ; 591       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 3290      ;
-;     -- arithmetic mode                      ; 296       ;
+;     -- normal mode                          ; 4042      ;
+;     -- arithmetic mode                      ; 671       ;
 ;                                             ;           ;
-; Total registers                             ; 1678      ;
-;     -- Dedicated logic registers            ; 1678      ;
+; Total registers                             ; 1958      ;
+;     -- Dedicated logic registers            ; 1958      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 8         ;
+; I/O pins                                    ; 9         ;
 ; Total memory bits                           ; 98304     ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
+; Embedded Multiplier 9-bit elements          ; 8         ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 1774      ;
-; Total fan-out                               ; 20723     ;
-; Average fan-out                             ; 3.85      ;
+; Maximum fan-out                             ; 2054      ;
+; Total fan-out                               ; 25201     ;
+; Average fan-out                             ; 3.71      ;
 +---------------------------------------------+-----------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                  ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------+--------------+
-; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                           ; Library Name ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------+--------------+
-; |RISCV_SOC_TOP                            ; 3586 (0)          ; 1678 (0)     ; 98304       ; 0            ; 0       ; 0         ; 8    ; 0            ; |RISCV_SOC_TOP                                                                ; work         ;
-;    |RISCV:u_RISCV|                        ; 3003 (0)          ; 1259 (0)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV                                                  ; work         ;
-;       |EX_UNIT:INST_EX_UNIT|              ; 1082 (0)          ; 20 (20)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT                             ; work         ;
-;          |alu:u_alu|                      ; 737 (737)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu                   ; work         ;
-;          |cu:u_cu|                        ; 345 (345)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu                     ; work         ;
-;       |ID_UNIT:INST_ID_UNIT|              ; 349 (0)           ; 150 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT                             ; work         ;
-;          |id:u_id|                        ; 143 (143)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id                     ; work         ;
-;          |id_ex:u_id_ex|                  ; 206 (206)         ; 150 (150)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex               ; work         ;
-;       |IF_UNIT:INST_IF_UNIT|              ; 165 (0)           ; 65 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT                             ; work         ;
-;          |if_id:u_if_id|                  ; 65 (65)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id               ; work         ;
-;          |pc:u_pc|                        ; 100 (100)         ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|pc:u_pc                     ; work         ;
-;       |RF_UNIT:INST_RF_UNIT|              ; 1407 (1407)       ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT                             ; work         ;
-;    |ram:u_ram|                            ; 7 (7)             ; 53 (53)      ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|ram:u_ram                                                      ; work         ;
-;       |altsyncram:_ram_rtl_0|             ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|ram:u_ram|altsyncram:_ram_rtl_0                                ; work         ;
-;          |altsyncram_ilc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_ilc1:auto_generated ; work         ;
-;    |rib:u_rib|                            ; 366 (366)         ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rib:u_rib                                                      ; work         ;
-;    |rom:u_rom|                            ; 14 (14)           ; 106 (106)    ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom                                                      ; work         ;
-;       |altsyncram:_rom_rtl_0|             ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_0                                ; work         ;
-;          |altsyncram_ilc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_ilc1:auto_generated ; work         ;
-;       |altsyncram:_rom_rtl_1|             ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_1                                ; work         ;
-;          |altsyncram_ilc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_1|altsyncram_ilc1:auto_generated ; work         ;
-;    |uart:u_uart|                          ; 122 (122)         ; 124 (120)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart:u_uart                                                    ; work         ;
-;       |delay_buffer:u_delay_buffer|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart:u_uart|delay_buffer:u_delay_buffer                        ; work         ;
-;    |uart_debug:u_uart_debug|              ; 74 (74)           ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart_debug:u_uart_debug                                        ; work         ;
-+-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                       ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------+--------------+
+; |RISCV_SOC_TOP                            ; 4713 (0)          ; 1958 (0)     ; 98304       ; 8            ; 0       ; 4         ; 9    ; 0            ; |RISCV_SOC_TOP                                                                                     ; work         ;
+;    |RISCV:u_RISCV|                        ; 3850 (0)          ; 1406 (0)     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV                                                                       ; work         ;
+;       |EX_UNIT:INST_EX_UNIT|              ; 1900 (0)          ; 167 (20)     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT                                                  ; work         ;
+;          |alu:u_alu|                      ; 727 (727)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu                                        ; work         ;
+;          |cu:u_cu|                        ; 560 (560)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu                                          ; work         ;
+;          |div:u_div|                      ; 338 (338)         ; 147 (147)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div                                        ; work         ;
+;          |mul:u_mul|                      ; 275 (196)         ; 0 (0)        ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul                                        ; work         ;
+;             |lpm_mult:Mult0|              ; 79 (0)            ; 0 (0)        ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|lpm_mult:Mult0                         ; work         ;
+;                |mult_7dt:auto_generated|  ; 79 (79)           ; 0 (0)        ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|lpm_mult:Mult0|mult_7dt:auto_generated ; work         ;
+;       |ID_UNIT:INST_ID_UNIT|              ; 347 (0)           ; 150 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT                                                  ; work         ;
+;          |id:u_id|                        ; 140 (140)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id                                          ; work         ;
+;          |id_ex:u_id_ex|                  ; 207 (207)         ; 150 (150)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex                                    ; work         ;
+;       |IF_UNIT:INST_IF_UNIT|              ; 189 (0)           ; 65 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT                                                  ; work         ;
+;          |if_id:u_if_id|                  ; 59 (59)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id                                    ; work         ;
+;          |pc:u_pc|                        ; 130 (130)         ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|pc:u_pc                                          ; work         ;
+;       |RF_UNIT:INST_RF_UNIT|              ; 1414 (1414)       ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT                                                  ; work         ;
+;    |gpio:u_gpio|                          ; 104 (104)         ; 96 (96)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|gpio:u_gpio                                                                         ; work         ;
+;    |ram:u_ram|                            ; 7 (7)             ; 53 (53)      ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|ram:u_ram                                                                           ; work         ;
+;       |altsyncram:_ram_rtl_0|             ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|ram:u_ram|altsyncram:_ram_rtl_0                                                     ; work         ;
+;          |altsyncram_ilc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_ilc1:auto_generated                      ; work         ;
+;    |rib:u_rib|                            ; 424 (424)         ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rib:u_rib                                                                           ; work         ;
+;    |rom:u_rom|                            ; 14 (14)           ; 106 (106)    ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom                                                                           ; work         ;
+;       |altsyncram:_rom_rtl_0|             ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_0                                                     ; work         ;
+;          |altsyncram_ilc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_ilc1:auto_generated                      ; work         ;
+;       |altsyncram:_rom_rtl_1|             ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_1                                                     ; work         ;
+;          |altsyncram_ilc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_1|altsyncram_ilc1:auto_generated                      ; work         ;
+;    |uart:u_uart|                          ; 195 (195)         ; 161 (157)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart:u_uart                                                                         ; work         ;
+;       |delay_buffer:u_delay_buffer|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart:u_uart|delay_buffer:u_delay_buffer                                             ; work         ;
+;    |uart_debug:u_uart_debug|              ; 119 (119)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart_debug:u_uart_debug                                                             ; work         ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -297,6 +316,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_ilc1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 1024         ; 32           ; 1024         ; 32           ; 32768 ; None ;
 ; rom:u_rom|altsyncram:_rom_rtl_1|altsyncram_ilc1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 1024         ; 32           ; 1024         ; 32           ; 32768 ; None ;
 +---------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 4           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 8           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 4           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
 
 
 Encoding Type:  One-Hot
@@ -338,51 +375,66 @@ Encoding Type:  One-Hot
 +----------------------+----------------+----------------------+------------------+-----------------+
 
 
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------+
+; State Machine - |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state ;
++----------------+----------------------------------------------------------------------+
+; Name           ; div_state.BUSY                                                       ;
++----------------+----------------------------------------------------------------------+
+; div_state.IDLE ; 0                                                                    ;
+; div_state.BUSY ; 1                                                                    ;
++----------------+----------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; rib:u_rib|s3_rd_addr_o[3]                          ; rib:u_rib|Decoder3  ; yes                    ;
+; rib:u_rib|s3_rd_addr_o[2]                          ; rib:u_rib|Decoder3  ; yes                    ;
+; rib:u_rib|s3_rd_addr_o[1]                          ; rib:u_rib|Decoder3  ; yes                    ;
+; rib:u_rib|s3_rd_addr_o[0]                          ; rib:u_rib|Decoder3  ; yes                    ;
+; Number of user-specified and inferred latches = 4  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
 +--------------------------------------------------------------------------------------------------------------------------------------+
 ; Registers Removed During Synthesis                                                                                                   ;
 +-------------------------------------------------------------------+------------------------------------------------------------------+
 ; Register name                                                     ; Reason for Removal                                               ;
 +-------------------------------------------------------------------+------------------------------------------------------------------+
+; uart_debug:u_uart_debug|mem_wr_addr_o[0,1]                        ; Stuck at GND due to stuck port data_in                           ;
 ; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[2] ; Stuck at GND due to stuck port data_in                           ;
-; uart_debug:u_uart_debug|rom_wr_en_o                               ; Merged with uart_debug:u_uart_debug|rib_wr_req_o                 ;
+; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data2[0..31]     ; Stuck at GND due to stuck port data_in                           ;
 ; uart_debug:u_uart_debug|uart_rx_delay                             ; Merged with uart:u_uart|uart_rx_delay                            ;
 ; uart_debug:u_uart_debug|delay_buffer:u_delay_buffer|buffer[0][0]  ; Merged with uart:u_uart|delay_buffer:u_delay_buffer|buffer[0][0] ;
 ; uart_debug:u_uart_debug|delay_buffer:u_delay_buffer|buffer[1][0]  ; Merged with uart:u_uart|delay_buffer:u_delay_buffer|buffer[1][0] ;
 ; uart_debug:u_uart_debug|delay_buffer:u_delay_buffer|buffer[2][0]  ; Merged with uart:u_uart|delay_buffer:u_delay_buffer|buffer[2][0] ;
 ; uart_debug:u_uart_debug|delay_buffer:u_delay_buffer|buffer[3][0]  ; Merged with uart:u_uart|delay_buffer:u_delay_buffer|buffer[3][0] ;
 ; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[0] ; Lost fanout                                                      ;
-; uart:u_uart|uart_rx_state~10                                      ; Lost fanout                                                      ;
+; uart:u_uart|uart_rx_state~9                                       ; Lost fanout                                                      ;
 ; uart:u_uart|uart_tx_state~6                                       ; Lost fanout                                                      ;
 ; uart:u_uart|uart_tx_state~9                                       ; Lost fanout                                                      ;
 ; uart_debug:u_uart_debug|uart_state~6                              ; Lost fanout                                                      ;
 ; uart_debug:u_uart_debug|uart_state~7                              ; Lost fanout                                                      ;
 ; uart_debug:u_uart_debug|uart_state~8                              ; Lost fanout                                                      ;
 ; uart_debug:u_uart_debug|uart_state~9                              ; Lost fanout                                                      ;
-; uart:u_uart|rx_baud_cnt[0..12]                                    ; Lost fanout                                                      ;
-; uart:u_uart|rx_bit_cnt[0..3]                                      ; Lost fanout                                                      ;
-; uart:u_uart|uart_rx_state.BEGIN                                   ; Lost fanout                                                      ;
-; uart:u_uart|uart_rx_state.RX_BYTE                                 ; Lost fanout                                                      ;
-; uart:u_uart|uart_rx_state.END                                     ; Lost fanout                                                      ;
-; uart:u_uart|uart_rx_state.IDLE                                    ; Lost fanout                                                      ;
-; Total Number of Removed Registers = 36                            ;                                                                  ;
+; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state~5          ; Lost fanout                                                      ;
+; uart_debug:u_uart_debug|rib_wr_req_o                              ; Merged with uart_debug:u_uart_debug|mem_wr_en_o                  ;
+; Total Number of Removed Registers = 50                            ;                                                                  ;
 +-------------------------------------------------------------------+------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                                           ;
-+-------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------+
-; Register name                                                     ; Reason for Removal        ; Registers Removed due to This Register                                                ;
-+-------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------+
-; uart:u_uart|rx_baud_cnt[12]                                       ; Lost Fanouts              ; uart:u_uart|rx_baud_cnt[11], uart:u_uart|rx_baud_cnt[10], uart:u_uart|rx_baud_cnt[9], ;
-;                                                                   ;                           ; uart:u_uart|rx_baud_cnt[8], uart:u_uart|rx_baud_cnt[7], uart:u_uart|rx_baud_cnt[6],   ;
-;                                                                   ;                           ; uart:u_uart|rx_baud_cnt[5], uart:u_uart|rx_baud_cnt[4], uart:u_uart|rx_baud_cnt[3],   ;
-;                                                                   ;                           ; uart:u_uart|rx_baud_cnt[2], uart:u_uart|rx_baud_cnt[1], uart:u_uart|rx_baud_cnt[0],   ;
-;                                                                   ;                           ; uart:u_uart|uart_rx_state.IDLE                                                        ;
-; uart:u_uart|rx_bit_cnt[3]                                         ; Lost Fanouts              ; uart:u_uart|rx_bit_cnt[2], uart:u_uart|rx_bit_cnt[1]                                  ;
-; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[2] ; Stuck at GND              ; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[0]                     ;
-;                                                                   ; due to stuck port data_in ;                                                                                       ;
-; uart:u_uart|rx_bit_cnt[0]                                         ; Lost Fanouts              ; uart:u_uart|uart_rx_state.RX_BYTE                                                     ;
-+-------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                       ;
++-------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------+
+; Register name                                                     ; Reason for Removal        ; Registers Removed due to This Register                            ;
++-------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------+
+; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[2] ; Stuck at GND              ; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[0] ;
+;                                                                   ; due to stuck port data_in ;                                                                   ;
++-------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -390,12 +442,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1678  ;
-; Number of registers using Synchronous Clear  ; 58    ;
-; Number of registers using Synchronous Load   ; 64    ;
-; Number of registers using Asynchronous Clear ; 482   ;
+; Total registers                              ; 1958  ;
+; Number of registers using Synchronous Clear  ; 175   ;
+; Number of registers using Synchronous Load   ; 127   ;
+; Number of registers using Asynchronous Clear ; 592   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1252  ;
+; Number of registers using Clock Enable       ; 1362  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -406,9 +458,9 @@ Encoding Type:  One-Hot
 ; Inverted Register                                            ; Fan out ;
 +--------------------------------------------------------------+---------+
 ; uart:u_uart|uart_tx                                          ; 2       ;
-; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[4] ; 16      ;
-; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[1] ; 4       ;
-; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[0] ; 4       ;
+; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[4] ; 41      ;
+; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[1] ; 13      ;
+; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[0] ; 8       ;
 ; Total number of inverted registers = 4                       ;         ;
 +--------------------------------------------------------------+---------+
 
@@ -597,43 +649,61 @@ Encoding Type:  One-Hot
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV_SOC_TOP|uart:u_uart|tx_bit_cnt[3]                                           ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|byte_cnt[0]                                 ;
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg_wr_addr_o[2]   ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|baud_cnt[12]                                ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|mem_wr_data_o[16]                           ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|wr_data_reg[31]                             ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg_wr_addr_o[4]   ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV_SOC_TOP|uart:u_uart|rx_bit_cnt[0]                                           ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|bit_cnt[0]                                  ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[23] ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart:u_uart|rd_data_o[20]                                           ;
-; 45:1               ; 29 bits   ; 870 LEs       ; 58 LEs               ; 812 LEs                ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|pc:u_pc|pc_out[5]                ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|uart:u_uart|uart_tx_data_buf                                        ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector0                ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector0                ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[19] ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|byte_cnt[1]                                 ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|byte_data[5]                                ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[11]          ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 32 LEs               ; 128 LEs                ; Yes        ; |RISCV_SOC_TOP|uart:u_uart|rd_data_o[31]                                           ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 32 LEs               ; 128 LEs                ; Yes        ; |RISCV_SOC_TOP|uart:u_uart|rd_data_o[6]                                            ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[63]          ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|bit_cnt[1]                                  ;
+; 11:1               ; 32 bits   ; 224 LEs       ; 96 LEs               ; 128 LEs                ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_res_o[27]          ;
+; 139:1              ; 29 bits   ; 2668 LEs      ; 87 LEs               ; 2581 LEs               ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|pc:u_pc|pc_out[9]                ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state              ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|gpio:u_gpio|gpio_data                                               ;
 ; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector0                ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector0                ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector0                ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|uart:u_uart|uart_tx_data_buf                                        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|Mux23                  ;
 ; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|reg1_rd_data[13]                 ;
-; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; No         ; |RISCV_SOC_TOP|uart:u_uart|uart_ctrl                                               ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; No         ; |RISCV_SOC_TOP|uart:u_uart|uart_ctrl                                               ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|gpio:u_gpio|gpio_ctrl                                               ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |RISCV_SOC_TOP|rib:u_rib|s1_rd_addr_o                                              ;
 ; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; No         ; |RISCV_SOC_TOP|rib:u_rib|s0_rd_addr_o                                              ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|ins_o[16]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|ins_o[6]           ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|uart:u_uart|uart_rx_state                                           ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|uart_state                                  ;
-; 4:1                ; 35 bits   ; 70 LEs        ; 70 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector136                                               ;
-; 6:1                ; 43 bits   ; 172 LEs       ; 86 LEs               ; 86 LEs                 ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector80                                                ;
-; 6:1                ; 43 bits   ; 172 LEs       ; 86 LEs               ; 86 LEs                 ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector7                                                 ;
-; 11:1               ; 8 bits    ; 56 LEs        ; 24 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[30]        ;
-; 11:1               ; 8 bits    ; 56 LEs        ; 16 LEs               ; 40 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[22]        ;
-; 11:1               ; 8 bits    ; 56 LEs        ; 16 LEs               ; 40 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[11]        ;
-; 11:1               ; 8 bits    ; 56 LEs        ; 16 LEs               ; 40 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[7]         ;
-; 36:1               ; 16 bits   ; 384 LEs       ; 32 LEs               ; 352 LEs                ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector2                ;
-; 11:1               ; 4 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector30               ;
-; 9:1                ; 8 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector16               ;
-; 13:1               ; 6 bits    ; 48 LEs        ; 18 LEs               ; 30 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector26               ;
-; 22:1               ; 7 bits    ; 98 LEs        ; 56 LEs               ; 42 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux23                  ;
-; 23:1               ; 7 bits    ; 105 LEs       ; 56 LEs               ; 49 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux9                   ;
-; 38:1               ; 7 bits    ; 175 LEs       ; 21 LEs               ; 154 LEs                ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector21               ;
-; 23:1               ; 4 bits    ; 60 LEs        ; 32 LEs               ; 28 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux24                  ;
-; 24:1               ; 4 bits    ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux6                   ;
-; 42:1               ; 6 bits    ; 168 LEs       ; 24 LEs               ; 144 LEs                ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector26               ;
-; 24:1               ; 2 bits    ; 32 LEs        ; 18 LEs               ; 14 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux29                  ;
-; 25:1               ; 2 bits    ; 32 LEs        ; 18 LEs               ; 14 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux3                   ;
+; 4:1                ; 35 bits   ; 70 LEs        ; 70 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector50                                                ;
+; 4:1                ; 35 bits   ; 70 LEs        ; 70 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector86                                                ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 96 LEs               ; 224 LEs                ; No         ; |RISCV_SOC_TOP|rib:u_rib|Mux29                                                     ;
+; 6:1                ; 43 bits   ; 172 LEs       ; 86 LEs               ; 86 LEs                 ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector176                                               ;
+; 6:1                ; 43 bits   ; 172 LEs       ; 86 LEs               ; 86 LEs                 ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector166                                               ;
+; 11:1               ; 8 bits    ; 56 LEs        ; 24 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[25]        ;
+; 11:1               ; 8 bits    ; 56 LEs        ; 16 LEs               ; 40 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[18]        ;
+; 11:1               ; 8 bits    ; 56 LEs        ; 16 LEs               ; 40 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[13]        ;
+; 11:1               ; 8 bits    ; 56 LEs        ; 16 LEs               ; 40 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[5]         ;
+; 129:1              ; 30 bits   ; 2580 LEs      ; 60 LEs               ; 2520 LEs               ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector99               ;
+; 129:1              ; 32 bits   ; 2752 LEs      ; 64 LEs               ; 2688 LEs               ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector149              ;
+; 9:1                ; 8 bits    ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector12               ;
+; 11:1               ; 4 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector27               ;
+; 64:1               ; 2 bits    ; 84 LEs        ; 4 LEs                ; 80 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector126              ;
+; 22:1               ; 7 bits    ; 98 LEs        ; 56 LEs               ; 42 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux21                  ;
+; 23:1               ; 7 bits    ; 105 LEs       ; 56 LEs               ; 49 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux8                   ;
+; 13:1               ; 6 bits    ; 48 LEs        ; 18 LEs               ; 30 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector22               ;
+; 23:1               ; 4 bits    ; 60 LEs        ; 36 LEs               ; 24 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux24                  ;
+; 24:1               ; 4 bits    ; 64 LEs        ; 36 LEs               ; 28 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux7                   ;
+; 24:1               ; 2 bits    ; 32 LEs        ; 20 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux29                  ;
+; 25:1               ; 2 bits    ; 32 LEs        ; 20 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux2                   ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 96 LEs               ; 96 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector66               ;
+; 20:1               ; 7 bits    ; 91 LEs        ; 42 LEs               ; 49 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector81               ;
+; 24:1               ; 5 bits    ; 80 LEs        ; 35 LEs               ; 45 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector92               ;
+; 23:1               ; 2 bits    ; 30 LEs        ; 14 LEs               ; 16 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector94               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
 
 
@@ -916,6 +986,41 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|lpm_mult:Mult0 ;
++------------------------------------------------+--------------+----------------------------------------------+
+; Parameter Name                                 ; Value        ; Type                                         ;
++------------------------------------------------+--------------+----------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY                                   ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY                                 ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE                                 ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE                               ;
+; LPM_WIDTHA                                     ; 32           ; Untyped                                      ;
+; LPM_WIDTHB                                     ; 32           ; Untyped                                      ;
+; LPM_WIDTHP                                     ; 64           ; Untyped                                      ;
+; LPM_WIDTHR                                     ; 64           ; Untyped                                      ;
+; LPM_WIDTHS                                     ; 1            ; Untyped                                      ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped                                      ;
+; LPM_PIPELINE                                   ; 0            ; Untyped                                      ;
+; LATENCY                                        ; 0            ; Untyped                                      ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped                                      ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped                                      ;
+; USE_EAB                                        ; OFF          ; Untyped                                      ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped                                      ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped                                      ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped                                      ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K                          ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped                                      ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped                                      ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped                                      ;
+; CBXI_PARAMETER                                 ; mult_7dt     ; Untyped                                      ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped                                      ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped                                      ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped                                      ;
++------------------------------------------------+--------------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +-----------------------------------------------------------------------------+
 ; altsyncram Parameter Settings by Entity Instance                            ;
 +-------------------------------------------+---------------------------------+
@@ -958,27 +1063,42 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+---------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "rib:u_rib"                                                                                                                                           ;
-+--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port         ; Type   ; Severity ; Details                                                                                                                                      ;
-+--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; m1_rd_req_i  ; Input  ; Info     ; Explicitly unconnected                                                                                                                       ;
-; m1_rd_addr_i ; Input  ; Info     ; Explicitly unconnected                                                                                                                       ;
-; m1_rd_data_o ; Output ; Info     ; Explicitly unconnected                                                                                                                       ;
-; m2_wr_req_i  ; Input  ; Info     ; Explicitly unconnected                                                                                                                       ;
-; m2_wr_en_i   ; Input  ; Info     ; Explicitly unconnected                                                                                                                       ;
-; m2_wr_addr_i ; Input  ; Info     ; Explicitly unconnected                                                                                                                       ;
-; m2_wr_data_i ; Input  ; Info     ; Explicitly unconnected                                                                                                                       ;
-; m2_rd_req_i  ; Input  ; Info     ; Explicitly unconnected                                                                                                                       ;
-; m2_rd_addr_i ; Input  ; Info     ; Explicitly unconnected                                                                                                                       ;
-; m2_rd_data_o ; Output ; Info     ; Explicitly unconnected                                                                                                                       ;
-; s3_wr_en_o   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
-; s3_wr_addr_o ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
-; s3_wr_data_o ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
-; s3_rd_addr_o ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
-; s3_rd_data_i ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+--------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                                      ;
++---------------------------------------+-------------------------------------------------------------+
+; Name                                  ; Value                                                       ;
++---------------------------------------+-------------------------------------------------------------+
+; Number of entity instances            ; 1                                                           ;
+; Entity Instance                       ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32                                                          ;
+;     -- LPM_WIDTHB                     ; 32                                                          ;
+;     -- LPM_WIDTHP                     ; 64                                                          ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                    ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                          ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                          ;
+;     -- USE_EAB                        ; OFF                                                         ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                        ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                          ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                          ;
++---------------------------------------+-------------------------------------------------------------+
+
+
++-----------------------------------------------------------+
+; Port Connectivity Checks: "rib:u_rib"                     ;
++--------------+--------+----------+------------------------+
+; Port         ; Type   ; Severity ; Details                ;
++--------------+--------+----------+------------------------+
+; m1_rd_req_i  ; Input  ; Info     ; Explicitly unconnected ;
+; m1_rd_addr_i ; Input  ; Info     ; Explicitly unconnected ;
+; m1_rd_data_o ; Output ; Info     ; Explicitly unconnected ;
+; m2_wr_req_i  ; Input  ; Info     ; Explicitly unconnected ;
+; m2_wr_en_i   ; Input  ; Info     ; Explicitly unconnected ;
+; m2_wr_addr_i ; Input  ; Info     ; Explicitly unconnected ;
+; m2_wr_data_i ; Input  ; Info     ; Explicitly unconnected ;
+; m2_rd_req_i  ; Input  ; Info     ; Explicitly unconnected ;
+; m2_rd_addr_i ; Input  ; Info     ; Explicitly unconnected ;
+; m2_rd_data_o ; Output ; Info     ; Explicitly unconnected ;
++--------------+--------+----------+------------------------+
 
 
 +-------------------------------+
@@ -986,7 +1106,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:07     ;
+; Top            ; 00:00:11     ;
 +----------------+--------------+
 
 
@@ -996,9 +1116,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Wed Jul 12 20:57:48 2023
+    Info: Processing started: Fri Jul 21 22:30:07 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_prj -c cpu_prj
 Info (11104): Parallel Compilation has detected 20 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 14 of the 14 physical processors detected instead.
+Info (12021): Found 1 design units, including 1 entities, in source file /users/desktop/fpga/tinyriscv_cpu/cpu_prj/fpga/rtl/perips/gpio.v
+    Info (12023): Found entity 1: gpio
+Info (12021): Found 1 design units, including 1 entities, in source file /users/desktop/fpga/tinyriscv_cpu/cpu_prj/fpga/rtl/core/div.v
+    Info (12023): Found entity 1: div
+Info (12021): Found 1 design units, including 1 entities, in source file /users/desktop/fpga/tinyriscv_cpu/cpu_prj/fpga/rtl/core/mul.v
+    Info (12023): Found entity 1: mul
 Info (12021): Found 1 design units, including 1 entities, in source file /users/desktop/fpga/tinyriscv_cpu/cpu_prj/fpga/rtl/debug/uart_debug.v
     Info (12023): Found entity 1: uart_debug
 Info (12021): Found 1 design units, including 1 entities, in source file /users/desktop/fpga/tinyriscv_cpu/cpu_prj/fpga/rtl/core/rib.v
@@ -1039,7 +1165,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
 Info (12021): Found 1 design units, including 1 entities, in source file /users/desktop/fpga/tinyriscv_cpu/cpu_prj/fpga/rtl/core/alu.v
     Info (12023): Found entity 1: alu
 Info (12127): Elaborating entity "RISCV_SOC_TOP" for the top level hierarchy
-Warning (10034): Output port "gpio_pins" at RISCV_SOC_TOP.v(35) has no driver
 Info (12128): Elaborating entity "RISCV" for hierarchy "RISCV:u_RISCV"
 Info (12128): Elaborating entity "IF_UNIT" for hierarchy "RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT"
 Info (12128): Elaborating entity "pc" for hierarchy "RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|pc:u_pc"
@@ -1051,20 +1176,66 @@ Info (12128): Elaborating entity "RF_UNIT" for hierarchy "RISCV:u_RISCV|RF_UNIT:
 Info (12128): Elaborating entity "EX_UNIT" for hierarchy "RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT"
 Info (12128): Elaborating entity "cu" for hierarchy "RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu"
 Info (12128): Elaborating entity "alu" for hierarchy "RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu"
+Info (12128): Elaborating entity "mul" for hierarchy "RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul"
+Info (12128): Elaborating entity "div" for hierarchy "RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div"
 Info (12128): Elaborating entity "uart_debug" for hierarchy "uart_debug:u_uart_debug"
-Warning (10240): Verilog HDL Always Construct warning at uart_debug.v(155): inferring latch(es) for variable "rom_wr_addr_o", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "rom_wr_addr_o[0]" at uart_debug.v(155)
-Info (10041): Inferred latch for "rom_wr_addr_o[1]" at uart_debug.v(155)
 Info (12128): Elaborating entity "delay_buffer" for hierarchy "uart_debug:u_uart_debug|delay_buffer:u_delay_buffer"
 Info (12128): Elaborating entity "rib" for hierarchy "rib:u_rib"
-Warning (10034): Output port "s3_wr_addr_o" at rib.v(80) has no driver
-Warning (10034): Output port "s3_wr_data_o" at rib.v(81) has no driver
-Warning (10034): Output port "s3_rd_addr_o" at rib.v(82) has no driver
-Warning (10034): Output port "s3_wr_en_o" at rib.v(79) has no driver
+Warning (10240): Verilog HDL Always Construct warning at rib.v(346): inferring latch(es) for variable "s3_rd_addr_o", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "s3_rd_addr_o[0]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[1]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[2]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[3]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[4]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[5]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[6]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[7]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[8]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[9]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[10]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[11]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[12]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[13]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[14]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[15]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[16]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[17]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[18]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[19]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[20]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[21]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[22]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[23]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[24]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[25]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[26]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[27]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[28]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[29]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[30]" at rib.v(346)
+Info (10041): Inferred latch for "s3_rd_addr_o[31]" at rib.v(346)
 Info (12128): Elaborating entity "rom" for hierarchy "rom:u_rom"
 Info (12128): Elaborating entity "ram" for hierarchy "ram:u_ram"
 Info (12128): Elaborating entity "uart" for hierarchy "uart:u_uart"
-Warning (10027): Verilog HDL or VHDL warning at the uart.v(166): index expression is not wide enough to address all of the elements in the array
+Warning (10027): Verilog HDL or VHDL warning at the uart.v(187): index expression is not wide enough to address all of the elements in the array
+Warning (10240): Verilog HDL Always Construct warning at uart.v(239): inferring latch(es) for variable "uart_rx_data_buf", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "uart_rx_data_buf[16]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[17]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[18]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[19]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[20]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[21]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[22]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[23]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[24]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[25]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[26]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[27]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[28]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[29]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[30]" at uart.v(239)
+Info (10041): Inferred latch for "uart_rx_data_buf[31]" at uart.v(239)
+Info (12128): Elaborating entity "gpio" for hierarchy "gpio:u_gpio"
 Warning (276020): Inferred RAM node "ram:u_ram|_ram_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "rom:u_rom|_rom_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Warning (276020): Inferred RAM node "rom:u_rom|_rom_rtl_1" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
@@ -1116,6 +1287,8 @@ Info (19000): Inferred 3 megafunctions from design logic
         Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|Mult0"
 Info (12130): Elaborated megafunction instantiation "ram:u_ram|altsyncram:_ram_rtl_0"
 Info (12133): Instantiated megafunction "ram:u_ram|altsyncram:_ram_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -1134,29 +1307,47 @@ Info (12133): Instantiated megafunction "ram:u_ram|altsyncram:_ram_rtl_0" with t
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ilc1.tdf
     Info (12023): Found entity 1: altsyncram_ilc1
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (12130): Elaborated megafunction instantiation "RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|lpm_mult:Mult0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "64"
+    Info (12134): Parameter "LPM_WIDTHR" = "64"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_7dt.tdf
+    Info (12023): Found entity 1: mult_7dt
+Info (13014): Ignored 222 buffer(s)
+    Info (13019): Ignored 222 SOFT buffer(s)
+Warning (13012): Latch rib:u_rib|s3_rd_addr_o[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[1]
+Warning (13012): Latch rib:u_rib|s3_rd_addr_o[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[1]
+Warning (13012): Latch rib:u_rib|s3_rd_addr_o[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[1]
+Warning (13012): Latch rib:u_rib|s3_rd_addr_o[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[1]
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "gpio_pins[0]" is stuck at GND
-    Warning (13410): Pin "gpio_pins[1]" is stuck at GND
-    Warning (13410): Pin "gpio_pins[2]" is stuck at GND
-    Warning (13410): Pin "gpio_pins[3]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 29 registers lost all their fanouts during netlist optimizations.
+Info (17049): 9 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/cpu_prj.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 5034 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
+Info (21057): Implemented 6236 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
     Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 4930 logic cells
+    Info (21061): Implemented 6123 logic cells
     Info (21064): Implemented 96 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 16 warnings
-    Info: Peak virtual memory: 4693 megabytes
-    Info: Processing ended: Wed Jul 12 20:57:56 2023
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:09
+    Info (21062): Implemented 8 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 4701 megabytes
+    Info: Processing ended: Fri Jul 21 22:30:20 2023
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:13
 
 
 +------------------------------------------+

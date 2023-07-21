@@ -64,9 +64,20 @@ module EX_UNIT(
     wire                     alu_zero_flag;
     wire                     alu_sign_flag;
     wire                     alu_overflow_flag;
+     
+    wire[2:0]                mul_op_code;
+    wire[`INST_DB_REG_DATA]  mul_res;
+    
+    wire[2:0]                div_op_code;
+    wire                     div_req;      
+    wire                     div_busy;
+    wire[`INST_REG_ADDR]     div_reg_wr_addr;
+    wire                     div_res_ready;
+    wire[`INST_REG_DATA]     div_res;
+    
     reg [`INST_ADDR_BUS]     mem_rd_addr;
     
-    // 内存写地址 mem_wr_addr_o
+    // 内存读地址延迟一个时钟周期
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
             mem_rd_addr <= `ZERO_WORD;
@@ -92,6 +103,14 @@ module EX_UNIT(
         .alu_op_code_o       (alu_op_code),
         .alu_data1_o         (alu_data1), 
         .alu_data2_o         (alu_data2),
+        .mul_res_i           (mul_res),
+        .mul_op_code_o       (mul_op_code),
+        .div_res_i           (div_res),
+        .div_busy_i          (div_busy), 
+        .div_res_ready_i     (div_res_ready), 
+        .div_reg_wr_addr_i   (div_reg_wr_addr),
+        .div_req_o           (div_req), 
+        .div_op_code_o       (div_op_code),
         .rib_hold_flag_i     (rib_hold_flag_i),          
         .jump_flag_o         (jump_flag_o),
         .jump_addr_o         (jump_addr_o),        
@@ -110,15 +129,38 @@ module EX_UNIT(
         .mem_wr_data_o       (mem_wr_data_o)
     );
     
-    // 运算单元例化
+    // alu运算单元例化
     alu u_alu(
         .alu_data1_i         (alu_data1), 
         .alu_data2_i         (alu_data2),
-        .alu_op_code         (alu_op_code),
+        .alu_op_code_i       (alu_op_code),
         .alu_res_o           (alu_res),
-        .alu_zero_flag       (alu_zero_flag),
-        .alu_sign_flag       (alu_sign_flag),
-        .alu_overflow_flag   (alu_overflow_flag)
+        .alu_zero_flag_o     (alu_zero_flag),
+        .alu_sign_flag_o     (alu_sign_flag),
+        .alu_overflow_flag_o (alu_overflow_flag)
+    );
+    
+    // 乘法单元例化
+    mul u_mul(
+        .mul_data1_i         (reg1_rd_data_i), 
+        .mul_data2_i         (reg2_rd_data_i),
+        .mul_op_code_i       (mul_op_code),
+        .mul_res_o           (mul_res)
+    );
+    
+    // 除法单元例化
+    div u_div(
+        .clk                 (clk),
+        .rst_n               (rst_n),
+        .div_data1_i         (reg1_rd_data_i), 
+        .div_data2_i         (reg2_rd_data_i),
+        .div_op_code_i       (div_op_code),
+        .div_req_i           (div_req), 
+        .div_reg_wr_addr_i   (reg_wr_addr_i),
+        .div_reg_wr_addr_o   (div_reg_wr_addr),
+        .div_busy_o          (div_busy), 
+        .div_res_ready_o     (div_res_ready), 
+        .div_res_o           (div_res)  
     );
     
 endmodule

@@ -35,6 +35,8 @@ vmap work rtl_work
 
 vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/utils {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/utils/delay_buffer.v}
 vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/defines.v}
+vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/div.v}
+vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/mul.v}
 vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug/uart_debug.v}
 vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/rib.v}
 vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RISCV_SOC_TOP.v}

@@ -75,14 +75,14 @@ module id(
                         imm_o = {{20{ins_i[31]}}, ins_i[31:20]}; // 因为立即数是补码，所以需要符号位拓展
                     end
                     `INS_SLTIU,`INS_XORI,`INS_ORI,`INS_ANDI: begin
-                        imm_o = {{20{1'b0}}, ins_i[31:20]}; // 这里的立即数是无符号数，所以不能符号位拓展
+                        imm_o = {{20{1'b0}}, ins_i[31:20]}; // 这里的立即数是无符号数，所以无需符号位拓展
                     end
                     `INS_SLLI,`INS_SRLI_SRAI: begin
                         imm_o = {{27{1'b0}}, ins_i[24:20]};
                     end
                 endcase
             end
-            `INS_TYPE_R: begin
+            `INS_TYPE_R_M: begin
                 reg1_rd_addr_o = rs1;
                 reg2_rd_addr_o = rs2;
                 reg_wr_addr_o = rd;

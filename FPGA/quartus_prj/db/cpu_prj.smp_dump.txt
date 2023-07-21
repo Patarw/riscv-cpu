@@ -19,3 +19,8 @@ uart_state.IDLE 0 0 0 0
 uart_state.BEGIN 0 0 1 1 
 uart_state.SEND_BYTE 0 1 0 1 
 uart_state.END 1 0 0 1 
+
+State Machine - |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state
+Name div_state.BUSY 
+div_state.IDLE 0 
+div_state.BUSY 1 
