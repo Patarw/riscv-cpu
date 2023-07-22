@@ -1,5 +1,5 @@
 Flow report for cpu_prj
-Fri Jul 21 22:31:07 2023
+Sat Jul 22 15:40:48 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Flow Summary                                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Flow Status                        ; Successful - Fri Jul 21 22:31:07 2023            ;
+; Flow Status                        ; Successful - Sat Jul 22 15:40:48 2023            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; cpu_prj                                          ;
 ; Top-level Entity Name              ; RISCV_SOC_TOP                                    ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/21/2023 22:30:07 ;
+; Start date & time ; 07/22/2023 15:39:38 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cpu_prj             ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+---------------+----------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name   ; Section Id     ;
 +--------------------------------------+---------------------------------------+---------------+---------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 150241227357473.168994980715516       ; --            ; --            ; --             ;
+; COMPILER_SIGNATURE_ID                ; 150241227357473.169001157811616       ; --            ; --            ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --            ; tb_riscv_top   ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; tb_riscv_top                          ; --            ; --            ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                           ; --            ; --            ; eda_simulation ;
@@ -101,12 +101,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:13     ; 1.0                     ; 4701 MB             ; 00:00:13                           ;
-; Fitter                    ; 00:00:34     ; 8.2                     ; 5957 MB             ; 00:00:53                           ;
+; Analysis & Synthesis      ; 00:00:13     ; 1.0                     ; 4717 MB             ; 00:00:13                           ;
+; Fitter                    ; 00:00:45     ; 8.8                     ; 5955 MB             ; 00:01:07                           ;
 ; Assembler                 ; 00:00:01     ; 1.0                     ; 4569 MB             ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:05     ; 2.0                     ; 4826 MB             ; 00:00:09                           ;
-; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 4593 MB             ; 00:00:03                           ;
-; Total                     ; 00:00:56     ; --                      ; --                  ; 00:01:19                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 2.8                     ; 4826 MB             ; 00:00:09                           ;
+; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 4597 MB             ; 00:00:03                           ;
+; Total                     ; 00:01:07     ; --                      ; --                  ; 00:01:33                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

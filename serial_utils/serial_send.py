@@ -4,7 +4,7 @@ try:
     ser = serial.Serial("COM3", 19200, timeout=0.5)
     if ser.is_open:
         print("COM3" + " open success!")
-        with open('./os.bin', 'rb') as f:
+        with open('./final.bin', 'rb') as f:
             a = f.read()
         print("sending bin file")
         count = ser.write(a)

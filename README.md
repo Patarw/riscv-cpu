@@ -19,13 +19,20 @@
 
 ![](./doc/img/image2.png)
 
+### 2023年7月22号：
+1. 支持RV32M扩展指令集
+2. 增加总线模块rib.v
+
 ### 使用说明
 项目文件结构
 1.  doc：相关文档
 2.  serial_utils：串口烧录脚本，通过串口把二进制程序烧录到处理器的存储空间上
-3.  FPGA：移植到板子上的工程（目前还在更新中）
+3.  FPGA：移植到板子上的工程（目前还在更新中，基于野火征途PRO开发板）
+   
+如何将C语言编译成riscv上可运行的二进制程序？如何将编译好的二进制程序烧录到板子上？请参考我的这篇博客(https://blog.csdn.net/qq_51103378/article/details/131498891?spm=1001.2014.3001.5501)
 ### 博客传送门
 
 1.  [RISC-V处理器的设计与实现（一）—— 基本指令集](https://blog.csdn.net/qq_51103378/article/details/131201501?spm=1001.2014.3001.5501)
 2.  [RISC-V处理器的设计与实现（二）—— CPU框架设计](https://blog.csdn.net/qq_51103378/article/details/131383341?spm=1001.2014.3001.5501)
 3.  [RISC-V处理器的设计与实现（三）—— 上板验证（基于野火征途Pro开发板）](https://blog.csdn.net/qq_51103378/article/details/131430334?spm=1001.2014.3001.5502)
+4.  [开发一个RISC-V上的操作系统（一）—— 环境搭建](https://blog.csdn.net/qq_51103378/article/details/131498891?spm=1001.2014.3001.5501)

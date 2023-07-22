@@ -1,5 +1,5 @@
 Fitter report for cpu_prj
-Fri Jul 21 22:30:55 2023
+Sat Jul 22 15:40:36 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -71,7 +71,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                        ;
 +------------------------------------+--------------------------------------------------+
-; Fitter Status                      ; Successful - Fri Jul 21 22:30:55 2023            ;
+; Fitter Status                      ; Successful - Sat Jul 22 15:40:36 2023            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; cpu_prj                                          ;
 ; Top-level Entity Name              ; RISCV_SOC_TOP                                    ;
@@ -157,14 +157,15 @@ applicable agreement for further details.
 ; Number detected on machine ; 20          ;
 ; Maximum allowed            ; 14          ;
 ;                            ;             ;
-; Average used               ; 8.18        ;
+; Average used               ; 8.77        ;
 ; Maximum used               ; 14          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;  64.7%      ;
-;     Processors 5-8         ;  55.9%      ;
-;     Processors 9-14        ;  50.0%      ;
+;     Processors 2-3         ;  67.4%      ;
+;     Processor 4            ;  65.1%      ;
+;     Processors 5-8         ;  60.5%      ;
+;     Processors 9-14        ;  55.8%      ;
 ;     Processors 15-20       ;   0.0%      ;
 +----------------------------+-------------+
 
@@ -2402,26 +2403,26 @@ Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:06
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:08
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 25% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 39% of the available device resources in the region that extends from location X11_Y0 to location X22_Y11
 Info (188005): Design requires adding a large amount of routing delay for some signals to meet hold time requirements, and there is an excessive demand for the available routing resources. The Fitter is reducing the routing delays of some signals to help the routing algorithm converge, but doing so may cause hold time failures. For more information, refer to the "Estimated Delay Added for Hold Timing" section in the Fitter report.
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:21
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:28
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 4.70 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 5.72 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:02
 Info (144001): Generated suppressed messages file D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/cpu_prj.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 5957 megabytes
-    Info: Processing ended: Fri Jul 21 22:30:56 2023
-    Info: Elapsed time: 00:00:35
-    Info: Total CPU time (on all processors): 00:00:53
+    Info: Peak virtual memory: 5955 megabytes
+    Info: Processing ended: Sat Jul 22 15:40:36 2023
+    Info: Elapsed time: 00:00:45
+    Info: Total CPU time (on all processors): 00:01:07
 
 
 +----------------------------+
