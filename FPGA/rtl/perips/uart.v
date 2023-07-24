@@ -21,7 +21,7 @@
 
 `include "../core/defines.v"
 
-// 串口模块，默认波特率为9600
+// 串口模块，默认波特率为19200
 module uart(
 
     input   wire                        clk                 ,

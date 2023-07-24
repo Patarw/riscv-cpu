@@ -1,5 +1,5 @@
 Flow report for cpu_prj
-Sat Jul 22 15:40:48 2023
+Mon Jul 24 09:16:06 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Flow Summary                                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Flow Status                        ; Successful - Sat Jul 22 15:40:48 2023            ;
+; Flow Status                        ; Successful - Mon Jul 24 09:16:06 2023            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; cpu_prj                                          ;
 ; Top-level Entity Name              ; RISCV_SOC_TOP                                    ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/22/2023 15:39:38 ;
+; Start date & time ; 07/24/2023 09:14:48 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cpu_prj             ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+---------------+----------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name   ; Section Id     ;
 +--------------------------------------+---------------------------------------+---------------+---------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 150241227357473.169001157811616       ; --            ; --            ; --             ;
+; COMPILER_SIGNATURE_ID                ; 150241227357473.169016128820036       ; --            ; --            ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --            ; tb_riscv_top   ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; tb_riscv_top                          ; --            ; --            ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                           ; --            ; --            ; eda_simulation ;
@@ -101,12 +101,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:13     ; 1.0                     ; 4717 MB             ; 00:00:13                           ;
-; Fitter                    ; 00:00:45     ; 8.8                     ; 5955 MB             ; 00:01:07                           ;
+; Analysis & Synthesis      ; 00:00:13     ; 1.0                     ; 4685 MB             ; 00:00:12                           ;
+; Fitter                    ; 00:00:32     ; 8.8                     ; 5950 MB             ; 00:00:50                           ;
 ; Assembler                 ; 00:00:01     ; 1.0                     ; 4569 MB             ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:05     ; 2.8                     ; 4826 MB             ; 00:00:09                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 2.5                     ; 4840 MB             ; 00:00:08                           ;
 ; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 4597 MB             ; 00:00:03                           ;
-; Total                     ; 00:01:07     ; --                      ; --                  ; 00:01:33                           ;
+; Total                     ; 00:00:54     ; --                      ; --                  ; 00:01:14                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
