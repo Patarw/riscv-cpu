@@ -9,16 +9,16 @@ z2
 cModel Technology
 Z0 dD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/simulation/modelsim
 T_opt
-!s110 1690031980
-V8Zc;BSH[DXhG?8faHlOhW2
+!s110 1690445056
+VP:e`bOGGF9Xm5lam]Yjnd2
 04 12 4 work tb_riscv_top fast 0
-=1-88a4c2fcbd21-64bbd767-33b-53fc
+=1-88a4c2fcbd21-64c224fa-17d-1e20
 o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work +acc
 Z1 tCvgOpt 0
 n@_opt
 OL;O;10.5;63
 valu
-Z2 !s110 1690031974
+Z2 !s110 1690445048
 !i10b 1
 !s100 <jho@FUCNMea@iPegi8DS1
 IQ8ZkQH_9;X1ZN;A=GMES20
@@ -32,21 +32,65 @@ Z5 OL;L;10.5;63
 r1
 !s85 0
 31
-Z6 !s108 1690031974.000000
+Z6 !s108 1690445048.000000
 !s107 D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/defines.v|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/alu.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/alu.v|
 !i113 0
 Z7 o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 Z8 !s92 -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R1
+vclint
+Z9 !s110 1690445046
+!i10b 1
+!s100 `5UhPnVI7Z8E1VhV3J_[<0
+IzC^fX4Ma:K1z_fJG9JGgj3
+R3
+R0
+w1690444311
+8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/clint.v
+FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/clint.v
+R4
+R5
+r1
+!s85 0
+31
+Z10 !s108 1690445046.000000
+!s107 D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/defines.v|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/clint.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/clint.v|
+!i113 0
+R7
+R8
+R1
+vcsr
+R9
+!i10b 1
+!s100 _SeEBfKaUKlSQEZkdCfbe1
+ISB:D`dQRM_BCJQP:<?V1f1
+R3
+R0
+w1690354082
+8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/csr.v
+FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/csr.v
+R4
+R5
+r1
+!s85 0
+31
+R10
+!s107 D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/defines.v|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/csr.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/csr.v|
+!i113 0
+R7
+R8
+R1
 vcu
 R2
 !i10b 1
-!s100 YBR2UBUHh8YOYgfDm1HhP3
-IHc]___nNEM=>Wk57]`G9X1
+!s100 ^aZ6`;@3hdjkIh9PhJPVQ0
+ISYHT2[la4@X5<TQ;C08321
 R3
 R0
-w1689945904
+w1690442002
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/cu.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/cu.v
 R4
@@ -62,7 +106,7 @@ R7
 R8
 R1
 vdelay_buffer
-Z9 !s110 1690031972
+R9
 !i10b 1
 !s100 jG]eJ]8`km7383C9M8n6R2
 IIVCRj[OJ_M3b_4nEkzWzo1
@@ -71,12 +115,12 @@ R0
 w1687846766
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/utils/delay_buffer.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/utils/delay_buffer.v
-Z10 L0 23
+Z11 L0 23
 R5
 r1
 !s85 0
 31
-Z11 !s108 1690031972.000000
+R10
 !s107 D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/utils/delay_buffer.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/utils|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/utils/delay_buffer.v|
 !i113 0
@@ -90,7 +134,7 @@ R9
 IXOeHciP=foHgTL:eMRSR72
 R3
 R0
-w1689946362
+w1690287808
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/div.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/div.v
 R4
@@ -98,7 +142,7 @@ R5
 r1
 !s85 0
 31
-R11
+R10
 !s107 D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/defines.v|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/div.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/div.v|
 !i113 0
@@ -106,13 +150,13 @@ R7
 R8
 R1
 vEX_UNIT
-Z12 !s110 1690031973
+Z12 !s110 1690445047
 !i10b 1
-!s100 cGQQVn^4DGfmcC=hdO>h10
-Ib<1:7gDI6HVZTGbKLB12g2
+!s100 ToT:6Vk0=RNZ05`:41nOC2
+IBEenHm8A4_0@X?VlF3TM>1
 R3
 R0
-w1689943378
+w1690443826
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/EX_UNIT.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/EX_UNIT.v
 R4
@@ -120,7 +164,7 @@ R5
 r1
 !s85 0
 31
-Z13 !s108 1690031973.000000
+Z13 !s108 1690445047.000000
 !s107 D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/../core/defines.v|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/EX_UNIT.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/EX_UNIT.v|
 !i113 0
@@ -143,21 +187,43 @@ R5
 r1
 !s85 0
 31
-R11
+R10
 !s107 D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/../core/defines.v|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/gpio.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/gpio.v|
 !i113 0
 R7
 Z15 !s92 -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R1
+vgpr
+R9
+!i10b 1
+!s100 OPh2[[DoYd1H3J5?B0dH>0
+I=G;l=LL9zd3I^TEJkAz7a2
+R3
+R0
+w1690359908
+8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/gpr.v
+FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/gpr.v
+R4
+R5
+r1
+!s85 0
+31
+R10
+!s107 D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/defines.v|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/gpr.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/gpr.v|
+!i113 0
+R7
+R8
+R1
 vid
 R2
 !i10b 1
-!s100 nc0H1>Wo]=22Q7l05XXX53
-IcQdXCbbSeiiN^?iaLJm:c3
+!s100 kJ;neAZU@m?SFjS1[b2G60
+Ii;hm<g3W@M;eGL`JD=IL@3
 R3
 R0
-w1689904402
+w1690367821
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/id.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/id.v
 R4
@@ -175,11 +241,11 @@ R1
 vid_ex
 R2
 !i10b 1
-!s100 och<C_M;VOC9:_:mCkBbY3
-IG=mE=zR7KnGm@^doS=?zz1
+!s100 e0dY]0HNhDQg`MoGo1XBM0
+IcNCAP9;e3BRb55GjP:ibg3
 R3
 R0
-w1688970230
+w1690361908
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/id_ex.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/id_ex.v
 R4
@@ -197,11 +263,11 @@ R1
 vID_UNIT
 R12
 !i10b 1
-!s100 <dSbX^gK84oeJF2dRdB7Z2
-IXlSX_f2OWheG;Z@:?3Di91
+!s100 Mle890OT[>eB>^e8GBL[h3
+IL:cAi1QKzE2^2VgFRHTI02
 R3
 R0
-w1688966309
+w1690366673
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/ID_UNIT.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/ID_UNIT.v
 R4
@@ -218,13 +284,13 @@ R14
 R1
 n@i@d_@u@n@i@t
 vif_id
-R2
+R12
 !i10b 1
-!s100 KjMaGceZ1GXRLzZ<eU]CB0
-I6`gEgGRhCN>3:3_O_9>H42
+!s100 j2_C42i2bT8H=E;6ROe=c3
+IS38T:M5:T[<h`18o2Bj6l0
 R3
 R0
-w1688812624
+w1690443805
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/if_id.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/if_id.v
 R4
@@ -232,7 +298,7 @@ R5
 r1
 !s85 0
 31
-R6
+R13
 !s107 D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/defines.v|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/if_id.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/if_id.v|
 !i113 0
@@ -242,11 +308,11 @@ R1
 vIF_UNIT
 R12
 !i10b 1
-!s100 TXm2[<8^hSZIA:z:fzFh>0
-I<0Y<QGf8cEU]I@c0Tma9L2
+!s100 o`S24`3RhaZX;QVhoX2=N2
+IazemFN9V7<cPkCTXVG8Tl0
 R3
 R0
-w1688568764
+w1690443423
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/IF_UNIT.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/IF_UNIT.v
 R4
@@ -277,7 +343,7 @@ R5
 r1
 !s85 0
 31
-R11
+R10
 !s107 D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/defines.v|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/mul.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/mul.v|
 !i113 0
@@ -309,8 +375,8 @@ R1
 vram
 R12
 !i10b 1
-!s100 a1[mz4o_VOE:l<:G]G=Bb2
-InnAzo5WGMcOlc?Gkg7hnC3
+!s100 :gGYaNg126WFmkNodH?]P0
+IWZN^ONLaQa1WTl2VA]^f`1
 R3
 R0
 w1688955763
@@ -331,11 +397,11 @@ R1
 vRF_UNIT
 R12
 !i10b 1
-!s100 N4GCM<_1mzo`FY<X^[WnJ3
-I>_5XO73f3MWBi>8<Zk?X41
+!s100 bfdZ=4XaMN0;Fo1JTOI;62
+IJHZg:Xf7<DDnnX=J7E_180
 R3
 R0
-w1688527567
+w1690441660
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RF_UNIT.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RF_UNIT.v
 R4
@@ -354,11 +420,11 @@ n@r@f_@u@n@i@t
 vrib
 R12
 !i10b 1
-!s100 >31D^WemKeMG9D5OCSh8X3
-IkDN:b25klh^:B3j_?bWk>1
+!s100 lT=j0Y6nC185PW`nM5NEh3
+IfZT@5?dk4]2;L4=;Bnilj1
 R3
 R0
-w1689948954
+w1690276012
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/rib.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/rib.v
 R4
@@ -376,11 +442,11 @@ R1
 vRISCV
 R12
 !i10b 1
-!s100 OC:3mi:_7d=4<B_HZ5Q[I2
-IhL8]_did=keUoQ>hVHDJi3
+!s100 _<MO5d:i]oF?YK:zJIfhK2
+IfUM^TW[?39WU<9RkCE06j3
 R3
 R0
-w1688971537
+w1690443559
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RISCV.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RISCV.v
 R4
@@ -399,11 +465,11 @@ n@r@i@s@c@v
 vRISCV_SOC_TOP
 R12
 !i10b 1
-!s100 OWlzeOFQ9NW8XDP429eml3
-I2_<dC7hNlMJ@IYml8KWSd3
+!s100 20[?h8E1VOBW:9UDDlF3C0
+I>UNME44zgK6WgbO8MQhGP1
 R3
 R0
-w1689948792
+w1690206608
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RISCV_SOC_TOP.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RISCV_SOC_TOP.v
 R4
@@ -422,11 +488,11 @@ n@r@i@s@c@v_@s@o@c_@t@o@p
 vrom
 R12
 !i10b 1
-!s100 bZXacHP?95[d^HJCZiWcX2
-IZ:i]gQ4e<A23`7cJeOcf_0
+!s100 8Y0:GbYJMbm7C1BnED1ln3
+I<@O^8L8J6elm=AVK1OmLY1
 R3
 R0
-w1690031693
+w1690364208
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/rom.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/rom.v
 R4
@@ -451,7 +517,7 @@ R0
 w1689946552
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim/tb_riscv_top.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim/tb_riscv_top.v
-R10
+R11
 R5
 r1
 !s85 0
@@ -470,7 +536,7 @@ R12
 IhgYgPAbm9;D[T4@^[DEYV2
 R3
 R0
-w1689648017
+w1690101341
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/uart.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/uart.v
 R4
@@ -492,7 +558,7 @@ R9
 IHBSfNZ92UbDJDd[HmZzhi2
 R3
 R0
-w1689770043
+w1690255149
 8D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug/uart_debug.v
 FD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug/uart_debug.v
 R4
@@ -500,7 +566,7 @@ R5
 r1
 !s85 0
 31
-R11
+R10
 !s107 D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug/../core/defines.v|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug/uart_debug.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug|D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug/uart_debug.v|
 !i113 0

@@ -184,7 +184,6 @@ module RISCV_SOC_TOP(
         .ins_o          (rom_ins_o)
     );
     
-    
     ram u_ram(
         .clk            (clk),
         .rst_n          (rst_n),

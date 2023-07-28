@@ -21,7 +21,7 @@
 
 `include "../core/defines.v"
 
-// 串口模块，目前只用于下载程序到memory中，波特率为9600，系统时钟频率为50MHz，传输一位需要5208个时钟周期
+// 串口下载模块，用于下载程序到memory中，波特率为19200
 module uart_debug(
 
     input   wire                        clk                 ,

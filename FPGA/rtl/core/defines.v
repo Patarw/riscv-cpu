@@ -15,8 +15,8 @@
 `define CLK_FREQ            'd50_000_000  // 系统时钟频率(Hz)
 `define UART_BPS            'd19200       // 串口波特率(Bps)
 `define REG_NUM             32
-`define ROM_NUM             1024
-`define RAM_NUM             1024
+`define ROM_NUM             4096
+`define RAM_NUM             2048
 `define REG_ADDR_WIDTH      5
 
 // ALU运算类型
@@ -41,6 +41,16 @@
 `define DIVU         3'b010   // 无符号除法
 `define REM          3'b011   // 有符号取余
 `define REMU         3'b100   // 无符号取余
+
+// CSR寄存器地址
+`define CSR_CYCLE    12'hc00
+`define CSR_CYCLEH   12'hc80
+`define CSR_MTVEC    12'h305
+`define CSR_MCAUSE   12'h342
+`define CSR_MEPC     12'h341
+`define CSR_MIE      12'h304
+`define CSR_MSTATUS  12'h300
+`define CSR_MSCRATCH 12'h340
 
 /* 指令定义 */
 
@@ -116,8 +126,26 @@
 `define INS_LBU         3'b100  // 取8位，无符号拓展
 `define INS_LHU         3'b101  // 取16位，无符号拓展
 
+// CSR寄存器操作指令
+`define INS_TYPE_CSR         7'b1110011
+// funct3
+`define INS_CSRRW       3'b001
+`define INS_CSRRS       3'b010
+`define INS_CSRRC       3'b011
+`define INS_CSRRWI      3'b101
+`define INS_CSRRSI      3'b110
+`define INS_CSRRCI      3'b111
+
+`define INS_ECALL  32'h0000_0073
+`define INS_EBREAK 32'h0010_0073
+`define INS_MRET   32'h3020_0073
+
 // 暂停流水线
 `define HOLD_NONE    3'b000
 `define HOLD_PC      3'b001
 `define HOLD_IF_ID   3'b010
 `define HOLD_ID_EX   3'b011
+
+// 异步中断
+`define INT_BUS    7:0
+`define INT_NONE   8'b0000

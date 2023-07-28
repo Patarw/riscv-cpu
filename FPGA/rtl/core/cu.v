@@ -49,17 +49,15 @@ module cu(
 
     // div相关参数
     input   wire[`INST_REG_DATA]    div_res_i           ,   
-    input   wire                    div_busy_i          , 
     input   wire                    div_res_ready_i     ,
     input   wire[`INST_REG_ADDR]    div_reg_wr_addr_i   , 
     output  reg                     div_req_o           , 
     output  reg [2:0]               div_op_code_o       ,       
     
-    // 跳转和暂停流水线相关参数
-    input   wire                    rib_hold_flag_i     ,          
+    // 跳转和暂停流水线相关参数         
     output  reg                     jump_flag_o         ,
     output  reg [`INST_ADDR_BUS]    jump_addr_o         ,        
-    output  reg [2:0]               hold_flag_o         ,
+    output  reg                     hold_flag_o         ,
 
     // 寄存器相关参数（register）
     input   wire[`INST_REG_DATA]    reg1_rd_data_i      , 
@@ -75,29 +73,20 @@ module cu(
     output  reg                     mem_wr_rib_req_o    ,
     output  reg                     mem_wr_en_o         , 
     output  wire[`INST_ADDR_BUS]    mem_wr_addr_o       , 
-    output  reg [`INST_DATA_BUS]    mem_wr_data_o       
+    output  reg [`INST_DATA_BUS]    mem_wr_data_o       ,
+    
+    // csr_reg相关参数 
+    input   wire[`INST_ADDR_BUS]    csr_rw_addr_i       ,
+    input   wire[`INST_REG_DATA]    csr_zimm_i          ,
+    input   wire[`INST_REG_DATA]    csr_rd_data_i       ,
+    output  reg                     csr_wr_en_o         , 
+    output  reg [`INST_ADDR_BUS]    csr_wr_addr_o       , 
+    output  reg [`INST_REG_DATA]    csr_wr_data_o       , 
+    output  reg [`INST_ADDR_BUS]    csr_rd_addr_o       
     
     );
     
-    reg                     hold_flag;
-    
     assign mem_wr_addr_o = mem_rd_addr_i;
-
-    
-    // 暂停流水线控制信号 hold_flag_o
-    always @ (*) begin
-        // 暂停整个流水线
-        if(hold_flag == 1'b1 || div_busy_i) begin
-            hold_flag_o = `HOLD_ID_EX;
-        end
-        // 暂停PC
-        else if(rib_hold_flag_i == 1'b1) begin
-            hold_flag_o = `HOLD_PC;
-        end
-        else begin
-            hold_flag_o = `HOLD_NONE;
-        end
-    end
     
     // 根据不同指令类型发出不同的控制信号
     always @ (*) begin
@@ -113,7 +102,7 @@ module cu(
         // 跳转相关
         jump_flag_o = 1'b0;
         jump_addr_o = `ZERO_WORD;
-        hold_flag = 1'b0;
+        hold_flag_o = 1'b0;
         
         // 寄存器相关, 根据div_res_ready_i判断是否要写div计算结果到寄存器
         reg_wr_en_o = div_res_ready_i ? 1'b1 : 1'b0;
@@ -125,6 +114,12 @@ module cu(
         mem_wr_en_o = 1'b0;
         mem_wr_data_o = `ZERO_WORD;
         
+        // csr_reg相关
+        csr_wr_en_o = 1'b0;
+        csr_wr_addr_o = `ZERO_WORD;
+        csr_wr_data_o = `ZERO_WORD;
+        csr_rd_addr_o = `ZERO_WORD;
+
         case(opcode_i) 
             // I型指令
             `INS_TYPE_I: begin
@@ -250,28 +245,28 @@ module cu(
                     `INS_DIV: begin
                         jump_flag_o = 1'b1;
                         jump_addr_o = ins_addr_i + 4'd4;
-                        hold_flag = 1'b1;
+                        hold_flag_o = 1'b1;
                         div_op_code_o = `DIV;
                         div_req_o = 1'b1;
                     end
                     `INS_DIVU: begin
                         jump_flag_o = 1'b1;
                         jump_addr_o = ins_addr_i + 4'd4;
-                        hold_flag = 1'b1;
+                        hold_flag_o = 1'b1;
                         div_op_code_o = `DIVU;
                         div_req_o = 1'b1;
                     end
                     `INS_REM: begin
                         jump_flag_o = 1'b1;
                         jump_addr_o = ins_addr_i + 4'd4;
-                        hold_flag = 1'b1;
+                        hold_flag_o = 1'b1;
                         div_op_code_o = `REM;
                         div_req_o = 1'b1;
                     end
                     `INS_REMU: begin
                         jump_flag_o = 1'b1;
                         jump_addr_o = ins_addr_i + 4'd4;
-                        hold_flag = 1'b1;
+                        hold_flag_o = 1'b1;
                         div_op_code_o = `REMU;
                         div_req_o = 1'b1;
                     end
@@ -300,7 +295,7 @@ module cu(
                 alu_op_code_o = `ALU_ADD;
                 jump_flag_o = 1'b1;
                 jump_addr_o = {alu_res_i[31:1], 1'b0};
-                hold_flag = 1'b1;
+                hold_flag_o = 1'b1;
             end
             `INS_JALR: begin
                 reg_wr_en_o = 1'b1;
@@ -310,7 +305,7 @@ module cu(
                 alu_op_code_o = `ALU_ADD;
                 jump_flag_o = 1'b1;
                 jump_addr_o = {alu_res_i[31:1], 1'b0};
-                hold_flag = 1'b1;
+                hold_flag_o = 1'b1;
             end
             `INS_TYPE_BRANCH: begin
                 alu_data1_o = reg1_rd_data_i;
@@ -320,37 +315,37 @@ module cu(
                         alu_op_code_o = `ALU_SUB;
                         jump_flag_o = alu_zero_flag_i ? 1'b1 : 1'b0;
                         jump_addr_o = alu_zero_flag_i ? ($signed(ins_addr_i) + $signed(imm_i)) : {alu_res_i[31:1], 1'b0};
-                        hold_flag = alu_zero_flag_i ? 1'b1 : 1'b0;
+                        hold_flag_o = alu_zero_flag_i ? 1'b1 : 1'b0;
                     end
                     `INS_BNE: begin
                         alu_op_code_o = `ALU_SUB;
                         jump_flag_o = !alu_zero_flag_i ? 1'b1 : 1'b0;
                         jump_addr_o = !alu_zero_flag_i ? ($signed(ins_addr_i) + $signed(imm_i)) : {alu_res_i[31:1], 1'b0};
-                        hold_flag = !alu_zero_flag_i ? 1'b1 : 1'b0;
+                        hold_flag_o = !alu_zero_flag_i ? 1'b1 : 1'b0;
                     end
                     `INS_BLT: begin
                         alu_op_code_o = `ALU_SUB;
                         jump_flag_o = alu_sign_flag_i ? 1'b1 : 1'b0;
                         jump_addr_o = alu_sign_flag_i ? ($signed(ins_addr_i) + $signed(imm_i)) : {alu_res_i[31:1], 1'b0};
-                        hold_flag = alu_sign_flag_i ? 1'b1 : 1'b0;
+                        hold_flag_o = alu_sign_flag_i ? 1'b1 : 1'b0;
                     end
                     `INS_BGE: begin
                         alu_op_code_o = `ALU_SUB;
                         jump_flag_o = !alu_sign_flag_i ? 1'b1 : 1'b0;
                         jump_addr_o = !alu_sign_flag_i ? ($signed(ins_addr_i) + $signed(imm_i)) : {alu_res_i[31:1], 1'b0};
-                        hold_flag = !alu_sign_flag_i ? 1'b1 : 1'b0;
+                        hold_flag_o = !alu_sign_flag_i ? 1'b1 : 1'b0;
                     end
                     `INS_BLTU: begin
                         alu_op_code_o = `ALU_SLTU;
                         jump_flag_o = !alu_zero_flag_i ? 1'b1 : 1'b0;
                         jump_addr_o = !alu_zero_flag_i ? ($signed(ins_addr_i) + $signed(imm_i)) : {alu_res_i[31:1], 1'b0};
-                        hold_flag = !alu_zero_flag_i ? 1'b1 : 1'b0;
+                        hold_flag_o = !alu_zero_flag_i ? 1'b1 : 1'b0;
                     end
                     `INS_BGEU: begin
                         alu_op_code_o = `ALU_SLTU;
                         jump_flag_o = alu_zero_flag_i ? 1'b1 : 1'b0;
                         jump_addr_o = alu_zero_flag_i ? ($signed(ins_addr_i) + $signed(imm_i)) : {alu_res_i[31:1], 1'b0};
-                        hold_flag = alu_zero_flag_i ? 1'b1 : 1'b0;
+                        hold_flag_o = alu_zero_flag_i ? 1'b1 : 1'b0;
                     end
                     default: begin
                     end
@@ -451,7 +446,63 @@ module cu(
                     end
                 endcase
             end
+            `INS_TYPE_CSR: begin
+                case(funct3_i)
+                    `INS_CSRRW: begin
+                        reg_wr_en_o = 1'b1;
+                        csr_rd_addr_o = csr_rw_addr_i;
+                        reg_wr_data_o = csr_rd_data_i;
+                        csr_wr_en_o = 1'b1;
+                        csr_wr_addr_o = csr_rw_addr_i;
+                        csr_wr_data_o = reg1_rd_data_i;
+                    end
+                    `INS_CSRRS: begin
+                        reg_wr_en_o = 1'b1;
+                        csr_rd_addr_o = csr_rw_addr_i;
+                        reg_wr_data_o = csr_rd_data_i;
+                        csr_wr_en_o = 1'b1;
+                        csr_wr_addr_o = csr_rw_addr_i;
+                        csr_wr_data_o = csr_rd_data_i | reg1_rd_data_i;
+                    end
+                    `INS_CSRRC: begin
+                        reg_wr_en_o = 1'b1;
+                        csr_rd_addr_o = csr_rw_addr_i;
+                        reg_wr_data_o = csr_rd_data_i;
+                        csr_wr_en_o = 1'b1;
+                        csr_wr_addr_o = csr_rw_addr_i;
+                        csr_wr_data_o = csr_rd_data_i & (~reg1_rd_data_i);
+                    end
+                    `INS_CSRRWI: begin
+                        reg_wr_en_o = 1'b1;
+                        csr_rd_addr_o = csr_rw_addr_i;
+                        reg_wr_data_o = csr_rd_data_i;
+                        csr_wr_en_o = 1'b1;
+                        csr_wr_addr_o = csr_rw_addr_i;
+                        csr_wr_data_o = csr_zimm_i;
+                    end
+                    `INS_CSRRSI: begin
+                        reg_wr_en_o = 1'b1;
+                        csr_rd_addr_o = csr_rw_addr_i;
+                        reg_wr_data_o = csr_rd_data_i;
+                        csr_wr_en_o = 1'b1;
+                        csr_wr_addr_o = csr_rw_addr_i;
+                        csr_wr_data_o = csr_rd_data_i | csr_zimm_i;
+                    end
+                    `INS_CSRRCI:begin
+                        reg_wr_en_o = 1'b1;
+                        csr_rd_addr_o = csr_rw_addr_i;
+                        reg_wr_data_o = csr_rd_data_i;
+                        csr_wr_en_o = 1'b1;
+                        csr_wr_addr_o = csr_rw_addr_i;
+                        csr_wr_data_o = csr_rd_data_i & (~csr_zimm_i);
+                    end
+                    default: begin
+                        
+                    end
+                endcase
+            end
             default: begin
+            
             end
         endcase
     end

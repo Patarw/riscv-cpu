@@ -38,7 +38,10 @@ module id_ex(
     input   wire[`INST_REG_DATA]     reg1_rd_data_i    , 
     input   wire[`INST_REG_DATA]     reg2_rd_data_i    ,
     input   wire[`INST_REG_ADDR]     reg_wr_addr_i     ,
-    input   wire[`INST_REG_DATA]     imm_i             ,  
+    input   wire[`INST_REG_DATA]     imm_i             ,
+    input   wire[`INST_REG_DATA]     csr_rd_data_i     ,
+    input   wire[`INST_ADDR_BUS]     csr_rw_addr_i     ,
+    input   wire[`INST_REG_DATA]     csr_zimm_i        ,    
     
     output  reg [`INST_DATA_BUS]     ins_o             ,      
     output  reg [`INST_ADDR_BUS]     ins_addr_o        ,
@@ -49,6 +52,9 @@ module id_ex(
     output  reg [`INST_REG_DATA]     reg2_rd_data_o    ,    
     output  reg [`INST_REG_ADDR]     reg_wr_addr_o     ,
     output  reg [`INST_REG_DATA]     imm_o             ,
+    output  reg [`INST_REG_DATA]     csr_rd_data_o     ,
+    output  reg [`INST_ADDR_BUS]     csr_rw_addr_o     ,
+    output  reg [`INST_REG_DATA]     csr_zimm_o        ,
                                                        
     output  reg                      mem_rd_rib_req_o  ,
     output  reg [`INST_ADDR_BUS]     mem_rd_addr_o       
@@ -65,7 +71,10 @@ module id_ex(
             reg1_rd_data_o <= `ZERO_WORD;
             reg2_rd_data_o <= `ZERO_WORD;   
             reg_wr_addr_o <= `ZERO_REG_ADDR;   
-            imm_o <= `ZERO_WORD;   
+            imm_o <= `ZERO_WORD;
+            csr_rw_addr_o <= `ZERO_WORD;
+            csr_zimm_o <= `ZERO_WORD;
+            csr_rd_data_o <= `ZERO_WORD;
         end
         else if(hold_flag_i >= `HOLD_ID_EX) begin
             ins_o <= `INS_NOP;
@@ -77,6 +86,9 @@ module id_ex(
             reg2_rd_data_o <= `ZERO_WORD;   
             reg_wr_addr_o <= `ZERO_REG_ADDR;   
             imm_o <= `ZERO_WORD;   
+            csr_rw_addr_o <= `ZERO_WORD;
+            csr_zimm_o <= `ZERO_WORD;
+            csr_rd_data_o <= `ZERO_WORD;
         end
         else begin
             ins_o <= ins_i;
@@ -88,6 +100,9 @@ module id_ex(
             reg2_rd_data_o <= reg2_rd_data_i;
             reg_wr_addr_o <= reg_wr_addr_i;
             imm_o <= imm_i;
+            csr_rw_addr_o <= csr_rw_addr_i;
+            csr_zimm_o <= csr_zimm_i;
+            csr_rd_data_o <= csr_rd_data_i;
         end
     end
     

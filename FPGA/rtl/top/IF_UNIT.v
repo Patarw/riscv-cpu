@@ -30,6 +30,9 @@ module IF_UNIT(
     input   wire[2:0]                hold_flag_i  ,
     input   wire                     jump_flag    ,
     input   wire[`INST_REG_DATA]     jump_addr    ,
+    
+    input   wire[`INT_BUS]           int_flag_i   ,
+    output  wire[`INT_BUS]           int_flag_o   ,
         
     output  wire[`INST_DATA_BUS]     ins_o        , // 指令
     output  wire[`INST_ADDR_BUS]     ins_addr_o   , // 指令地址
@@ -58,6 +61,8 @@ module IF_UNIT(
         .clk         (clk),
         .rst_n       (rst_n),
         .hold_flag   (hold_flag_i),
+        .int_flag_i  (int_flag_i),
+        .int_flag_o  (int_flag_o),
         .ins_i       (ins_i), 
         .ins_addr_i  (pc),
         .ins_o       (ins_o), 

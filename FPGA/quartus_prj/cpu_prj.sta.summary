@@ -3,75 +3,39 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -31.143
-TNS   : -39887.599
-
-Type  : Slow 1200mV 85C Model Setup 'RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_reg_wr_addr_o[0]'
-Slack : -21.250
-TNS   : -82.941
-
-Type  : Slow 1200mV 85C Model Hold 'RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_reg_wr_addr_o[0]'
-Slack : -9.072
-TNS   : -34.262
+Slack : -29.494
+TNS   : -43740.710
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : -0.401
-TNS   : -0.663
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_reg_wr_addr_o[0]'
-Slack : -3.436
-TNS   : -572.618
+Slack : 0.433
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.201
-TNS   : -3068.194
+TNS   : -4073.551
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -28.868
-TNS   : -37030.826
-
-Type  : Slow 1200mV 0C Model Setup 'RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_reg_wr_addr_o[0]'
-Slack : -19.872
-TNS   : -77.530
-
-Type  : Slow 1200mV 0C Model Hold 'RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_reg_wr_addr_o[0]'
-Slack : -8.520
-TNS   : -32.258
+Slack : -27.218
+TNS   : -40540.466
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : -0.407
-TNS   : -0.679
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_reg_wr_addr_o[0]'
-Slack : -3.466
-TNS   : -514.256
+Slack : 0.382
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.201
-TNS   : -3068.525
+TNS   : -4073.551
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -13.445
-TNS   : -16660.217
-
-Type  : Fast 1200mV 0C Model Setup 'RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_reg_wr_addr_o[0]'
-Slack : -9.039
-TNS   : -35.284
-
-Type  : Fast 1200mV 0C Model Hold 'RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_reg_wr_addr_o[0]'
-Slack : -3.965
-TNS   : -15.006
+Slack : -12.604
+TNS   : -17952.178
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : -0.396
-TNS   : -0.975
+Slack : 0.178
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -2051.940
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_reg_wr_addr_o[0]'
-Slack : -1.344
-TNS   : -179.659
+TNS   : -2739.396
 
 ------------------------------------------------------------

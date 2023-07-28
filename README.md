@@ -37,3 +37,4 @@
 3.  [RISC-V处理器的设计与实现（三）—— 上板验证（基于野火征途Pro开发板）](https://blog.csdn.net/qq_51103378/article/details/131430334?spm=1001.2014.3001.5502)
 4.  [开发一个RISC-V上的操作系统（一）—— 环境搭建](https://blog.csdn.net/qq_51103378/article/details/131498891?spm=1001.2014.3001.5501)
 5.  [开发一个RISC-V上的操作系统（二）—— 系统引导程序（Bootloader）](https://blog.csdn.net/qq_51103378/article/details/131873548?spm=1001.2014.3001.5502)
+6.  [开发一个RISC-V上的操作系统（三）—— 串口驱动程序（UART）](https://blog.csdn.net/qq_51103378/article/details/131881330?spm=1001.2014.3001.5501)

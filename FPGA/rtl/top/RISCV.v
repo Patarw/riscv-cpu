@@ -28,6 +28,7 @@ module RISCV(
     input   wire                        rst_n               ,
     
     input   wire                        rib_hold_flag_i     ,
+    input   wire[`INT_BUS]              int_flag_i          ,
     
     // 取指相关
     output  wire[`INST_ADDR_BUS]        pc_o                ,
@@ -49,6 +50,7 @@ module RISCV(
     wire[`INST_DATA_BUS]     if_ins_o;
     wire[`INST_ADDR_BUS]     if_ins_addr_o;
     wire[`INST_ADDR_BUS]     if_pc_o;
+    wire[`INT_BUS]           if_int_flag_o;
     
     // ID单元输出信号
     wire[`INST_DATA_BUS]     id_ins_o;
@@ -62,11 +64,20 @@ module RISCV(
     wire[`INST_REG_DATA]     id_reg2_rd_data_o;
     wire[`INST_REG_ADDR]     id_reg_wr_addr_o;
     wire[`INST_REG_DATA]     id_imm_o;
+    wire[`INST_ADDR_BUS]     id_csr_rw_addr_o;
+    wire[`INST_ADDR_BUS]     id_csr_rd_addr_o;
+    wire[`INST_REG_DATA]     id_csr_zimm_o;
+    wire[`INST_REG_DATA]     id_csr_rd_data_o;
     
     // RF单元输出信号
     wire[`INST_REG_DATA]     rf_reg1_rd_data_o;
     wire[`INST_REG_DATA]     rf_reg2_rd_data_o;
-    
+    wire[`INST_REG_DATA]     rf_csr_rd_data_o;
+    wire[`INST_REG_DATA]     rf_clint_rd_data_o;
+    wire[`INST_REG_DATA]     rf_clint_csr_mtvec;  
+    wire[`INST_REG_DATA]     rf_clint_csr_mepc;   
+    wire[`INST_REG_DATA]     rf_clint_csr_mstatus;
+
     // EX单元输出信号
     wire                     ex_reg_wr_en_o;
     wire[`INST_REG_ADDR]     ex_reg_wr_addr_o;
@@ -74,8 +85,15 @@ module RISCV(
     wire                     ex_jump_flag_o;
     wire[`INST_REG_DATA]     ex_jump_addr_o;
     wire[2:0]                ex_hold_flag_o;
-    
-    
+    wire                     ex_csr_wr_en_o;
+    wire[`INST_ADDR_BUS]     ex_csr_wr_addr_o;
+    wire[`INST_REG_DATA]     ex_csr_wr_data_o;
+    wire                     ex_clint_wr_en_o;    
+    wire[`INST_ADDR_BUS]     ex_clint_wr_addr_o;  
+    wire[`INST_REG_DATA]     ex_clint_wr_data_o;  
+    wire[`INST_ADDR_BUS]     ex_clint_rd_addr_o;  
+
+
     // 取指单元例化
     IF_UNIT INST_IF_UNIT(
         .clk                 (clk),
@@ -83,8 +101,10 @@ module RISCV(
         .hold_flag_i         (ex_hold_flag_o),
         .jump_flag           (ex_jump_flag_o),
         .jump_addr           (ex_jump_addr_o),
-        .ins_o               (if_ins_o),      // 指令
-        .ins_addr_o          (if_ins_addr_o), // 指令地址
+        .int_flag_i          (int_flag_i),
+        .int_flag_o          (if_int_flag_o),
+        .ins_o               (if_ins_o),      
+        .ins_addr_o          (if_ins_addr_o), 
         .pc_o                (pc_o),          
         .ins_i               (ins_i)
     );
@@ -106,6 +126,11 @@ module RISCV(
         .funct3_o            (id_funct3_o),
         .funct7_o            (id_funct7_o),
         .imm_o               (id_imm_o),
+        .csr_rd_data_i       (rf_csr_rd_data_o),
+        .csr_rd_addr_o       (id_csr_rd_addr_o),
+        .csr_rw_addr_o       (id_csr_rw_addr_o),
+        .csr_zimm_o          (id_csr_zimm_o),
+        .csr_rd_data_o       (id_csr_rd_data_o),
         .reg1_rd_data_o      (id_reg1_rd_data_o), 
         .reg2_rd_data_o      (id_reg2_rd_data_o),
         .reg_wr_addr_o       (id_reg_wr_addr_o),
@@ -117,13 +142,26 @@ module RISCV(
     RF_UNIT INST_RF_UNIT(
         .clk                 (clk),
         .rst_n               (rst_n),
-        .wr_en               (ex_reg_wr_en_o), // 写使能
-        .wr_addr             (ex_reg_wr_addr_o), // 写地址
-        .wr_data             (ex_reg_wr_data_o), // 写数据
-        .reg1_rd_addr        (id_reg1_rd_addr_o), // R1寄存器读地址
-        .reg2_rd_addr        (id_reg2_rd_addr_o), // R2寄存器读地址
-        .reg1_rd_data        (rf_reg1_rd_data_o), // R1寄存器读数据
-        .reg2_rd_data        (rf_reg2_rd_data_o)  // R2寄存器读数据
+        .wr_en_i             (ex_reg_wr_en_o), 
+        .wr_addr_i           (ex_reg_wr_addr_o), 
+        .wr_data_i           (ex_reg_wr_data_o), 
+        .reg1_rd_addr_i      (id_reg1_rd_addr_o), 
+        .reg2_rd_addr_i      (id_reg2_rd_addr_o), 
+        .reg1_rd_data_o      (rf_reg1_rd_data_o), 
+        .reg2_rd_data_o      (rf_reg2_rd_data_o), 
+        .csr_wr_en_i         (ex_csr_wr_en_o),
+        .csr_wr_addr_i       (ex_csr_wr_addr_o),
+        .csr_wr_data_i       (ex_csr_wr_data_o),
+        .csr_rd_addr_i       (id_csr_rd_addr_o),
+        .csr_rd_data_o       (rf_csr_rd_data_o),
+        .clint_wr_en_i       (ex_clint_wr_en_o),
+        .clint_wr_addr_i     (ex_clint_wr_addr_o),
+        .clint_wr_data_i     (ex_clint_wr_data_o),
+        .clint_rd_addr_i     (ex_clint_rd_addr_o),
+        .clint_rd_data_o     (rf_clint_rd_data_o),
+        .clint_csr_mtvec     (rf_clint_csr_mtvec),
+        .clint_csr_mepc      (rf_clint_csr_mepc),
+        .clint_csr_mstatus   (rf_clint_csr_mstatus)
     );
     
     // 执行单元例化
@@ -136,6 +174,12 @@ module RISCV(
         .funct3_i            (id_funct3_o),
         .funct7_i            (id_funct7_o),  
         .imm_i               (id_imm_o),  
+        .csr_rd_data_i       (id_csr_rd_data_o),
+        .csr_rw_addr_i       (id_csr_rw_addr_o),
+        .csr_zimm_i          (id_csr_zimm_o),
+        .csr_wr_en_o         (ex_csr_wr_en_o),
+        .csr_wr_addr_o       (ex_csr_wr_addr_o),
+        .csr_wr_data_o       (ex_csr_wr_data_o),
         .reg1_rd_data_i      (id_reg1_rd_data_o), 
         .reg2_rd_data_i      (id_reg2_rd_data_o),
         .reg_wr_addr_i       (id_reg_wr_addr_o),
@@ -151,7 +195,16 @@ module RISCV(
         .mem_wr_rib_req_o    (mem_wr_rib_req_o),
         .mem_wr_en_o         (mem_wr_en_o), 
         .mem_wr_addr_o       (mem_wr_addr_o), 
-        .mem_wr_data_o       (mem_wr_data_o)
+        .mem_wr_data_o       (mem_wr_data_o),
+        .int_flag_i          (if_int_flag_o),
+        .clint_wr_en_o       (ex_clint_wr_en_o),
+        .clint_wr_addr_o     (ex_clint_wr_addr_o),
+        .clint_wr_data_o     (ex_clint_wr_data_o),
+        .clint_rd_addr_o     (ex_clint_rd_addr_o),
+        .clint_rd_data_i     (rf_clint_rd_data_o),
+        .clint_csr_mtvec     (rf_clint_csr_mtvec),
+        .clint_csr_mepc      (rf_clint_csr_mepc),
+        .clint_csr_mstatus   (rf_clint_csr_mstatus)
     );
     
 endmodule

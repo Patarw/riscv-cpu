@@ -88,8 +88,8 @@ module rib(
     
     // 访问地址的最高四位决定要访问的是哪一个设备
     // 0x0000_0000 ~ 0x0fff_ffff [memory]
-    // 0x0000_0000 ~ 0x0000_0fff [rom] 
-    // 0x0000_1000 ~ 0x0000_1fff [ram]
+    // 0x0000_0000 ~ 0x0000_3fff [rom] 
+    // 0x0000_4000 ~ 0x0000_5fff [ram]
     parameter[3:0]  slave_mem = 4'b0000;
     
     parameter[3:0]  slave_2 = 4'b0001; // 0x1000_0000 ~ 0x1fff_ffff [uart]
@@ -155,15 +155,15 @@ module rib(
             grant_master_0: begin
                 case(m0_wr_addr_i[31:28])
                     slave_mem: begin
-                        case(m0_wr_addr_i[15:12])
-                            4'b0000: begin
+                        casex(m0_wr_addr_i[15:12])
+                            4'b00xx: begin
                                 s0_wr_en_o = m0_wr_en_i;  
-                                s0_wr_addr_o = {{20{1'b0}}, m0_wr_addr_i[11:0]};
+                                s0_wr_addr_o = {{18{1'b0}}, m0_wr_addr_i[13:0]};
                                 s0_wr_data_o = m0_wr_data_i;
                             end
-                            4'b0001: begin
+                            4'b01xx: begin
                                 s1_wr_en_o = m0_wr_en_i;  
-                                s1_wr_addr_o = {{20{1'b0}}, m0_wr_addr_i[11:0]};
+                                s1_wr_addr_o = {{18{1'b0}}, m0_wr_addr_i[13:0]};
                                 s1_wr_data_o = m0_wr_data_i;
                             end
                             default: begin
@@ -187,15 +187,15 @@ module rib(
             grant_master_1: begin
                 case(m1_wr_addr_i[31:28])
                     slave_mem: begin
-                        case(m1_wr_addr_i[15:12])
-                            4'b0000: begin
+                        casex(m1_wr_addr_i[15:12])
+                            4'b00xx: begin
                                 s0_wr_en_o = m1_wr_en_i;  
-                                s0_wr_addr_o = {{20{1'b0}}, m1_wr_addr_i[11:0]};
+                                s0_wr_addr_o = {{18{1'b0}}, m1_wr_addr_i[13:0]};
                                 s0_wr_data_o = m1_wr_data_i;
                             end
-                            4'b0001: begin
+                            4'b01xx: begin
                                 s1_wr_en_o = m1_wr_en_i;  
-                                s1_wr_addr_o = {{20{1'b0}}, m1_wr_addr_i[11:0]};
+                                s1_wr_addr_o = {{18{1'b0}}, m1_wr_addr_i[13:0]};
                                 s1_wr_data_o = m1_wr_data_i;
                             end
                             default: begin
@@ -219,15 +219,15 @@ module rib(
             grant_master_2: begin
                 case(m2_wr_addr_i[31:28])
                      slave_mem: begin
-                        case(m2_wr_addr_i[15:12])
-                            4'b0000: begin
+                        casex(m2_wr_addr_i[15:12])
+                            4'b00xx: begin
                                 s0_wr_en_o = m2_wr_en_i;  
-                                s0_wr_addr_o = {{20{1'b0}}, m2_wr_addr_i[11:0]};
+                                s0_wr_addr_o = {{18{1'b0}}, m2_wr_addr_i[13:0]};
                                 s0_wr_data_o = m2_wr_data_i;
                             end
-                            4'b0001: begin
+                            4'b01xx: begin
                                 s1_wr_en_o = m2_wr_en_i;  
-                                s1_wr_addr_o = {{20{1'b0}}, m2_wr_addr_i[11:0]};
+                                s1_wr_addr_o = {{18{1'b0}}, m2_wr_addr_i[13:0]};
                                 s1_wr_data_o = m2_wr_data_i;
                             end
                             default: begin
@@ -267,11 +267,11 @@ module rib(
             grant_master_0: begin
                 case(m0_rd_addr_i_reg[31:28])
                     slave_mem: begin
-                        case(m0_rd_addr_i_reg[15:12])
-                            4'b0000: begin
+                        casex(m0_rd_addr_i_reg[15:12])
+                            4'b00xx: begin
                                 m0_rd_data_o = s0_rd_data_i;
                             end
-                            4'b0001: begin
+                            4'b01xx: begin
                                 m0_rd_data_o = s1_rd_data_i;
                             end
                             default: begin
@@ -291,11 +291,11 @@ module rib(
             grant_master_1: begin
                 case(m1_rd_addr_i_reg[31:28])
                     slave_mem: begin
-                        case(m1_rd_addr_i_reg[15:12])
-                            4'b0000: begin
+                        casex(m1_rd_addr_i_reg[15:12])
+                            4'b00xx: begin
                                 m1_rd_data_o = s0_rd_data_i;
                             end
-                            4'b0001: begin
+                            4'b01xx: begin
                                 m1_rd_data_o = s1_rd_data_i;
                             end
                             default: begin
@@ -315,11 +315,11 @@ module rib(
             grant_master_2: begin
                 case(m2_rd_addr_i_reg[31:28])
                     slave_mem: begin
-                        case(m2_rd_addr_i_reg[15:12])
-                            4'b0000: begin
+                        casex(m2_rd_addr_i_reg[15:12])
+                            4'b00xx: begin
                                 m2_rd_data_o = s0_rd_data_i;
                             end
-                            4'b0001: begin
+                            4'b01xx: begin
                                 m2_rd_data_o = s1_rd_data_i;
                             end
                             default: begin
@@ -346,17 +346,17 @@ module rib(
         s0_rd_addr_o = `ZERO_WORD;
         s1_rd_addr_o = `ZERO_WORD;
         s2_rd_addr_o = `ZERO_WORD;
-        
+        s3_rd_addr_o = `ZERO_WORD;
         case(grant_rd)
             grant_master_0: begin
                 case(m0_rd_addr_i[31:28])
                     slave_mem: begin
-                        case(m0_rd_addr_i[15:12])
-                            4'b0000: begin
-                                s0_rd_addr_o = {{20{1'b0}}, m0_rd_addr_i[11:0]};
+                        casex(m0_rd_addr_i[15:12])
+                            4'b00xx: begin
+                                s0_rd_addr_o = {{18{1'b0}}, m0_rd_addr_i[13:0]};
                             end
-                            4'b0001: begin
-                                s1_rd_addr_o = {{20{1'b0}}, m0_rd_addr_i[11:0]};
+                            4'b01xx: begin
+                                s1_rd_addr_o = {{18{1'b0}}, m0_rd_addr_i[13:0]};
                             end
                             default: begin
                             end
@@ -375,12 +375,12 @@ module rib(
             grant_master_1: begin
                 case(m1_rd_addr_i[31:28])
                     slave_mem: begin
-                        case(m1_rd_addr_i[15:12])
-                            4'b0000: begin
-                                s0_rd_addr_o = {{20{1'b0}}, m1_rd_addr_i[11:0]};
+                        casex(m1_rd_addr_i[15:12])
+                            4'b00xx: begin
+                                s0_rd_addr_o = {{18{1'b0}}, m1_rd_addr_i[13:0]};
                             end
-                            4'b0001: begin
-                                s1_rd_addr_o = {{20{1'b0}}, m1_rd_addr_i[11:0]};
+                            4'b01xx: begin
+                                s1_rd_addr_o = {{18{1'b0}}, m1_rd_addr_i[13:0]};
                             end
                             default: begin
                             end
@@ -399,12 +399,12 @@ module rib(
             grant_master_2: begin
                 case(m2_rd_addr_i[31:28])
                     slave_mem: begin
-                        case(m2_rd_addr_i[15:12])
-                            4'b0000: begin
-                                s0_rd_addr_o = {{20{1'b0}}, m2_rd_addr_i[11:0]};
+                        casex(m2_rd_addr_i[15:12])
+                            4'b00xx: begin
+                                s0_rd_addr_o = {{18{1'b0}}, m2_rd_addr_i[13:0]};
                             end
-                            4'b0001: begin
-                                s1_rd_addr_o = {{20{1'b0}}, m2_rd_addr_i[11:0]};
+                            4'b01xx: begin
+                                s1_rd_addr_o = {{18{1'b0}}, m2_rd_addr_i[13:0]};
                             end
                             default: begin
                             end

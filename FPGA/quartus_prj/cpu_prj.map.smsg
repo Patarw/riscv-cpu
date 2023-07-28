@@ -1,3 +1,5 @@
+Info (10281): Verilog HDL Declaration information at clint.v(45): object "csr_mstatus" differs only in case from object "CSR_MSTATUS" in the same scope
+Info (10281): Verilog HDL Declaration information at clint.v(44): object "csr_mepc" differs only in case from object "CSR_MEPC" in the same scope
 Warning (10268): Verilog HDL information at gpio.v(54): always construct contains both blocking and non-blocking assignments
 Info (10281): Verilog HDL Declaration information at gpio.v(42): object "GPIO_CTRL" differs only in case from object "gpio_ctrl" in the same scope
 Info (10281): Verilog HDL Declaration information at gpio.v(44): object "GPIO_DATA" differs only in case from object "gpio_data" in the same scope

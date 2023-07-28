@@ -21,7 +21,7 @@
 
 `include "defines.v"
 
-// 除法单元
+// 除法单元，33个时钟周期完成计算
 module div(
 
     input      wire                    clk                 ,
