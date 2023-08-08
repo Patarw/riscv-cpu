@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/simulation/modelsim
 vcycloneive_and1
-Z1 !s110 1690445042
+Z1 !s110 1691471519
 !i10b 1
 !s100 oT]7FkABD[F088N@X^z8]0
 IiNHmO5Ia68DPb@eej;Q@T1
@@ -23,7 +23,7 @@ Z6 OL;L;10.5;63
 r1
 !s85 0
 31
-Z7 !s108 1690445042.000000
+Z7 !s108 1691471519.000000
 Z8 !s107 d:/software/quartus/quartus/eda/sim_lib/cycloneive_atoms.v|
 Z9 !s90 -reportprogress|300|-vlog01compat|-work|cycloneive_ver|d:/software/quartus/quartus/eda/sim_lib/cycloneive_atoms.v|
 !i113 0
@@ -618,7 +618,7 @@ R9
 R10
 R11
 vcycloneive_oscillator
-!s110 1690445043
+R1
 !i10b 1
 !s100 mi5NBe3n=@RzWnFeYMHfE3
 I2eKdZI`T4;jZ4]NS7ECQD1

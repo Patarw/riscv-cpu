@@ -20,15 +20,15 @@ uart_state.BEGIN 0 0 1 1
 uart_state.SEND_BYTE 0 1 0 1 
 uart_state.END 1 0 0 1 
 
-State Machine - |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|clint:u_clint|csr_state
+State Machine - |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state
+Name div_state.BUSY 
+div_state.IDLE 0 
+div_state.BUSY 1 
+
+State Machine - |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint|csr_state
 Name csr_state.CSR_MCAUSE csr_state.CSR_MSTATUS_MRET csr_state.CSR_MEPC csr_state.CSR_MSTATUS csr_state.CSR_IDLE 
 csr_state.CSR_IDLE 0 0 0 0 0 
 csr_state.CSR_MSTATUS 0 0 0 1 1 
 csr_state.CSR_MEPC 0 0 1 0 1 
 csr_state.CSR_MSTATUS_MRET 0 1 0 0 1 
 csr_state.CSR_MCAUSE 1 0 0 0 1 
-
-State Machine - |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state
-Name div_state.BUSY 
-div_state.IDLE 0 
-div_state.BUSY 1 

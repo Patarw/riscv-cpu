@@ -147,5 +147,7 @@
 `define HOLD_ID_EX   3'b011
 
 // 异步中断
-`define INT_BUS    7:0
-`define INT_NONE   8'b0000
+`define INT_BUS     7:0
+`define INT_NONE      8'b0000_0000
+`define INT_TIMER     8'b0000_0001
+`define INT_UART_REV  8'b0000_0010

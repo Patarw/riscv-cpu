@@ -82,6 +82,13 @@ module rib(
     output  reg [`INST_ADDR_BUS]    s3_rd_addr_o, // 从设备3读地址
     input   wire[`INST_DATA_BUS]    s3_rd_data_i, // 从设备3读数据
     
+    // 从设备4（timer）
+    output  reg                     s4_wr_en_o  , // 从设备4写使能
+    output  reg [`INST_ADDR_BUS]    s4_wr_addr_o, // 从设备4写地址
+    output  reg [`INST_DATA_BUS]    s4_wr_data_o, // 从设备4写数据
+    output  reg [`INST_ADDR_BUS]    s4_rd_addr_o, // 从设备4读地址
+    input   wire[`INST_DATA_BUS]    s4_rd_data_i, // 从设备4读数据
+    
     output  reg                     rib_hold_flag_o  // 暂停流水线标志
     
     );
@@ -94,6 +101,7 @@ module rib(
     
     parameter[3:0]  slave_2 = 4'b0001; // 0x1000_0000 ~ 0x1fff_ffff [uart]
     parameter[3:0]  slave_3 = 4'b0010; // 0x2000_0000 ~ 0x2fff_ffff [gpio]
+    parameter[3:0]  slave_4 = 4'b0011; // 0x3000_0000 ~ 0x3fff_ffff [timer]
     
     // 主设备授权访问
     parameter[1:0]  grant_master_0 = 2'b00; // 访存
@@ -150,6 +158,10 @@ module rib(
         s3_wr_addr_o = `ZERO_WORD;
         s3_wr_data_o = `ZERO_WORD;
         
+        s4_wr_en_o = 1'b0;  
+        s4_wr_addr_o = `ZERO_WORD;
+        s4_wr_data_o = `ZERO_WORD;
+        
         // 写相关
         case(grant_wr)
             grant_master_0: begin
@@ -179,6 +191,11 @@ module rib(
                         s3_wr_en_o = m0_wr_en_i;  
                         s3_wr_addr_o = {{4'd0}, m0_wr_addr_i[27:0]};
                         s3_wr_data_o = m0_wr_data_i;
+                    end
+                    slave_4: begin
+                        s4_wr_en_o = m0_wr_en_i;  
+                        s4_wr_addr_o = {{4'd0}, m0_wr_addr_i[27:0]};
+                        s4_wr_data_o = m0_wr_data_i;
                     end
                     default: begin
                     end
@@ -212,6 +229,11 @@ module rib(
                         s3_wr_addr_o = {{4'd0}, m1_wr_addr_i[27:0]};
                         s3_wr_data_o = m1_wr_data_i;
                     end
+                    slave_4: begin
+                        s4_wr_en_o = m1_wr_en_i;  
+                        s4_wr_addr_o = {{4'd0}, m1_wr_addr_i[27:0]};
+                        s4_wr_data_o = m1_wr_data_i;
+                    end
                     default: begin
                     end
                 endcase
@@ -243,6 +265,11 @@ module rib(
                         s3_wr_en_o = m2_wr_en_i;  
                         s3_wr_addr_o = {{4'd0}, m2_wr_addr_i[27:0]};
                         s3_wr_data_o = m2_wr_data_i;
+                    end
+                    slave_4: begin
+                        s4_wr_en_o = m2_wr_en_i;  
+                        s4_wr_addr_o = {{4'd0}, m2_wr_addr_i[27:0]};
+                        s4_wr_data_o = m2_wr_data_i;
                     end
                     default: begin
                     end
@@ -284,6 +311,9 @@ module rib(
                     slave_3: begin
                         m0_rd_data_o = s3_rd_data_i;
                     end
+                    slave_4: begin
+                        m0_rd_data_o = s4_rd_data_i;
+                    end
                     default: begin
                     end
                 endcase
@@ -307,6 +337,9 @@ module rib(
                     end
                     slave_3: begin
                         m1_rd_data_o = s3_rd_data_i;
+                    end
+                    slave_4: begin
+                        m1_rd_data_o = s4_rd_data_i;
                     end
                     default: begin
                     end
@@ -332,6 +365,9 @@ module rib(
                     slave_3: begin
                         m2_rd_data_o = s3_rd_data_i;
                     end
+                    slave_4: begin
+                        m2_rd_data_o = s4_rd_data_i;
+                    end
                     default: begin
                     end
                 endcase
@@ -347,6 +383,7 @@ module rib(
         s1_rd_addr_o = `ZERO_WORD;
         s2_rd_addr_o = `ZERO_WORD;
         s3_rd_addr_o = `ZERO_WORD;
+        s4_rd_addr_o = `ZERO_WORD;
         case(grant_rd)
             grant_master_0: begin
                 case(m0_rd_addr_i[31:28])
@@ -367,6 +404,9 @@ module rib(
                     end
                     slave_3: begin
                         s3_rd_addr_o = {{4'd0}, m0_rd_addr_i[27:0]};
+                    end
+                    slave_4: begin
+                        s4_rd_addr_o = {{4'd0}, m0_rd_addr_i[27:0]};
                     end
                     default: begin
                     end
@@ -392,6 +432,9 @@ module rib(
                     slave_3: begin
                         s3_rd_addr_o = {{4'd0}, m1_rd_addr_i[27:0]};
                     end
+                    slave_4: begin
+                        s4_rd_addr_o = {{4'd0}, m1_rd_addr_i[27:0]};
+                    end
                     default: begin
                     end
                 endcase
@@ -415,6 +458,9 @@ module rib(
                     end
                     slave_3: begin
                         s3_rd_addr_o = {{4'd0}, m2_rd_addr_i[27:0]};
+                    end
+                    slave_4: begin
+                        s4_rd_addr_o = {{4'd0}, m2_rd_addr_i[27:0]};
                     end
                     default: begin
                     end

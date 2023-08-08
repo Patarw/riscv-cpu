@@ -1,10 +1,14 @@
-Info (10281): Verilog HDL Declaration information at clint.v(45): object "csr_mstatus" differs only in case from object "CSR_MSTATUS" in the same scope
-Info (10281): Verilog HDL Declaration information at clint.v(44): object "csr_mepc" differs only in case from object "CSR_MEPC" in the same scope
+Warning (10268): Verilog HDL information at timer.v(63): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at timer.v(42): object "TIMER_CTRL" differs only in case from object "timer_ctrl" in the same scope
+Info (10281): Verilog HDL Declaration information at timer.v(43): object "TIMER_COUNT" differs only in case from object "timer_count" in the same scope
+Info (10281): Verilog HDL Declaration information at timer.v(44): object "TIMER_EVALUE" differs only in case from object "timer_evalue" in the same scope
+Info (10281): Verilog HDL Declaration information at clint.v(48): object "csr_mstatus" differs only in case from object "CSR_MSTATUS" in the same scope
+Info (10281): Verilog HDL Declaration information at clint.v(47): object "csr_mepc" differs only in case from object "CSR_MEPC" in the same scope
 Warning (10268): Verilog HDL information at gpio.v(54): always construct contains both blocking and non-blocking assignments
 Info (10281): Verilog HDL Declaration information at gpio.v(42): object "GPIO_CTRL" differs only in case from object "gpio_ctrl" in the same scope
 Info (10281): Verilog HDL Declaration information at gpio.v(44): object "GPIO_DATA" differs only in case from object "gpio_data" in the same scope
 Warning (10268): Verilog HDL information at div.v(84): always construct contains both blocking and non-blocking assignments
-Warning (10268): Verilog HDL information at uart.v(79): always construct contains both blocking and non-blocking assignments
-Info (10281): Verilog HDL Declaration information at uart.v(42): object "UART_CTRL" differs only in case from object "uart_ctrl" in the same scope
-Info (10281): Verilog HDL Declaration information at uart.v(43): object "UART_TX_DATA_BUF" differs only in case from object "uart_tx_data_buf" in the same scope
-Info (10281): Verilog HDL Declaration information at uart.v(44): object "UART_RX_DATA_BUF" differs only in case from object "uart_rx_data_buf" in the same scope
+Warning (10268): Verilog HDL information at uart.v(85): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at uart.v(45): object "UART_CTRL" differs only in case from object "uart_ctrl" in the same scope
+Info (10281): Verilog HDL Declaration information at uart.v(46): object "UART_TX_DATA_BUF" differs only in case from object "uart_tx_data_buf" in the same scope
+Info (10281): Verilog HDL Declaration information at uart.v(47): object "UART_RX_DATA_BUF" differs only in case from object "uart_rx_data_buf" in the same scope

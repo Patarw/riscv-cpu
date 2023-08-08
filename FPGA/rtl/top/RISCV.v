@@ -77,7 +77,16 @@ module RISCV(
     wire[`INST_REG_DATA]     rf_clint_csr_mtvec;  
     wire[`INST_REG_DATA]     rf_clint_csr_mepc;   
     wire[`INST_REG_DATA]     rf_clint_csr_mstatus;
-
+    
+    // clint 模块输出信号
+    wire                     clint_wr_en_o;    
+    wire[`INST_ADDR_BUS]     clint_wr_addr_o;  
+    wire[`INST_REG_DATA]     clint_wr_data_o;  
+    wire[`INST_ADDR_BUS]     clint_rd_addr_o;  
+    wire                     clint_busy_o;
+    wire[`INST_ADDR_BUS]     clint_int_addr_o;
+    wire                     clint_int_assert_o;
+    
     // EX单元输出信号
     wire                     ex_reg_wr_en_o;
     wire[`INST_REG_ADDR]     ex_reg_wr_addr_o;
@@ -88,11 +97,9 @@ module RISCV(
     wire                     ex_csr_wr_en_o;
     wire[`INST_ADDR_BUS]     ex_csr_wr_addr_o;
     wire[`INST_REG_DATA]     ex_csr_wr_data_o;
-    wire                     ex_clint_wr_en_o;    
-    wire[`INST_ADDR_BUS]     ex_clint_wr_addr_o;  
-    wire[`INST_REG_DATA]     ex_clint_wr_data_o;  
-    wire[`INST_ADDR_BUS]     ex_clint_rd_addr_o;  
-
+    wire                     ex_div_busy_o; 
+    wire                     ex_div_req_o;  
+    
 
     // 取指单元例化
     IF_UNIT INST_IF_UNIT(
@@ -154,14 +161,38 @@ module RISCV(
         .csr_wr_data_i       (ex_csr_wr_data_o),
         .csr_rd_addr_i       (id_csr_rd_addr_o),
         .csr_rd_data_o       (rf_csr_rd_data_o),
-        .clint_wr_en_i       (ex_clint_wr_en_o),
-        .clint_wr_addr_i     (ex_clint_wr_addr_o),
-        .clint_wr_data_i     (ex_clint_wr_data_o),
-        .clint_rd_addr_i     (ex_clint_rd_addr_o),
+        .clint_wr_en_i       (clint_wr_en_o),
+        .clint_wr_addr_i     (clint_wr_addr_o),
+        .clint_wr_data_i     (clint_wr_data_o),
+        .clint_rd_addr_i     (clint_rd_addr_o),
         .clint_rd_data_o     (rf_clint_rd_data_o),
         .clint_csr_mtvec     (rf_clint_csr_mtvec),
         .clint_csr_mepc      (rf_clint_csr_mepc),
         .clint_csr_mstatus   (rf_clint_csr_mstatus)
+    );
+    
+    // 中断模块例化
+    clint u_clint(
+        .clk                 (clk),
+        .rst_n               (rst_n),
+        .ins_i               (if_ins_o),     
+        .ins_addr_i          (if_ins_addr_o), 
+        .jump_flag_i         (ex_jump_flag_o),
+        .jump_addr_i         (ex_jump_addr_o),
+        .div_req_i           (ex_div_req_o), 
+        .div_busy_i          (ex_div_busy_o), 
+        .wr_en_o             (clint_wr_en_o), 
+        .wr_addr_o           (clint_wr_addr_o), 
+        .wr_data_o           (clint_wr_data_o), 
+        .rd_addr_o           (clint_rd_addr_o),
+        .rd_data_i           (rf_clint_rd_data_o),
+        .csr_mtvec           (rf_clint_csr_mtvec), 
+        .csr_mepc            (rf_clint_csr_mepc), 
+        .csr_mstatus         (rf_clint_csr_mstatus), 
+        .int_flag_i          (if_int_flag_o), 
+        .clint_busy_o        (clint_busy_o), 
+        .int_addr_o          (clint_int_addr_o), 
+        .int_assert_o        (clint_int_assert_o)  
     );
     
     // 执行单元例化
@@ -196,15 +227,12 @@ module RISCV(
         .mem_wr_en_o         (mem_wr_en_o), 
         .mem_wr_addr_o       (mem_wr_addr_o), 
         .mem_wr_data_o       (mem_wr_data_o),
-        .int_flag_i          (if_int_flag_o),
-        .clint_wr_en_o       (ex_clint_wr_en_o),
-        .clint_wr_addr_o     (ex_clint_wr_addr_o),
-        .clint_wr_data_o     (ex_clint_wr_data_o),
-        .clint_rd_addr_o     (ex_clint_rd_addr_o),
-        .clint_rd_data_i     (rf_clint_rd_data_o),
-        .clint_csr_mtvec     (rf_clint_csr_mtvec),
-        .clint_csr_mepc      (rf_clint_csr_mepc),
-        .clint_csr_mstatus   (rf_clint_csr_mstatus)
+        .clint_busy_i        (clint_busy_o),
+        .int_addr_i          (clint_int_addr_o),
+        .int_assert_i        (clint_int_assert_o),
+        .div_busy_o          (ex_div_busy_o),
+        .div_req_o           (ex_div_req_o)
+
     );
     
 endmodule

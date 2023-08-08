@@ -10,7 +10,7 @@ cModel Technology
 Z0 dD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/simulation/modelsim
 valtera_arriav_pll
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z2 !s110 1690445042
+Z2 !s110 1691471519
 !i10b 1
 !s100 [Yk[z106dfBRQO<E@BWIe0
 I;HT2<o8olQjZ?oPU9;z0c1
@@ -26,7 +26,7 @@ Z8 OL;L;10.5;63
 r1
 !s85 0
 31
-Z9 !s108 1690445042.000000
+Z9 !s108 1691471518.000000
 Z10 !s107 d:/software/quartus/quartus/eda/sim_lib/altera_lnsim.sv|
 Z11 !s90 -reportprogress|300|-sv|-work|altera_lnsim_ver|d:/software/quartus/quartus/eda/sim_lib/altera_lnsim.sv|
 !i113 0
@@ -105,7 +105,7 @@ R12
 R13
 Xaltera_lnsim_functions
 R1
-R2
+Z14 !s110 1691471518
 !i10b 1
 !s100 3CCCi6V19XoKChdC6bknT0
 IWR=iQ2m@b_l<UjaYGizE72
@@ -176,8 +176,8 @@ R12
 R13
 valtera_pll
 R1
-Z14 DXx4 work 22 altera_lnsim_functions 0 22 WR=iQ2m@b_l<UjaYGizE72
-R2
+Z15 DXx4 work 22 altera_lnsim_functions 0 22 WR=iQ2m@b_l<UjaYGizE72
+R14
 !i10b 1
 !s100 azZKTaW^5QZ8XT>UPD7Oz1
 IPDYaLE;1dbLf4Ia0E55KJ1
@@ -537,7 +537,7 @@ R12
 R13
 vcommon_28nm_mlab_cell_core
 R1
-R14
+R15
 R2
 !i10b 1
 !s100 D4a01Q7UFL1:6BT<jVbET0
@@ -610,7 +610,7 @@ R12
 R13
 vcommon_28nm_ram_block
 R1
-R14
+R15
 R2
 !i10b 1
 !s100 7DO[[bbo:`TGD9DT=dKI81
@@ -731,7 +731,7 @@ R12
 R13
 vdprio_init
 R1
-R2
+R14
 !i10b 1
 !s100 eeRj3=T3a1ZEMTRLljeU11
 IS?BldO8d]XmL79gJgWcI@3
@@ -755,7 +755,7 @@ R12
 R13
 vdps_extra_kick
 R1
-R2
+R14
 !i10b 1
 !s100 V;d`AS@=IChN?Rc:DUMB:3
 IOI0F9K<gjGC>:3ZD1Mh9z3
@@ -779,7 +779,7 @@ R12
 R13
 vgeneric_28nm_hp_mlab_cell_impl
 R1
-R14
+R15
 R2
 !i10b 1
 !s100 :ESGNk1KCOdk5S=4lKeTa0
@@ -804,7 +804,7 @@ R12
 R13
 vgeneric_28nm_lc_mlab_cell_impl
 R1
-R14
+R15
 R2
 !i10b 1
 !s100 W]bjAlT3mT6ldF:mb[=YT2
@@ -829,7 +829,7 @@ R12
 R13
 vgeneric_cdr
 R1
-R14
+R15
 R2
 !i10b 1
 !s100 6FlgifQGIb4`7bZBi:`^D1
@@ -854,7 +854,7 @@ R12
 R13
 vgeneric_device_pll
 R1
-R14
+R15
 R2
 !i10b 1
 !s100 W7FGoQTGXj>Zg[2SPTEU12
@@ -951,7 +951,7 @@ R12
 R13
 vgeneric_pll
 R1
-R14
+R15
 DXx4 work 28 altera_generic_pll_functions 0 22 PZD2k@e?TW6G2KB8nOS>Z1
 R2
 !i10b 1
@@ -977,7 +977,7 @@ R12
 R13
 vpll_dps_lcell_comb
 R1
-R2
+R14
 !i10b 1
 !s100 7RB63<HMbM_AoB8`Q51N91
 I9hG7EMij532SJ@XZj2_kH2

@@ -74,6 +74,7 @@ set_location_assignment PIN_M6 -to gpio_pins[2]
 set_location_assignment PIN_P3 -to gpio_pins[1]
 set_location_assignment PIN_N3 -to gpio_pins[0]
 set_location_assignment PIN_M2 -to uart_debug_pin
+set_global_assignment -name VERILOG_FILE ../rtl/perips/timer.v
 set_global_assignment -name VERILOG_FILE ../rtl/core/clint.v
 set_global_assignment -name VERILOG_FILE ../rtl/core/gpr.v
 set_global_assignment -name VERILOG_FILE ../rtl/core/csr.v

@@ -29,6 +29,9 @@ module clint(
     input    wire[`INST_DATA_BUS]    ins_i               ,     
     input    wire[`INST_ADDR_BUS]    ins_addr_i          , 
     
+    // from ex
+    input    wire                    jump_flag_i         ,
+    input    wire[`INST_ADDR_BUS]    jump_addr_i         ,
     input    wire                    div_req_i           , // 除法操作执行请求信号
     input    wire                    div_busy_i          , // 除法操作忙信号
     
@@ -68,6 +71,20 @@ module clint(
     reg[2:0]                    csr_state;
     reg[`INST_REG_DATA]         cause;
     reg[`INST_ADDR_BUS]         ins_addr;
+    reg[`INST_ADDR_BUS]         div_ins_addr;
+    
+    // 如果是除法指令，则保存除法指令的地址
+    always @ (posedge clk or negedge rst_n) begin
+        if(!rst_n) begin
+            div_ins_addr <= `ZERO_WORD;
+        end
+        else if (ins_i == `INS_DIV || ins_i == `INS_DIVU || ins_i == `INS_REM || ins_i == `INS_REMU) begin
+            div_ins_addr <= ins_addr_i;
+        end
+        else begin
+            div_ins_addr <= div_ins_addr;
+        end
+    end
     
     assign clint_busy_o = ((int_state != INT_IDLE) | (csr_state != CSR_IDLE)) ? 1'b1 : 1'b0;
     
@@ -75,7 +92,13 @@ module clint(
     always @ (*) begin
         // 同步中断
         if (ins_i == `INS_ECALL || ins_i == `INS_EBREAK) begin
-            int_state = INT_SYNC_ASSERT;
+            // 如果执行阶段的指令为除法指令或者跳转指令，则先不处理同步中断
+            if (div_req_i != 1'b1 && jump_flag_i != 1'b1) begin
+                int_state = INT_SYNC_ASSERT;
+            end 
+            else begin
+                int_state = INT_IDLE;
+            end
         end 
         // 异步中断
         else if (int_flag_i != `INT_NONE && csr_mstatus[3] == 1'b1) begin
@@ -118,12 +141,25 @@ module clint(
                     end 
                     // 异步中断
                     else if (int_state == INT_ASYNC_ASSERT) begin
-                        // 定时器中断
-                        // cause <= 32'h80000004;
+                        // timer中断
+                        if (int_flag_i == `INT_TIMER) begin
+                            cause <= 32'h80000004;
+                        end
+                        // uart中断，无总裁，目前这部分只用于测试
+                        else if (int_flag_i == `INT_UART_REV) begin
+                            cause <= 32'h8000000b;
+                        end
+                        else begin
+                            cause <= 32'h0000000a;
+                        end
+                        
                         csr_state <= CSR_MEPC;
+                        if (jump_flag_i == 1'b1) begin
+                            ins_addr <= jump_addr_i;
+                        end
                         // 异步中断可以中断除法指令的执行，中断处理完再重新执行除法指令
                         if (div_req_i == 1'b1 || div_busy_i == 1'b1) begin
-                            ins_addr <= ins_addr_i - 4'h4;
+                            ins_addr <= div_ins_addr;
                         end 
                         else begin
                             ins_addr <= ins_addr_i;

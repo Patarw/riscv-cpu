@@ -61,15 +61,11 @@ module EX_UNIT(
     output  wire[`INST_ADDR_BUS]    mem_wr_addr_o       , 
     output  wire[`INST_DATA_BUS]    mem_wr_data_o       ,
     
-    input   wire[`INT_BUS]          int_flag_i          ,
-    output  wire                    clint_wr_en_o       , 
-    output  wire[`INST_ADDR_BUS]    clint_wr_addr_o     , 
-    output  wire[`INST_REG_DATA]    clint_wr_data_o     , 
-    output  wire[`INST_ADDR_BUS]    clint_rd_addr_o     , 
-    input   wire[`INST_REG_DATA]    clint_rd_data_i     , 
-    input   wire[`INST_REG_DATA]    clint_csr_mtvec     , 
-    input   wire[`INST_REG_DATA]    clint_csr_mepc      , 
-    input   wire[`INST_REG_DATA]    clint_csr_mstatus   
+    input   wire                    clint_busy_i        , 
+    input   wire[`INST_ADDR_BUS]    int_addr_i          , 
+    input   wire                    int_assert_i        ,  
+    output  wire                    div_busy_o          ,
+    output  wire                    div_req_o           
     
     );
     
@@ -92,12 +88,11 @@ module EX_UNIT(
     wire[`INST_ADDR_BUS]     jump_addr;
     wire                     hold_flag;
     reg [`INST_ADDR_BUS]     mem_rd_addr;
-    wire                     clint_busy;
-    wire[`INST_ADDR_BUS]     int_addr; 
-    wire                     int_assert;
     
-    assign jump_flag_o = int_assert ? 1'b1 : jump_flag;
-    assign jump_addr_o = int_assert ? int_addr : jump_addr;
+    assign div_busy_o = div_busy;
+    assign div_req_o = div_req;
+    assign jump_flag_o = int_assert_i ? 1'b1 : jump_flag;
+    assign jump_addr_o = int_assert_i ? int_addr_i : jump_addr;
     
     // 内存读地址延迟一个时钟周期
     always @ (posedge clk or negedge rst_n) begin
@@ -111,8 +106,9 @@ module EX_UNIT(
     
     // 暂停流水线控制信号 hold_flag_o
     always @ (*) begin
+        
         // 暂停整个流水线
-        if(hold_flag == 1'b1 || div_busy == 1'b1 || clint_busy == 1'b1) begin
+        if(jump_flag_o == 1'b1 || hold_flag == 1'b1 || div_busy == 1'b1 || clint_busy_i == 1'b1) begin
             hold_flag_o = `HOLD_ID_EX;
         end
         // 暂停PC
@@ -202,28 +198,6 @@ module EX_UNIT(
         .div_busy_o          (div_busy), 
         .div_res_ready_o     (div_res_ready), 
         .div_res_o           (div_res)  
-    );
-    
-    // 中断模块例化
-    clint u_clint(
-        .clk                 (clk),
-        .rst_n               (rst_n),
-        .ins_i               (ins_i),     
-        .ins_addr_i          (ins_addr_i), 
-        .div_req_i           (div_req), 
-        .div_busy_i          (div_busy), 
-        .wr_en_o             (clint_wr_en_o), 
-        .wr_addr_o           (clint_wr_addr_o), 
-        .wr_data_o           (clint_wr_data_o), 
-        .rd_addr_o           (clint_rd_addr_o),
-        .rd_data_i           (clint_rd_data_i),
-        .csr_mtvec           (clint_csr_mtvec), 
-        .csr_mepc            (clint_csr_mepc), 
-        .csr_mstatus         (clint_csr_mstatus), 
-        .int_flag_i          (int_flag_i), 
-        .clint_busy_o        (clint_busy), 
-        .int_addr_o          (int_addr), 
-        .int_assert_o        (int_assert)  
     );
     
     

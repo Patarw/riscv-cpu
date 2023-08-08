@@ -70,6 +70,12 @@ module RISCV_SOC_TOP(
     wire[`INST_DATA_BUS]     s3_wr_data_o;
     wire[`INST_ADDR_BUS]     s3_rd_addr_o;
     
+    // slave4
+    wire                     s4_wr_en_o;  
+    wire[`INST_ADDR_BUS]     s4_wr_addr_o;
+    wire[`INST_DATA_BUS]     s4_wr_data_o;
+    wire[`INST_ADDR_BUS]     s4_rd_addr_o;
+    
     // RISCV模块输出信号
     wire[`INST_ADDR_BUS]     riscv_pc_o;
     wire                     riscv_mem_wr_rib_req_o;
@@ -94,15 +100,23 @@ module RISCV_SOC_TOP(
     
     // uart模块输出信号
     wire[`INST_DATA_BUS]     uart_rd_data_o;
+    wire                     uart_int_flag_o;
     
     // gpio模块输出信号
     wire[`INST_DATA_BUS]     gpio_rd_data_o;
     
+    // timer模块输出信号
+    wire[`INST_DATA_BUS]     timer_rd_data_o;
+    wire                     timer_int_flag_o;
+    wire[`INT_BUS]           int_flag;
+    
+    assign int_flag = {6'd0, uart_int_flag_o, timer_int_flag_o};
     
     RISCV u_RISCV(
         .clk               (clk),
         .rst_n             (rst_n),
         .rib_hold_flag_i   (rib_hold_flag_o),
+        .int_flag_i        (int_flag),
         .pc_o              (riscv_pc_o),
         .ins_i             (rom_ins_o),
         .mem_wr_rib_req_o  (riscv_mem_wr_rib_req_o),
@@ -169,6 +183,11 @@ module RISCV_SOC_TOP(
         .s3_wr_data_o   (s3_wr_data_o), 
         .s3_rd_addr_o   (s3_rd_addr_o), 
         .s3_rd_data_i   (gpio_rd_data_o), 
+        .s4_wr_en_o     (s4_wr_en_o), 
+        .s4_wr_addr_o   (s4_wr_addr_o), 
+        .s4_wr_data_o   (s4_wr_data_o), 
+        .s4_rd_addr_o   (s4_rd_addr_o), 
+        .s4_rd_data_i   (timer_rd_data_o), 
         .rib_hold_flag_o(rib_hold_flag_o) 
     );
     
@@ -203,7 +222,8 @@ module RISCV_SOC_TOP(
         .wr_addr_i      (s2_wr_addr_o), 
         .wr_data_i      (s2_wr_data_o), 
         .rd_addr_i      (s2_rd_addr_o), 
-        .rd_data_o      (uart_rd_data_o)  
+        .rd_data_o      (uart_rd_data_o),
+        .uart_int_flag_o(uart_int_flag_o)
     );
     
     gpio u_gpio(
@@ -215,6 +235,17 @@ module RISCV_SOC_TOP(
         .rd_addr_i      (s3_rd_addr_o), 
         .rd_data_o      (gpio_rd_data_o),
         .gpio_pins      (gpio_pins) 
+    );
+    
+    timer u_timer(
+        .clk                (clk),
+        .rst_n              (rst_n),
+        .wr_en_i            (s4_wr_en_o), 
+        .wr_addr_i          (s4_wr_addr_o), 
+        .wr_data_i          (s4_wr_data_o), 
+        .rd_addr_i          (s4_rd_addr_o), 
+        .rd_data_o          (timer_rd_data_o), 
+        .timer_int_flag_o   (timer_int_flag_o)
     );
     
 endmodule

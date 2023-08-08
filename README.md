@@ -22,6 +22,9 @@
 ### 2023年7月22号：
 1. 支持RV32M扩展指令集
 2. 增加总线模块rib.v
+### 2023年8月8号
+1. 支持ecall，ebreak同步中断；uart异步中断
+2. 支持csr寄存器操作
 
 ### 使用说明
 项目文件结构
@@ -38,3 +41,5 @@
 4.  [开发一个RISC-V上的操作系统（一）—— 环境搭建](https://blog.csdn.net/qq_51103378/article/details/131498891?spm=1001.2014.3001.5501)
 5.  [开发一个RISC-V上的操作系统（二）—— 系统引导程序（Bootloader）](https://blog.csdn.net/qq_51103378/article/details/131873548?spm=1001.2014.3001.5502)
 6.  [开发一个RISC-V上的操作系统（三）—— 串口驱动程序（UART）](https://blog.csdn.net/qq_51103378/article/details/131881330?spm=1001.2014.3001.5501)
+7.  [开发一个RISC-V上的操作系统（四）—— 内存管理](https://blog.csdn.net/qq_51103378/article/details/131991535?spm=1001.2014.3001.5502)
+8.  [开发一个RISC-V上的操作系统（五）—— 协作式多任务](https://blog.csdn.net/qq_51103378/article/details/132003445?spm=1001.2014.3001.5502)
