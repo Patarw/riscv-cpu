@@ -46,6 +46,9 @@ module clint(
     input    wire[`INST_REG_DATA]    csr_mtvec           , // mtvec寄存器
     input    wire[`INST_REG_DATA]    csr_mepc            , // mepc寄存器
     input    wire[`INST_REG_DATA]    csr_mstatus         , // mstatus寄存器
+    input    wire[1:0]               privileg_i          ,
+    output   reg                     wr_privilege_en_o   , 
+    output   reg [1:0]               wr_privilege_o      , 
     
     input    wire[`INT_BUS]          int_flag_i          , // 异步中断信号
     output   wire                    clint_busy_o        , // 中断忙信号
@@ -91,7 +94,7 @@ module clint(
     // 中断仲裁逻辑
     always @ (*) begin
         // 同步中断
-        if (ins_i == `INS_ECALL || ins_i == `INS_EBREAK) begin
+        if (ins_i == `INS_ECALL || ins_i == `INS_EBREAK || (ins_i[6:0] == `INS_TYPE_CSR && privileg_i < `PRIVILEG_MACHINE)) begin
             // 如果执行阶段的指令为除法指令或者跳转指令，则先不处理同步中断
             if (div_req_i != 1'b1 && jump_flag_i != 1'b1) begin
                 int_state = INT_SYNC_ASSERT;
@@ -127,30 +130,39 @@ module clint(
                         csr_state <= CSR_MEPC;
                         // 在中断处理函数里会将中断返回地址加4
                         ins_addr <= ins_addr_i;
-                        case (ins_i)
-                            `INS_ECALL: begin
-                                cause <= 32'd11;
-                            end
-                            `INS_EBREAK: begin
-                                cause <= 32'd3;
-                            end
-                            default: begin
-                                cause <= 32'd10;
-                            end
-                        endcase
+                        
+                        // Environment call from M-mode
+                        if (ins_i == `INS_ECALL && privileg_i == `PRIVILEG_MACHINE) begin
+                            cause <= 32'd11;
+                        end
+                        // Environment call from U-mode
+                        if (ins_i == `INS_ECALL && privileg_i == `PRIVILEG_USER) begin
+                            cause <= 32'd8;
+                        end
+                        // Breakpoint
+                        else if (ins_i == `INS_EBREAK) begin
+                            cause <= 32'd3;
+                        end
+                        // Illegal Instruction
+                        else if (ins_i[6:0] == `INS_TYPE_CSR) begin
+                            cause <= 32'd2;
+                        end
+                        else begin
+                            cause <= 32'd10;
+                        end
                     end 
                     // 异步中断
                     else if (int_state == INT_ASYNC_ASSERT) begin
                         // timer中断
                         if (int_flag_i == `INT_TIMER) begin
-                            cause <= 32'h80000004;
+                            cause <= 32'h80000007;
                         end
-                        // uart中断，无总裁，目前这部分只用于测试
+                        // uart中断，目前这个只用于测试
                         else if (int_flag_i == `INT_UART_REV) begin
                             cause <= 32'h8000000b;
                         end
                         else begin
-                            cause <= 32'h0000000a;
+                            cause <= 32'h8000000a;
                         end
                         
                         csr_state <= CSR_MEPC;
@@ -195,6 +207,8 @@ module clint(
             wr_en_o <= 1'b0;
             wr_addr_o <= `ZERO_WORD;
             wr_data_o <= `ZERO_WORD;
+            wr_privilege_en_o = 1'b0;
+            wr_privilege_o = `PRIVILEG_MACHINE;
         end 
         else begin
             case (csr_state)
@@ -210,19 +224,26 @@ module clint(
                     wr_addr_o <= {20'h0, `CSR_MCAUSE};
                     wr_data_o <= cause;
                 end
-                // 关闭全局中断
+                // 关闭全局中断，修改特权级别为machine，并将当前特权级别存入MPP中
                 CSR_MSTATUS: begin
+                    wr_privilege_en_o = 1'b1;
+                    wr_privilege_o = `PRIVILEG_MACHINE;
                     wr_en_o <= 1'b1;
                     wr_addr_o <= {20'h0, `CSR_MSTATUS};
-                    wr_data_o <= {csr_mstatus[31:4], 1'b0, csr_mstatus[2:0]};
+                    wr_data_o <= {csr_mstatus[31:13], privileg_i, csr_mstatus[10:4], 1'b0, csr_mstatus[2:0]};
+                    
                 end
-                // 中断返回
+                // 中断返回，修改特权级别为MPP
                 CSR_MSTATUS_MRET: begin
+                    wr_privilege_en_o = 1'b1;
+                    wr_privilege_o = csr_mstatus[12:11]; // MPP
                     wr_en_o <= 1'b1;
                     wr_addr_o <= {20'h0, `CSR_MSTATUS};
                     wr_data_o <= {csr_mstatus[31:4], csr_mstatus[7], csr_mstatus[2:0]};
                 end
                 default: begin
+                    wr_privilege_en_o = 1'b0;
+                    wr_privilege_o = `PRIVILEG_MACHINE;
                     wr_en_o <= 1'b0;
                     wr_addr_o <= `ZERO_WORD;
                     wr_data_o <= `ZERO_WORD;

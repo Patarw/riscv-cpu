@@ -15,5 +15,4 @@ try:
 except Exception as e:
     print("---error---: ", e)
 
-# 如果报错ModuleNotFoundError: No module named 'serial'，则执行 pip install py 
-# serial
+# 如果报错ModuleNotFoundError: No module named 'serial'，则执行 pip install pyserial

@@ -43,6 +43,11 @@ module RF_UNIT(
     input   wire[`INST_ADDR_BUS]    csr_rd_addr_i     , // csr read address
     output  wire[`INST_REG_DATA]    csr_rd_data_o     , // csr read data
     
+    // privilege_mode (特权模式) 读写信号
+    input   wire                    wr_privilege_en_i , 
+    input   wire[1:0]               wr_privilege_i    , 
+    output  wire[1:0]               privileg_o        ,
+    
     // clint (Core Local Interruptor)相关，csr读写信号
     input   wire                    clint_wr_en_i     , // clint_write enable
     input   wire[`INST_ADDR_BUS]    clint_wr_addr_i   , // clint_write address
@@ -82,6 +87,9 @@ module RF_UNIT(
         .clint_wr_data_i      (clint_wr_data_i),
         .clint_rd_addr_i      (clint_rd_addr_i),
         .clint_rd_data_o      (clint_rd_data_o),
+        .wr_privilege_en_i    (wr_privilege_en_i),
+        .wr_privilege_i       (wr_privilege_i),
+        .privileg_o           (privileg_o),
         .clint_csr_mtvec      (clint_csr_mtvec),
         .clint_csr_mepc       (clint_csr_mepc),
         .clint_csr_mstatus    (clint_csr_mstatus) 

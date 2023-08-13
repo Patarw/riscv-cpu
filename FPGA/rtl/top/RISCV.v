@@ -77,6 +77,7 @@ module RISCV(
     wire[`INST_REG_DATA]     rf_clint_csr_mtvec;  
     wire[`INST_REG_DATA]     rf_clint_csr_mepc;   
     wire[`INST_REG_DATA]     rf_clint_csr_mstatus;
+    wire[1:0]                rf_privileg_o;
     
     // clint 模块输出信号
     wire                     clint_wr_en_o;    
@@ -86,6 +87,8 @@ module RISCV(
     wire                     clint_busy_o;
     wire[`INST_ADDR_BUS]     clint_int_addr_o;
     wire                     clint_int_assert_o;
+    wire                     clint_wr_privilege_en_o;
+    wire[1:0]                clint_wr_privilege_o; 
     
     // EX单元输出信号
     wire                     ex_reg_wr_en_o;
@@ -166,6 +169,9 @@ module RISCV(
         .clint_wr_data_i     (clint_wr_data_o),
         .clint_rd_addr_i     (clint_rd_addr_o),
         .clint_rd_data_o     (rf_clint_rd_data_o),
+        .wr_privilege_en_i   (clint_wr_privilege_en_o),
+        .wr_privilege_i      (clint_wr_privilege_o),
+        .privileg_o          (rf_privileg_o),
         .clint_csr_mtvec     (rf_clint_csr_mtvec),
         .clint_csr_mepc      (rf_clint_csr_mepc),
         .clint_csr_mstatus   (rf_clint_csr_mstatus)
@@ -189,6 +195,9 @@ module RISCV(
         .csr_mtvec           (rf_clint_csr_mtvec), 
         .csr_mepc            (rf_clint_csr_mepc), 
         .csr_mstatus         (rf_clint_csr_mstatus), 
+        .wr_privilege_en_o   (clint_wr_privilege_en_o),
+        .wr_privilege_o      (clint_wr_privilege_o),
+        .privileg_i          (rf_privileg_o),
         .int_flag_i          (if_int_flag_o), 
         .clint_busy_o        (clint_busy_o), 
         .int_addr_o          (clint_int_addr_o), 

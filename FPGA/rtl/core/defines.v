@@ -151,3 +151,8 @@
 `define INT_NONE      8'b0000_0000
 `define INT_TIMER     8'b0000_0001
 `define INT_UART_REV  8'b0000_0010
+
+// 特权模式
+`define PRIVILEG_USER        2'b00
+`define PRIVILEG_SUPERVISOR  2'b01
+`define PRIVILEG_MACHINE     2'b11

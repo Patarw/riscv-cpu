@@ -41,12 +41,22 @@ module csr(
     input   wire[`INST_ADDR_BUS]    clint_rd_addr_i   , // clint_read address
     output  reg [`INST_REG_DATA]    clint_rd_data_o   , // clint_read data
     
+    // privilege_mode (特权模式) 读写信号
+    input   wire                    wr_privilege_en_i , 
+    input   wire[1:0]               wr_privilege_i    , 
+    output  wire[1:0]               privileg_o        ,
+    
     // to clint
     output  wire[`INST_REG_DATA]    clint_csr_mtvec   , // mtvec
     output  wire[`INST_REG_DATA]    clint_csr_mepc    , // mepc
     output  wire[`INST_REG_DATA]    clint_csr_mstatus   // mstatus
     
     );
+    
+    // 00:  User
+    // 01:  Supervisor
+    // 11:  Machine
+    reg[1:0]                       privilege_mode;
     
     // csr寄存器定义
     reg[`INST_DB_REG_DATA]         cycle;
@@ -68,6 +78,20 @@ module csr(
             cycle <= `DB_ZERO_WORD;
         end else begin
             cycle <= cycle + 1'b1;
+        end
+    end
+    
+    // privilege_mode
+    assign privileg_o = privilege_mode;
+    
+    always @ (posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            privilege_mode <= `PRIVILEG_MACHINE;
+        end 
+        else begin
+            if(wr_privilege_en_i == 1'b1) begin
+                privilege_mode <= wr_privilege_i;
+            end
         end
     end
     
