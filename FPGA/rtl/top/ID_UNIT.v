@@ -29,20 +29,22 @@ module ID_UNIT(
                                                       
     input   wire[2:0]               hold_flag_i       ,
      
-    // 从IF模块传来的指令和指令地址
+    // from IF_UNIT
     input   wire[`INST_DATA_BUS]    ins_i             , 
     input   wire[`INST_ADDR_BUS]    ins_addr_i        , 
     
-    // gpr寄存器相关参数                 
+    // from RF_UNIT               
     input   wire[`INST_REG_DATA]    reg1_rd_data_i    , 
-    input   wire[`INST_REG_DATA]    reg2_rd_data_i    ,   
+    input   wire[`INST_REG_DATA]    reg2_rd_data_i    , 
+    // to RF_UNIT
     output  wire[`INST_REG_ADDR]    reg1_rd_addr_o    , 
-    output  wire[`INST_REG_ADDR]    reg2_rd_addr_o    ,         
+    output  wire[`INST_REG_ADDR]    reg2_rd_addr_o    , 
+    // to EX_UNIT
     output  wire[`INST_REG_DATA]    reg1_rd_data_o    , 
     output  wire[`INST_REG_DATA]    reg2_rd_data_o    ,                         
     output  wire[`INST_REG_ADDR]    reg_wr_addr_o     ,
     
-    // 传给EX模块的指令地址和译码参数        
+    // to EX_UNIT
     output  wire[`INST_DATA_BUS]    ins_o             ,     
     output  wire[`INST_ADDR_BUS]    ins_addr_o        , 
     output  wire[6:0]               opcode_o          ,
@@ -50,14 +52,16 @@ module ID_UNIT(
     output  wire[6:0]               funct7_o          ,                                       
     output  wire[`INST_REG_DATA]    imm_o             ,
     
-    // csr寄存器相关参数
+    // from RF_UNIT
     input   wire[`INST_REG_DATA]    csr_rd_data_i     ,
+    // to RF_UNIT
     output  wire[`INST_ADDR_BUS]    csr_rd_addr_o     ,
+    // to EX_UNIT
     output  wire[`INST_ADDR_BUS]    csr_rw_addr_o     ,
     output  wire[`INST_REG_DATA]    csr_zimm_o        ,
     output  wire[`INST_REG_DATA]    csr_rd_data_o     ,
     
-    // 访存
+    // 如果当前为访存指令，则需要在译码阶段发出访存请求
     output  wire                    mem_rd_rib_req_o  ,
     output  wire[`INST_ADDR_BUS]    mem_rd_addr_o       
     

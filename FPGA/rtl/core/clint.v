@@ -94,7 +94,8 @@ module clint(
     // 中断仲裁逻辑
     always @ (*) begin
         // 同步中断
-        if (ins_i == `INS_ECALL || ins_i == `INS_EBREAK || (ins_i[6:0] == `INS_TYPE_CSR && privileg_i < `PRIVILEG_MACHINE)) begin
+        //if (ins_i == `INS_ECALL || ins_i == `INS_EBREAK || (ins_i[6:0] == `INS_TYPE_CSR && privileg_i < `PRIVILEG_MACHINE)) begin
+        if (ins_i == `INS_ECALL || ins_i == `INS_EBREAK) begin
             // 如果执行阶段的指令为除法指令或者跳转指令，则先不处理同步中断
             if (div_req_i != 1'b1 && jump_flag_i != 1'b1) begin
                 int_state = INT_SYNC_ASSERT;
@@ -132,21 +133,22 @@ module clint(
                         ins_addr <= ins_addr_i;
                         
                         // Environment call from M-mode
-                        if (ins_i == `INS_ECALL && privileg_i == `PRIVILEG_MACHINE) begin
+                        //if (ins_i == `INS_ECALL && privileg_i == `PRIVILEG_MACHINE) begin
+                        if (ins_i == `INS_ECALL) begin
                             cause <= 32'd11;
                         end
                         // Environment call from U-mode
-                        if (ins_i == `INS_ECALL && privileg_i == `PRIVILEG_USER) begin
-                            cause <= 32'd8;
-                        end
+                        //else if (ins_i == `INS_ECALL && privileg_i == `PRIVILEG_USER) begin
+                        //    cause <= 32'd8;
+                        //end
                         // Breakpoint
                         else if (ins_i == `INS_EBREAK) begin
                             cause <= 32'd3;
                         end
                         // Illegal Instruction
-                        else if (ins_i[6:0] == `INS_TYPE_CSR) begin
-                            cause <= 32'd2;
-                        end
+                        //else if (ins_i[6:0] == `INS_TYPE_CSR && privileg_i < `PRIVILEG_MACHINE) begin
+                        //    cause <= 32'd2;
+                        //end
                         else begin
                             cause <= 32'd10;
                         end

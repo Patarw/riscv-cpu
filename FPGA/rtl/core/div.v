@@ -5,7 +5,7 @@
 // 
 // Create Date: 2023/07/20 10:29:50
 // Design Name: 
-// Module Name: alu
+// Module Name: div
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -50,6 +50,7 @@ module div(
     reg[2:0]                  div_op_code;
     reg[1:0]                  div_state; // 状态机
     reg[5:0]                  cnt;       // 计数器
+    reg[`INST_REG_DATA]       div_data2_temp;
     
     // 除法操作忙信号 div_busy_o
     always @ (posedge clk or negedge rst_n) begin
@@ -84,16 +85,21 @@ module div(
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
             div_state <= IDLE;
+            div_res_ready_o <= 1'b0;
+            div_res_o <= `ZERO_WORD;
         end
         else begin
             case(div_state)
                 IDLE: begin
+                    div_res_ready_o <= 1'b0;
+                    div_res_o <= `ZERO_WORD;
                     if(div_req_i == 1'b1) begin
                         div_state <= BUSY;
                         div_op_code <= div_op_code_i;
                         div_reg_wr_addr_o <= div_reg_wr_addr_i;
                         div_data1_sign <= div_data1_i[31];
                         div_data2_sign <= div_data2_i[31];
+                        div_data2_temp <= div_data2_i;
                         case(div_op_code_i)
                             `DIV, `REM: begin
                                 div_data1 <= {32'h0, div_data1_i[31] ? (~div_data1_i + 1'b1) : div_data1_i};
@@ -117,6 +123,34 @@ module div(
                 BUSY: begin
                     if(cnt == 6'd32) begin
                         div_state <= IDLE;
+                        div_res_ready_o <= 1'b1;
+                        if (div_data2_temp == `ZERO_WORD && (div_op_code == `DIV || div_op_code == `DIVU)) begin
+                            div_res_o <= 32'hffffffff;
+                        end
+                        else begin
+                            case(div_op_code)
+                                `DIV: begin
+                                    if(div_data1_sign ^ div_data2_sign) begin
+                                        div_res_o <= ~div_data1[31:0] + 1'b1;
+                                    end
+                                    else begin
+                                        div_res_o <= div_data1[31:0];
+                                    end
+                                end
+                                `DIVU: begin
+                                    div_res_o <= div_data1[31:0];
+                                end
+                                `REM: begin
+                                    div_res_o <= div_data1_sign ? (~div_data1[63:32] + 1'b1) : div_data1[63:32];
+                                end
+                                `REMU: begin
+                                    div_res_o <= div_data1[63:32];
+                                end
+                                default: begin
+                                    div_res_o <= `ZERO_WORD;
+                                end
+                            endcase
+                        end
                     end
                     else begin
                         div_data1 = {div_data1[62:0], 1'b0};
@@ -131,42 +165,5 @@ module div(
             endcase
         end
     end 
-    
-    // 计算结果 div_res_o和结果就绪信号 div_res_ready_o
-    always @ (posedge clk or negedge rst_n) begin
-        if(!rst_n) begin
-            div_res_ready_o <= 1'b0;
-            div_res_o <= `ZERO_WORD;
-        end
-        else if(cnt == 6'd32) begin
-            div_res_ready_o <= 1'b1;
-            case(div_op_code)
-                `DIV: begin
-                    if(div_data1_sign ^ div_data2_sign) begin
-                        div_res_o <= ~div_data1[31:0] + 1'b1;
-                    end
-                    else begin
-                        div_res_o <= div_data1[31:0];
-                    end
-                end
-                `DIVU: begin
-                    div_res_o <= div_data1[31:0];
-                end
-                `REM: begin
-                    div_res_o <= div_data1_sign ? (~div_data1[63:32] + 1'b1) : div_data1[63:32];
-                end
-                `REMU: begin
-                    div_res_o <= div_data1[63:32];
-                end
-                default: begin
-                    div_res_o <= `ZERO_WORD;
-                end
-            endcase
-        end
-        else begin
-            div_res_ready_o <= 1'b0;
-            div_res_o <= `ZERO_WORD;
-        end
-    end
     
 endmodule

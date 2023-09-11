@@ -27,6 +27,7 @@ module EX_UNIT(
     input   wire                    clk                 ,
     input   wire                    rst_n               ,
     
+    // from ID_UNIT
     input   wire[`INST_DATA_BUS]    ins_i               ,     
     input   wire[`INST_ADDR_BUS]    ins_addr_i          , 
     input   wire[6:0]               opcode_i            ,
@@ -34,22 +35,26 @@ module EX_UNIT(
     input   wire[6:0]               funct7_i            ,
     input   wire[`INST_REG_DATA]    imm_i               , 
     
+    // from ID_UNIT
     input   wire[`INST_REG_DATA]    csr_rd_data_i       ,    
     input   wire[`INST_ADDR_BUS]    csr_rw_addr_i       ,
     input   wire[`INST_REG_DATA]    csr_zimm_i          ,
+    // to RF_UNIT
     output  wire                    csr_wr_en_o         , 
     output  wire[`INST_ADDR_BUS]    csr_wr_addr_o       , 
     output  wire[`INST_REG_DATA]    csr_wr_data_o       , 
     
-            
+    // from ID_UNIT
     input   wire[`INST_REG_DATA]    reg1_rd_data_i      , 
     input   wire[`INST_REG_DATA]    reg2_rd_data_i      ,
     input   wire[`INST_REG_ADDR]    reg_wr_addr_i       ,
+    // to RF_UNIT
     output  wire                    reg_wr_en_o         ,
     output  wire[`INST_REG_ADDR]    reg_wr_addr_o       ,
     output  wire[`INST_REG_DATA]    reg_wr_data_o       ,
     
     input   wire                    rib_hold_flag_i     ,
+    // to IF_UNIT、clint
     output  wire                    jump_flag_o         ,
     output  wire[`INST_REG_DATA]    jump_addr_o         ,
     output  reg [2:0]               hold_flag_o         ,
@@ -61,9 +66,11 @@ module EX_UNIT(
     output  wire[`INST_ADDR_BUS]    mem_wr_addr_o       , 
     output  wire[`INST_DATA_BUS]    mem_wr_data_o       ,
     
+    // from clint
     input   wire                    clint_busy_i        , 
     input   wire[`INST_ADDR_BUS]    int_addr_i          , 
     input   wire                    int_assert_i        ,  
+    // to clint
     output  wire                    div_busy_o          ,
     output  wire                    div_req_o           
     

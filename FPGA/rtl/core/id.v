@@ -83,11 +83,8 @@ module id(
                 reg2_rd_addr_o = `ZERO_REG_ADDR;
                 reg_wr_addr_o = rd;
                 case(funct3_o)
-                    `INS_ADDI,`INS_SLTI,`INS_XORI,`INS_ORI,`INS_ANDI: begin
-                        imm_o = {{20{ins_i[31]}}, ins_i[31:20]}; // 因为立即数是补码，所以需要符号位拓展
-                    end
-                    `INS_SLTIU: begin
-                        imm_o = {{20{1'b0}}, ins_i[31:20]}; // 这里的立即数是无符号数，所以无需符号位拓展
+                    `INS_ADDI,`INS_SLTI,`INS_SLTIU,`INS_XORI,`INS_ORI,`INS_ANDI: begin
+                        imm_o = {{20{ins_i[31]}}, ins_i[31:20]}; // 符号位拓展
                     end
                     `INS_SLLI,`INS_SRLI_SRAI: begin
                         imm_o = {{27{1'b0}}, ins_i[24:20]};
@@ -110,7 +107,7 @@ module id(
                 reg1_rd_addr_o = `ZERO_REG_ADDR;
                 reg2_rd_addr_o = `ZERO_REG_ADDR;
                 reg_wr_addr_o = rd;
-                imm_o = {{11{ins_i[31]}}, ins_i[31], ins_i[19:12], ins_i[20], ins_i[30:21], 1'b0};
+                imm_o = {{12{ins_i[31]}}, ins_i[19:12], ins_i[20], ins_i[30:21], 1'b0};
             end
             `INS_JALR: begin
                 reg1_rd_addr_o = rs1;
@@ -122,7 +119,7 @@ module id(
                 reg1_rd_addr_o = rs1;
                 reg2_rd_addr_o = rs2;
                 reg_wr_addr_o = `ZERO_REG_ADDR;
-                imm_o = {{19{ins_i[31]}}, ins_i[31], ins_i[7], ins_i[30:25], ins_i[11:8], 1'b0}; // 因为立即数是补码，所以需要符号位拓展
+                imm_o = {{20{ins_i[31]}}, ins_i[7], ins_i[30:25], ins_i[11:8], 1'b0}; // 因为立即数是补码，所以需要符号位拓展
             end
             `INS_TYPE_SAVE: begin
                 reg1_rd_addr_o = rs1;

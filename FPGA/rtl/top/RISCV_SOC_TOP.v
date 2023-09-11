@@ -39,10 +39,8 @@ module RISCV_SOC_TOP(
     
     // master0
     wire[`INST_DATA_BUS]     m0_rd_data_o;
-    
     // master1
-    wire[`INST_DATA_BUS]     m1_rd_data_o;
-    
+    wire[`INST_DATA_BUS]     m1_rd_data_o;  
     // master2
     wire[`INST_DATA_BUS]     m2_rd_data_o;
     
@@ -51,25 +49,21 @@ module RISCV_SOC_TOP(
     wire[`INST_ADDR_BUS]     s0_wr_addr_o;
     wire[`INST_DATA_BUS]     s0_wr_data_o;
     wire[`INST_ADDR_BUS]     s0_rd_addr_o;
-    
     // slave1
     wire                     s1_wr_en_o;  
     wire[`INST_ADDR_BUS]     s1_wr_addr_o;
     wire[`INST_DATA_BUS]     s1_wr_data_o;
     wire[`INST_ADDR_BUS]     s1_rd_addr_o;
-    
     // slave2
     wire                     s2_wr_en_o;  
     wire[`INST_ADDR_BUS]     s2_wr_addr_o;
     wire[`INST_DATA_BUS]     s2_wr_data_o;
     wire[`INST_ADDR_BUS]     s2_rd_addr_o;
-    
     // slave3
     wire                     s3_wr_en_o;  
     wire[`INST_ADDR_BUS]     s3_wr_addr_o;
     wire[`INST_DATA_BUS]     s3_wr_data_o;
     wire[`INST_ADDR_BUS]     s3_rd_addr_o;
-    
     // slave4
     wire                     s4_wr_en_o;  
     wire[`INST_ADDR_BUS]     s4_wr_addr_o;
@@ -108,8 +102,9 @@ module RISCV_SOC_TOP(
     // timer模块输出信号
     wire[`INST_DATA_BUS]     timer_rd_data_o;
     wire                     timer_int_flag_o;
-    wire[`INT_BUS]           int_flag;
     
+    // 中断信号
+    wire[`INT_BUS]           int_flag;
     assign int_flag = {6'd0, uart_int_flag_o, timer_int_flag_o};
     
     RISCV u_RISCV(

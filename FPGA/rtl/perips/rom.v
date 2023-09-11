@@ -21,7 +21,7 @@
 
 `include "../core/defines.v"
 
-// rom
+// rom，双端口，一个用来取指，一个用来读数据
 module rom(
 
     input   wire                    clk         ,
@@ -41,7 +41,7 @@ module rom(
     
     // 读取需要固化在rom里面的程序，方便仿真
     //initial begin
-    //    $readmemb("D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/instructions.txt", _rom);
+    //    $readmemh("D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/serial_utils/inst.data", _rom);
     //end
     
     reg[`INST_DATA_BUS] _rom[0:`ROM_NUM - 1];                               

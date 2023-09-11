@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_prj
-Sat Aug 12 21:54:46 2023
+Mon Sep 11 17:06:39 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -72,15 +72,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Aug 12 21:54:46 2023            ;
+; Analysis & Synthesis Status        ; Successful - Mon Sep 11 17:06:39 2023            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; cpu_prj                                          ;
 ; Top-level Entity Name              ; RISCV_SOC_TOP                                    ;
 ; Family                             ; Cyclone IV E                                     ;
-; Total logic elements               ; 6,938                                            ;
-;     Total combinational functions  ; 5,627                                            ;
-;     Dedicated logic registers      ; 2,564                                            ;
-; Total registers                    ; 2564                                             ;
+; Total logic elements               ; 6,865                                            ;
+;     Total combinational functions  ; 5,526                                            ;
+;     Dedicated logic registers      ; 2,579                                            ;
+; Total registers                    ; 2579                                             ;
 ; Total pins                         ; 9                                                ;
 ; Total virtual pins                 ; 0                                                ;
 ; Total memory bits                  ; 327,680                                          ;
@@ -185,12 +185,12 @@ applicable agreement for further details.
 ; Maximum allowed            ; 14          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ; < 0.1%      ;
-;     Processors 5-20        ;   0.0%      ;
+;     Processors 2-6         ; < 0.1%      ;
+;     Processors 7-20        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -250,29 +250,29 @@ applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 6,938     ;
+; Estimated Total logic elements              ; 6,865     ;
 ;                                             ;           ;
-; Total combinational functions               ; 5627      ;
+; Total combinational functions               ; 5526      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 3772      ;
-;     -- 3 input functions                    ; 1135      ;
-;     -- <=2 input functions                  ; 720       ;
+;     -- 4 input functions                    ; 3792      ;
+;     -- 3 input functions                    ; 1065      ;
+;     -- <=2 input functions                  ; 669       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 4801      ;
-;     -- arithmetic mode                      ; 826       ;
+;     -- normal mode                          ; 4702      ;
+;     -- arithmetic mode                      ; 824       ;
 ;                                             ;           ;
-; Total registers                             ; 2564      ;
-;     -- Dedicated logic registers            ; 2564      ;
+; Total registers                             ; 2579      ;
+;     -- Dedicated logic registers            ; 2579      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 9         ;
 ; Total memory bits                           ; 327680    ;
 ; Embedded Multiplier 9-bit elements          ; 8         ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 2660      ;
-; Total fan-out                               ; 31126     ;
-; Average fan-out                             ; 3.74      ;
+; Maximum fan-out                             ; 2675      ;
+; Total fan-out                               ; 31075     ;
+; Average fan-out                             ; 3.78      ;
 +---------------------------------------------+-----------+
 
 
@@ -281,37 +281,37 @@ applicable agreement for further details.
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------+--------------+
-; |RISCV_SOC_TOP                            ; 5627 (0)          ; 2564 (0)     ; 327680      ; 8            ; 0       ; 4         ; 9    ; 0            ; |RISCV_SOC_TOP                                                                                     ; work         ;
-;    |RISCV:u_RISCV|                        ; 4471 (0)          ; 1860 (0)     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV                                                                       ; work         ;
-;       |EX_UNIT:INST_EX_UNIT|              ; 1997 (5)          ; 167 (20)     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT                                                  ; work         ;
-;          |alu:u_alu|                      ; 717 (717)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu                                        ; work         ;
-;          |cu:u_cu|                        ; 665 (665)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu                                          ; work         ;
-;          |div:u_div|                      ; 337 (337)         ; 147 (147)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div                                        ; work         ;
+; |RISCV_SOC_TOP                            ; 5526 (0)          ; 2579 (0)     ; 327680      ; 8            ; 0       ; 4         ; 9    ; 0            ; |RISCV_SOC_TOP                                                                                     ; work         ;
+;    |RISCV:u_RISCV|                        ; 4431 (0)          ; 1877 (0)     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV                                                                       ; work         ;
+;       |EX_UNIT:INST_EX_UNIT|              ; 1986 (2)          ; 196 (18)     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT                                                  ; work         ;
+;          |alu:u_alu|                      ; 733 (733)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu                                        ; work         ;
+;          |cu:u_cu|                        ; 626 (626)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu                                          ; work         ;
+;          |div:u_div|                      ; 352 (352)         ; 178 (178)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div                                        ; work         ;
 ;          |mul:u_mul|                      ; 273 (194)         ; 0 (0)        ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul                                        ; work         ;
 ;             |lpm_mult:Mult0|              ; 79 (0)            ; 0 (0)        ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|lpm_mult:Mult0                         ; work         ;
 ;                |mult_7dt:auto_generated|  ; 79 (79)           ; 0 (0)        ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|lpm_mult:Mult0|mult_7dt:auto_generated ; work         ;
-;       |ID_UNIT:INST_ID_UNIT|              ; 586 (0)           ; 199 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT                                                  ; work         ;
-;          |id:u_id|                        ; 167 (167)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id                                          ; work         ;
-;          |id_ex:u_id_ex|                  ; 419 (419)         ; 199 (199)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex                                    ; work         ;
-;       |IF_UNIT:INST_IF_UNIT|              ; 204 (0)           ; 67 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT                                                  ; work         ;
-;          |if_id:u_if_id|                  ; 75 (75)           ; 35 (35)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id                                    ; work         ;
-;          |pc:u_pc|                        ; 129 (129)         ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|pc:u_pc                                          ; work         ;
+;       |ID_UNIT:INST_ID_UNIT|              ; 591 (0)           ; 197 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT                                                  ; work         ;
+;          |id:u_id|                        ; 175 (175)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id                                          ; work         ;
+;          |id_ex:u_id_ex|                  ; 416 (416)         ; 197 (197)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex                                    ; work         ;
+;       |IF_UNIT:INST_IF_UNIT|              ; 177 (0)           ; 63 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT                                                  ; work         ;
+;          |if_id:u_if_id|                  ; 78 (78)           ; 33 (33)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id                                    ; work         ;
+;          |pc:u_pc|                        ; 99 (99)           ; 30 (30)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|pc:u_pc                                          ; work         ;
 ;       |RF_UNIT:INST_RF_UNIT|              ; 1545 (0)          ; 1282 (0)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT                                                  ; work         ;
 ;          |csr:u_csr|                      ; 141 (141)         ; 258 (258)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr                                        ; work         ;
 ;          |gpr:u_gpr|                      ; 1404 (1404)       ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|gpr:u_gpr                                        ; work         ;
-;       |clint:u_clint|                     ; 139 (139)         ; 145 (145)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint                                                         ; work         ;
-;    |gpio:u_gpio|                          ; 134 (134)         ; 96 (96)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|gpio:u_gpio                                                                         ; work         ;
-;    |ram:u_ram|                            ; 8 (8)             ; 55 (55)      ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|ram:u_ram                                                                           ; work         ;
+;       |clint:u_clint|                     ; 132 (132)         ; 139 (139)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint                                                         ; work         ;
+;    |gpio:u_gpio|                          ; 106 (106)         ; 96 (96)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|gpio:u_gpio                                                                         ; work         ;
+;    |ram:u_ram|                            ; 0 (0)             ; 55 (55)      ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|ram:u_ram                                                                           ; work         ;
 ;       |altsyncram:_ram_rtl_0|             ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|ram:u_ram|altsyncram:_ram_rtl_0                                                     ; work         ;
 ;          |altsyncram_2mc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated                      ; work         ;
-;    |rib:u_rib|                            ; 464 (464)         ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rib:u_rib                                                                           ; work         ;
-;    |rom:u_rom|                            ; 16 (16)           ; 114 (114)    ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom                                                                           ; work         ;
+;    |rib:u_rib|                            ; 432 (432)         ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rib:u_rib                                                                           ; work         ;
+;    |rom:u_rom|                            ; 8 (8)             ; 114 (114)    ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom                                                                           ; work         ;
 ;       |altsyncram:_rom_rtl_0|             ; 0 (0)             ; 0 (0)        ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_0                                                     ; work         ;
 ;          |altsyncram_emc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated                      ; work         ;
 ;       |altsyncram:_rom_rtl_1|             ; 0 (0)             ; 0 (0)        ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_1                                                     ; work         ;
 ;          |altsyncram_emc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_1|altsyncram_emc1:auto_generated                      ; work         ;
-;    |timer:u_timer|                        ; 234 (234)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|timer:u_timer                                                                       ; work         ;
-;    |uart:u_uart|                          ; 181 (181)         ; 177 (173)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart:u_uart                                                                         ; work         ;
+;    |timer:u_timer|                        ; 233 (233)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|timer:u_timer                                                                       ; work         ;
+;    |uart:u_uart|                          ; 197 (197)         ; 177 (173)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart:u_uart                                                                         ; work         ;
 ;       |delay_buffer:u_delay_buffer|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart:u_uart|delay_buffer:u_delay_buffer                                             ; work         ;
 ;    |uart_debug:u_uart_debug|              ; 119 (119)         ; 128 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart_debug:u_uart_debug                                                             ; work         ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------+--------------+
@@ -411,52 +411,62 @@ Encoding Type:  One-Hot
 +----------------------------+----------------------+----------------------------+--------------------+-----------------------+--------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                    ;
-+--------------------------------------------------------------------+------------------------------------------------------------------+
-; Register name                                                      ; Reason for Removal                                               ;
-+--------------------------------------------------------------------+------------------------------------------------------------------+
-; uart_debug:u_uart_debug|mem_wr_addr_o[0,1]                         ; Stuck at GND due to stuck port data_in                           ;
-; RISCV:u_RISCV|clint:u_clint|wr_addr_o[2..5,7,10,11]                ; Stuck at GND due to stuck port data_in                           ;
-; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|csr_zimm_o[5..31] ; Stuck at GND due to stuck port data_in                           ;
-; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[2]  ; Stuck at GND due to stuck port data_in                           ;
-; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|int_flag_o[2..7]  ; Stuck at GND due to stuck port data_in                           ;
-; uart:u_uart|uart_rx_data_buf[16..31]                               ; Stuck at GND due to stuck port data_in                           ;
-; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data2[0..31]      ; Stuck at GND due to stuck port data_in                           ;
-; RISCV:u_RISCV|clint:u_clint|cause[4..29]                           ; Merged with RISCV:u_RISCV|clint:u_clint|cause[30]                ;
-; RISCV:u_RISCV|clint:u_clint|wr_addr_o[8,9]                         ; Merged with RISCV:u_RISCV|clint:u_clint|wr_en_o                  ;
-; uart_debug:u_uart_debug|uart_rx_delay                              ; Merged with uart:u_uart|uart_rx_delay                            ;
-; uart_debug:u_uart_debug|delay_buffer:u_delay_buffer|buffer[0][0]   ; Merged with uart:u_uart|delay_buffer:u_delay_buffer|buffer[0][0] ;
-; uart_debug:u_uart_debug|delay_buffer:u_delay_buffer|buffer[1][0]   ; Merged with uart:u_uart|delay_buffer:u_delay_buffer|buffer[1][0] ;
-; uart_debug:u_uart_debug|delay_buffer:u_delay_buffer|buffer[2][0]   ; Merged with uart:u_uart|delay_buffer:u_delay_buffer|buffer[2][0] ;
-; uart_debug:u_uart_debug|delay_buffer:u_delay_buffer|buffer[3][0]   ; Merged with uart:u_uart|delay_buffer:u_delay_buffer|buffer[3][0] ;
-; RISCV:u_RISCV|clint:u_clint|cause[30]                              ; Stuck at GND due to stuck port data_in                           ;
-; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[0]  ; Lost fanout                                                      ;
-; uart:u_uart|uart_rx_state~9                                        ; Lost fanout                                                      ;
-; uart:u_uart|uart_tx_state~6                                        ; Lost fanout                                                      ;
-; uart:u_uart|uart_tx_state~9                                        ; Lost fanout                                                      ;
-; uart_debug:u_uart_debug|uart_state~6                               ; Lost fanout                                                      ;
-; uart_debug:u_uart_debug|uart_state~7                               ; Lost fanout                                                      ;
-; uart_debug:u_uart_debug|uart_state~8                               ; Lost fanout                                                      ;
-; uart_debug:u_uart_debug|uart_state~9                               ; Lost fanout                                                      ;
-; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state~5           ; Lost fanout                                                      ;
-; RISCV:u_RISCV|clint:u_clint|csr_state~9                            ; Lost fanout                                                      ;
-; RISCV:u_RISCV|clint:u_clint|csr_state~10                           ; Lost fanout                                                      ;
-; RISCV:u_RISCV|clint:u_clint|csr_state~11                           ; Lost fanout                                                      ;
-; uart_debug:u_uart_debug|rib_wr_req_o                               ; Merged with uart_debug:u_uart_debug|mem_wr_en_o                  ;
-; RISCV:u_RISCV|clint:u_clint|wr_addr_o[0]                           ; Merged with RISCV:u_RISCV|clint:u_clint|csr_state.CSR_MSTATUS    ;
-; Total Number of Removed Registers = 139                            ;                                                                  ;
-+--------------------------------------------------------------------+------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                           ;
++--------------------------------------------------------------------+-------------------------------------------------------------------------+
+; Register name                                                      ; Reason for Removal                                                      ;
++--------------------------------------------------------------------+-------------------------------------------------------------------------+
+; uart_debug:u_uart_debug|mem_wr_addr_o[0,1]                         ; Stuck at GND due to stuck port data_in                                  ;
+; RISCV:u_RISCV|clint:u_clint|wr_addr_o[2..5,7,10,11]                ; Stuck at GND due to stuck port data_in                                  ;
+; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|csr_zimm_o[5..31] ; Stuck at GND due to stuck port data_in                                  ;
+; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[2]  ; Stuck at GND due to stuck port data_in                                  ;
+; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|ins_addr_o[0,1]   ; Stuck at GND due to stuck port data_in                                  ;
+; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|int_flag_o[2..7]  ; Stuck at GND due to stuck port data_in                                  ;
+; RISCV:u_RISCV|clint:u_clint|div_ins_addr[0,1]                      ; Stuck at GND due to stuck port data_in                                  ;
+; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_addr_o[0,1]   ; Stuck at GND due to stuck port data_in                                  ;
+; uart:u_uart|uart_rx_data_buf[16..31]                               ; Stuck at GND due to stuck port data_in                                  ;
+; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data2[0..31]      ; Stuck at GND due to stuck port data_in                                  ;
+; RISCV:u_RISCV|clint:u_clint|cause[4..11]                           ; Merged with RISCV:u_RISCV|clint:u_clint|cause[30]                       ;
+; RISCV:u_RISCV|clint:u_clint|ins_addr[0,1]                          ; Merged with RISCV:u_RISCV|clint:u_clint|cause[30]                       ;
+; RISCV:u_RISCV|clint:u_clint|cause[12..29]                          ; Merged with RISCV:u_RISCV|clint:u_clint|cause[30]                       ;
+; RISCV:u_RISCV|clint:u_clint|wr_addr_o[8,9]                         ; Merged with RISCV:u_RISCV|clint:u_clint|wr_en_o                         ;
+; uart_debug:u_uart_debug|uart_rx_delay                              ; Merged with uart:u_uart|uart_rx_delay                                   ;
+; uart_debug:u_uart_debug|delay_buffer:u_delay_buffer|buffer[0][0]   ; Merged with uart:u_uart|delay_buffer:u_delay_buffer|buffer[0][0]        ;
+; uart_debug:u_uart_debug|delay_buffer:u_delay_buffer|buffer[1][0]   ; Merged with uart:u_uart|delay_buffer:u_delay_buffer|buffer[1][0]        ;
+; uart_debug:u_uart_debug|delay_buffer:u_delay_buffer|buffer[2][0]   ; Merged with uart:u_uart|delay_buffer:u_delay_buffer|buffer[2][0]        ;
+; uart_debug:u_uart_debug|delay_buffer:u_delay_buffer|buffer[3][0]   ; Merged with uart:u_uart|delay_buffer:u_delay_buffer|buffer[3][0]        ;
+; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data2_temp[31]    ; Merged with RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data2_sign ;
+; RISCV:u_RISCV|clint:u_clint|cause[30]                              ; Stuck at GND due to stuck port data_in                                  ;
+; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[0]  ; Lost fanout                                                             ;
+; uart:u_uart|uart_rx_state~9                                        ; Lost fanout                                                             ;
+; uart:u_uart|uart_tx_state~6                                        ; Lost fanout                                                             ;
+; uart:u_uart|uart_tx_state~9                                        ; Lost fanout                                                             ;
+; uart_debug:u_uart_debug|uart_state~6                               ; Lost fanout                                                             ;
+; uart_debug:u_uart_debug|uart_state~7                               ; Lost fanout                                                             ;
+; uart_debug:u_uart_debug|uart_state~8                               ; Lost fanout                                                             ;
+; uart_debug:u_uart_debug|uart_state~9                               ; Lost fanout                                                             ;
+; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state~5           ; Lost fanout                                                             ;
+; RISCV:u_RISCV|clint:u_clint|csr_state~9                            ; Lost fanout                                                             ;
+; RISCV:u_RISCV|clint:u_clint|csr_state~10                           ; Lost fanout                                                             ;
+; RISCV:u_RISCV|clint:u_clint|csr_state~11                           ; Lost fanout                                                             ;
+; uart_debug:u_uart_debug|rib_wr_req_o                               ; Merged with uart_debug:u_uart_debug|mem_wr_en_o                         ;
+; RISCV:u_RISCV|clint:u_clint|wr_addr_o[0]                           ; Merged with RISCV:u_RISCV|clint:u_clint|csr_state.CSR_MSTATUS           ;
+; Total Number of Removed Registers = 148                            ;                                                                         ;
++--------------------------------------------------------------------+-------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                            ;
-+-------------------------------------------------------------------+---------------------------+----------------------------------------+
-; Register name                                                     ; Reason for Removal        ; Registers Removed due to This Register ;
-+-------------------------------------------------------------------+---------------------------+----------------------------------------+
-; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[2] ; Stuck at GND              ; RISCV:u_RISCV|clint:u_clint|cause[30]  ;
-;                                                                   ; due to stuck port data_in ;                                        ;
-+-------------------------------------------------------------------+---------------------------+----------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                        ;
++-------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------+
+; Register name                                                     ; Reason for Removal        ; Registers Removed due to This Register                                             ;
++-------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------+
+; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[2] ; Stuck at GND              ; RISCV:u_RISCV|clint:u_clint|div_ins_addr[1],                                       ;
+;                                                                   ; due to stuck port data_in ; RISCV:u_RISCV|clint:u_clint|div_ins_addr[0], RISCV:u_RISCV|clint:u_clint|cause[30] ;
+; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|ins_addr_o[1]    ; Stuck at GND              ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_addr_o[1]                     ;
+;                                                                   ; due to stuck port data_in ;                                                                                    ;
+; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|ins_addr_o[0]    ; Stuck at GND              ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_addr_o[0]                     ;
+;                                                                   ; due to stuck port data_in ;                                                                                    ;
++-------------------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -464,12 +474,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2564  ;
-; Number of registers using Synchronous Clear  ; 246   ;
-; Number of registers using Synchronous Load   ; 166   ;
-; Number of registers using Asynchronous Clear ; 1158  ;
+; Total registers                              ; 2579  ;
+; Number of registers using Synchronous Clear  ; 305   ;
+; Number of registers using Synchronous Load   ; 191   ;
+; Number of registers using Asynchronous Clear ; 1144  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1675  ;
+; Number of registers using Clock Enable       ; 1733  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -480,11 +490,11 @@ Encoding Type:  One-Hot
 ; Inverted Register                                              ; Fan out ;
 +----------------------------------------------------------------+---------+
 ; uart:u_uart|uart_tx                                            ; 2       ;
-; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[4]   ; 45      ;
+; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[4]   ; 42      ;
 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[1]   ; 9       ;
-; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[0]   ; 7       ;
-; RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|privilege_mode[1] ; 3       ;
-; RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|privilege_mode[0] ; 3       ;
+; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[0]   ; 9       ;
+; RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|privilege_mode[1] ; 1       ;
+; RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|privilege_mode[0] ; 1       ;
 ; RISCV:u_RISCV|clint:u_clint|wr_privilege_o[1]                  ; 1       ;
 ; RISCV:u_RISCV|clint:u_clint|wr_privilege_o[0]                  ; 1       ;
 ; Total number of inverted registers = 8                         ;         ;
@@ -679,90 +689,89 @@ Encoding Type:  One-Hot
 +----------------------------+----------------------+------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV_SOC_TOP|uart:u_uart|tx_bit_cnt[2]                                          ;
-; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|baud_cnt[10]                               ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|mem_wr_data_o[13]                          ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|wr_data_reg[31]                            ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV_SOC_TOP|uart:u_uart|rx_bit_cnt[3]                                          ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint|ins_addr[12]                           ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|byte_cnt[1]                                ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|csr_zimm_o[0]     ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint|wr_data_o[0]                           ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|byte_data[6]                               ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[16]         ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|mstatus[17]           ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 32 LEs               ; 128 LEs                ; Yes        ; |RISCV_SOC_TOP|uart:u_uart|rd_data_o[18]                                          ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 32 LEs               ; 128 LEs                ; Yes        ; |RISCV_SOC_TOP|uart:u_uart|rd_data_o[12]                                          ;
-; 16:1               ; 32 bits   ; 320 LEs       ; 64 LEs               ; 256 LEs                ; Yes        ; |RISCV_SOC_TOP|timer:u_timer|rd_data_o[30]                                        ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|mcause[12]            ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|mepc[24]              ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|mscratch[5]           ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[46]         ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint|wr_data_o[12]                          ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|bit_cnt[2]                                 ;
-; 11:1               ; 32 bits   ; 224 LEs       ; 96 LEs               ; 128 LEs                ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_res_o[3]          ;
-; 13:1               ; 4 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg_wr_addr_o[1]  ;
-; 11:1               ; 32 bits   ; 224 LEs       ; 224 LEs              ; 0 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|csr_rd_data_o[11] ;
-; 140:1              ; 29 bits   ; 2697 LEs      ; 116 LEs              ; 2581 LEs               ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|pc:u_pc|pc_out[14]              ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint|wr_privilege_o[0]                      ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector10              ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector10              ;
-; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector10              ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|gpio:u_gpio|gpio_data                                              ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|Mux27                 ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|gpr:u_gpr|reg1_rd_data_o[3]     ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|uart:u_uart|uart_tx_data_buf                                       ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; No         ; |RISCV_SOC_TOP|uart:u_uart|uart_ctrl                                              ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|gpio:u_gpio|gpio_ctrl                                              ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|timer:u_timer|timer_evalue                                         ;
-; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; No         ; |RISCV_SOC_TOP|timer:u_timer|timer_ctrl                                           ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|ins_o[0]          ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|rib:u_rib|s0_rd_addr_o                                             ;
-; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; No         ; |RISCV_SOC_TOP|rib:u_rib|s1_rd_addr_o                                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|csr_wr_addr_o[3]        ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|csr_rw_addr_o[10]       ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|uart:u_uart|uart_rx_state                                          ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|uart_state                                 ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint|csr_state                              ;
-; 4:1                ; 35 bits   ; 70 LEs        ; 70 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector50                                               ;
-; 4:1                ; 35 bits   ; 70 LEs        ; 70 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector94                                               ;
-; 4:1                ; 35 bits   ; 70 LEs        ; 70 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector159                                              ;
-; 9:1                ; 27 bits   ; 162 LEs       ; 81 LEs               ; 81 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|csr_wr_data_o[24]       ;
-; 9:1                ; 5 bits    ; 30 LEs        ; 25 LEs               ; 5 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|csr_wr_data_o[3]        ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint|csr_state                              ;
-; 16:1               ; 32 bits   ; 320 LEs       ; 96 LEs               ; 224 LEs                ; No         ; |RISCV_SOC_TOP|rib:u_rib|Mux27                                                    ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 15 LEs               ; 5 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector22              ;
-; 6:1                ; 45 bits   ; 180 LEs       ; 90 LEs               ; 90 LEs                 ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector201                                              ;
-; 6:1                ; 44 bits   ; 176 LEs       ; 88 LEs               ; 88 LEs                 ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector239                                              ;
-; 8:1                ; 5 bits    ; 25 LEs        ; 15 LEs               ; 10 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector37              ;
-; 11:1               ; 8 bits    ; 56 LEs        ; 24 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[25]       ;
-; 11:1               ; 8 bits    ; 56 LEs        ; 16 LEs               ; 40 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[16]       ;
-; 11:1               ; 8 bits    ; 56 LEs        ; 16 LEs               ; 40 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[11]       ;
-; 11:1               ; 8 bits    ; 56 LEs        ; 16 LEs               ; 40 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[7]        ;
-; 129:1              ; 30 bits   ; 2580 LEs      ; 60 LEs               ; 2520 LEs               ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector117             ;
-; 129:1              ; 32 bits   ; 2752 LEs      ; 64 LEs               ; 2688 LEs               ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector151             ;
-; 9:1                ; 3 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector28              ;
-; 64:1               ; 2 bits    ; 84 LEs        ; 4 LEs                ; 80 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector125             ;
-; 13:1               ; 6 bits    ; 48 LEs        ; 18 LEs               ; 30 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector33              ;
-; 13:1               ; 5 bits    ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector4               ;
-; 22:1               ; 7 bits    ; 98 LEs        ; 56 LEs               ; 42 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux17                 ;
-; 23:1               ; 7 bits    ; 105 LEs       ; 56 LEs               ; 49 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux10                 ;
-; 23:1               ; 4 bits    ; 60 LEs        ; 36 LEs               ; 24 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux24                 ;
-; 24:1               ; 4 bits    ; 64 LEs        ; 36 LEs               ; 28 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux4                  ;
-; 24:1               ; 2 bits    ; 32 LEs        ; 20 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux29                 ;
-; 25:1               ; 2 bits    ; 32 LEs        ; 20 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux3                  ;
-; 19:1               ; 16 bits   ; 192 LEs       ; 96 LEs               ; 96 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector69              ;
-; 21:1               ; 7 bits    ; 98 LEs        ; 49 LEs               ; 49 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector81              ;
-; 25:1               ; 5 bits    ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector88              ;
-; 24:1               ; 2 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector93              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV_SOC_TOP|uart:u_uart|tx_bit_cnt[0]                                           ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint|cause[31]                               ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|baud_cnt[6]                                 ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|mem_wr_data_o[8]                            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|wr_data_reg[2]                              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RISCV_SOC_TOP|uart:u_uart|rx_bit_cnt[0]                                           ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[25] ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint|ins_addr[2]                             ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|byte_cnt[2]                                 ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|csr_zimm_o[0]      ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint|wr_data_o[31]                           ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|byte_data[6]                                ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[16]          ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|mstatus[27]            ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 32 LEs               ; 128 LEs                ; Yes        ; |RISCV_SOC_TOP|uart:u_uart|rd_data_o[16]                                           ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 32 LEs               ; 128 LEs                ; Yes        ; |RISCV_SOC_TOP|uart:u_uart|rd_data_o[9]                                            ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 64 LEs               ; 256 LEs                ; Yes        ; |RISCV_SOC_TOP|timer:u_timer|rd_data_o[25]                                         ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|mcause[19]             ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|mepc[19]               ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 32 LEs               ; 64 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|mscratch[18]           ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[51]          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint|wr_data_o[12]                           ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|bit_cnt[0]                                  ;
+; 13:1               ; 32 bits   ; 256 LEs       ; 128 LEs              ; 128 LEs                ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_res_o[1]           ;
+; 13:1               ; 4 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg_wr_addr_o[3]   ;
+; 11:1               ; 32 bits   ; 224 LEs       ; 224 LEs              ; 0 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|csr_rd_data_o[6]   ;
+; 136:1              ; 30 bits   ; 2700 LEs      ; 120 LEs              ; 2580 LEs               ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|pc:u_pc|pc_o[10]                 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint|wr_privilege_o[0]                       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state              ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector19               ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector10               ;
+; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector10               ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|gpio:u_gpio|gpio_data                                               ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|Mux29                  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|gpr:u_gpr|reg1_rd_data_o[3]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|uart:u_uart|uart_tx_data_buf                                        ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; No         ; |RISCV_SOC_TOP|uart:u_uart|uart_ctrl                                               ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|gpio:u_gpio|gpio_ctrl                                               ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|timer:u_timer|timer_evalue                                          ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; No         ; |RISCV_SOC_TOP|timer:u_timer|timer_ctrl                                            ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|ins_o[29]          ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|csr_wr_addr_o[10]        ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|csr_rw_addr_o[7]         ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|uart:u_uart|uart_rx_state                                           ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|uart_state                                  ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint|csr_state                               ;
+; 4:1                ; 35 bits   ; 70 LEs        ; 70 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector59                                                ;
+; 4:1                ; 35 bits   ; 70 LEs        ; 70 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector105                                               ;
+; 4:1                ; 35 bits   ; 70 LEs        ; 70 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector166                                               ;
+; 4:1                ; 44 bits   ; 88 LEs        ; 88 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector236                                               ;
+; 4:1                ; 45 bits   ; 90 LEs        ; 90 LEs               ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|rib:u_rib|Selector267                                               ;
+; 9:1                ; 27 bits   ; 162 LEs       ; 81 LEs               ; 81 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|csr_wr_data_o[18]        ;
+; 9:1                ; 5 bits    ; 30 LEs        ; 25 LEs               ; 5 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|csr_wr_data_o[2]         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint|csr_state                               ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 15 LEs               ; 5 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector23               ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 15 LEs               ; 10 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector40               ;
+; 11:1               ; 8 bits    ; 56 LEs        ; 24 LEs               ; 32 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[29]        ;
+; 11:1               ; 8 bits    ; 56 LEs        ; 16 LEs               ; 40 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[21]        ;
+; 11:1               ; 8 bits    ; 56 LEs        ; 16 LEs               ; 40 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[8]         ;
+; 11:1               ; 8 bits    ; 56 LEs        ; 16 LEs               ; 40 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|mem_wr_data_o[1]         ;
+; 18:1               ; 32 bits   ; 384 LEs       ; 160 LEs              ; 224 LEs                ; No         ; |RISCV_SOC_TOP|rib:u_rib|Mux23                                                     ;
+; 129:1              ; 2 bits    ; 172 LEs       ; 2 LEs                ; 170 LEs                ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector126              ;
+; 129:1              ; 30 bits   ; 2580 LEs      ; 60 LEs               ; 2520 LEs               ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector97               ;
+; 129:1              ; 32 bits   ; 2752 LEs      ; 64 LEs               ; 2688 LEs               ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector134              ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector29               ;
+; 13:1               ; 5 bits    ; 40 LEs        ; 10 LEs               ; 30 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector3                ;
+; 13:1               ; 6 bits    ; 48 LEs        ; 18 LEs               ; 30 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id|Selector31               ;
+; 22:1               ; 7 bits    ; 98 LEs        ; 56 LEs               ; 42 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux17                  ;
+; 23:1               ; 7 bits    ; 105 LEs       ; 56 LEs               ; 49 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux8                   ;
+; 23:1               ; 4 bits    ; 60 LEs        ; 36 LEs               ; 24 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux25                  ;
+; 24:1               ; 4 bits    ; 64 LEs        ; 36 LEs               ; 28 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux4                   ;
+; 24:1               ; 2 bits    ; 32 LEs        ; 20 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux29                  ;
+; 25:1               ; 2 bits    ; 32 LEs        ; 20 LEs               ; 12 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu|Mux2                   ;
+; 19:1               ; 16 bits   ; 192 LEs       ; 96 LEs               ; 96 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector70               ;
+; 21:1               ; 7 bits    ; 98 LEs        ; 49 LEs               ; 49 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector86               ;
+; 25:1               ; 2 bits    ; 32 LEs        ; 14 LEs               ; 18 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector93               ;
+; 25:1               ; 5 bits    ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; No         ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu|Selector92               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------+
@@ -822,10 +831,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+-------------------------------+
 ; Parameter Name ; Value ; Type                          ;
 +----------------+-------+-------------------------------+
-; slave_mem      ; 0000  ; Unsigned Binary               ;
-; slave_2        ; 0001  ; Unsigned Binary               ;
-; slave_3        ; 0010  ; Unsigned Binary               ;
-; slave_4        ; 0011  ; Unsigned Binary               ;
+; slave_0        ; 0000  ; Unsigned Binary               ;
+; slave_1        ; 0001  ; Unsigned Binary               ;
+; slave_2        ; 0010  ; Unsigned Binary               ;
+; slave_3        ; 0011  ; Unsigned Binary               ;
+; slave_4        ; 0100  ; Unsigned Binary               ;
 ; grant_master_0 ; 00    ; Unsigned Binary               ;
 ; grant_master_1 ; 01    ; Unsigned Binary               ;
 ; grant_master_2 ; 10    ; Unsigned Binary               ;
@@ -1183,7 +1193,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:16     ;
+; Top            ; 00:00:15     ;
 +----------------+--------------+
 
 
@@ -1193,7 +1203,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Sat Aug 12 21:54:27 2023
+    Info: Processing started: Mon Sep 11 17:06:22 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_prj -c cpu_prj
 Info (11104): Parallel Compilation has detected 20 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 14 of the 14 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file /users/desktop/fpga/tinyriscv_cpu/cpu_prj/fpga/rtl/perips/timer.v
@@ -1261,8 +1271,8 @@ Info (12128): Elaborating entity "RF_UNIT" for hierarchy "RISCV:u_RISCV|RF_UNIT:
 Info (12128): Elaborating entity "gpr" for hierarchy "RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|gpr:u_gpr"
 Info (12128): Elaborating entity "csr" for hierarchy "RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr"
 Info (12128): Elaborating entity "clint" for hierarchy "RISCV:u_RISCV|clint:u_clint"
-Info (10264): Verilog HDL Case Statement information at clint.v(214): all case item expressions in this case statement are onehot
-Info (10264): Verilog HDL Case Statement information at clint.v(262): all case item expressions in this case statement are onehot
+Info (10264): Verilog HDL Case Statement information at clint.v(216): all case item expressions in this case statement are onehot
+Info (10264): Verilog HDL Case Statement information at clint.v(264): all case item expressions in this case statement are onehot
 Warning (10034): Output port "rd_addr_o" at clint.v(42) has no driver
 Info (12128): Elaborating entity "EX_UNIT" for hierarchy "RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT"
 Info (12128): Elaborating entity "cu" for hierarchy "RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu"
@@ -1407,17 +1417,17 @@ Info (17049): 12 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/cpu_prj.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 7465 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 7387 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 7352 logic cells
+    Info (21061): Implemented 7274 logic cells
     Info (21064): Implemented 96 RAM segments
     Info (21062): Implemented 8 DSP elements
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 4686 megabytes
-    Info: Processing ended: Sat Aug 12 21:54:46 2023
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:09
+    Info: Peak virtual memory: 4698 megabytes
+    Info: Processing ended: Mon Sep 11 17:06:39 2023
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:07
 
 
 +------------------------------------------+

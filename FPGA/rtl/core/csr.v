@@ -5,7 +5,7 @@
 // 
 // Create Date: 2023/07/25 17:24:01
 // Design Name: 
-// Module Name: csr_reg
+// Module Name: csr
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 

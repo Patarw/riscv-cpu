@@ -27,30 +27,30 @@ module pc(
     input   wire                    clk         ,
     input   wire                    rst_n       ,
     
-    input   wire[2:0]               hold_flag   ,
-    input   wire                    jump_flag   ,
-    input   wire[`INST_REG_DATA]    jump_addr   ,
+    input   wire[2:0]               hold_flag_i ,
+    input   wire                    jump_flag_i ,
+    input   wire[`INST_REG_DATA]    jump_addr_i ,
     
-    output  reg[`INST_ADDR_BUS]     pc_out  
+    output  reg[`INST_ADDR_BUS]     pc_o  
     
     );
     
     always @ (posedge clk or negedge rst_n) begin
         // 复位
         if(!rst_n) begin
-            pc_out <= `RESET_ADDR;
+            pc_o <= `RESET_ADDR;
         end
         // 跳转
-        else if(jump_flag == 1'b1) begin
-            pc_out <= jump_addr;
+        else if(jump_flag_i == 1'b1) begin
+            pc_o <= jump_addr_i;
         end
         // 暂停
-        else if(hold_flag >= `HOLD_PC) begin
-            pc_out <= pc_out;
+        else if(hold_flag_i >= `HOLD_PC) begin
+            pc_o <= pc_o;
         end
         // 地址加4
         else begin
-            pc_out <= pc_out + 4'd4;
+            pc_o <= pc_o + 4'd4;
         end
     end
     

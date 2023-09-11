@@ -18,14 +18,13 @@
 # }
 # 
 # vlib verilog_libs/altera_ver
-# ** Warning: (vlib-34) Library already exists at "verilog_libs/altera_ver".
 # vmap altera_ver ./verilog_libs/altera_ver
 # Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
 # vmap altera_ver ./verilog_libs/altera_ver 
 # Modifying D:/software/modelsim/win64/../modelsim.ini
 # vlog -vlog01compat -work altera_ver {d:/software/quartus/quartus/eda/sim_lib/altera_primitives.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:31 on Aug 10,2023
+# Start time: 17:03:59 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work altera_ver d:/software/quartus/quartus/eda/sim_lib/altera_primitives.v 
 # -- Compiling module global
 # -- Compiling module carry
@@ -103,18 +102,17 @@
 # 	alt_iobuf_diff
 # 	alt_bidir_diff
 # 	alt_bidir_buf
-# End time: 11:33:31 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:03:59 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/lpm_ver
-# ** Warning: (vlib-34) Library already exists at "verilog_libs/lpm_ver".
 # vmap lpm_ver ./verilog_libs/lpm_ver
 # Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
 # vmap lpm_ver ./verilog_libs/lpm_ver 
 # Modifying D:/software/modelsim/win64/../modelsim.ini
 # vlog -vlog01compat -work lpm_ver {d:/software/quartus/quartus/eda/sim_lib/220model.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:31 on Aug 10,2023
+# Start time: 17:03:59 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work lpm_ver d:/software/quartus/quartus/eda/sim_lib/220model.v 
 # -- Compiling module LPM_MEMORY_INITIALIZATION
 # -- Compiling module LPM_HINT_EVALUATION
@@ -178,18 +176,17 @@
 # 	lpm_inpad
 # 	lpm_outpad
 # 	lpm_bipad
-# End time: 11:33:31 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:03:59 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/sgate_ver
-# ** Warning: (vlib-34) Library already exists at "verilog_libs/sgate_ver".
 # vmap sgate_ver ./verilog_libs/sgate_ver
 # Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
 # vmap sgate_ver ./verilog_libs/sgate_ver 
 # Modifying D:/software/modelsim/win64/../modelsim.ini
 # vlog -vlog01compat -work sgate_ver {d:/software/quartus/quartus/eda/sim_lib/sgate.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:32 on Aug 10,2023
+# Start time: 17:03:59 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work sgate_ver d:/software/quartus/quartus/eda/sim_lib/sgate.v 
 # -- Compiling module oper_add
 # -- Compiling module oper_addsub
@@ -231,18 +228,17 @@
 # 	oper_decoder
 # 	oper_bus_mux
 # 	oper_latch
-# End time: 11:33:32 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:03:59 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/altera_mf_ver
-# ** Warning: (vlib-34) Library already exists at "verilog_libs/altera_mf_ver".
 # vmap altera_mf_ver ./verilog_libs/altera_mf_ver
 # Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
 # vmap altera_mf_ver ./verilog_libs/altera_mf_ver 
 # Modifying D:/software/modelsim/win64/../modelsim.ini
 # vlog -vlog01compat -work altera_mf_ver {d:/software/quartus/quartus/eda/sim_lib/altera_mf.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:32 on Aug 10,2023
+# Start time: 17:03:59 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work altera_mf_ver d:/software/quartus/quartus/eda/sim_lib/altera_mf.v 
 # -- Compiling module lcell
 # -- Compiling module ALTERA_MF_MEMORY_INITIALIZATION
@@ -367,18 +363,17 @@
 # 	altserial_flash_loader
 # 	sld_virtual_jtag_basic
 # 	altsource_probe
-# End time: 11:33:32 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:00 on Sep 11,2023, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/altera_lnsim_ver
-# ** Warning: (vlib-34) Library already exists at "verilog_libs/altera_lnsim_ver".
 # vmap altera_lnsim_ver ./verilog_libs/altera_lnsim_ver
 # Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
 # vmap altera_lnsim_ver ./verilog_libs/altera_lnsim_ver 
 # Modifying D:/software/modelsim/win64/../modelsim.ini
 # vlog -sv -work altera_lnsim_ver {d:/software/quartus/quartus/eda/sim_lib/altera_lnsim.sv}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:32 on Aug 10,2023
+# Start time: 17:04:00 on Sep 11,2023
 # vlog -reportprogress 300 -sv -work altera_lnsim_ver d:/software/quartus/quartus/eda/sim_lib/altera_lnsim.sv 
 # -- Compiling package altera_lnsim_functions
 # -- Compiling module altera_pll
@@ -436,18 +431,17 @@
 # 	generic_device_pll
 # 	altera_mult_add
 # 	altera_pll_reconfig_tasks
-# End time: 11:33:33 on Aug 10,2023, Elapsed time: 0:00:01
+# End time: 17:04:00 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/cycloneive_ver
-# ** Warning: (vlib-34) Library already exists at "verilog_libs/cycloneive_ver".
 # vmap cycloneive_ver ./verilog_libs/cycloneive_ver
 # Model Technology ModelSim SE-64 vmap 10.5 Lib Mapping Utility 2016.02 Feb 13 2016
 # vmap cycloneive_ver ./verilog_libs/cycloneive_ver 
 # Modifying D:/software/modelsim/win64/../modelsim.ini
 # vlog -vlog01compat -work cycloneive_ver {d:/software/quartus/quartus/eda/sim_lib/cycloneive_atoms.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:33 on Aug 10,2023
+# Start time: 17:04:00 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work cycloneive_ver d:/software/quartus/quartus/eda/sim_lib/cycloneive_atoms.v 
 # -- Compiling UDP CYCLONEIVE_PRIM_DFFE
 # -- Compiling UDP CYCLONEIVE_PRIM_DFFEAS
@@ -523,7 +517,7 @@
 # 	cycloneive_jtag
 # 	cycloneive_crcblock
 # 	cycloneive_oscillator
-# End time: 11:33:33 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:00 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # if {[file exists rtl_work]} {
@@ -537,285 +531,287 @@
 # 
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/utils {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/utils/delay_buffer.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:33 on Aug 10,2023
+# Start time: 17:04:00 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/utils" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/utils/delay_buffer.v 
 # -- Compiling module delay_buffer
 # 
 # Top level modules:
 # 	delay_buffer
-# End time: 11:33:33 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:01 on Sep 11,2023, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/defines.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:33 on Aug 10,2023
+# Start time: 17:04:01 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/defines.v 
-# End time: 11:33:33 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:01 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/timer.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:33 on Aug 10,2023
+# Start time: 17:04:01 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/timer.v 
 # -- Compiling module timer
 # 
 # Top level modules:
 # 	timer
-# End time: 11:33:33 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:01 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/clint.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:33 on Aug 10,2023
+# Start time: 17:04:01 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/clint.v 
 # -- Compiling module clint
 # 
 # Top level modules:
 # 	clint
-# End time: 11:33:33 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:01 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/gpr.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:33 on Aug 10,2023
+# Start time: 17:04:01 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/gpr.v 
 # -- Compiling module gpr
 # 
 # Top level modules:
 # 	gpr
-# End time: 11:33:33 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:01 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/csr.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:34 on Aug 10,2023
+# Start time: 17:04:01 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/csr.v 
 # -- Compiling module csr
 # 
 # Top level modules:
 # 	csr
-# End time: 11:33:34 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:01 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/gpio.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:34 on Aug 10,2023
+# Start time: 17:04:01 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/gpio.v 
 # -- Compiling module gpio
 # 
 # Top level modules:
 # 	gpio
-# End time: 11:33:34 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:01 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/div.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:34 on Aug 10,2023
+# Start time: 17:04:01 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/div.v 
 # -- Compiling module div
 # 
 # Top level modules:
 # 	div
-# End time: 11:33:34 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:01 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/mul.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:34 on Aug 10,2023
+# Start time: 17:04:01 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/mul.v 
 # -- Compiling module mul
 # 
 # Top level modules:
 # 	mul
-# End time: 11:33:34 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:01 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug/uart_debug.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:34 on Aug 10,2023
+# Start time: 17:04:01 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug/uart_debug.v 
 # -- Compiling module uart_debug
 # 
 # Top level modules:
 # 	uart_debug
-# End time: 11:33:34 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:01 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/rib.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:34 on Aug 10,2023
+# Start time: 17:04:01 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/rib.v 
 # -- Compiling module rib
 # 
 # Top level modules:
 # 	rib
-# End time: 11:33:34 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:01 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RISCV_SOC_TOP.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:34 on Aug 10,2023
+# Start time: 17:04:02 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RISCV_SOC_TOP.v 
 # -- Compiling module RISCV_SOC_TOP
 # 
 # Top level modules:
 # 	RISCV_SOC_TOP
-# End time: 11:33:34 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:02 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RISCV.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:34 on Aug 10,2023
+# Start time: 17:04:02 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RISCV.v 
 # -- Compiling module RISCV
 # 
 # Top level modules:
 # 	RISCV
-# End time: 11:33:34 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:02 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RF_UNIT.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:34 on Aug 10,2023
+# Start time: 17:04:02 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RF_UNIT.v 
 # -- Compiling module RF_UNIT
 # 
 # Top level modules:
 # 	RF_UNIT
-# End time: 11:33:34 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:02 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/IF_UNIT.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:34 on Aug 10,2023
+# Start time: 17:04:02 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/IF_UNIT.v 
 # -- Compiling module IF_UNIT
 # 
 # Top level modules:
 # 	IF_UNIT
-# End time: 11:33:34 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:02 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/ID_UNIT.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:34 on Aug 10,2023
+# Start time: 17:04:02 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/ID_UNIT.v 
 # -- Compiling module ID_UNIT
 # 
 # Top level modules:
 # 	ID_UNIT
-# End time: 11:33:34 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:02 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/EX_UNIT.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:35 on Aug 10,2023
+# Start time: 17:04:02 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/EX_UNIT.v 
 # -- Compiling module EX_UNIT
 # 
 # Top level modules:
 # 	EX_UNIT
-# End time: 11:33:35 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:02 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/uart.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:35 on Aug 10,2023
+# Start time: 17:04:02 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/uart.v 
 # -- Compiling module uart
 # 
 # Top level modules:
 # 	uart
-# End time: 11:33:35 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:02 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/rom.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:35 on Aug 10,2023
+# Start time: 17:04:02 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/rom.v 
 # -- Compiling module rom
 # 
 # Top level modules:
 # 	rom
-# End time: 11:33:35 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:02 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/ram.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:35 on Aug 10,2023
+# Start time: 17:04:02 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/ram.v 
 # -- Compiling module ram
 # 
 # Top level modules:
 # 	ram
-# End time: 11:33:35 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:02 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/pc.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:35 on Aug 10,2023
+# Start time: 17:04:02 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/pc.v 
 # -- Compiling module pc
 # 
 # Top level modules:
 # 	pc
-# End time: 11:33:35 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:02 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/if_id.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:35 on Aug 10,2023
+# Start time: 17:04:03 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/if_id.v 
 # -- Compiling module if_id
 # 
 # Top level modules:
 # 	if_id
-# End time: 11:33:35 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:03 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/id_ex.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:35 on Aug 10,2023
+# Start time: 17:04:03 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/id_ex.v 
 # -- Compiling module id_ex
 # 
 # Top level modules:
 # 	id_ex
-# End time: 11:33:35 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:03 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/id.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:35 on Aug 10,2023
+# Start time: 17:04:03 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/id.v 
 # -- Compiling module id
 # 
 # Top level modules:
 # 	id
-# End time: 11:33:35 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:03 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/cu.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:35 on Aug 10,2023
+# Start time: 17:04:03 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/cu.v 
 # -- Compiling module cu
 # 
 # Top level modules:
 # 	cu
-# End time: 11:33:35 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:03 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/alu.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:35 on Aug 10,2023
+# Start time: 17:04:03 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/alu.v 
 # -- Compiling module alu
 # 
 # Top level modules:
 # 	alu
-# End time: 11:33:35 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:03 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlog -vlog01compat -work work +incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim {D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim/tb_riscv_top.v}
 # Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
-# Start time: 11:33:35 on Aug 10,2023
+# Start time: 17:04:03 on Sep 11,2023
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim" D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim/tb_riscv_top.v 
 # -- Compiling module tb_riscv_top
 # 
 # Top level modules:
 # 	tb_riscv_top
-# End time: 11:33:35 on Aug 10,2023, Elapsed time: 0:00:00
+# End time: 17:04:03 on Sep 11,2023, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  tb_riscv_top
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" tb_riscv_top 
-# Start time: 11:33:36 on Aug 10,2023
+# Start time: 17:04:03 on Sep 11,2023
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vopt-143) Recognized 2 FSMs in module "uart(fast)".
-# ** Note: (vopt-143) Recognized 1 FSM in module "uart_debug(fast)".
 # ** Note: (vopt-143) Recognized 1 FSM in module "clint(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "uart_debug(fast)".
 # ** Note: (vopt-143) Recognized 1 FSM in module "div(fast)".
-# ** Warning: D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/EX_UNIT.v(124): (vopt-2685) [TFMPC] - Too few port connections for 'u_cu'.  Expected 43, found 42.
-# ** Warning: D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/EX_UNIT.v(124): (vopt-2718) [TFMPC] - Missing connection for port 'csr_rd_addr_o'.
-# ** Warning: D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim/tb_riscv_top.v(141): (vopt-2685) [TFMPC] - Too few port connections for 'tb_RISCV_SOC_TOP'.  Expected 6, found 4.
-# ** Warning: D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim/tb_riscv_top.v(141): (vopt-2718) [TFMPC] - Missing connection for port 'gpio_pins'.
-# ** Warning: D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim/tb_riscv_top.v(141): (vopt-2718) [TFMPC] - Missing connection for port 'uart_debug_pin'.
+# ** Warning: D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/EX_UNIT.v(131): (vopt-2685) [TFMPC] - Too few port connections for 'u_cu'.  Expected 43, found 42.
+# ** Warning: D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/EX_UNIT.v(131): (vopt-2718) [TFMPC] - Missing connection for port 'csr_rd_addr_o'.
+# ** Warning: D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim/tb_riscv_top.v(64): (vopt-2685) [TFMPC] - Too few port connections for 'riscv_soc_top_0'.  Expected 6, found 2.
+# ** Warning: D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim/tb_riscv_top.v(64): (vopt-2718) [TFMPC] - Missing connection for port 'gpio_pins'.
+# ** Warning: D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim/tb_riscv_top.v(64): (vopt-2718) [TFMPC] - Missing connection for port 'uart_tx'.
+# ** Warning: D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim/tb_riscv_top.v(64): (vopt-2718) [TFMPC] - Missing connection for port 'uart_rx'.
+# ** Warning: D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim/tb_riscv_top.v(64): (vopt-2718) [TFMPC] - Missing connection for port 'uart_debug_pin'.
 # Loading work.tb_riscv_top(fast)
 # Loading work.RISCV_SOC_TOP(fast)
 # Loading work.RISCV(fast)
@@ -850,44 +846,8 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-add wave  \
-sim:/tb_riscv_top/tb_RISCV_SOC_TOP/u_timer/timer_int_flag_o \
-sim:/tb_riscv_top/tb_RISCV_SOC_TOP/u_timer/timer_evalue \
-sim:/tb_riscv_top/tb_RISCV_SOC_TOP/u_timer/timer_ctrl \
-sim:/tb_riscv_top/tb_RISCV_SOC_TOP/u_timer/timer_count
-add wave  \
-sim:/tb_riscv_top/tb_RISCV_SOC_TOP/u_RISCV/u_clint/int_flag_i
-add wave  \
-sim:/tb_riscv_top/tb_RISCV_SOC_TOP/u_RISCV/u_clint/int_assert_o \
-sim:/tb_riscv_top/tb_RISCV_SOC_TOP/u_RISCV/u_clint/int_addr_o
-restart
-# ** Note: (vsim-8009) Loading existing optimized design _opt
-# Loading work.tb_riscv_top(fast)
-# Loading work.RISCV_SOC_TOP(fast)
-# Loading work.RISCV(fast)
-# Loading work.IF_UNIT(fast)
-# Loading work.pc(fast)
-# Loading work.if_id(fast)
-# Loading work.ID_UNIT(fast)
-# Loading work.id(fast)
-# Loading work.id_ex(fast)
-# Loading work.RF_UNIT(fast)
-# Loading work.gpr(fast)
-# Loading work.csr(fast)
-# Loading work.clint(fast)
-# Loading work.EX_UNIT(fast)
-# Loading work.cu(fast)
-# Loading work.alu(fast)
-# Loading work.mul(fast)
-# Loading work.div(fast)
-# Loading work.uart_debug(fast)
-# Loading work.delay_buffer(fast)
-# Loading work.rib(fast)
-# Loading work.rom(fast)
-# Loading work.ram(fast)
-# Loading work.uart(fast)
-# Loading work.gpio(fast)
-# Loading work.timer(fast)
-run -all
-# End time: 11:34:39 on Aug 10,2023, Elapsed time: 0:01:03
-# Errors: 0, Warnings: 10
+# Time out...
+# ** Note: $finish    : D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/../sim/tb_riscv_top.v(56)
+#    Time: 500 us  Iteration: 0  Instance: /tb_riscv_top
+# End time: 17:04:51 on Sep 11,2023, Elapsed time: 0:00:48
+# Errors: 0, Warnings: 7

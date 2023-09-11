@@ -52,10 +52,24 @@
 `define CSR_MSTATUS  12'h300
 `define CSR_MSCRATCH 12'h340
 
-/* 指令定义 */
+// 暂停流水线
+`define HOLD_NONE    3'b000
+`define HOLD_PC      3'b001
+`define HOLD_IF_ID   3'b010
+`define HOLD_ID_EX   3'b011
 
-// 空操作指令，NOP被编码为ADDI x0,x0,0
-`define INS_NOP    32'h0000_0013
+// 异步中断
+`define INT_BUS     7:0
+`define INT_NONE      8'b0000_0000
+`define INT_TIMER     8'b0000_0001
+`define INT_UART_REV  8'b0000_0010
+
+// 特权模式
+`define PRIVILEG_USER        2'b00
+`define PRIVILEG_SUPERVISOR  2'b01
+`define PRIVILEG_MACHINE     2'b11
+
+/* 指令定义 */
 
 // R和M类指令
 `define INS_TYPE_R_M  7'b011_0011
@@ -139,20 +153,4 @@
 `define INS_ECALL  32'h0000_0073
 `define INS_EBREAK 32'h0010_0073
 `define INS_MRET   32'h3020_0073
-
-// 暂停流水线
-`define HOLD_NONE    3'b000
-`define HOLD_PC      3'b001
-`define HOLD_IF_ID   3'b010
-`define HOLD_ID_EX   3'b011
-
-// 异步中断
-`define INT_BUS     7:0
-`define INT_NONE      8'b0000_0000
-`define INT_TIMER     8'b0000_0001
-`define INT_UART_REV  8'b0000_0010
-
-// 特权模式
-`define PRIVILEG_USER        2'b00
-`define PRIVILEG_SUPERVISOR  2'b01
-`define PRIVILEG_MACHINE     2'b11
+`define INS_NOP    32'h0000_0013  // 空操作指令，NOP被编码为ADDI x0,x0,0

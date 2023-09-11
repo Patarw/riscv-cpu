@@ -34,7 +34,7 @@ module cu(
     input   wire[6:0]               funct7_i            ,
     input   wire[`INST_REG_DATA]    imm_i               ,  
     
-    // alu相关参数（alu）
+    // alu相关参数
     input   wire[`INST_REG_DATA]    alu_res_i           ,
     input   wire                    alu_zero_flag_i     ,
     input   wire                    alu_sign_flag_i     ,
@@ -67,7 +67,7 @@ module cu(
     output  reg [`INST_REG_ADDR]    reg_wr_addr_o       ,
     output  reg [`INST_REG_DATA]    reg_wr_data_o       ,
     
-    // 内存相关引脚（ram）
+    // 访存相关参数
     input   wire[`INST_ADDR_BUS]    mem_rd_addr_i       ,
     input   wire[`INST_DATA_BUS]    mem_rd_data_i       ,
     output  reg                     mem_wr_rib_req_o    ,
@@ -95,6 +95,7 @@ module cu(
         alu_data1_o = `ZERO_WORD;
         alu_data2_o = `ZERO_WORD;
         
+        // mul、div计算相关
         mul_op_code_o = 3'd0;
         div_op_code_o = 3'd0;
         div_req_o = 1'b0;
@@ -109,7 +110,7 @@ module cu(
         reg_wr_addr_o = div_res_ready_i ? div_reg_wr_addr_i : reg_wr_addr_i;
         reg_wr_data_o = div_res_ready_i ? div_res_i : alu_res_i;
         
-        // 内存相关
+        // 访存相关
         mem_wr_rib_req_o = 1'b0;
         mem_wr_en_o = 1'b0;
         mem_wr_data_o = `ZERO_WORD;
@@ -294,7 +295,7 @@ module cu(
                 alu_data2_o = imm_i;
                 alu_op_code_o = `ALU_ADD;
                 jump_flag_o = 1'b1;
-                jump_addr_o = {alu_res_i[31:1], 1'b0};
+                jump_addr_o = alu_res_i;
                 hold_flag_o = 1'b1;
             end
             `INS_JALR: begin
@@ -304,9 +305,10 @@ module cu(
                 alu_data2_o = imm_i;
                 alu_op_code_o = `ALU_ADD;
                 jump_flag_o = 1'b1;
-                jump_addr_o = {alu_res_i[31:1], 1'b0};
+                jump_addr_o = alu_res_i;
                 hold_flag_o = 1'b1;
             end
+            // 条件跳转指令
             `INS_TYPE_BRANCH: begin
                 alu_data1_o = reg1_rd_data_i;
                 alu_data2_o = reg2_rd_data_i;
@@ -314,43 +316,44 @@ module cu(
                     `INS_BEQ: begin
                         alu_op_code_o = `ALU_SUB;
                         jump_flag_o = alu_zero_flag_i ? 1'b1 : 1'b0;
-                        jump_addr_o = alu_zero_flag_i ? ($signed(ins_addr_i) + $signed(imm_i)) : {alu_res_i[31:1], 1'b0};
+                        jump_addr_o = alu_zero_flag_i ? (ins_addr_i + imm_i) : alu_res_i;
                         hold_flag_o = alu_zero_flag_i ? 1'b1 : 1'b0;
                     end
                     `INS_BNE: begin
                         alu_op_code_o = `ALU_SUB;
                         jump_flag_o = !alu_zero_flag_i ? 1'b1 : 1'b0;
-                        jump_addr_o = !alu_zero_flag_i ? ($signed(ins_addr_i) + $signed(imm_i)) : {alu_res_i[31:1], 1'b0};
+                        jump_addr_o = !alu_zero_flag_i ? (ins_addr_i + imm_i) : alu_res_i;
                         hold_flag_o = !alu_zero_flag_i ? 1'b1 : 1'b0;
                     end
                     `INS_BLT: begin
-                        alu_op_code_o = `ALU_SUB;
-                        jump_flag_o = alu_sign_flag_i ? 1'b1 : 1'b0;
-                        jump_addr_o = alu_sign_flag_i ? ($signed(ins_addr_i) + $signed(imm_i)) : {alu_res_i[31:1], 1'b0};
-                        hold_flag_o = alu_sign_flag_i ? 1'b1 : 1'b0;
+                        alu_op_code_o = `ALU_SLT;
+                        jump_flag_o = !alu_zero_flag_i ? 1'b1 : 1'b0;
+                        jump_addr_o = !alu_zero_flag_i ? (ins_addr_i + imm_i) : alu_res_i;
+                        hold_flag_o = !alu_zero_flag_i ? 1'b1 : 1'b0;
                     end
                     `INS_BGE: begin
-                        alu_op_code_o = `ALU_SUB;
-                        jump_flag_o = !alu_sign_flag_i ? 1'b1 : 1'b0;
-                        jump_addr_o = !alu_sign_flag_i ? ($signed(ins_addr_i) + $signed(imm_i)) : {alu_res_i[31:1], 1'b0};
-                        hold_flag_o = !alu_sign_flag_i ? 1'b1 : 1'b0;
+                        alu_op_code_o = `ALU_SLT;
+                        jump_flag_o = alu_zero_flag_i ? 1'b1 : 1'b0;
+                        jump_addr_o = alu_zero_flag_i ? (ins_addr_i + imm_i) : alu_res_i;
+                        hold_flag_o = alu_zero_flag_i ? 1'b1 : 1'b0;
                     end
                     `INS_BLTU: begin
                         alu_op_code_o = `ALU_SLTU;
                         jump_flag_o = !alu_zero_flag_i ? 1'b1 : 1'b0;
-                        jump_addr_o = !alu_zero_flag_i ? ($signed(ins_addr_i) + $signed(imm_i)) : {alu_res_i[31:1], 1'b0};
+                        jump_addr_o = !alu_zero_flag_i ? (ins_addr_i + imm_i) : alu_res_i;
                         hold_flag_o = !alu_zero_flag_i ? 1'b1 : 1'b0;
                     end
                     `INS_BGEU: begin
                         alu_op_code_o = `ALU_SLTU;
                         jump_flag_o = alu_zero_flag_i ? 1'b1 : 1'b0;
-                        jump_addr_o = alu_zero_flag_i ? ($signed(ins_addr_i) + $signed(imm_i)) : {alu_res_i[31:1], 1'b0};
+                        jump_addr_o = alu_zero_flag_i ? (ins_addr_i + imm_i) : alu_res_i;
                         hold_flag_o = alu_zero_flag_i ? 1'b1 : 1'b0;
                     end
                     default: begin
                     end
                 endcase
             end
+            // 访存指令
             `INS_TYPE_SAVE: begin
                 mem_wr_rib_req_o = 1'b1;
                 mem_wr_en_o = 1'b1;
@@ -446,6 +449,7 @@ module cu(
                     end
                 endcase
             end
+            // csr操作指令
             `INS_TYPE_CSR: begin
                 case(funct3_i)
                     `INS_CSRRW: begin

@@ -27,21 +27,21 @@ module RISCV(
     input   wire                        clk                 ,
     input   wire                        rst_n               ,
     
-    input   wire                        rib_hold_flag_i     ,
-    input   wire[`INT_BUS]              int_flag_i          ,
+    input   wire                        rib_hold_flag_i     , // rib总线传来的流水线暂停标志
+    input   wire[`INT_BUS]              int_flag_i          , // 外部设备中断标志
     
     // 取指相关
-    output  wire[`INST_ADDR_BUS]        pc_o                ,
-    input   wire[`INST_DATA_BUS]        ins_i               ,
+    output  wire[`INST_ADDR_BUS]        pc_o                , // 传给rom的指令地址
+    input   wire[`INST_DATA_BUS]        ins_i               , // rom根据地址读出来指令
     
     // 访存相关
-    output  wire                        mem_wr_rib_req_o    , 
-    output  wire                        mem_wr_en_o         ,
-    output  wire[`INST_ADDR_BUS]        mem_wr_addr_o       ,
-    output  wire[`INST_DATA_BUS]        mem_wr_data_o       ,
-    output  wire                        mem_rd_rib_req_o    , 
-    output  wire[`INST_ADDR_BUS]        mem_rd_addr_o       ,
-    input   wire[`INST_DATA_BUS]        mem_rd_data_i
+    output  wire                        mem_wr_rib_req_o    , // 写总线请求信号
+    output  wire                        mem_wr_en_o         , // 写使能
+    output  wire[`INST_ADDR_BUS]        mem_wr_addr_o       , // 写地址
+    output  wire[`INST_DATA_BUS]        mem_wr_data_o       , // 写数据
+    output  wire                        mem_rd_rib_req_o    , // 读总线请求信号
+    output  wire[`INST_ADDR_BUS]        mem_rd_addr_o       , // 读地址
+    input   wire[`INST_DATA_BUS]        mem_rd_data_i         // 读数据
     
     );
     
@@ -109,8 +109,8 @@ module RISCV(
         .clk                 (clk),
         .rst_n               (rst_n),
         .hold_flag_i         (ex_hold_flag_o),
-        .jump_flag           (ex_jump_flag_o),
-        .jump_addr           (ex_jump_addr_o),
+        .jump_flag_i         (ex_jump_flag_o),
+        .jump_addr_i         (ex_jump_addr_o),
         .int_flag_i          (int_flag_i),
         .int_flag_o          (if_int_flag_o),
         .ins_o               (if_ins_o),      
@@ -126,10 +126,13 @@ module RISCV(
         .hold_flag_i         (ex_hold_flag_o),
         .ins_i               (if_ins_o), 
         .ins_addr_i          (if_ins_addr_o), 
-        .reg1_rd_addr_o      (id_reg1_rd_addr_o), 
-        .reg2_rd_addr_o      (id_reg2_rd_addr_o),
         .reg1_rd_data_i      (rf_reg1_rd_data_o), 
         .reg2_rd_data_i      (rf_reg2_rd_data_o),
+        .reg1_rd_addr_o      (id_reg1_rd_addr_o), 
+        .reg2_rd_addr_o      (id_reg2_rd_addr_o),
+        .reg1_rd_data_o      (id_reg1_rd_data_o), 
+        .reg2_rd_data_o      (id_reg2_rd_data_o),
+        .reg_wr_addr_o       (id_reg_wr_addr_o),
         .ins_o               (id_ins_o),
         .ins_addr_o          (id_ins_addr_o), 
         .opcode_o            (id_opcode_o),
@@ -141,9 +144,6 @@ module RISCV(
         .csr_rw_addr_o       (id_csr_rw_addr_o),
         .csr_zimm_o          (id_csr_zimm_o),
         .csr_rd_data_o       (id_csr_rd_data_o),
-        .reg1_rd_data_o      (id_reg1_rd_data_o), 
-        .reg2_rd_data_o      (id_reg2_rd_data_o),
-        .reg_wr_addr_o       (id_reg_wr_addr_o),
         .mem_rd_rib_req_o    (mem_rd_rib_req_o),
         .mem_rd_addr_o       (mem_rd_addr_o)
     );

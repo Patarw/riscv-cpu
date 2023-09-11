@@ -5,7 +5,7 @@
 // 
 // Create Date: 2023/06/14 11:23:19
 // Design Name: 
-// Module Name: IF
+// Module Name: IF_UNIT
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -27,18 +27,21 @@ module IF_UNIT(
     input   wire                     clk          ,
     input   wire                     rst_n        ,
     
+    // from EX_UNIT
     input   wire[2:0]                hold_flag_i  ,
-    input   wire                     jump_flag    ,
-    input   wire[`INST_REG_DATA]     jump_addr    ,
+    input   wire                     jump_flag_i  ,
+    input   wire[`INST_REG_DATA]     jump_addr_i  ,
     
+    // 这是是为了将中断信号经if_id阶段同步后再输出
     input   wire[`INT_BUS]           int_flag_i   ,
     output  wire[`INT_BUS]           int_flag_o   ,
-        
-    output  wire[`INST_DATA_BUS]     ins_o        , // 指令
-    output  wire[`INST_ADDR_BUS]     ins_addr_o   , // 指令地址
     
-    output  wire[`INST_ADDR_BUS]     pc_o         , // 传给rom的指令地址
-    input   wire[`INST_DATA_BUS]     ins_i          // rom根据地址读出来指令
+    // to ID_UNIT
+    output  wire[`INST_DATA_BUS]     ins_o        , 
+    output  wire[`INST_ADDR_BUS]     ins_addr_o   ,
+    
+    output  wire[`INST_ADDR_BUS]     pc_o         , 
+    input   wire[`INST_DATA_BUS]     ins_i          
     
     );
     
@@ -50,17 +53,17 @@ module IF_UNIT(
     pc u_pc(
         .clk         (clk)  ,
         .rst_n       (rst_n),
-        .hold_flag   (hold_flag_i),
-        .jump_flag   (jump_flag),
-        .jump_addr   (jump_addr),
-        .pc_out      (pc)
+        .hold_flag_i (hold_flag_i),
+        .jump_flag_i (jump_flag_i),
+        .jump_addr_i (jump_addr_i),
+        .pc_o        (pc)
     );
     
     // 指令寄存器模块例化
     if_id u_if_id(
         .clk         (clk),
         .rst_n       (rst_n),
-        .hold_flag   (hold_flag_i),
+        .hold_flag_i (hold_flag_i),
         .int_flag_i  (int_flag_i),
         .int_flag_o  (int_flag_o),
         .ins_i       (ins_i), 

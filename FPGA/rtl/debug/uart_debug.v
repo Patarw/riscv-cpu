@@ -5,7 +5,7 @@
 // 
 // Create Date: 2023/06/27 12:02:53
 // Design Name: 
-// Module Name: uart
+// Module Name: uart_debug
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 

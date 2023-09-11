@@ -27,7 +27,7 @@ module if_id(
     input   wire                    clk         ,
     input   wire                    rst_n       ,
     
-    input   wire[2:0]               hold_flag   ,
+    input   wire[2:0]               hold_flag_i ,
     
     input   wire[`INT_BUS]          int_flag_i  ,
     output  reg [`INT_BUS]          int_flag_o  ,
@@ -48,7 +48,7 @@ module if_id(
             hold_flag_reg <= `HOLD_NONE;
         end
         else begin
-            hold_flag_reg <= hold_flag;
+            hold_flag_reg <= hold_flag_i;
         end
     end
     
@@ -57,12 +57,12 @@ module if_id(
             ins_addr_o <= `RESET_ADDR;
             int_flag_o <= `INT_NONE;
         end
-        else if(hold_flag >= `HOLD_IF_ID) begin
+        else if(hold_flag_i >= `HOLD_IF_ID) begin
             ins_addr_o <= `RESET_ADDR;
             int_flag_o <= `INT_NONE;
         end
         else begin
-            ins_addr_o <= ins_addr_i;
+            ins_addr_o <= {ins_addr_i[31:2], {2'b0}};
             int_flag_o <= int_flag_i;
         end
     end

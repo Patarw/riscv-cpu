@@ -5,7 +5,7 @@
 // 
 // Create Date: 2023/07/20 10:29:50
 // Design Name: 
-// Module Name: alu
+// Module Name: mul
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
