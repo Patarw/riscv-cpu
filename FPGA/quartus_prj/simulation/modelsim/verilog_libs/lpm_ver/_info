@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/simulation/modelsim
 vlpm_abs
-Z1 !s110 1694423039
+Z1 !s110 1694437615
 !i10b 1
 !s100 F_9e1KM`Tz^fXz3DcKZN:2
 IJ6@_GFP8D6bz:DK>gY:eg0
@@ -23,7 +23,7 @@ Z6 OL;L;10.5;63
 r1
 !s85 0
 31
-Z7 !s108 1694423039.000000
+Z7 !s108 1694437615.000000
 Z8 !s107 d:/software/quartus/quartus/eda/sim_lib/220model.v|
 Z9 !s90 -reportprogress|300|-vlog01compat|-work|lpm_ver|d:/software/quartus/quartus/eda/sim_lib/220model.v|
 !i113 0
