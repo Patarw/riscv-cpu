@@ -8,6 +8,8 @@
 
 [tinyriscv: 一个从零开始写的极简、非常易懂的RISC-V处理器核](https://gitee.com/liangkangnan/tinyriscv#https://gitee.com/liangkangnan/tinyriscv_vivado)
 
+本项目的 cpu 端目前大致已经开发完毕，后续计划是重写 RT-Thread nano 内核，并且移植到本项目上运行。如果大家对 riscv-cpu 或者 RT-Thread 感兴趣的话，欢迎大家 star~ 
+
 另外一个基于本项目的操作系统也在同步开发中：[《一个RISC-V上的简易操作系统》](https://gitee.com/lizhanpeng2022/riscv_os)
 
 ## 2. 项目说明
