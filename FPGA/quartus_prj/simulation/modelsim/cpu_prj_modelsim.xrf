@@ -6,7 +6,6 @@ source_file = 1, D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/csr.v
 source_file = 1, D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/gpio.v
 source_file = 1, D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/div.v
 source_file = 1, D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/mul.v
-source_file = 1, ../rtl/perips/instructions.txt
 source_file = 1, D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug/uart_debug.v
 source_file = 1, D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/rib.v
 source_file = 1, D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/sim/tb_riscv_top.v

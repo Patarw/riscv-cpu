@@ -1,12 +1,14 @@
-# 烧录方法为，按住板子上的key1，执行程序，出现send over后即可松开按钮
+import sys
+import os
+# 烧录方法为，按住板子上的key1，执行 python .\serial_send.py <串口号> <下载的文件path>，出现send over后即可松开按钮
 
 import serial
  
 try:
-    ser = serial.Serial("COM3", 19200, timeout=0.5)
+    ser = serial.Serial(sys.argv[1], 19200, timeout=0.5)
     if ser.is_open:
-        print("COM3" + " open success!")
-        with open('./led_flow.bin', 'rb') as f:
+        print(sys.argv[1] + " open success!")
+        with open(sys.argv[2], 'rb') as f:
             a = f.read()
         print("sending bin file")
         count = ser.write(a)

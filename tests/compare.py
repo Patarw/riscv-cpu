@@ -1,7 +1,4 @@
 import sys
-import filecmp
-import subprocess
-import sys
 import os
 
 # Usage: python ./compare.py <rv32i or rv32im or rv32Zicsr>

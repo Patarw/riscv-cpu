@@ -60,17 +60,22 @@ def main():
     [files_rv32Zicsr, files_rv32Zicsr_filename] = list_bin_files(r'./riscv-compliance/work/rv32Zicsr/')
 
     print(len(files_rv32i))
-    os.makedirs('./test_case/rv32i')
+    # 如果目录不存在则创建目录
+    if not os.path.exists('./test_case/rv32i'):
+        os.makedirs('./test_case/rv32i')
+    # 将 ./riscv-compliance/work/rv32i/ 下的所有 .bin 二进制源码转换成 rom 能读取的形式
     for index in range(0, len(files_rv32i)) :
         bin_to_mem(files_rv32i[index], './test_case/rv32i/'+ str.replace(files_rv32i_filename[index], 'bin', 'data'))
 
     print(len(files_rv32im))
-    os.makedirs('./test_case/rv32im')
+    if not os.path.exists('./test_case/rv32im'):
+        os.makedirs('./test_case/rv32im')
     for index in range(0, len(files_rv32im)) :
         bin_to_mem(files_rv32im[index], './test_case/rv32im/'+ str.replace(files_rv32im_filename[index], 'bin', 'data'))
 
     print(len(files_rv32Zicsr))
-    os.makedirs('./test_case/rv32Zicsr')
+    if not os.path.exists('./test_case/rv32Zicsr'):
+        os.makedirs('./test_case/rv32Zicsr')
     for index in range(0, len(files_rv32Zicsr)) :
         bin_to_mem(files_rv32Zicsr[index], './test_case/rv32Zicsr/'+ str.replace(files_rv32Zicsr_filename[index], 'bin', 'data'))
 

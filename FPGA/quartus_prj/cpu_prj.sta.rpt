@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for cpu_prj
-Mon Sep 11 17:07:14 2023
+Tue Sep 12 10:40:41 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -111,13 +111,13 @@ applicable agreement for further details.
 ; Number detected on machine ; 20          ;
 ; Maximum allowed            ; 14          ;
 ;                            ;             ;
-; Average used               ; 4.50        ;
+; Average used               ; 1.50        ;
 ; Maximum used               ; 14          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  50.0%      ;
-;     Processors 3-14        ;  25.0%      ;
+;     Processors 2-4         ;  16.7%      ;
+;     Processors 5-14        ; < 0.1%      ;
 ;     Processors 15-20       ;   0.0%      ;
 +----------------------------+-------------+
 
@@ -631,8 +631,8 @@ No paths to report.
 ; -27.461 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[3] ; uart:u_uart|rd_data_o[9]                                                                        ; clk          ; clk         ; 1.000        ; -0.050     ; 28.413     ;
 ; -27.455 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[3] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.217      ; 28.711     ;
 ; -27.439 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a19~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.220      ; 28.698     ;
-; -27.435 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.218      ; 28.692     ;
 ; -27.435 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[3] ; uart:u_uart|rd_data_o[5]                                                                        ; clk          ; clk         ; 1.000        ; -0.050     ; 28.387     ;
+; -27.435 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.218      ; 28.692     ;
 ; -27.416 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a20~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.222      ; 28.677     ;
 ; -27.405 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[3] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a2~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.218      ; 28.662     ;
 ; -27.400 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a18~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.219      ; 28.658     ;
@@ -649,11 +649,11 @@ No paths to report.
 ; -27.336 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[1]       ; gpio:u_gpio|rd_data_o[19]                                                                       ; clk          ; clk         ; 1.000        ; -0.052     ; 28.286     ;
 ; -27.332 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a2~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.218      ; 28.589     ;
 ; -27.328 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[1] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a18~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.217      ; 28.584     ;
-; -27.327 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[1] ; gpio:u_gpio|rd_data_o[19]                                                                       ; clk          ; clk         ; 1.000        ; -0.055     ; 28.274     ;
 ; -27.327 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[1]       ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a18~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.230      ; 28.596     ;
+; -27.327 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[1] ; gpio:u_gpio|rd_data_o[19]                                                                       ; clk          ; clk         ; 1.000        ; -0.055     ; 28.274     ;
 ; -27.323 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a7~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.219      ; 28.581     ;
-; -27.313 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[1] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.226      ; 28.578     ;
 ; -27.313 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[3] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a28~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.239      ; 28.591     ;
+; -27.313 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[1] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.226      ; 28.578     ;
 ; -27.311 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[3] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a9~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.220      ; 28.570     ;
 ; -27.310 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[3] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a22~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.233      ; 28.582     ;
 ; -27.306 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; uart:u_uart|rd_data_o[9]                                                                        ; clk          ; clk         ; 1.000        ; -0.052     ; 28.256     ;
@@ -695,9 +695,9 @@ No paths to report.
 ; -27.240 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a28~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.239      ; 28.518     ;
 ; -27.239 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[3] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a29~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.233      ; 28.511     ;
 ; -27.238 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a9~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.220      ; 28.497     ;
-; -27.237 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.220      ; 28.496     ;
 ; -27.237 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[1]       ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.216      ; 28.492     ;
 ; -27.237 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a22~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.233      ; 28.509     ;
+; -27.237 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.220      ; 28.496     ;
 ; -27.235 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[1] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a19~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.226      ; 28.500     ;
 ; -27.234 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[1] ; uart:u_uart|rd_data_o[9]                                                                        ; clk          ; clk         ; 1.000        ; -0.054     ; 28.182     ;
 ; -27.233 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[3] ; uart:u_uart|rd_data_o[30]                                                                       ; clk          ; clk         ; 1.000        ; -0.051     ; 28.184     ;
@@ -1068,18 +1068,18 @@ No paths to report.
 ; -12.657 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a28~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.126      ; 13.792     ;
 ; -12.655 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a20~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.115      ; 13.779     ;
 ; -12.654 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a22~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.121      ; 13.784     ;
-; -12.650 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a20~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.125      ; 13.784     ;
 ; -12.650 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.110      ; 13.769     ;
+; -12.650 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a20~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.125      ; 13.784     ;
 ; -12.649 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a19~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.115      ; 13.773     ;
 ; -12.647 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a18~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.110      ; 13.766     ;
 ; -12.647 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a16~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.125      ; 13.781     ;
 ; -12.644 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[1] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a20~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.115      ; 13.768     ;
 ; -12.643 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.119      ; 13.771     ;
-; -12.640 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a9~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.113      ; 13.762     ;
 ; -12.640 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a7~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.121      ; 13.770     ;
+; -12.640 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a9~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.113      ; 13.762     ;
 ; -12.635 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a19~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.111      ; 13.755     ;
-; -12.632 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.118      ; 13.759     ;
 ; -12.632 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a11~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.122      ; 13.763     ;
+; -12.632 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.118      ; 13.759     ;
 ; -12.630 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; gpio:u_gpio|rd_data_o[19]                                                                       ; clk          ; clk         ; 1.000        ; -0.025     ; 13.592     ;
 ; -12.629 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[1] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a7~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.121      ; 13.759     ;
 ; -12.627 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a29~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.122      ; 13.758     ;
@@ -1100,8 +1100,8 @@ No paths to report.
 ; -12.601 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a22~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.113      ; 13.723     ;
 ; -12.601 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[1] ; gpio:u_gpio|rd_data_o[19]                                                                       ; clk          ; clk         ; 1.000        ; -0.017     ; 13.571     ;
 ; -12.600 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[1] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.109      ; 13.718     ;
-; -12.600 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a5~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.114      ; 13.723     ;
 ; -12.600 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[1]       ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.117      ; 13.726     ;
+; -12.600 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a5~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.114      ; 13.723     ;
 ; -12.596 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a28~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.126      ; 13.731     ;
 ; -12.595 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.112      ; 13.716     ;
 ; -12.595 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[1] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a2~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.120      ; 13.724     ;
@@ -1116,8 +1116,8 @@ No paths to report.
 ; -12.582 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a5~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.122      ; 13.713     ;
 ; -12.581 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[1] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a18~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.110      ; 13.700     ;
 ; -12.581 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a20~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.115      ; 13.705     ;
-; -12.581 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.108      ; 13.698     ;
 ; -12.581 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[1]       ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a18~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.118      ; 13.708     ;
+; -12.581 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.108      ; 13.698     ;
 ; -12.579 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a11~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.114      ; 13.702     ;
 ; -12.579 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a9~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.113      ; 13.701     ;
 ; -12.578 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a28~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.134      ; 13.721     ;
@@ -1136,9 +1136,9 @@ No paths to report.
 ; -12.561 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a11~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.122      ; 13.692     ;
 ; -12.561 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[0] ; gpio:u_gpio|rd_data_o[19]                                                                       ; clk          ; clk         ; 1.000        ; -0.027     ; 13.521     ;
 ; -12.561 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a9~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.121      ; 13.691     ;
-; -12.560 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[3] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a5~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.114      ; 13.683     ;
 ; -12.560 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[1] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a20~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.133      ; 13.702     ;
-; -12.558 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 1.000        ; 0.118      ; 13.685     ;
+; -12.560 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[3] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a5~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.114      ; 13.683     ;
+; -12.558 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|opcode_o[3]       ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 1.000        ; 0.117      ; 13.684     ;
 +---------+--------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -1603,7 +1603,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Mon Sep 11 17:07:10 2023
+    Info: Processing started: Tue Sep 12 10:40:34 2023
 Info: Command: quartus_sta cpu_prj -c cpu_prj
 Info: qsta_default_script.tcl version: #1
 Info (11104): Parallel Compilation has detected 20 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 14 of the 14 physical processors detected instead.
@@ -1674,9 +1674,9 @@ Info (332146): Worst-case minimum pulse width slack is -3.000
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4898 megabytes
-    Info: Processing ended: Mon Sep 11 17:07:14 2023
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Peak virtual memory: 4907 megabytes
+    Info: Processing ended: Tue Sep 12 10:40:41 2023
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:06
 
 

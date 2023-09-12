@@ -81,7 +81,6 @@ set_global_assignment -name VERILOG_FILE ../rtl/core/csr.v
 set_global_assignment -name VERILOG_FILE ../rtl/perips/gpio.v
 set_global_assignment -name VERILOG_FILE ../rtl/core/div.v
 set_global_assignment -name VERILOG_FILE ../rtl/core/mul.v
-set_global_assignment -name TEXT_FILE ../rtl/perips/instructions.txt
 set_global_assignment -name VERILOG_FILE ../rtl/debug/uart_debug.v
 set_global_assignment -name VERILOG_FILE ../rtl/core/rib.v
 set_global_assignment -name VERILOG_FILE ../sim/tb_riscv_top.v
