@@ -1,6 +1,7 @@
 /* 头文件声明 */
 #include <rtthread.h>
 #include <rtconfig.h>
+#include <printf.h>
 
 /* 线程优先级链表 */
 extern rt_list_t rt_thread_priority_table[RT_THREAD_PRIORITY_MAX];

@@ -2,7 +2,6 @@
 #include <rtthread.h>
 
 rt_err_t rt_thread_init(struct rt_thread *thread,
-                        const char       *name,
                         void (*entry)(void *parameter),
                         void             *parameter,
                         void             *stack_start,
