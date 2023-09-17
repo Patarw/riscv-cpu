@@ -1,4 +1,3 @@
-#include "../include/uart.h"
 #include "../include/printf.h"
 
 /*

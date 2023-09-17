@@ -4,8 +4,6 @@ RISCV_MCMODEL := medlow
 
 TARGET = rtthread
 
-CFLAGS += -Os
-
 ASM_SRCS := ./rtthread-nano/libcpu/risc-v/context_gcc.S
 
 C_SRCS := \

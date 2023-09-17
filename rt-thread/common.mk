@@ -25,7 +25,7 @@ CLEAN_OBJS += $(TARGET) $(LINK_OBJS) $(TARGET).dump $(TARGET).bin
 
 CFLAGS += -march=$(RISCV_ARCH)
 CFLAGS += -mabi=$(RISCV_ABI)
-CFLAGS += -mcmodel=$(RISCV_MCMODEL) -ffunction-sections -fdata-sections -fno-builtin-printf -fno-builtin-malloc
+CFLAGS += -mcmodel=$(RISCV_MCMODEL) -nostdlib -ffunction-sections -fdata-sections -fno-builtin-printf -fno-builtin-malloc -Wall
 
 $(TARGET): $(LINK_OBJS) $(LINK_DEPS) Makefile
 	$(RISCV_GCC) $(CFLAGS) $(INCLUDES) $(LINK_OBJS) -o $@ $(LDFLAGS)

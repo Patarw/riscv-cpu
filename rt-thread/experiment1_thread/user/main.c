@@ -26,6 +26,7 @@ void delay(unsigned int count);
 int main(void)
 {
     /* 硬件初始化 */
+    uart_init(); /*  */
 
     /* 调度器初始化 */
     rt_system_scheduler_init();
@@ -55,6 +56,7 @@ int main(void)
 /* 软件延时 */
 void delay(unsigned int count)
 {
+    count *= 50000;
     for(; count != 0; count--);
 }
 

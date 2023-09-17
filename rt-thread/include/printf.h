@@ -3,6 +3,7 @@
 
 #include <stddef.h>
 #include <stdarg.h>
+#include <uart.h>
 
 /* printf */
 int printf(const char* s, ...);
