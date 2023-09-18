@@ -28,7 +28,8 @@
 1.  doc：该目录包含一些手册和文档；
 2.  serial_utils：该目录包含串口烧录脚本，以及一些测试例子；
 3.  FPGA：存放 FPGA 相关文件，包括 rtl 文件和仿真文件（目前还在更新中，成功移植到野火征途PRO开发板）；
-4.  tests：包含 RISC-V 指令兼容性测试程序源码；
+4.  rt-thread：基于 riscv 的 rtthread 实现，能在本 cpu 上运行；
+5.  tests：包含 RISC-V 指令兼容性测试程序源码；
 
 环境：
 1. Quartus II 13.0sp1
