@@ -14,7 +14,7 @@ rt_err_t rt_thread_init(struct rt_thread *thread,
     thread->entry = (void *)entry;
     thread->parameter = parameter;
 
-    /* stack init */
+    /* 初始化线程栈起始地址与大小 */
     thread->stack_addr = stack_start;
     thread->stack_size = stack_size;
 

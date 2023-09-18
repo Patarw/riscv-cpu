@@ -29,6 +29,7 @@ void rt_system_scheduler_init(void)
  * @ingroup SystemInit
  * This function will startup scheduler. It will select one thread
  * with the highest priority level, then switch to it.
+ * 因为本章节没有涉及到线程优先级，所以默认选择第一个线程
  */
 void rt_system_scheduler_start(void)
 {
@@ -50,6 +51,7 @@ void rt_system_scheduler_start(void)
 /**
  * This function will perform one schedule. It will select one thread
  * with the highest priority level, then switch to it.
+ * 因为本章节没有涉及到线程优先级，所以默认调度器为两个线程轮流执行
  */
 void rt_schedule(void)
 {
@@ -62,6 +64,7 @@ void rt_schedule(void)
                                            tlist))
     {
         from_thread = rt_current_thread;
+        /* rt_list_entry 宏函数可以通过 tlist 成员变量地址计算出相应的 rt_thread 地址 */
         to_thread =  rt_list_entry(rt_thread_priority_table[1].next,
                                    struct rt_thread,
                                    tlist);
@@ -75,7 +78,7 @@ void rt_schedule(void)
                                    tlist);
         rt_current_thread = to_thread;
     }
-    /* 产生上下文切换 */
+    /* 上下文切换 */
     rt_hw_context_switch((rt_uint32_t)&from_thread->sp, 
                          (rt_uint32_t)&to_thread->sp);
 }

@@ -16,7 +16,6 @@ rt_err_t rt_thread_init(struct rt_thread *thread,
  */
 void rt_system_scheduler_init(void);
 void rt_system_scheduler_start(void);
-
 void rt_schedule(void);
 
 #endif

@@ -59,9 +59,11 @@ rt_uint8_t *rt_hw_stack_init(void       *tentry,
     /* 获取栈顶指针
      rt_hw_stack_init 在调用的时候，传给 stack_addr 的是(栈顶指针-4) */
     stk  = stack_addr + sizeof(rt_uint32_t);
+
     /* 让 stk 指针向下 8 字节对齐 */
     stk  = (rt_uint8_t *)RT_ALIGN_DOWN((rt_uint32_t)stk, 8);
-    /* stk 指针继续向下移动 sizeof(struct stack_frame)个偏移 */
+
+    /* stk 指针继续向下移动 sizeof(struct stack_frame)个偏移，这些空间用于上下文切换的时候保存线程上下文 */
     stk -= sizeof(struct stack_frame); 
 
     frame = (struct stack_frame *)stk;

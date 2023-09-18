@@ -25,6 +25,7 @@ rt_hw_context_switch:
     andi a0, a0, 8
     beqz a0, save_mpie
     li   a0, 0x80
+    /* 保存当前线程的相关寄存器 */
 save_mpie:
     sw a0,   2 * 4(sp)
 
@@ -75,6 +76,7 @@ save_mpie:
     lw a1,   2 * 4(sp)
     csrs mstatus, a1
 
+    /* 恢复要切换到的线程的相关寄存器 */
     lw x4,   4 * 4(sp)
     lw x5,   5 * 4(sp)
     lw x6,   6 * 4(sp)
