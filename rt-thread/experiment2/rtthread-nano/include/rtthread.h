@@ -18,4 +18,9 @@ void rt_system_scheduler_init(void);
 void rt_system_scheduler_start(void);
 void rt_schedule(void);
 
+/*
+ * general kernel service
+ */
+char *rt_strncpy(char *dest, const char *src, rt_ubase_t n);
+
 #endif

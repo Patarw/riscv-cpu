@@ -2,11 +2,15 @@
 #include <rtthread.h>
 
 rt_err_t rt_thread_init(struct rt_thread *thread,
+                        const char       *name,
                         void (*entry)(void *parameter),
                         void             *parameter,
                         void             *stack_start,
                         rt_uint32_t       stack_size)
 {
+    /* 线程对象初始化，线程结构体开头部分的四个成员就是 rt_object */
+    rt_object_init((rt_object_t)thread, RT_Object_Class_Thread, name);
+
     /* 初始化线程链表 */
     rt_list_init(&(thread->tlist));
 

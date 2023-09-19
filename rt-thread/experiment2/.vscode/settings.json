@@ -2,6 +2,8 @@
     "files.associations": {
         "rtthread.h": "c",
         "rtservice.h": "c",
-        "rtdef.h": "c"
-    }
+        "rtdef.h": "c",
+        "rthw.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
