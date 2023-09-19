@@ -5,6 +5,16 @@
 #include <rtservice.h>
 #include <rtconfig.h>
 
+/*
+ * kernel object interface
+ */
+void rt_object_init(struct rt_object         *object,
+                    enum rt_object_class_type type,
+                    const char               *name);
+
+/*
+ * thread interface
+ */
 rt_err_t rt_thread_init(struct rt_thread *thread,
                         const char       *name,
                         void (*entry)(void *parameter),

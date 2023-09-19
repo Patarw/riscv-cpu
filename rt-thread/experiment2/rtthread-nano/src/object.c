@@ -39,7 +39,7 @@ enum rt_object_info_type
 
 /* 初始化 rt_object_container 对应下标的头节点 */
 #define _OBJ_CONTAINER_LIST_INIT(c)   \
-    {&{rt_object_container[c].object_list}, &{rt_object_container[c].object_list}}
+    {&(rt_object_container[c].object_list), &(rt_object_container[c].object_list)}
 
 /* 容器定义，头节点为 rt_object_information 类型，头节点之后的为 rt_object 类型 */
 static struct rt_object_information rt_object_container[RT_Object_Info_Unknown] =
@@ -115,11 +115,11 @@ static struct rt_object_information rt_object_container[RT_Object_Info_Unknown] 
     },
 #endif
     /* 初始化定时器对象容器 */
-    {
-        RT_Object_Class_Timer, 
-        _OBJ_CONTAINER_LIST_INIT(RT_Object_Info_Timer),
-        sizeof(struct rt_timer)
-    },
+    //{
+    //    RT_Object_Class_Timer, 
+    //    _OBJ_CONTAINER_LIST_INIT(RT_Object_Info_Timer),
+    //    sizeof(struct rt_timer)
+    //},
 };
 
 /**
@@ -138,7 +138,7 @@ rt_object_get_information(enum rt_object_class_type type)
 
     for (index = 0; index < RT_Object_Info_Unknown; index ++)
         if (rt_object_container[index].type == type)
-            retrurn &rt_object_container[index];
+            return &rt_object_container[index];
 
     return RT_NULL;
 }
