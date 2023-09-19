@@ -33,6 +33,7 @@ int main(void)
 
     /* 初始化线程 */
     rt_thread_init(&rt_thread1,               /* 线程控制块 */
+                   "thread1",                 /* 线程名称，唯一 */
                    thread_1_entry,            /* 线程入口地址 */
                    RT_NULL,                   /* 线程形参 */
                    &rt_thread1_stack[0],      /* 线程栈起始地址 */
@@ -42,6 +43,7 @@ int main(void)
 
     /* 初始化线程 */
     rt_thread_init(&rt_thread2,               /* 线程控制块 */
+                   "thread2",                 /* 线程名称，唯一 */
                    thread_2_entry,            /* 线程入口地址 */
                    RT_NULL,                   /* 线程形参 */
                    &rt_thread2_stack[1],      /* 线程栈起始地址 */

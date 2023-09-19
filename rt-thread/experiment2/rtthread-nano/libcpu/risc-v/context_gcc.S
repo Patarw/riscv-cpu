@@ -12,7 +12,7 @@ rt_hw_interrupt_disable:
  * 将全局中断状态恢复到原来的状态，注意这里不是打开
  * void rt_hw_interrupt_enable(rt_base_t level);
  */
-.globl rt_hw_interrupt_enable:
+.globl rt_hw_interrupt_enable
 rt_hw_interrupt_enable:
     /* 将传入的参数 level 写入 mstatus 中 */
     csrw mstatus, a0
