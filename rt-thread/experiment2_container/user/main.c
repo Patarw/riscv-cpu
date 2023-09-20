@@ -66,7 +66,7 @@ void delay(unsigned int count)
 void thread_1_entry(void *p_arg)
 {
     struct rt_object_information *information;
-    int i;
+
     for ( ;; ) 
     {
         printf("Thread 1 running...\n");
@@ -74,13 +74,14 @@ void thread_1_entry(void *p_arg)
         information = rt_object_get_information(RT_Object_Class_Thread);
         struct rt_object *object = RT_NULL;
         struct rt_list_node *index = RT_NULL;
-        for (index = (information)->next; index != (information); index = index->next)
+	struct rt_list_node *head = &(information->object_list);
+        for (index = head->next; index != head; index = index->next)
         {
             object = rt_list_entry(index, struct rt_object, list);
-            printf("当前线程对象容器包含的线程对象有：\n");
-            printf("线程对象名称：%s\n", object->name);
-            printf("线程对象类型：%d\n", object->type);
-            printf("线程对象状态：%d\n", object->flag);
+       
+            printf("the name of thread object: %s\n", object->name);
+            printf("the type of thread object: %d\n", object->type);
+            printf("the flag of thread object: %d\n", object->flag);
             printf("\n");
         }
         delay(500);
