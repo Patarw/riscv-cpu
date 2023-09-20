@@ -1,6 +1,6 @@
 /* 头文件声明 */
 #include <rtthread.h>
-#include <rtconfig.h>
+#include "include/rtconfig.h"
 #include <printf.h>
 
 /* 线程优先级链表 */

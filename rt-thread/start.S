@@ -15,8 +15,8 @@ _start:
     la a2, _edata
     bgeu a1, a2, 2f
 1:
-    lw t0, (a0)     /* 从 flash 中取出一个 word 的数据 */
-    sw t0, (a1)     /* 将取出的数据存入 ram 中对应位置 */
+    lw t0, (a0)      /* 从 flash 中取出一个 word 的数据 */
+    sw t0, (a1)      /* 将取出的数据存入 ram 中对应位置 */
     addi a0, a0, 4
     addi a1, a1, 4
     bltu a1, a2, 1b
@@ -32,12 +32,8 @@ _start:
     bltu a0, a1, 1b
 2:
 
-    /* 使能 CPU 全局中断，MPP = 11，MPIE = 1，MIE = 1 */
-    li t0, 3 << 11 | 1 << 7 | 1 << 3
-    csrr a1, mstatus
-    or t0, t0, a1
-    csrw mstatus, t0
-
+    /* 调用初始化函数 */
+    call _init
     /* 跳转到 main */
     call main
 

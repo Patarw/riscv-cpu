@@ -1,6 +1,8 @@
 #include "../include/platform.h"
 #include "../include/uart.h"
 
+/* UART 驱动代码 */
+
 /*
  * The UART control registers are memory-mapped at address UART. 
  * This macro returns the address of one of the registers.
@@ -10,7 +12,7 @@
 /*
  * UART registers map
  */
-#define UART_CTRL 	 0
+#define UART_CTRL 	 	 0
 #define UART_TX_DATA_BUF 4
 #define UART_RX_DATA_BUF 8
 
@@ -27,9 +29,9 @@ void uart_putc(char ch)
 {    
 	// fill send buf
 	uart_write_reg(UART_TX_DATA_BUF, ch);
-        // wait send over
-        while((uart_read_reg(UART_CTRL) & (1 << 1)) != (1 << 1)){}
-        // set TI to 0
+    // wait send over
+    while((uart_read_reg(UART_CTRL) & (1 << 1)) != (1 << 1)){}
+    // set TI to 0
 	uart_write_reg(UART_CTRL, (uart_read_reg(UART_CTRL) & ~(1 << 1)));
 }
 
