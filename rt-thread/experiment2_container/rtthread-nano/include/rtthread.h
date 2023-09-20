@@ -8,6 +8,8 @@
 /*
  * kernel object interface
  */
+struct rt_object_information *
+rt_object_get_information(enum rt_object_class_type type);
 void rt_object_init(struct rt_object         *object,
                     enum rt_object_class_type type,
                     const char               *name);

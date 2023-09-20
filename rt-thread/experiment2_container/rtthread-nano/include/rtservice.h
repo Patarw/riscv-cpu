@@ -96,4 +96,12 @@ rt_inline unsigned int rt_list_len(const rt_list_t *l)
 #define rt_list_entry(node, type, member) \
     rt_container_of(node, type, member)
 
+/**
+ * rt_list_for_each - iterate over a list
+ * @pos:    the rt_list_t * to use as a loop cursor.
+ * @head:   the head for your list.
+ */
+#define rt_list_for_each(pos, head) \
+    for (pos = (head)->next; pos != (head); pos = pos->next)
+
 #endif
