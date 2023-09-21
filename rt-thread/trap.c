@@ -1,6 +1,6 @@
 #include "include/types.h"
 #include "include/printf.h"
-#include "include/timer.h"
+#include "include/hw_timer.h"
 
 #define IRQ_M_TIMER                   7
 #define CAUSE_MACHINE_IRQ_REASON_MASK 0xFFFF

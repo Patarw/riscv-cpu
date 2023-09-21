@@ -1,7 +1,7 @@
 #include "../include/platform.h"
-#include "../include/timer.h"
+#include "../include/hw_timer.h"
 
-/* timer 驱动代码 */
+/* 硬件 timer 驱动代码 */
 
 /*
  * The TIMER control registers are memory-mapped at address TIMER (defined in ../include/platform.h). 
@@ -28,7 +28,7 @@
 
 extern void SysTick_Handler(void) __attribute__((weak));
 
-/* 初始化定时器 */
+/* 初始化硬件定时器 */
 void hw_timer_init()
 {
     /* 使能定时器中断 */

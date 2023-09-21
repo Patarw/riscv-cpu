@@ -13,7 +13,7 @@ C_SRCS += $(COMMON_DIR)/init.c
 C_SRCS += $(COMMON_DIR)/trap.c 
 C_SRCS += $(COMMON_DIR)/lib/uart.c 
 C_SRCS += $(COMMON_DIR)/lib/printf.c
-C_SRCS += $(COMMON_DIR)/lib/timer.c
+C_SRCS += $(COMMON_DIR)/lib/hw_timer.c
 
 
 LINKER_SCRIPT := $(COMMON_DIR)/link.lds
