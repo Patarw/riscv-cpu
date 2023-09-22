@@ -15,6 +15,7 @@ C_SRCS := \
 	./rtthread-nano/src/kservice.c \
 	./rtthread-nano/src/idle.c \
 	./rtthread-nano/src/clock.c \
+	./rtthread-nano/src/irq.c \
 
 INCLUDES += -I. -I./user/include -I./rtthread-nano/include -I./rtthread-nano/libcpu/risc-v -I../include
 

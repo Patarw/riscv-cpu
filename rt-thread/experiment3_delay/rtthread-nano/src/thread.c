@@ -68,13 +68,20 @@ rt_thread_t rt_thread_self(void)
  */
 void rt_thread_delay(rt_tick_t tick)
 {
+    register rt_base_t temp;
     struct rt_thread *thread;
+
+    /* 关中断 */
+    temp = rt_hw_interrupt_disable();
 
     /* 获取当前线程的线程控制块 */
     thread = rt_current_thread;
 
     /* 设置延时时间 */
     thread->remaining_tick = tick;
+
+    /* 恢复中断 */
+    rt_hw_interrupt_enable(temp);
 
     /* 进行系统调度 */
     rt_schedule();

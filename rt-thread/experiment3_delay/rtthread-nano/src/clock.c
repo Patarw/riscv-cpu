@@ -41,5 +41,5 @@ void rt_tick_increase(void)
     }
 
     /* 系统调度 */
-    //rt_schedule();
+    rt_schedule();
 }

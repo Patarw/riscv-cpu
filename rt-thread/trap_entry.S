@@ -39,9 +39,11 @@ trap_entry:
     move s0, sp
 
     /* 将 mcause 与 mepc 寄存器的内容作为参数传给 trap_handler 函数 */
+    call rt_interrupt_enter
     csrr a0, mcause
     csrr a1, mepc
     call trap_handler
+    call rt_interrupt_leave
 
     /* 恢复栈指针 */
     move sp, s0

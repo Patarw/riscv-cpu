@@ -84,12 +84,11 @@ void thread_1_entry(void *p_arg)
 
         tick = rt_tick_get();
         printf("the thread1 tick before is %d\n", tick);
-	delay(500);
+	    delay(500);
         //rt_thread_delay(4);
 
         tick = rt_tick_get();
         printf("the thread1 tick after is %d\n", tick);
-	rt_schedule();
     }
 }
 
@@ -103,28 +102,19 @@ void thread_2_entry(void *p_arg)
 
         tick = rt_tick_get();
         printf("the thread2 tick before is %d\n", tick);
-	delay(500);
-       // rt_thread_delay(5);
+
+        rt_thread_delay(5);
 
         tick = rt_tick_get();
         printf("the thread2 tick after is %d\n", tick);
-	rt_schedule();
     }
 }
 
 /* SysTick 中断处理函数 */
 void SysTick_Handler(void)
 {
-    rt_base_t level;
-
-    /* 下面不关中断也可以，因为本 cpu 不支持嵌套中断 */
-
-    /* 关中断 */
-    //level = rt_hw_interrupt_disable();
     /* 时基更新 */
     rt_tick_increase();
-    /* 恢复中断 */
-    //rt_hw_interrupt_enable(level);
 }
 
 

@@ -4,6 +4,9 @@
 /* 线程就绪列表 */
 rt_list_t rt_thread_priority_table[RT_THREAD_PRIORITY_MAX];
 
+/* 中断嵌套层数 */
+extern volatile rt_uint8_t rt_interrupt_nest;
+
 /* 当前线程控制块指针 */
 struct rt_thread *rt_current_thread = RT_NULL; 
 
@@ -135,6 +138,14 @@ void rt_schedule(void)
     }
 
     /* 上下文切换 */
-    rt_hw_context_switch((rt_uint32_t)&from_thread->sp, 
-                         (rt_uint32_t)&to_thread->sp);
+    if (rt_interrupt_nest == 0)  /* 若 rt_interrupt_nest = 0 则表示当前未处在中断状态 */
+    {
+        rt_hw_context_switch((rt_uint32_t)&from_thread->sp, 
+                             (rt_uint32_t)&to_thread->sp);
+    }
+    else
+    {
+        rt_hw_context_switch_interrupt((rt_ubase_t)&from_thread->sp,
+                                       (rt_ubase_t)&to_thread->sp);
+    }
 }
