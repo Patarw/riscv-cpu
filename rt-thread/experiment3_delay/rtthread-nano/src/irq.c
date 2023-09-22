@@ -16,7 +16,7 @@ void rt_interrupt_enter(void)
     rt_base_t level;
 
     /* 打印调试信息 */
-    printf("irq coming, nest: %d\n", rt_interrupt_nest);
+    //printf("irq coming, nest: %d\n", rt_interrupt_nest);
 
     /* 关中断 */
     level = rt_hw_interrupt_disable();
@@ -40,7 +40,7 @@ void rt_interrupt_leave(void)
     rt_base_t level;
 
     /* 打印调试信息 */
-    printf("irq leave, nest: %d\n", rt_interrupt_nest);
+    //printf("irq leave, nest: %d\n", rt_interrupt_nest);
 
     /* 关中断 */
     level = rt_hw_interrupt_disable();

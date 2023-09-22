@@ -15,8 +15,8 @@ struct rt_thread rt_thread2;
 
 ALIGN(RT_ALIGN_SIZE)
 /* 定义线程栈 */
-rt_uint8_t rt_thread1_stack[1024];
-rt_uint8_t rt_thread2_stack[1024];
+rt_uint8_t rt_thread1_stack[512];
+rt_uint8_t rt_thread2_stack[512];
 
 /* 线程声明 */
 void thread_1_entry(void *p_arg);
@@ -84,7 +84,7 @@ void thread_1_entry(void *p_arg)
 
         tick = rt_tick_get();
         printf("the thread1 tick before is %d\n", tick);
-	//   delay(500);
+
         rt_thread_delay(5);
 
         tick = rt_tick_get();
@@ -102,7 +102,7 @@ void thread_2_entry(void *p_arg)
 
         tick = rt_tick_get();
         printf("the thread2 tick before is %d\n", tick);
-	//delay(500);
+
         rt_thread_delay(5);
 
         tick = rt_tick_get();
