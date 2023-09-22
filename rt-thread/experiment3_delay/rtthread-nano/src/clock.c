@@ -34,12 +34,12 @@ void rt_tick_increase(void)
         thread = rt_list_entry(rt_thread_priority_table[i].next,
                                struct rt_thread,
                                tlist);
-        if (thread->remaining_tick != 0)
+        if (thread->remaining_tick > 0)
         {
             -- thread->remaining_tick;
         }
     }
 
     /* 系统调度 */
-    rt_schedule();
+    //rt_schedule();
 }

@@ -45,10 +45,35 @@ trap_entry:
 
     /* 恢复栈指针 */
     move sp, s0
-    /* 将 trap_handler 函数返回的地址存入 mepc 中 */
-    csrw mepc, a0
+
+    /* 根据 rt_thread_switch_interrupt_flag 来确定是否需要切换线程 */
+    la   s0, rt_thread_switch_interrupt_flag
+    lw   s2, (s0)
+    beqz s2, spurious_interrupt
+
+    /* 将 rt_thread_switch_interrupt_flag 置 0 */
+    sw   zero, (s0)
+
+    /* 将 trap_handler 函数返回的 epc 值存入当前线程的 stack_frame 中 */
+    sw   a0, 0 * 4(sp)
+
+    /* 将当前 sp 存入 rt_interrupt_from_thread */
+    la   s0, rt_interrupt_from_thread
+    lw   s1, (s0)
+    sw   sp, (s1)
+
+    /* 取出 rt_interrupt_to_thread 的 sp */
+    la   s0, rt_interrupt_to_thread
+    lw   s1, 0(s0)
+    lw   sp, 0(s1)
+
+    /* 取出新线程的 epc 放到 a0 */
+    lw   a0, 0 * 4(sp)
 
 spurious_interrupt:
+    /* 将 a0 的内容写入 mepc 中 */
+    csrw mepc, a0
+
     /* 恢复线程上下文 */
     lw x1,   1 * 4(sp)
     lw x4,   4 * 4(sp)
@@ -83,8 +108,8 @@ spurious_interrupt:
     addi sp, sp, 32 * 4
     mret
 
-/* 如果 trap_handle 有外部定义则不会使用如下定义 */
-.weak handle_trap
-trap_handle:
+/* 如果 trap_handler 有外部定义则不会使用如下定义 */
+.weak trap_handler
+trap_handler:
 1:
     j 1b

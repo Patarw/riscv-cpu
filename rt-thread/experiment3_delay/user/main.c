@@ -76,10 +76,7 @@ void delay(unsigned int count)
 /* 线程 1 入口函数 */
 void thread_1_entry(void *p_arg)
 {
-    struct rt_object_information *information;
-    struct rt_object *object = RT_NULL;
-    struct rt_list_node *index = RT_NULL;
-    struct rt_list_node *head = RT_NULL;
+    rt_tick_t tick;
 
     for ( ;; ) 
     {
@@ -87,14 +84,12 @@ void thread_1_entry(void *p_arg)
 
         tick = rt_tick_get();
         printf("the thread1 tick before is %d\n", tick);
-
-        rt_thread_delay(4);
+	delay(500);
+        //rt_thread_delay(4);
 
         tick = rt_tick_get();
         printf("the thread1 tick after is %d\n", tick);
-
-        /* 线程切换 */
-        rt_schedule();
+	rt_schedule();
     }
 }
 
@@ -108,14 +103,12 @@ void thread_2_entry(void *p_arg)
 
         tick = rt_tick_get();
         printf("the thread2 tick before is %d\n", tick);
-
-        rt_thread_delay(5);
+	delay(500);
+       // rt_thread_delay(5);
 
         tick = rt_tick_get();
         printf("the thread2 tick after is %d\n", tick);
-
-        /* 线程切换 */
-        rt_schedule();
+	rt_schedule();
     }
 }
 
@@ -124,15 +117,14 @@ void SysTick_Handler(void)
 {
     rt_base_t level;
 
-    /* 其实下面不关中断也可以，因为本 cpu 不支持嵌套中断 */
-    /* 关中断 */
-    level = rt_hw_interrupt_disable();
+    /* 下面不关中断也可以，因为本 cpu 不支持嵌套中断 */
 
+    /* 关中断 */
+    //level = rt_hw_interrupt_disable();
     /* 时基更新 */
     rt_tick_increase();
-
     /* 恢复中断 */
-    rt_hw_interrupt_enable(level);
+    //rt_hw_interrupt_enable(level);
 }
 
 

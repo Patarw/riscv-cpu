@@ -58,7 +58,7 @@ void rt_schedule(void)
     struct rt_thread *to_thread;
     struct rt_thread *from_thread;
 
-    struct rt_thread *idle =  rt_thread_idle_gethandler(void);
+    struct rt_thread *idle =  rt_thread_idle_gethandler();
     struct rt_thread *thread1 = rt_list_entry(rt_thread_priority_table[0].next,
                                               struct rt_thread,
                                               tlist);

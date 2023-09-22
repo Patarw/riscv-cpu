@@ -2,7 +2,7 @@
 #include <rtthread.h>
 
 /* 定义空闲线程栈大小 */
-#define IDLE_THREAD_STACK_SIZE  128;
+#define IDLE_THREAD_STACK_SIZE  128
 
 /* 定义线程控制块 */
 static struct rt_thread idle;
@@ -55,5 +55,5 @@ void rt_thread_idle_init(void)
  */
 rt_thread_t rt_thread_idle_gethandler(void)
 {
-    return (rt_thread_t)(&idle)
+    return (rt_thread_t)(&idle);
 }

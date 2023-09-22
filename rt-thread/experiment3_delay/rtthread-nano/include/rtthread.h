@@ -5,6 +5,8 @@
 #include <rtservice.h>
 #include <rtconfig.h>
 
+#include <printf.h>
+
 /*
  * kernel object interface
  */
@@ -31,7 +33,7 @@ rt_err_t rt_thread_init(struct rt_thread *thread,
                         rt_uint32_t       stack_size,
                         rt_uint32_t       tick);
 rt_thread_t rt_thread_self(void);
-rt_err_t rt_thread_delay(rt_tick_t tick);
+void rt_thread_delay(rt_tick_t tick);
 
 /*
  * idle thread interface

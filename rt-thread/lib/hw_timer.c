@@ -24,7 +24,7 @@
 #define TIMER_INT_EN      1 << 1
 #define TIMER_INT_PENDING 1 << 2
 
-#define TIMER_INTERVAL    CPU_FREQ_HZ * (10 / 1000) // 定时器中断间隔，10ms
+#define TIMER_INTERVAL    CPU_FREQ_HZ //* (10 / 1000) // 定时器中断间隔，10ms
 
 extern void SysTick_Handler(void) __attribute__((weak));
 
