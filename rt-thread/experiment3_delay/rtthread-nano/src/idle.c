@@ -2,7 +2,7 @@
 #include <rtthread.h>
 
 /* 定义空闲线程栈大小 */
-#define IDLE_THREAD_STACK_SIZE  128
+#define IDLE_THREAD_STACK_SIZE  1024
 
 /* 定义线程控制块 */
 static struct rt_thread idle;
@@ -17,7 +17,7 @@ static void rt_thread_idle_entry(void *parameter)
     while (1)
     {
         /* 这里暂时只打印信息 */
-        printf("The idle thread is running...\n");
+        printf("idle thread...\n");
     }
 }
 

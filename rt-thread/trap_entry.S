@@ -6,6 +6,10 @@ trap_entry:
     addi sp, sp, -32 * 4
 
     sw x1,   1 * 4(sp)
+
+    li t0, 0x80
+    sw t0,   2 * 4(sp)
+
     sw x4,   4 * 4(sp)
     sw x5,   5 * 4(sp)
     sw x6,   6 * 4(sp)
@@ -37,6 +41,8 @@ trap_entry:
 
     /* 保存当前栈指针，利用当前线程栈来处理中断 */
     move s0, sp
+	
+    la   sp, _sp
 
     /* 将 mcause 与 mepc 寄存器的内容作为参数传给 trap_handler 函数 */
     call rt_interrupt_enter
@@ -56,6 +62,8 @@ trap_entry:
     /* 将 rt_thread_switch_interrupt_flag 置 0 */
     sw   zero, (s0)
 
+    csrr a0, mepc
+
     /* 将 trap_handler 函数返回的 epc 值存入当前线程的 stack_frame 中 */
     sw   a0, 0 * 4(sp)
 
@@ -72,12 +80,18 @@ trap_entry:
     /* 取出新线程的 epc 放到 a0 */
     lw   a0, 0 * 4(sp)
 
-spurious_interrupt:
     /* 将 a0 的内容写入 mepc 中 */
     csrw mepc, a0
 
+spurious_interrupt:
     /* 恢复线程上下文 */
     lw x1,   1 * 4(sp)
+
+    li t0, 0x00001800
+    csrs mstatus, t0
+    lw t0,   2 * 4(sp)
+    csrs mstatus, t0 
+
     lw x4,   4 * 4(sp)
     lw x5,   5 * 4(sp)
     lw x6,   6 * 4(sp)
