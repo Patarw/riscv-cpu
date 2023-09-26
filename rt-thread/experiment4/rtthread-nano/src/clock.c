@@ -32,14 +32,21 @@ void rt_tick_increase(void)
     /* 扫描就绪列表中所有线程的 remaining_tick，如果不为 0，则减 1 */
     for (i = 0; i < RT_THREAD_PRIORITY_MAX; i++)
     {
+	if (!rt_list_isempty(&rt_thread_priority_table[i]))
+	{
         thread = rt_list_entry(rt_thread_priority_table[i].next,
                                struct rt_thread,
                                tlist);
+	//printf("tick: %d", thread->remaining_tick);
         if (thread->remaining_tick > 0)
         {
             -- thread->remaining_tick;
-            rt_thread_ready_priority_group |= thread->number_mask;
+	    if (thread->remaining_tick == 0)
+	    {
+            	rt_thread_ready_priority_group |= thread->number_mask;
+	    }
         }
+	}
     }
 
     /* 系统调度 */

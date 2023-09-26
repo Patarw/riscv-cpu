@@ -68,11 +68,11 @@ int __rt_ffs(int value)
     if (value == 0) return 0;
 
     if (value & 0xff)
-        return __lowest_bit_map[value & 0xff] + 1;
+        return __lowest_bit_bitmap[value & 0xff] + 1;
     if (value & 0xff00)
-        return __lowest_bit_map[(value & 0xff00) >> 8] + 9;
+        return __lowest_bit_bitmap[(value & 0xff00) >> 8] + 9;
     if (value & 0xff0000)
-        return __lowest_bit_map[(value & 0xff0000) >> 16] + 17;
+        return __lowest_bit_bitmap[(value & 0xff0000) >> 16] + 17;
 
-    return __lowest_bit_map[(value & 0xff000000) >> 24] + 25;
+    return __lowest_bit_bitmap[(value & 0xff000000) >> 24] + 25;
 }

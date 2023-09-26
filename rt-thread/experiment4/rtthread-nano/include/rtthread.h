@@ -68,6 +68,6 @@ void rt_interrupt_leave(void);
  * general kernel service
  */
 char *rt_strncpy(char *dest, const char *src, rt_ubase_t n);
-int __rt_ffs(int value)
+int __rt_ffs(int value);
 
 #endif

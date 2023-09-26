@@ -61,7 +61,7 @@ void rt_system_scheduler_start(void)
                               tlist);
     
     rt_current_thread = to_thread;
-
+    //printf("group: %d\n", rt_thread_ready_priority_group);
     /* 切换到新线程 */
     rt_hw_context_switch_to((rt_uint32_t)&to_thread->sp);
 
@@ -82,9 +82,11 @@ void rt_schedule(void)
 
     /* 关中断 */
     level = rt_hw_interrupt_disable();
-
+    //printf("group2: %d\n", rt_thread_ready_priority_group);
     /* 获取线程就绪的最高优先级 */
     highest_ready_priority = __rt_ffs(rt_thread_ready_priority_group) - 1;
+	
+    //printf("%d\n", highest_ready_priority);
 
     /* 获取就绪的最高优先级对应的线程控制块 */
     to_thread = rt_list_entry(rt_thread_priority_table[highest_ready_priority].next,
@@ -101,6 +103,7 @@ void rt_schedule(void)
         /* 上下文切换 */
         if (rt_interrupt_nest == 0)  /* 若 rt_interrupt_nest = 0 则表示当前未处在中断状态 */
         {
+	    //printf("switch not in interrupt\n");
             rt_hw_context_switch((rt_uint32_t)&from_thread->sp, 
                                  (rt_uint32_t)&to_thread->sp);
             
@@ -111,6 +114,7 @@ void rt_schedule(void)
         }
         else
         {
+	    //printf("switch in interrupt\n");
             rt_hw_context_switch_interrupt((rt_ubase_t)&from_thread->sp,
                                            (rt_ubase_t)&to_thread->sp);
         }

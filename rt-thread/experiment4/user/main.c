@@ -85,8 +85,6 @@ void thread_1_entry(void *p_arg)
         tick = rt_tick_get();
         printf("the thread1 tick before is %d\n", tick);
 
-        delay(500);
-
         /* 阻塞线程 5s */
         rt_thread_delay(5);
 
