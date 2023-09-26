@@ -62,9 +62,8 @@ trap_entry:
     /* 将 rt_thread_switch_interrupt_flag 置 0 */
     sw   zero, (s0)
 
+	/* 将 mepc 存入当前线程的 stack_frame 中 */
     csrr a0, mepc
-
-    /* 将 trap_handler 函数返回的 epc 值存入当前线程的 stack_frame 中 */
     sw   a0, 0 * 4(sp)
 
     /* 将当前 sp 存入 rt_interrupt_from_thread */
@@ -77,10 +76,8 @@ trap_entry:
     lw   s1, 0(s0)
     lw   sp, 0(s1)
 
-    /* 取出新线程的 epc 放到 a0 */
+    /* 取出新线程的 epc 写入 mepc 中 */
     lw   a0, 0 * 4(sp)
-
-    /* 将 a0 的内容写入 mepc 中 */
     csrw mepc, a0
 
 spurious_interrupt:

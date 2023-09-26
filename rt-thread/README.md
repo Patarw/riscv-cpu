@@ -32,9 +32,11 @@ python .\serial_send.py <串口号> rtthread.bin
 1.  include：公共头文件目录；
 2.  lib：公共函数目录；
 3.  experiment1_thread：RT-Thread 实验 1，对应书籍第一部分《第6章 线程的定义与线程切换的实现》；
-4.  start.S：启动文件，进行初始化以及数据的搬运；
-5.  link.lds：链接脚本；
-6.  common.mk：Makefile 的公共部分；
+4.  experiment2_container：RT-Thread 实验 2，对应书籍《第7章 临界段的保护》《第8章 对象容器的实现》两章；
+5.  experiment3_delay：RT-Thread 实验 3，对应书籍《第9章 空闲线程与阻塞延时的实现》
+6.  start.S：启动文件，进行初始化以及数据的搬运；
+7.  link.lds：链接脚本；
+8.  common.mk：Makefile 的公共部分；
 
 ## 1. experiment1_thread（线程的定义与线程切换的实现）
 **目录结构**：
