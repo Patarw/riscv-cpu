@@ -74,7 +74,7 @@ int main(void)
                    3,                         /* 线程优先级 */
                    0);                        /* 线程 tick */
     /* 启动线程3 */
-    rt_thread_startup(&rt_thread2);
+    rt_thread_startup(&rt_thread3);
 
     /* 启动系统调度器 */
     rt_system_scheduler_start();

@@ -38,7 +38,7 @@ rt_inline void _rt_timer_remove(rt_timer_t timer)
 
     for (i = 0; i < RT_TIMER_SKIP_LIST_LEVEL; i++)
     {
-        rt_list_remove(&(timer->row[i]))
+        rt_list_remove(&(timer->row[i]));
     }
     
 }
@@ -178,6 +178,8 @@ rt_err_t rt_timer_start(rt_timer_t timer)
  */
 rt_err_t rt_timer_stop(rt_timer_t timer)
 {
+    register rt_base_t level;
+
     /* 只有处于激活态的定时器才能被停止 */
     if (!(timer->parent.flag & RT_TIMER_FLAG_ACTIVATED))
         return -RT_ERROR;
@@ -324,5 +326,5 @@ void rt_timer_check(void)
     }
     
     /* 恢复中断 */
-    rt_hw_interrupt_enable();
+    rt_hw_interrupt_enable(level);
 }

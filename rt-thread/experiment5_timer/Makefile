@@ -16,6 +16,7 @@ C_SRCS := \
 	./rtthread-nano/src/idle.c \
 	./rtthread-nano/src/clock.c \
 	./rtthread-nano/src/irq.c \
+	./rtthread-nano/src/timer.c \
 
 INCLUDES += -I. -I./user/include -I./rtthread-nano/include -I./rtthread-nano/libcpu/risc-v -I../include
 
