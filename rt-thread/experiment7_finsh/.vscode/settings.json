@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "shell.h": "c",
+        "rtthread.h": "c",
+        "rtdef.h": "c",
+        "rthw.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
