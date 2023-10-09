@@ -32,7 +32,7 @@ struct finsh_shell
     char line[FINSH_CMD_SIZE];
     rt_uint16_t line_position;
     rt_uint16_t line_curpos;
-}
+};
 
 int finsh_system_init(void);
 

@@ -11,11 +11,7 @@ ALIGN(RT_ALIGN_SIZE)
 /* 定义空闲线程栈 */
 static rt_uint8_t rt_thread_stack[IDLE_THREAD_STACK_SIZE];
 
-static void delay(unsigned int count)
-{
-    count *= 50000;
-    for(; count != 0; count--);
-}
+extern void delay(unsigned int);
 
 /* 空闲线程入口函数 */
 static void rt_thread_idle_entry(void *parameter)
@@ -23,7 +19,7 @@ static void rt_thread_idle_entry(void *parameter)
     while (1)
     {
         /* 这里暂时只打印信息 */
-        printf("The idle thread is running...\n");
+        printf("idle thread...\n");
         delay(100);
     }
 }

@@ -39,6 +39,17 @@ const char *finsh_get_prompt()
     return finsh_prompt;
 }
 
+static int finsh_getchar(void)
+{
+	int ch = -1;
+	if ((ch = uart_getc()) == -1)
+	    rt_thread_delay(1);
+
+	return ch;
+}
+
+extern void delay(unsigned int);
+
 /* finsh 线程入口函数 */
 void finsh_thread_entry(void *parameter)
 {
@@ -46,13 +57,13 @@ void finsh_thread_entry(void *parameter)
 
     /* normal is echo mode */
     shell->echo_mode = 1;
-
+    
     printf(FINSH_PROMPT);
 
     while (1)
     {
         ch = uart_getc();
-
+	delay(1);
         if (ch < 0)
         {
             continue;
@@ -66,21 +77,31 @@ void finsh_thread_entry(void *parameter)
         /* handle tab key */
         else if (ch == '\t')
         {
-            printf("tab key!\n");
+            printf("tab key!\r\n");
             continue;
         }
         /* handle backspace or del key */
         else if (ch == 0x7f || ch == 0x08)
         {
-            printf("backspace key!\n");
-            continue;
+            if (shell->line_curpos == 0)
+            	continue;
+
+	    shell->line_position--;
+	    shell->line_curpos--;
+
+	    printf("\b \b");
+	    shell->line[shell->line_position] = 0;
+
+	    continue;
         }
         
         /* handle end of line, break */
         if (ch == '\r' || ch == '\n')
         {
-            printf("%s\n", shell->line);
+            printf("\r\nreceived your command: %s\r\n", shell->line);
             printf(FINSH_PROMPT);
+	    for (int i = 0;i < sizeof(shell->line); i++)
+		shell->line[i] = 0;
             shell->line_curpos = shell->line_position = 0;
             continue;
         }
@@ -121,7 +142,7 @@ int finsh_system_init(void)
                             &finsh_thread_stack[0],
                             sizeof(finsh_thread_stack),
                             FINSH_THREAD_PRIORITY,
-                            2);
+                            10);
     
     if (tid != NULL && result == RT_EOK)
         rt_thread_startup(tid);

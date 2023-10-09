@@ -39,7 +39,7 @@ int main(void)
     rt_thread_idle_init();
 
     /* 初始化 shell 线程 */
-    finsh_system_init(void);
+    finsh_system_init();
 
     /* 初始化线程1 */
     rt_thread_init(&rt_thread1,               /* 线程控制块 */
@@ -72,7 +72,7 @@ int main(void)
 /* 软件延时 */
 void delay(unsigned int count)
 {
-    count *= 50000;
+    count *= 5000;
     for(; count != 0; count--);
 }
 
@@ -81,8 +81,8 @@ void thread_1_entry(void *p_arg)
 {
     for ( ;; ) 
     {
-        printf("Thread 1 running...\n");
-        delay(100);
+        //printf("Thread 1 running...\r\n");
+        //delay(100);
     }
 }
 
@@ -91,8 +91,8 @@ void thread_2_entry(void *p_arg)
 {
     for ( ;; ) 
     {
-        printf("Thread 2 running...\n");
-        delay(100);
+        //printf("Thread 2 running...\r\n");
+        //delay(100);
     }
 }
 
