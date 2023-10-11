@@ -1,6 +1,26 @@
 #include <rtthread.h>
 #include <rthw.h>
 
+
+/**
+ * This function will set the content of memory to specified value
+ *
+ * @param s the address of source memory
+ * @param c the value shall be set in content
+ * @param count the copied length
+ *
+ * @return the address of source memory
+ */
+void *rt_memset(void *s, int c, rt_ubase_t count)
+{
+    char *xs = (char *)s;
+
+    while (count--)
+        *xs++ = c;
+
+    return s;
+}
+
 /**
  * This function will copy string no more than n bytes.
  *
@@ -30,6 +50,29 @@ char *rt_strncpy(char *dst, const char *src, rt_ubase_t n)
     }
 
     return (dst);
+}
+
+/**
+ * This function will compare two strings with specified maximum length
+ *
+ * @param cs the string to be compared
+ * @param ct the string to be compared
+ * @param count the maximum compare length
+ *
+ * @return the result
+ */
+rt_int32_t rt_strncmp(const char *cs, const char *ct, rt_ubase_t count)
+{
+    register signed char __res = 0;
+
+    while (count)
+    {
+        if ((__res = *cs - *ct++) != 0 || !*cs++)
+            break;
+        count--;
+    }
+    
+    return __res;
 }
 
 const rt_uint8_t __lowest_bit_bitmap[] =

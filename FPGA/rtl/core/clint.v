@@ -160,9 +160,9 @@ module clint(
                             cause <= 32'h80000007;
                         end
                         // uart中断，目前这个只用于测试
-                        else if (int_flag_i == `INT_UART_REV) begin
-                            cause <= 32'h8000000b;
-                        end
+                        //else if (int_flag_i == `INT_UART_REV) begin
+                        //    cause <= 32'h8000000b;
+                        //end
                         else begin
                             cause <= 32'h8000000a;
                         end

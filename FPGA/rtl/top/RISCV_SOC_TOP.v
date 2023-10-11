@@ -105,7 +105,7 @@ module RISCV_SOC_TOP(
     
     // 中断信号
     wire[`INT_BUS]           int_flag;
-    assign int_flag = {6'd0, uart_int_flag_o, timer_int_flag_o};
+    assign int_flag = {7'd0, timer_int_flag_o};
     
     RISCV u_RISCV(
         .clk               (clk),

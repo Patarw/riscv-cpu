@@ -11,7 +11,7 @@ MEMORY
 
 SECTIONS
 {
-   __stack_size = 2K;
+   __stack_size = DEFINED(__stack_size) ? __stack_size : 2K;
 
   .init           :
   {
@@ -24,6 +24,14 @@ SECTIONS
     *(.text.startup .text.startup.*)
     *(.text .text.*)
     *(.gnu.linkonce.t.*)
+
+    /* section information for finsh shell */
+    . = ALIGN(4);
+    __fsymtab_start = .;
+    KEEP(*(FSymTab))
+    __fsymtab_end = .;
+    . = ALIGN(4);
+    
   } >flash AT>flash 
 
   . = ALIGN(4);

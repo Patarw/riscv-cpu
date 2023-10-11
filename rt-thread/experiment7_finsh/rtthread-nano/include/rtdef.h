@@ -55,8 +55,12 @@ typedef rt_base_t                       rt_off_t;       /**< Type for offset */
     #else 
     #endif
 
-    #define rt_inline                   static __inline
+    #define SECTION(x)                  __attribute__((section(x)))
+    #define RT_UNUSED                   __attribute__((unused))
+    #define RT_USED                     __attribute__((used))
     #define ALIGN(n)                    __attribute__((aligned(n)))
+    #define RT_WEAK                     __attribute__((weak))
+    #define rt_inline                   static __inline
 #else
     #error not supported tool chain
 #endif

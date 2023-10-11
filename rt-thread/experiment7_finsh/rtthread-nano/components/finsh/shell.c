@@ -3,8 +3,12 @@
 
 #ifdef RT_USING_FINSH
 
+#include "finsh.h"
 #include "shell.h"
 
+#ifdef FINSH_USING_MSH
+#include "msh.h"
+#endif
 
 #ifndef RT_USING_HEAP
 /* finsh 线程控制块 */
@@ -22,8 +26,6 @@ struct finsh_shell _shell;
 #ifdef FINSH_USING_SYMTAB
 struct finsh_syscall *_syscall_table_begin = NULL;
 struct finsh_syscall *_syscall_table_end   = NULL;
-struct finsh_sysvar  *_sysvar_table_begin  = NULL;
-struct finsh_sysvar  *_sysvar_table_end    = NULL;
 #endif
 
 struct finsh_shell *shell;
@@ -41,11 +43,7 @@ const char *finsh_get_prompt()
 
 static int finsh_getchar(void)
 {
-	int ch = -1;
-	if ((ch = uart_getc()) == -1)
-	    rt_thread_delay(1);
-
-	return ch;
+	return uart_getc();
 }
 
 extern void delay(unsigned int);
@@ -62,8 +60,10 @@ void finsh_thread_entry(void *parameter)
 
     while (1)
     {
-        ch = uart_getc();
-	delay(1);
+        ch = finsh_getchar();
+
+	    delay(1);
+
         if (ch < 0)
         {
             continue;
@@ -86,22 +86,27 @@ void finsh_thread_entry(void *parameter)
             if (shell->line_curpos == 0)
             	continue;
 
-	    shell->line_position--;
-	    shell->line_curpos--;
+	        shell->line_position--;
+	        shell->line_curpos--;
 
-	    printf("\b \b");
-	    shell->line[shell->line_position] = 0;
+	        printf("\b \b");
+	        shell->line[shell->line_position] = 0;
 
-	    continue;
+	        continue;
         }
         
         /* handle end of line, break */
         if (ch == '\r' || ch == '\n')
         {
-            printf("\r\nreceived your command: %s\r\n", shell->line);
+            //printf("\r\nreceived your command: %s\r\n", shell->line);
+            if (shell->echo_mode)
+                rt_kprintf("\n");
+            msh_exec(shell->line, shell->line_position);
+            
             printf(FINSH_PROMPT);
-	    for (int i = 0;i < sizeof(shell->line); i++)
-		shell->line[i] = 0;
+
+	        rt_memset(shell->line, 0, sizeof(shell->line));
+
             shell->line_curpos = shell->line_position = 0;
             continue;
         }
@@ -127,11 +132,22 @@ void finsh_thread_entry(void *parameter)
     }
 }
 
+void finsh_system_function_init(const void *begin, const void *end)
+{
+    _syscall_table_begin = (struct finsh_syscall *) begin;
+    _syscall_table_end = (struct finsh_syscall *) end;
+}
+
 /* finsh 线程初始化函数 */
 int finsh_system_init(void)
 {
     rt_err_t result = RT_EOK;
     rt_thread_t tid;
+
+    /* GNU GCC Compiler and TI CCS */
+    extern const int __fsymtab_start;
+    extern const int __fsymtab_end;
+    finsh_system_function_init(&__fsymtab_start, &__fsymtab_end);
 
     shell = &_shell;
     tid = &finsh_thread;
@@ -142,7 +158,7 @@ int finsh_system_init(void)
                             &finsh_thread_stack[0],
                             sizeof(finsh_thread_stack),
                             FINSH_THREAD_PRIORITY,
-                            10);
+                            2);
     
     if (tid != NULL && result == RT_EOK)
         rt_thread_startup(tid);

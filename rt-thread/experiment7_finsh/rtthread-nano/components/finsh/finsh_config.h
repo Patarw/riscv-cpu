@@ -18,9 +18,6 @@
 #define FINSH_THREAD_STACK_SIZE     1024
 
 #define FINSH_USING_SYMTAB
-// <c1>Enable command description
-//  <i>Enable command description
-#define FINSH_USING_DESCRIPTION
 //  </c>
 // </h>
 

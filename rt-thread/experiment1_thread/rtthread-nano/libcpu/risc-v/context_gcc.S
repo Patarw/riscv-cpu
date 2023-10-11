@@ -1,4 +1,25 @@
 /*
+ * 关闭全局中断
+ * rt_base_t rt_hw_interrupt_disable(void);
+ */
+.globl rt_hw_interrupt_disable
+rt_hw_interrupt_disable:
+    /* 将 mstatus 的第 3 位（mie）置 0，关闭全局中断，并将 mstatus 的内容放入 a0 返回 */
+    csrrci a0, mstatus, 8
+    ret
+
+/*
+ * 将全局中断状态恢复到原来的状态，注意这里不是打开
+ * void rt_hw_interrupt_enable(rt_base_t level);
+ */
+.globl rt_hw_interrupt_enable
+rt_hw_interrupt_enable:
+    /* 将传入的参数 level 写入 mstatus 中 */
+    csrw mstatus, a0
+    ret
+
+/*
+ * 线程上下文切换，从 from 切换到 to
  * void rt_hw_context_switch(rt_uint32 from, rt_uint32 to);
  * a0 --> from
  * a1 --> to
@@ -110,6 +131,7 @@ save_mpie:
     mret
 
 /*
+ * 线程上下文切换，不保存当前线程上下文
  * void rt_hw_context_switch_to(rt_uint32 to);
  * a0 --> to
  */
@@ -156,3 +178,41 @@ rt_hw_context_switch_to:
     /* 将 sp 增加 32 * 4，覆盖掉 stack_frame，因为内容都读取完了，就不需要再次用到 stack_frame 了 */
     addi sp,  sp, 32 * 4
     mret
+
+/*
+ * void rt_hw_context_switch_interrupt(rt_uint32 from, rt_uint32 to);
+ */
+.globl rt_thread_switch_interrupt_flag
+.globl rt_interrupt_from_thread
+.globl rt_interrupt_to_thread
+.globl rt_hw_context_switch_interrupt
+rt_hw_context_switch_interrupt:
+    addi sp, sp, -16
+    sw   s0, 12(sp)
+    sw   a0, 8(sp)
+    sw   a5, 4(sp)
+
+    /* 判断 rt_thread_switch_interrupt_flag 是否为 1，若为 1 则跳转 _reswitch */
+    la   a0, rt_thread_switch_interrupt_flag
+    lw   a5, (a0)
+    bnez a5, _reswitch
+
+    /* 将 rt_thread_switch_interrupt_flag 置 1 */
+    li   a5, 1
+    sw   a5, (a0)
+
+    /* 将 from 赋值给 rt_interrupt_from_thread */
+    la   a5, rt_interrupt_from_thread
+    lw   a0, 8(sp)
+    sw   a0, (a5)
+
+_reswitch:
+    /* 将 to 赋值给 rt_interrupt_to_thread */
+    la   a5, rt_interrupt_to_thread
+    sw   a1, (a5)
+
+    lw   a5, 4(sp)
+    lw   a0, 8(sp)
+    lw   s0, 12(sp)
+    addi sp, sp, 16
+    ret
