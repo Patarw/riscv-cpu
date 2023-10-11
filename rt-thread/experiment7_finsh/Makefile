@@ -18,6 +18,8 @@ C_SRCS := \
 	./rtthread-nano/src/irq.c \
 	./rtthread-nano/src/timer.c \
     ./rtthread-nano/components/finsh/shell.c \
+	./rtthread-nano/components/finsh/msh.c \
+	./rtthread-nano/components/finsh/cmd.c \
 
 INCLUDES += -I. -I./user -I./rtthread-nano/include -I./rtthread-nano/libcpu/risc-v -I./rtthread-nano/components/finsh -I../include
 

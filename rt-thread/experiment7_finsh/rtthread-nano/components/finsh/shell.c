@@ -83,11 +83,10 @@ void finsh_thread_entry(void *parameter)
         /* handle backspace or del key */
         else if (ch == 0x7f || ch == 0x08)
         {
-            if (shell->line_curpos == 0)
-            	continue;
-
-	        shell->line_position--;
-	        shell->line_curpos--;
+            if (shell->line_curpos == 0) continue;
+                
+            shell->line_position--;
+            shell->line_curpos--;
 
 	        printf("\b \b");
 	        shell->line[shell->line_position] = 0;
@@ -100,7 +99,7 @@ void finsh_thread_entry(void *parameter)
         {
             //printf("\r\nreceived your command: %s\r\n", shell->line);
             if (shell->echo_mode)
-                rt_kprintf("\n");
+                printf("\r\n");
             msh_exec(shell->line, shell->line_position);
             
             printf(FINSH_PROMPT);
