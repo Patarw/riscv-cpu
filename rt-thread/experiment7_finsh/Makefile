@@ -4,13 +4,11 @@ RISCV_MCMODEL := medlow
 
 TARGET = rtthread
 
-ASM_SRCS := ./rtthread-nano/libcpu/risc-v/context_gcc.S \
-			./rtthread-nano/libcpu/risc-v/trap_entry.S \
+ASM_SRCS := ./rtthread-nano/libcpu/risc-v/context_gcc.S
 
 C_SRCS := \
 	./user/main.c \
 	./rtthread-nano/libcpu/risc-v/stack.c \
-	/rtthread-nano/libcpu/risc-v/trap.c \
 	./rtthread-nano/src/scheduler.c \
 	./rtthread-nano/src/thread.c \
 	./rtthread-nano/src/object.c \
@@ -20,8 +18,6 @@ C_SRCS := \
 	./rtthread-nano/src/irq.c \
 	./rtthread-nano/src/timer.c \
     ./rtthread-nano/components/finsh/shell.c \
-	./rtthread-nano/components/finsh/msh.c \
-	./rtthread-nano/components/finsh/cmd.c \
 
 INCLUDES += -I. -I./user -I./rtthread-nano/include -I./rtthread-nano/libcpu/risc-v -I./rtthread-nano/components/finsh -I../include
 

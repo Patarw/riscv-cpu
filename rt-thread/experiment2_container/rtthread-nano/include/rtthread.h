@@ -32,6 +32,16 @@ void rt_system_scheduler_start(void);
 void rt_schedule(void);
 
 /*
+ * interrupt service
+ */
+
+/*
+ * rt_interrupt_enter and rt_interrupt_leave only can be called by BSP
+ */
+void rt_interrupt_enter(void);
+void rt_interrupt_leave(void);
+
+/*
  * general kernel service
  */
 char *rt_strncpy(char *dest, const char *src, rt_ubase_t n);

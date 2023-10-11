@@ -18,4 +18,14 @@ void rt_system_scheduler_init(void);
 void rt_system_scheduler_start(void);
 void rt_schedule(void);
 
+/*
+ * interrupt service
+ */
+
+/*
+ * rt_interrupt_enter and rt_interrupt_leave only can be called by BSP
+ */
+void rt_interrupt_enter(void);
+void rt_interrupt_leave(void);
+
 #endif
