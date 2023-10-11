@@ -153,12 +153,11 @@ module div(
                         end
                     end
                     else begin
-                        div_data1 = {div_data1[62:0], 1'b0};
-                        if(div_data1 >= div_data2) begin
-                            div_data1 = div_data1 - div_data2 + 1'b1;
+                        if({div_data1[62:0], 1'b0} >= div_data2) begin
+                            div_data1 <= {div_data1[62:0], 1'b0} - div_data2 + 1'b1;
                         end
                         else begin
-                            div_data1 = div_data1;
+                            div_data1 <= {div_data1[62:0], 1'b0};
                         end
                     end
                 end

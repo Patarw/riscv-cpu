@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dD:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/simulation/modelsim
 va_graycounter
-Z1 !s110 1694437616
+Z1 !s110 1697031181
 !i10b 1
 !s100 71oBVO_I3fT3_[e`hZgOY0
 In:V=D`@o]NN[eTjVo2IWR3
@@ -23,7 +23,7 @@ Z6 OL;L;10.5;63
 r1
 !s85 0
 31
-Z7 !s108 1694437616.000000
+Z7 !s108 1697031180.000000
 Z8 !s107 d:/software/quartus/quartus/eda/sim_lib/altera_mf.v|
 Z9 !s90 -reportprogress|300|-vlog01compat|-work|altera_mf_ver|d:/software/quartus/quartus/eda/sim_lib/altera_mf.v|
 !i113 0

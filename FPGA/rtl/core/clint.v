@@ -155,7 +155,7 @@ module clint(
                     end 
                     // 异步中断
                     else if (int_state == INT_ASYNC_ASSERT) begin
-                        // timer中断
+                        // 定时器中断
                         if (int_flag_i == `INT_TIMER) begin
                             cause <= 32'h80000007;
                         end
@@ -209,8 +209,8 @@ module clint(
             wr_en_o <= 1'b0;
             wr_addr_o <= `ZERO_WORD;
             wr_data_o <= `ZERO_WORD;
-            wr_privilege_en_o = 1'b0;
-            wr_privilege_o = `PRIVILEG_MACHINE;
+            wr_privilege_en_o <= 1'b0;
+            wr_privilege_o <= `PRIVILEG_MACHINE;
         end 
         else begin
             case (csr_state)
@@ -228,8 +228,8 @@ module clint(
                 end
                 // 关闭全局中断，修改特权级别为machine，并将当前特权级别存入MPP中
                 CSR_MSTATUS: begin
-                    wr_privilege_en_o = 1'b1;
-                    wr_privilege_o = `PRIVILEG_MACHINE;
+                    wr_privilege_en_o <= 1'b1;
+                    wr_privilege_o <= `PRIVILEG_MACHINE;
                     wr_en_o <= 1'b1;
                     wr_addr_o <= {20'h0, `CSR_MSTATUS};
                     wr_data_o <= {csr_mstatus[31:13], privileg_i, csr_mstatus[10:4], 1'b0, csr_mstatus[2:0]};
@@ -237,15 +237,15 @@ module clint(
                 end
                 // 中断返回，修改特权级别为MPP
                 CSR_MSTATUS_MRET: begin
-                    wr_privilege_en_o = 1'b1;
-                    wr_privilege_o = csr_mstatus[12:11]; // MPP
+                    wr_privilege_en_o <= 1'b1;
+                    wr_privilege_o <= csr_mstatus[12:11]; // MPP
                     wr_en_o <= 1'b1;
                     wr_addr_o <= {20'h0, `CSR_MSTATUS};
                     wr_data_o <= {csr_mstatus[31:4], csr_mstatus[7], csr_mstatus[2:0]};
                 end
                 default: begin
-                    wr_privilege_en_o = 1'b0;
-                    wr_privilege_o = `PRIVILEG_MACHINE;
+                    wr_privilege_en_o <= 1'b0;
+                    wr_privilege_o <= `PRIVILEG_MACHINE;
                     wr_en_o <= 1'b0;
                     wr_addr_o <= `ZERO_WORD;
                     wr_data_o <= `ZERO_WORD;

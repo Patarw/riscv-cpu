@@ -113,7 +113,6 @@ module EX_UNIT(
     
     // 暂停流水线控制信号 hold_flag_o
     always @ (*) begin
-        
         // 暂停整个流水线
         if(jump_flag_o == 1'b1 || hold_flag == 1'b1 || div_busy == 1'b1 || clint_busy_i == 1'b1) begin
             hold_flag_o = `HOLD_ID_EX;

@@ -84,8 +84,8 @@ module uart(
     // 读写寄存器，write before read
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
-            uart_ctrl <= `ZERO_WORD;
-            uart_tx_data_buf <= `ZERO_WORD;
+            uart_ctrl = `ZERO_WORD;
+            uart_tx_data_buf = `ZERO_WORD;
         end
         else begin
             if(wr_en_i == 1'b1) begin

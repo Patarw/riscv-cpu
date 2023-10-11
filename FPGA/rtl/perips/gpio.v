@@ -53,8 +53,8 @@ module gpio(
     // 读写寄存器，write before read
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
-            gpio_ctrl <= `ZERO_WORD;
-            gpio_data <= `ZERO_WORD;
+            gpio_ctrl = `ZERO_WORD;
+            gpio_data = `ZERO_WORD;
         end
         else begin
             if(wr_en_i == 1'b1) begin
