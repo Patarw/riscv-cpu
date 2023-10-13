@@ -105,7 +105,7 @@ module RISCV_SOC_TOP(
     
     // 中断信号
     wire[`INT_BUS]           int_flag;
-    assign int_flag = {7'd0, timer_int_flag_o};
+    assign int_flag = {6'h0, uart_int_flag_o, timer_int_flag_o};
     
     RISCV u_RISCV(
         .clk               (clk),
@@ -148,16 +148,6 @@ module RISCV_SOC_TOP(
         .m1_wr_en_i     (uart_mem_wr_en_o), 
         .m1_wr_addr_i   (uart_mem_wr_addr_o), 
         .m1_wr_data_i   (uart_mem_wr_data_o), 
-        .m1_rd_req_i    (), 
-        .m1_rd_addr_i   (), 
-        .m1_rd_data_o   (), 
-        .m2_wr_req_i    (), 
-        .m2_wr_en_i     (), 
-        .m2_wr_addr_i   (), 
-        .m2_wr_data_i   (), 
-        .m2_rd_req_i    (), 
-        .m2_rd_addr_i   (), 
-        .m2_rd_data_o   (), 
         .s0_wr_en_o     (s0_wr_en_o), 
         .s0_wr_addr_o   (s0_wr_addr_o), 
         .s0_wr_data_o   (s0_wr_data_o), 

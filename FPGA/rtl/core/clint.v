@@ -156,13 +156,15 @@ module clint(
                     // 异步中断
                     else if (int_state == INT_ASYNC_ASSERT) begin
                         // 定时器中断
-                        if (int_flag_i == `INT_TIMER) begin
+                        //cause <= 32'h80000007;
+                        
+                        if (int_flag_i & `INT_TIMER) begin
                             cause <= 32'h80000007;
                         end
                         // uart中断，目前这个只用于测试
-                        //else if (int_flag_i == `INT_UART_REV) begin
-                        //    cause <= 32'h8000000b;
-                        //end
+                        else if (int_flag_i & `INT_UART_REV) begin
+                            cause <= 32'h8000000b;
+                        end
                         else begin
                             cause <= 32'h8000000a;
                         end
@@ -172,7 +174,7 @@ module clint(
                             ins_addr <= jump_addr_i;
                         end
                         // 异步中断可以中断除法指令的执行，中断处理完再重新执行除法指令
-                        if (div_req_i == 1'b1 || div_busy_i == 1'b1) begin
+                        else if (div_req_i == 1'b1 || div_busy_i == 1'b1) begin
                             ins_addr <= div_ins_addr;
                         end 
                         else begin

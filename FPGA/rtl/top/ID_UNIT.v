@@ -46,10 +46,7 @@ module ID_UNIT(
     
     // to EX_UNIT
     output  wire[`INST_DATA_BUS]    ins_o             ,     
-    output  wire[`INST_ADDR_BUS]    ins_addr_o        , 
-    output  wire[6:0]               opcode_o          ,
-    output  wire[2:0]               funct3_o          ,
-    output  wire[6:0]               funct7_o          ,                                       
+    output  wire[`INST_ADDR_BUS]    ins_addr_o        ,                                      
     output  wire[`INST_REG_DATA]    imm_o             ,
     
     // from RF_UNIT
@@ -68,9 +65,6 @@ module ID_UNIT(
     );
     
     wire[`INST_DATA_BUS]    ins;
-    wire[6:0]               opcode;
-    wire[2:0]               funct3;
-    wire[6:0]               funct7;
     wire[`INST_REG_ADDR]    reg_wr_addr;
     wire[`INST_REG_DATA]    imm;
     wire                    mem_rd_flag;
@@ -86,9 +80,6 @@ module ID_UNIT(
         .ins_i              (ins_i), 
         .ins_addr_i         (ins_addr_i),
         .ins_o              (ins), 
-        .opcode_o           (opcode),
-        .funct3_o           (funct3),
-        .funct7_o           (funct7),
         .reg1_rd_addr_o     (reg1_rd_addr_o), 
         .reg2_rd_addr_o     (reg2_rd_addr_o),
         .reg_wr_addr_o      (reg_wr_addr),
@@ -107,9 +98,6 @@ module ID_UNIT(
         .ins_i              (ins), 
         .ins_addr_i         (ins_addr_i),
         .ins_o              (ins_o), 
-        .opcode_i           (opcode),
-        .funct3_i           (funct3),
-        .funct7_i           (funct7),
         .reg1_rd_data_i     (reg1_rd_data_i), 
         .reg2_rd_data_i     (reg2_rd_data_i),
         .reg_wr_addr_i      (reg_wr_addr),
@@ -118,9 +106,6 @@ module ID_UNIT(
         .csr_rw_addr_i      (csr_rw_addr),
         .csr_zimm_i         (csr_zimm),
         .ins_addr_o         (ins_addr_o), 
-        .opcode_o           (opcode_o),
-        .funct3_o           (funct3_o),
-        .funct7_o           (funct7_o),
         .reg1_rd_data_o     (reg1_rd_data_o), 
         .reg2_rd_data_o     (reg2_rd_data_o),
         .reg_wr_addr_o      (reg_wr_addr_o),

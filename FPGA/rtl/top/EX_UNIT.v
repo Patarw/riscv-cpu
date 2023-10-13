@@ -30,9 +30,6 @@ module EX_UNIT(
     // from ID_UNIT
     input   wire[`INST_DATA_BUS]    ins_i               ,     
     input   wire[`INST_ADDR_BUS]    ins_addr_i          , 
-    input   wire[6:0]               opcode_i            ,
-    input   wire[2:0]               funct3_i            ,
-    input   wire[6:0]               funct7_i            ,
     input   wire[`INST_REG_DATA]    imm_i               , 
     
     // from ID_UNIT
@@ -101,6 +98,13 @@ module EX_UNIT(
     assign jump_flag_o = int_assert_i ? 1'b1 : jump_flag;
     assign jump_addr_o = int_assert_i ? int_addr_i : jump_addr;
     
+    wire [6:0]      opcode;
+    wire [2:0]      funct3;
+    wire [6:0]      funct7;
+    assign opcode = ins_i[6:0];
+    assign funct3 = ins_i[14:12];
+    assign funct7 = ins_i[31:25];
+    
     // 内存读地址延迟一个时钟周期
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
@@ -131,9 +135,9 @@ module EX_UNIT(
         .clk                 (clk),
         .rst_n               (rst_n),
         .ins_addr_i          (ins_addr_i), 
-        .opcode_i            (opcode_i),
-        .funct3_i            (funct3_i),
-        .funct7_i            (funct7_i),
+        .opcode_i            (opcode),
+        .funct3_i            (funct3),
+        .funct7_i            (funct7),
         .imm_i               (imm_i),  
         .alu_res_i           (alu_res),
         .alu_zero_flag_i     (alu_zero_flag),

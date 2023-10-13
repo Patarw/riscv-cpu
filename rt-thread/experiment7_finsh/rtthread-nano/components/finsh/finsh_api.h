@@ -11,6 +11,7 @@ struct finsh_syscall
     const char*  name;   /* 系统调用的名称 */
     syscall_func func;   /* 系统调用的函数地址 */     
 };
+extern struct finsh_syscall *_syscall_table_begin, *_syscall_table_end;
 
 #ifdef FINSH_USING_SYMTAB
     #define FINSH_FUNCTION_EXPORT_CMD(name, cmd, desc)                       \

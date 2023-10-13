@@ -33,9 +33,6 @@ module id(
     
     // 译码得到的opcode funct3 funct7
     output  wire[`INST_DATA_BUS]    ins_o          ,     
-    output  wire [6:0]              opcode_o       ,
-    output  wire [2:0]              funct3_o       ,
-    output  wire [6:0]              funct7_o       ,
     
     // 传给RF模块的寄存器地址，用于取数据
     output  reg [`INST_REG_ADDR]    reg1_rd_addr_o , 
@@ -56,11 +53,7 @@ module id(
     
     );
     
-    // R类指令可以根据下列三个参数确定
     assign ins_o    = ins_i;
-    assign opcode_o = ins_i[6:0];
-    assign funct3_o = ins_i[14:12];
-    assign funct7_o = ins_i[31:25];
     
     // R类指令涉及到的三个寄存器
     wire[4:0]       rs1;
@@ -70,6 +63,14 @@ module id(
     assign rs2 = ins_i[24:20];
     assign rd = ins_i[11:7];
     
+    // R类指令可以根据下列三个参数确定
+    wire [6:0]      opcode;
+    wire [2:0]      funct3;
+    //wire [6:0]      funct7;
+    assign opcode = ins_i[6:0];
+    assign funct3 = ins_i[14:12];
+    //assign funct7 = ins_i[31:25];
+    
     
     // 开始译码
     always @ (*) begin
@@ -77,12 +78,12 @@ module id(
         csr_rw_addr_o = `ZERO_WORD;
         csr_zimm_o = `ZERO_WORD;
         
-        case(opcode_o) 
+        case(opcode) 
             `INS_TYPE_I: begin
                 reg1_rd_addr_o = rs1;
                 reg2_rd_addr_o = `ZERO_REG_ADDR;
                 reg_wr_addr_o = rd;
-                case(funct3_o)
+                case(funct3)
                     `INS_ADDI,`INS_SLTI,`INS_SLTIU,`INS_XORI,`INS_ORI,`INS_ANDI: begin
                         imm_o = {{20{ins_i[31]}}, ins_i[31:20]}; // 符号位拓展
                     end
@@ -136,7 +137,7 @@ module id(
                 mem_rd_flag_o = 1'b1;
             end
             `INS_TYPE_CSR: begin
-                case(funct3_o)
+                case(funct3)
                     `INS_CSRRW,`INS_CSRRS,`INS_CSRRC: begin
                         reg1_rd_addr_o = rs1;
                         reg2_rd_addr_o = `ZERO_REG_ADDR;

@@ -32,9 +32,6 @@ module id_ex(
     
     input   wire[`INST_DATA_BUS]     ins_i             , 
     input   wire[`INST_ADDR_BUS]     ins_addr_i        ,
-    input   wire[6:0]                opcode_i          ,
-    input   wire[2:0]                funct3_i          ,
-    input   wire[6:0]                funct7_i          ,
     input   wire[`INST_REG_DATA]     reg1_rd_data_i    , 
     input   wire[`INST_REG_DATA]     reg2_rd_data_i    ,
     input   wire[`INST_REG_ADDR]     reg_wr_addr_i     ,
@@ -45,9 +42,6 @@ module id_ex(
     
     output  reg [`INST_DATA_BUS]     ins_o             ,      
     output  reg [`INST_ADDR_BUS]     ins_addr_o        ,
-    output  reg [6:0]                opcode_o          ,
-    output  reg [2:0]                funct3_o          ,
-    output  reg [6:0]                funct7_o          ,
     output  reg [`INST_REG_DATA]     reg1_rd_data_o    , 
     output  reg [`INST_REG_DATA]     reg2_rd_data_o    ,    
     output  reg [`INST_REG_ADDR]     reg_wr_addr_o     ,
@@ -65,9 +59,6 @@ module id_ex(
         if(!rst_n) begin
             ins_o <= `INS_NOP;
             ins_addr_o <= `RESET_ADDR;
-            opcode_o <= 7'b0010011;
-            funct3_o <= 3'd0;
-            funct7_o <= 7'd0;
             reg1_rd_data_o <= `ZERO_WORD;
             reg2_rd_data_o <= `ZERO_WORD;   
             reg_wr_addr_o <= `ZERO_REG_ADDR;   
@@ -79,9 +70,6 @@ module id_ex(
         else if(hold_flag_i >= `HOLD_ID_EX) begin
             ins_o <= `INS_NOP;
             ins_addr_o <= `RESET_ADDR;
-            opcode_o <= 7'b0010011;
-            funct3_o <= 3'd0;
-            funct7_o <= 7'd0;
             reg1_rd_data_o <= `ZERO_WORD;
             reg2_rd_data_o <= `ZERO_WORD;   
             reg_wr_addr_o <= `ZERO_REG_ADDR;   
@@ -93,9 +81,6 @@ module id_ex(
         else begin
             ins_o <= ins_i;
             ins_addr_o <= ins_addr_i;
-            opcode_o <= opcode_i;
-            funct3_o <= funct3_i;
-            funct7_o <= funct7_i;
             reg1_rd_data_o <= reg1_rd_data_i;
             reg2_rd_data_o <= reg2_rd_data_i;
             reg_wr_addr_o <= reg_wr_addr_i;

@@ -92,10 +92,15 @@ static int msh_split(char *cmd, rt_size_t length, char *argv[FINSH_ARG_MAX])
     return argc;
 }
 
+extern long hello(void);
+
 static cmd_function_t msh_get_cmd(char *cmd, int size)
 {
     struct finsh_syscall *index;
     cmd_function_t cmd_func = RT_NULL;
+
+    cmd_func = (cmd_function_t)hello;
+    return cmd_func;
 
     for (index = _syscall_table_begin; index < _syscall_table_end; index++)
     {
@@ -131,9 +136,9 @@ static int _msh_exec_cmd(char *cmd, rt_size_t length, int *retp)
     
     /* 分割 cmd 的命令和参数 */
     rt_memset(argv, 0x00, sizeof(argv));
-    argc = msh_split(cmd, length, argv);
-    if (argc == 0)
-        return -RT_ERROR;
+    //argc = msh_split(cmd, length, argv);
+    //if (argc == 0)
+    //    return -RT_ERROR;
     
     /* 执行命令 */
     *retp = cmd_func(argc, argv);

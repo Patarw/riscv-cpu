@@ -1,16 +1,20 @@
-CROSS_COMPILE = riscv64-unknown-elf-
-RISCV_GCC = ${CROSS_COMPILE}gcc
-RISCV_OBJCOPY = ${CROSS_COMPILE}objcopy
-RISCV_OBJDUMP = ${CROSS_COMPILE}objdump
+CROSS_COMPILE = riscv-none-embed-
+
+RISCV_GCC     := $(CROSS_COMPILE)gcc
+RISCV_AS      := $(CROSS_COMPILE)as
+RISCV_GXX     := $(CROSS_COMPILE)g++
+RISCV_OBJDUMP := $(CROSS_COMPILE)objdump
+RISCV_GDB     := $(CROSS_COMPILE)gdb
+RISCV_AR      := $(CROSS_COMPILE)ar
+RISCV_OBJCOPY := $(CROSS_COMPILE)objcopy
+RISCV_READELF := $(CROSS_COMPILE)readelf
 
 .PHONY: all
 all: $(TARGET)
 
 ASM_SRCS += $(COMMON_DIR)/start.S
-ASM_SRCS += $(COMMON_DIR)/trap_entry.S
 
 C_SRCS += $(COMMON_DIR)/init.c 
-C_SRCS += $(COMMON_DIR)/trap.c 
 C_SRCS += $(COMMON_DIR)/lib/uart.c 
 C_SRCS += $(COMMON_DIR)/lib/printf.c
 C_SRCS += $(COMMON_DIR)/lib/hw_timer.c

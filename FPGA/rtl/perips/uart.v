@@ -43,8 +43,9 @@ module uart(
     
     // 寄存器地址定义
     parameter   UART_CTRL = 4'd0,
-                UART_TX_DATA_BUF= 4'd4,
-                UART_RX_DATA_BUF= 4'd8;
+                UART_TX_DATA_BUF = 4'd4,
+                UART_RX_DATA_BUF = 4'd8;
+                
     // addr: 0x0
     // 低两位（1:0）为TI和RI
     // [1]: TI，发送完成中断位，该位在数据发送完成时被设置为高电平
@@ -76,9 +77,9 @@ module uart(
     
     reg[3:0]                    uart_tx_state; // rx状态机
     reg[12:0]                   tx_baud_cnt;   // rx计数器
-    reg[3:0]                    tx_bit_cnt;    // rx比特计数
+    reg[4:0]                    tx_bit_cnt;    // rx比特计数
     reg                         tx_data_rd;    // 发送数据就绪信号
-    reg[31:0]                   uart_rx_data_buf_temp;
+    reg[31:0]                    uart_rx_data_buf_temp;
     
     
     // 读写寄存器，write before read
@@ -102,10 +103,10 @@ module uart(
                 endcase
             end
             if(uart_tx_state == END && tx_baud_cnt == 1) begin
-                uart_ctrl[1] = 1'b1; // TI置1，代表发送完毕，需要软件置0
+                uart_ctrl = {uart_ctrl[31:2], 1'b1, uart_ctrl[0]}; // TI置1，代表发送完毕，需要软件置0
             end
             if(uart_rx_state == END && rx_baud_cnt == 1) begin
-                uart_ctrl[0] = 1'b1; // RI置1，代表接收完毕，需要软件置0
+                uart_ctrl = {uart_ctrl[31:1], 1'b1}; // RI置1，代表接收完毕，需要软件置0
             end
             case(rd_addr_i[3:0])
                 UART_CTRL: begin
@@ -159,7 +160,7 @@ module uart(
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
             uart_tx_state <= IDLE;
-            tx_bit_cnt <= 4'd0;
+            tx_bit_cnt <= 5'd0;
             uart_tx <= 1'b1;
         end
         else begin
@@ -183,8 +184,8 @@ module uart(
                     end
                 end
                 TX_BYTE: begin
-                    if(tx_bit_cnt == 4'd7 && tx_baud_cnt == BAUD_CNT_MAX - 1) begin
-                        tx_bit_cnt <= 4'd0;
+                    if(tx_bit_cnt == 5'd7 && tx_baud_cnt == BAUD_CNT_MAX - 1) begin
+                        tx_bit_cnt <= 5'd0;
                         uart_tx_state <= END; 
                     end
                     else if(tx_baud_cnt == BAUD_CNT_MAX - 1) begin
@@ -205,7 +206,7 @@ module uart(
                 end
                 default: begin
                     uart_tx_state <= IDLE;
-                    tx_bit_cnt <= 4'd0;
+                    tx_bit_cnt <= 5'd0;
                     uart_tx <= 1'b1;
                 end
             endcase
@@ -242,13 +243,55 @@ module uart(
         end
     end
     
+    // rx_bit_cnt计数
+    always @ (posedge clk or negedge rst_n) begin
+        if(!rst_n) begin 
+            rx_bit_cnt <= 4'd0;
+        end
+        else if(uart_rx_state == RX_BYTE && rx_bit_cnt == 4'd7 && rx_baud_cnt == BAUD_CNT_MAX - 1) begin
+            rx_bit_cnt <= 4'd0;
+        end
+        else if(uart_rx_state == RX_BYTE && rx_baud_cnt == BAUD_CNT_MAX - 1) begin
+            rx_bit_cnt <= rx_bit_cnt + 1'b1; 
+        end
+        else if(uart_rx_state == RX_BYTE) begin
+            rx_bit_cnt <= rx_bit_cnt; 
+        end
+        else begin
+            rx_bit_cnt <= 4'd0;
+        end
+    end
+    
+    // uart_rx_data_buf
+    always @ (posedge clk or negedge rst_n) begin
+        if(!rst_n) begin 
+            uart_rx_data_buf <= `ZERO_WORD;
+        end
+        else if(uart_rx_state == END && rx_baud_cnt == 13'd1) begin
+            uart_rx_data_buf <= uart_rx_data_buf_temp;
+        end
+        else begin
+            uart_rx_data_buf <= uart_rx_data_buf;
+        end
+    end
+    
+    // uart_rx_data_buf_temp
+    always @ (posedge clk or negedge rst_n) begin
+        if(!rst_n) begin 
+            uart_rx_data_buf_temp <= `ZERO_WORD;
+        end
+        else if(uart_rx_state == RX_BYTE && rx_baud_cnt == BAUD_CNT_MAX / 2 - 1) begin
+            uart_rx_data_buf_temp <= {{24{1'b0}}, uart_rx_delay, uart_rx_data_buf_temp[7:1]};
+        end
+        else begin
+            uart_rx_data_buf_temp <= uart_rx_data_buf_temp;
+        end
+    end
+    
     // RX接收模块
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
             uart_rx_state <= IDLE;
-            rx_bit_cnt <= 4'd0;
-            uart_rx_data_buf <= `ZERO_WORD;
-            uart_rx_data_buf_temp <= `ZERO_WORD;
         end
         else begin
             case(uart_rx_state)
@@ -270,23 +313,15 @@ module uart(
                 end
                 RX_BYTE: begin
                     if(rx_bit_cnt == 4'd7 && rx_baud_cnt == BAUD_CNT_MAX - 1) begin
-                        rx_bit_cnt <= 4'd0;
-                        uart_rx_state <= END; 
-                    end
-                    else if(rx_baud_cnt == BAUD_CNT_MAX / 2 - 1) begin
-                        uart_rx_data_buf_temp[rx_bit_cnt] <= uart_rx_delay;
-                    end
-                    else if(rx_baud_cnt == BAUD_CNT_MAX - 1) begin
-                        rx_bit_cnt <= rx_bit_cnt + 1'b1; 
+                        uart_rx_state <= END;
                     end
                     else begin
                         uart_rx_state <= uart_rx_state;
                     end
                 end
                 END: begin
-                    if(rx_baud_cnt == 1) begin
+                    if(rx_baud_cnt == 13'd1) begin
                         uart_rx_state <= IDLE; 
-                        uart_rx_data_buf <= uart_rx_data_buf_temp;
                     end
                     else begin
                         uart_rx_state <= uart_rx_state;
@@ -294,7 +329,6 @@ module uart(
                 end
                 default: begin
                     uart_rx_state <= IDLE;
-                    rx_bit_cnt <= 4'd0;
                 end
             endcase
         end

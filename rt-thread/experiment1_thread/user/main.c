@@ -66,8 +66,7 @@ void thread_1_entry(void *p_arg)
     for ( ;; ) 
     {
         printf("Thread 1 running...\n");
-        delay(500);
-        /* 线程切换 */
+        delay(100);
         rt_schedule();
     }
 }
@@ -78,8 +77,7 @@ void thread_2_entry(void *p_arg)
     for ( ;; ) 
     {
         printf("Thread 2 running...\n");
-        delay(500);
-        /* 线程切换 */
+        delay(100);
         rt_schedule();
     }
 }

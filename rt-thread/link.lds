@@ -4,14 +4,14 @@ ENTRY(_start)
 
 MEMORY
 {
-  flash (wxa!ri) : ORIGIN = 0x00000000, LENGTH = 16K
+  flash (rxai!w) : ORIGIN = 0x00000000, LENGTH = 16K
   ram   (wxa!ri) : ORIGIN = 0x10000000, LENGTH = 8K
 }
 
 
 SECTIONS
 {
-   __stack_size = DEFINED(__stack_size) ? __stack_size : 2K;
+   __stack_size = DEFINED(__stack_size) ? __stack_size : 1K;
 
   .init           :
   {
@@ -20,6 +20,7 @@ SECTIONS
 
   .text           :
   {
+    *(.rodata .rodata.*)
     *(.text.unlikely .text.unlikely.*)
     *(.text.startup .text.startup.*)
     *(.text .text.*)
@@ -32,6 +33,11 @@ SECTIONS
     __fsymtab_end = .;
     . = ALIGN(4);
     
+  } >flash AT>flash 
+
+  .fini           :
+  {
+    KEEP (*(SORT_NONE(.fini)))
   } >flash AT>flash 
 
   . = ALIGN(4);
@@ -109,12 +115,12 @@ SECTIONS
   .data          :
   {
     *(.rdata)
-    *(.rodata .rodata.*)
+
     *(.gnu.linkonce.r.*)
     *(.data .data.*)
     *(.gnu.linkonce.d.*)
     . = ALIGN(8);
-    PROVIDE( __global_pointer$ = . + 0x800 );
+    PROVIDE( __global_pointer$ = . + 0x800);
     *(.sdata .sdata.*)
     *(.gnu.linkonce.s.*)
     . = ALIGN(8);

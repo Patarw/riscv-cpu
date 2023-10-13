@@ -21,7 +21,6 @@ _start:
     addi a1, a1, 4
     bltu a1, a2, 1b
 2:
-
     /* 将 bss section 初始化为 0 */
     la a0, __bss_start
     la a1, _end

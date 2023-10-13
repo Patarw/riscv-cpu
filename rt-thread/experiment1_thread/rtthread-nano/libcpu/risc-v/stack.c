@@ -1,11 +1,6 @@
 #include <rthw.h>
 #include <rtthread.h>
 
-/* 中断处理中所用到一些参数 */
-rt_uint32_t rt_interrupt_from_thread;
-rt_uint32_t rt_interrupt_to_thread;
-rt_uint32_t rt_thread_switch_interrupt_flag;
-
 /* risc-v 体系结构中的寄存器定义 */
 struct stack_frame
 {

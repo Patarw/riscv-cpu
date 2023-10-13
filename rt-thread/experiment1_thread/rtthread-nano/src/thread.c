@@ -20,7 +20,7 @@ rt_err_t rt_thread_init(struct rt_thread *thread,
 
     /* 初始化线程栈，并返回线程栈指针 */
     thread->sp = (void *)rt_hw_stack_init(thread->entry, thread->parameter,
-                                          (rt_uint8_t *)((char *)thread->stack_addr + thread->stack_size - sizeof(rt_ubase_t)));
+                                          (rt_uint8_t *)((char *)thread->stack_addr + thread->stack_size - 4));
     
     return RT_EOK;
 }
