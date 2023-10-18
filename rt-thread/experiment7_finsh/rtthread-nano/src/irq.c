@@ -22,7 +22,7 @@ void rt_interrupt_enter(void)
     level = rt_hw_interrupt_disable();
 
     /* 中断计数器加 1 */
-    rt_interrupt_nest ++;
+    rt_interrupt_nest++;
 
     /* 恢复中断 */
     rt_hw_interrupt_enable(level);
@@ -46,7 +46,7 @@ void rt_interrupt_leave(void)
     level = rt_hw_interrupt_disable();
 
     /* 中断计数器减 1 */
-    rt_interrupt_nest --;
+    rt_interrupt_nest--;
 
     /* 恢复中断 */
     rt_hw_interrupt_enable(level);

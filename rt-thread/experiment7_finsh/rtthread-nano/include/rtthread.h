@@ -20,6 +20,7 @@ void rt_object_init(struct rt_object         *object,
  * clock & timer interface
  */
 rt_tick_t rt_tick_get(void);
+void rt_tick_set(rt_tick_t tick);
 void rt_tick_increase(void);
 
 void rt_system_timer_init(void);

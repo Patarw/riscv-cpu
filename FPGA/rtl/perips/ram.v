@@ -32,18 +32,21 @@ module ram(
     input   wire[`INST_DATA_BUS]    wr_data_i   , // write data
     
     input   wire[`INST_ADDR_BUS]    rd_addr_i   , // read address
-    output  reg [`INST_DATA_BUS]    rd_data_o     // read data
+    output  wire[`INST_DATA_BUS]    rd_data_o     // read data
     
     );
+    reg[`INST_ADDR_BUS]    rd_addr_reg;
     
     reg[`INST_DATA_BUS] _ram[0:`RAM_NUM - 1];
     
     // write before read
     always @ (posedge clk) begin
         if(wr_en_i == 1'b1) begin
-            _ram[wr_addr_i[31:2]] = wr_data_i;
+            _ram[wr_addr_i[31:2]] <= wr_data_i;
         end
-        rd_data_o = _ram[rd_addr_i[31:2]];
+        rd_addr_reg <= rd_addr_i;
     end
+    
+    assign rd_data_o = _ram[rd_addr_reg[31:2]];
     
 endmodule

@@ -50,37 +50,41 @@ module gpio(
     
     assign gpio_pins = ~gpio_data[3:0];
     
+    reg[`INST_ADDR_BUS]        rd_addr_reg;
+    
     // 读写寄存器，write before read
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
-            gpio_ctrl = `ZERO_WORD;
-            gpio_data = `ZERO_WORD;
+            gpio_ctrl <= `ZERO_WORD;
+            gpio_data <= `ZERO_WORD;
         end
         else begin
             if(wr_en_i == 1'b1) begin
                 case(wr_addr_i[3:0])
                     GPIO_CTRL: begin
-                        gpio_ctrl = wr_data_i;
+                        gpio_ctrl <= wr_data_i;
                     end
                     GPIO_DATA: begin
-                        gpio_data = wr_data_i;
-                    end
-                    default: begin
+                        gpio_data <= wr_data_i;
                     end
                 endcase
             end
-            case(rd_addr_i[3:0])
-                GPIO_CTRL: begin
-                    rd_data_o = gpio_ctrl;
-                end
-                GPIO_DATA: begin
-                    rd_data_o = gpio_data;
-                end
-                default: begin
-                    rd_data_o = `ZERO_WORD;
-                end
-            endcase
+            rd_addr_reg <= rd_addr_i;
         end
+    end
+    
+    always @ (*) begin
+        case(rd_addr_reg[3:0])
+            GPIO_CTRL: begin
+                rd_data_o = gpio_ctrl;
+            end
+            GPIO_DATA: begin
+                rd_data_o = gpio_data;
+            end
+            default: begin
+                rd_data_o = `ZERO_WORD;
+            end
+        endcase
     end
     
 endmodule

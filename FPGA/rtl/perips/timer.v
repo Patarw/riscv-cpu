@@ -58,46 +58,51 @@ module timer(
     reg[31:0] timer_evalue;
     
     assign timer_int_flag_o = ((timer_ctrl[2] == 1'b1) && (timer_ctrl[1] == 1'b1))? 1'b1 : 1'b0;
+    
+    reg[`INST_ADDR_BUS]        rd_addr_reg;
 
     // 读写寄存器，write before read
     always @ (posedge clk or negedge rst_n) begin
         if (!rst_n) begin
-            timer_ctrl = `ZERO_WORD;
-            timer_evalue = `ZERO_WORD;
+            timer_ctrl <= `ZERO_WORD;
+            timer_evalue <= `ZERO_WORD;
         end
         else begin
             if (wr_en_i == 1'b1) begin
                 case (wr_addr_i[3:0])
                     TIMER_CTRL: begin
                         // 这里代表软件只能把 timer_ctrl[2]置0，无法将其置1
-                        timer_ctrl = {wr_data_i[31:3], (timer_ctrl[2] & wr_data_i[2]), wr_data_i[1:0]};
+                        timer_ctrl <= {wr_data_i[31:3], (timer_ctrl[2] & wr_data_i[2]), wr_data_i[1:0]};
                     end
                     TIMER_EVALUE: begin
-                        timer_evalue = wr_data_i;
+                        timer_evalue <= wr_data_i;
                     end
                 endcase
             end
             
             if(timer_ctrl[0] == 1'b1 && timer_count >= timer_evalue) begin
-                timer_ctrl[0] = 1'b0;
-                timer_ctrl[2] = 1'b1;
+                timer_ctrl[0] <= 1'b0;
+                timer_ctrl[2] <= 1'b1;
             end
-            
-            case (rd_addr_i[3:0])
-                TIMER_CTRL: begin
-                    rd_data_o = timer_ctrl;
-                end
-                TIMER_COUNT: begin
-                    rd_data_o = timer_count;
-                end
-                TIMER_EVALUE: begin
-                    rd_data_o = timer_evalue;
-                end
-                default: begin
-                    rd_data_o = `ZERO_WORD;
-                end
-            endcase
+            rd_addr_reg <= rd_addr_i;
         end
+    end
+    
+    always @ (*) begin
+        case (rd_addr_reg[3:0])
+            TIMER_CTRL: begin
+                rd_data_o = timer_ctrl;
+            end
+            TIMER_COUNT: begin
+                rd_data_o = timer_count;
+            end
+            TIMER_EVALUE: begin
+                rd_data_o = timer_evalue;
+            end
+            default: begin
+                rd_data_o = `ZERO_WORD;
+            end
+        endcase
     end
     
     // 计数器 timer_count

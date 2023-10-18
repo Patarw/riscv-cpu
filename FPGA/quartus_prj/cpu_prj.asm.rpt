@@ -1,5 +1,5 @@
 Assembler report for cpu_prj
-Fri Oct 13 14:52:53 2023
+Tue Oct 17 21:18:59 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -37,7 +37,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Oct 13 14:52:53 2023 ;
+; Assembler Status      ; Successful - Tue Oct 17 21:18:59 2023 ;
 ; Revision Name         ; cpu_prj                               ;
 ; Top-level Entity Name ; RISCV_SOC_TOP                         ;
 ; Family                ; Cyclone IV E                          ;
@@ -92,8 +92,8 @@ applicable agreement for further details.
 ; Option         ; Setting                                                                           ;
 +----------------+-----------------------------------------------------------------------------------+
 ; Device         ; EP4CE10F17C8                                                                      ;
-; JTAG usercode  ; 0x00517B75                                                                        ;
-; Checksum       ; 0x00517B75                                                                        ;
+; JTAG usercode  ; 0x00520014                                                                        ;
+; Checksum       ; 0x00520014                                                                        ;
 +----------------+-----------------------------------------------------------------------------------+
 
 
@@ -103,14 +103,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Fri Oct 13 14:52:52 2023
+    Info: Processing started: Tue Oct 17 21:18:58 2023
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off cpu_prj -c cpu_prj
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4574 megabytes
-    Info: Processing ended: Fri Oct 13 14:52:53 2023
+    Info: Peak virtual memory: 4570 megabytes
+    Info: Processing ended: Tue Oct 17 21:18:59 2023
     Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
 
 

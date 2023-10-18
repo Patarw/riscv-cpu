@@ -62,8 +62,6 @@ void finsh_thread_entry(void *parameter)
     {
         ch = finsh_getchar();
 
-	    delay(1);
-
         if (ch < 0)
         {
             continue;
@@ -99,7 +97,7 @@ void finsh_thread_entry(void *parameter)
         {
             //printf("\r\nreceived your command: %s\r\n", shell->line);
             if (shell->echo_mode)
-                printf("\n");
+                printf("\r\n");
                 
             msh_exec(shell->line, shell->line_position);
             

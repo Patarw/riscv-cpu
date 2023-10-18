@@ -3,8 +3,6 @@
 
 /* 系统时基计数器 */
 static rt_tick_t rt_tick = 0;
-extern rt_list_t rt_thread_priority_table[RT_THREAD_PRIORITY_MAX];
-extern rt_uint32_t rt_thread_ready_priority_group;
 
 /**
  * This function will return current tick from operating system startup
@@ -15,6 +13,18 @@ rt_tick_t rt_tick_get(void)
 {
     /* return the global tick */
     return rt_tick;
+}
+
+/**
+ * This function will set current tick
+ */
+void rt_tick_set(rt_tick_t tick)
+{
+    rt_base_t level;
+
+    level = rt_hw_interrupt_disable();
+    rt_tick = tick;
+    rt_hw_interrupt_enable(level);
 }
 
 /**

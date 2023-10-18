@@ -22,6 +22,16 @@ reg_t trap_handler(reg_t mcause, reg_t mepc)
                     hw_timer_irq_handler();
                 }
                 break;
+            case 11:
+                {
+                    printf("uart interrupt!\r\n");
+                }
+                break;
+            default: 
+                {
+                    printf("default interrupt\r\n");
+                }
+                break;
         }
     }
     else 

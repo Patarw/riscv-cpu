@@ -32,6 +32,9 @@ int main(void)
     uart_init();               /* 初始化串口 */
     hw_timer_init();           /* 初始化硬件定时器 */
 
+    /* 系统定时器列表初始化 */
+    rt_system_timer_init();
+
     /* 调度器初始化 */
     rt_system_scheduler_init();
 

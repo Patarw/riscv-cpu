@@ -45,10 +45,7 @@ void uart_puts(char *s)
 char uart_getc()
 {
 	// wait RI to 1
-	if ((uart_read_reg(UART_CTRL) & (1 << 0)) != (1 << 0))
-	{
-		return -1;
-	}
+	while ((uart_read_reg(UART_CTRL) & (1 << 0)) != (1 << 0));
 	// set RI to 0
 	uart_write_reg(UART_CTRL, (uart_read_reg(UART_CTRL) & ~(1 << 0)));
 	// read receive buf

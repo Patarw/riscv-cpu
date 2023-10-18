@@ -32,12 +32,15 @@ module rom(
     input   wire[`INST_DATA_BUS]    wr_data_i   , // write data
     
     input   wire[`INST_ADDR_BUS]    rd_addr_i   , // read address
-    output  reg [`INST_DATA_BUS]    rd_data_o   , // read data
+    output  wire[`INST_DATA_BUS]    rd_data_o   , // read data
     
     input   wire[`INST_ADDR_BUS]    pc_addr_i   , // instruction read address
-    output  reg [`INST_DATA_BUS]    ins_o         // instruction
+    output  wire[`INST_DATA_BUS]    ins_o         // instruction
     
     );
+    
+    reg[`INST_ADDR_BUS]    rd_addr_reg;
+    reg[`INST_ADDR_BUS]    pc_addr_reg;
     
     // 读取需要固化在rom里面的程序，方便仿真
     //initial begin
@@ -49,10 +52,13 @@ module rom(
     // write before read
     always @ (posedge clk) begin
         if(wr_en_i == 1'b1) begin
-            _rom[wr_addr_i[31:2]] = wr_data_i;
+            _rom[wr_addr_i[31:2]] <= wr_data_i;
         end
-        rd_data_o = _rom[rd_addr_i[31:2]];
-        ins_o = _rom[pc_addr_i[31:2]];
+        rd_addr_reg <= rd_addr_i;
+        pc_addr_reg <= pc_addr_i;
     end
+    
+    assign rd_data_o = _rom[rd_addr_reg[31:2]];
+    assign ins_o = _rom[pc_addr_reg[31:2]];
    
 endmodule

@@ -10,6 +10,9 @@ rt_uint32_t rt_thread_ready_priority_group;
 /* 中断嵌套层数（当前 cpu 不支持中断嵌套，所以此值只用来判断当前是否处在中断中） */
 extern volatile rt_uint8_t rt_interrupt_nest;
 
+/* 调度器是否上锁 */
+static rt_int16_t rt_scheduler_lock_nest;
+
 /* 当前线程控制块指针 */
 struct rt_thread *rt_current_thread = RT_NULL; 
 
@@ -19,14 +22,15 @@ rt_uint8_t rt_current_priority;
 /**
  * @ingroup SystemInit
  * This function will initialize the system scheduler
- * 系统调度器初始化
  */
 void rt_system_scheduler_init(void)
 {
     register rt_base_t offset;
 
+    rt_scheduler_lock_nest = 0;
+
     /* 线程就绪列表初始化 */
-    for (offset = 0; offset < RT_THREAD_PRIORITY_MAX; offset ++)
+    for (offset = 0; offset < RT_THREAD_PRIORITY_MAX; offset++)
     {
         rt_list_init(&rt_thread_priority_table[offset]);
     }
@@ -45,14 +49,13 @@ void rt_system_scheduler_init(void)
  * @ingroup SystemInit
  * This function will startup scheduler. It will select one thread
  * with the highest priority level, then switch to it.
- * 本章加入了优先级，所以此处要选择当前优先级最高的线程启动
  */
 void rt_system_scheduler_start(void)
 {
     register struct rt_thread *to_thread;
     register rt_ubase_t highest_ready_priority;
 
-    /* 获取就绪的最高优先级 */
+    /* 获取就绪的最高优先级（RT_THREAD_PRIORITY_MAX < 32） */
     highest_ready_priority = __rt_ffs(rt_thread_ready_priority_group) - 1;
 
     /* 获取将要运行线程的线程控制块 */
@@ -61,7 +64,7 @@ void rt_system_scheduler_start(void)
                               tlist);
     
     rt_current_thread = to_thread;
-    //printf("group: %d\n", rt_thread_ready_priority_group);
+
     /* 切换到新线程 */
     rt_hw_context_switch_to((rt_uint32_t)&to_thread->sp);
 
@@ -76,47 +79,50 @@ void rt_system_scheduler_start(void)
 void rt_schedule(void)
 {
     rt_base_t level;
-    register rt_ubase_t highest_ready_priority;
     struct rt_thread *to_thread;
     struct rt_thread *from_thread;
 
     /* 关中断 */
     level = rt_hw_interrupt_disable();
-    //printf("group2: %d\n", rt_thread_ready_priority_group);
-    /* 获取线程就绪的最高优先级 */
-    highest_ready_priority = __rt_ffs(rt_thread_ready_priority_group) - 1;
-	
-    //printf("%d\n", highest_ready_priority);
-
-    /* 获取就绪的最高优先级对应的线程控制块 */
-    to_thread = rt_list_entry(rt_thread_priority_table[highest_ready_priority].next,
-                              struct rt_thread,
-                              tlist);
     
-    /* 如果不是当前线程，则需要进行线程切换 */
-    if (to_thread != rt_current_thread)
+    /* 检查调度器是否使能 */
+    if (rt_scheduler_lock_nest == 0)
     {
-        rt_current_priority = (rt_uint8_t)highest_ready_priority;
-        from_thread = rt_current_thread;
-        rt_current_thread = to_thread;
+        register rt_ubase_t highest_ready_priority;
 
-        /* 上下文切换 */
-        if (rt_interrupt_nest == 0)  /* 若 rt_interrupt_nest = 0 则表示当前未处在中断状态 */
-        {
-	    //printf("switch not in interrupt\n");
-            rt_hw_context_switch((rt_uint32_t)&from_thread->sp, 
-                                 (rt_uint32_t)&to_thread->sp);
-            
-            /* 恢复中断 */
-            rt_hw_interrupt_enable(level);
+        /* 获取线程就绪的最高优先级 */
+        highest_ready_priority = __rt_ffs(rt_thread_ready_priority_group) - 1;
 
-            return;
-        }
-        else
+        /* 获取就绪的最高优先级对应的线程控制块 */
+        to_thread = rt_list_entry(rt_thread_priority_table[highest_ready_priority].next,
+                                struct rt_thread,
+                                tlist);
+        
+        /* 如果不是当前线程，则需要进行线程切换 */
+        if (to_thread != rt_current_thread)
         {
-	    //printf("switch in interrupt\n");
-            rt_hw_context_switch_interrupt((rt_ubase_t)&from_thread->sp,
-                                           (rt_ubase_t)&to_thread->sp);
+            rt_current_priority = (rt_uint8_t)highest_ready_priority;
+            from_thread = rt_current_thread;
+            rt_current_thread = to_thread;
+
+            /* 上下文切换 */
+            if (rt_interrupt_nest == 0)  /* 若 rt_interrupt_nest = 0 则表示当前未处在中断状态 */
+            {
+                //printf("switch not in interrupt\n");
+                rt_hw_context_switch((rt_uint32_t)&from_thread->sp, 
+                                     (rt_uint32_t)&to_thread->sp);
+                
+                /* 恢复中断 */
+                rt_hw_interrupt_enable(level);
+
+                return;
+            }
+            else
+            {
+                //printf("switch in interrupt\n");
+                rt_hw_context_switch_interrupt((rt_ubase_t)&from_thread->sp,
+                                               (rt_ubase_t)&to_thread->sp);
+            }
         }
     }
 
@@ -139,7 +145,7 @@ void rt_schedule_insert_thread(struct rt_thread *thread)
     temp = rt_hw_interrupt_disable();
 
     /* 改变线程状态 */
-    thread->stat = RT_THREAD_READY;
+    thread->stat = RT_THREAD_READY | (thread->stat & ~RT_THREAD_STAT_MASK);
 
     /* 将线程插入就绪列表 */
     rt_list_insert_before(&(rt_thread_priority_table[thread->current_priority]),

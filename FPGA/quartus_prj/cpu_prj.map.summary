@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Fri Oct 13 14:52:26 2023
+Analysis & Synthesis Status : Successful - Tue Oct 17 21:18:30 2023
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
 Revision Name : cpu_prj
 Top-level Entity Name : RISCV_SOC_TOP
 Family : Cyclone IV E
-Total logic elements : 6,867
-    Total combinational functions : 5,528
-    Dedicated logic registers : 2,568
-Total registers : 2568
+Total logic elements : 6,782
+    Total combinational functions : 5,381
+    Dedicated logic registers : 2,483
+Total registers : 2483
 Total pins : 9
 Total virtual pins : 0
 Total memory bits : 327,680

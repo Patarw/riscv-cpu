@@ -2,7 +2,7 @@
 #include <rtthread.h>
 
 /* 定义空闲线程栈大小 */
-#define IDLE_THREAD_STACK_SIZE  512
+#define IDLE_THREAD_STACK_SIZE  128
 
 /* 定义线程控制块 */
 static struct rt_thread idle;
@@ -11,7 +11,7 @@ ALIGN(RT_ALIGN_SIZE)
 /* 定义空闲线程栈 */
 static rt_uint8_t rt_thread_stack[IDLE_THREAD_STACK_SIZE];
 
-extern void delay(unsigned int);
+//extern void delay(unsigned int);
 
 /* 空闲线程入口函数 */
 static void rt_thread_idle_entry(void *parameter)
@@ -19,8 +19,8 @@ static void rt_thread_idle_entry(void *parameter)
     while (1)
     {
         /* 这里暂时只打印信息 */
-        printf("idle thread...\n");
-        delay(100);
+        //printf("idle thread...\n");
+        //delay(100);
     }
 }
 
