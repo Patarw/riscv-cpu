@@ -38,13 +38,12 @@ module alu(
     always @ (*) begin
         alu_zero_flag_o = !(|alu_res_o); 
         alu_sign_flag_o = alu_res_o[31];
-        //alu_overflow_flag_o = ((alu_op_code_i == `ALU_ADD & ~alu_data1_i[31] & ~alu_data2_i[31] & alu_res_o[31])
-        //                        |(alu_op_code_i == `ALU_ADD & alu_data1_i[31] & alu_data2_i[31] & ~alu_res_o[31])
-        //                        |(alu_op_code_i == `ALU_SUB & ~alu_data1_i[31] & alu_data2_i[31] & alu_res_o[31])
-        //                        |(alu_op_code_i == `ALU_SUB & alu_data1_i[31] & ~alu_data2_i[31] & ~alu_res_o[31]));
-                                
-        alu_overflow_flag_o = 1'b0;
+        alu_overflow_flag_o = ((alu_op_code_i == `ALU_ADD & ~alu_data1_i[31] & ~alu_data2_i[31] & alu_res_o[31])
+                               |(alu_op_code_i == `ALU_ADD & alu_data1_i[31] & alu_data2_i[31] & ~alu_res_o[31])
+                               |(alu_op_code_i == `ALU_SUB & ~alu_data1_i[31] & alu_data2_i[31] & alu_res_o[31])
+                               |(alu_op_code_i == `ALU_SUB & alu_data1_i[31] & ~alu_data2_i[31] & ~alu_res_o[31]));
     end
+    
     always @ (*) begin
         case(alu_op_code_i)
             `ALU_ADD: begin

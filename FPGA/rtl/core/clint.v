@@ -93,26 +93,31 @@ module clint(
     
     // 中断仲裁逻辑
     always @ (*) begin
+        if (!rst_n) begin
+            int_state = INT_IDLE;
+        end
         // 同步中断
         //if (ins_i == `INS_ECALL || ins_i == `INS_EBREAK || (ins_i[6:0] == `INS_TYPE_CSR && privileg_i < `PRIVILEG_MACHINE)) begin
-        if (ins_i == `INS_ECALL || ins_i == `INS_EBREAK) begin
-            // 如果执行阶段的指令为除法指令或者跳转指令，则先不处理同步中断
-            if (div_req_i != 1'b1 && jump_flag_i != 1'b1) begin
-                int_state = INT_SYNC_ASSERT;
+        else begin
+            if (ins_i == `INS_ECALL || ins_i == `INS_EBREAK) begin
+                // 如果执行阶段的指令为除法指令或者跳转指令，则先不处理同步中断
+                if (div_req_i != 1'b1 && jump_flag_i != 1'b1) begin
+                    int_state = INT_SYNC_ASSERT;
+                end 
+                else begin
+                    int_state = INT_IDLE;
+                end
+            end 
+            // 异步中断
+            else if (int_flag_i != `INT_NONE && csr_mstatus[3] == 1'b1) begin
+                int_state = INT_ASYNC_ASSERT;
+            end 
+            else if (ins_i == `INS_MRET) begin
+                int_state = INT_MRET;
             end 
             else begin
                 int_state = INT_IDLE;
             end
-        end 
-        // 异步中断
-        else if (int_flag_i != `INT_NONE && csr_mstatus[3] == 1'b1) begin
-            int_state = INT_ASYNC_ASSERT;
-        end 
-        else if (ins_i == `INS_MRET) begin
-            int_state = INT_MRET;
-        end 
-        else begin
-            int_state = INT_IDLE;
         end
     end
     
@@ -155,9 +160,7 @@ module clint(
                     end 
                     // 异步中断
                     else if (int_state == INT_ASYNC_ASSERT) begin
-                        // 定时器中断
-                        //cause <= 32'h80000007;
-                        
+                        // 定时器中断    
                         if (int_flag_i & `INT_TIMER) begin
                             cause <= 32'h80000007;
                         end

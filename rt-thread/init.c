@@ -1,4 +1,4 @@
-extern void trap_entry(void) __attribute__((weak));;
+extern void trap_entry(void) __attribute__((weak));
 
 void _init()
 {

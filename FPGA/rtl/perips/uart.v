@@ -51,7 +51,7 @@ module uart(
     // [0]: RI，接收完成中断位，该位在数据接收完成时被设置为高电平
     reg[31:0]   uart_ctrl;
     
-    assign uart_int_flag_o = 0;
+    assign uart_int_flag_o = 1'b0;
     
     // addr: 0x4
     // 发送数据寄存器

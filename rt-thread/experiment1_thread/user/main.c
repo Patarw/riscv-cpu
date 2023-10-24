@@ -1,7 +1,9 @@
 /* 头文件声明 */
 #include <rtthread.h>
 #include <rtconfig.h>
-#include <printf.h>
+#include <rthw.h>
+#include "../../include/printf.h"
+#include "../../include/uart.h"
 
 /* 线程优先级链表 */
 extern rt_list_t rt_thread_priority_table[RT_THREAD_PRIORITY_MAX];
@@ -26,6 +28,7 @@ void delay(unsigned int count);
 int main(void)
 {
     /* 硬件初始化 */
+    rt_hw_interrupt_disable(); /* 关中断 */
     uart_init(); /*  */
 
     /* 调度器初始化 */
@@ -44,11 +47,11 @@ int main(void)
     rt_thread_init(&rt_thread2,               /* 线程控制块 */
                    thread_2_entry,            /* 线程入口地址 */
                    RT_NULL,                   /* 线程形参 */
-                   &rt_thread2_stack[1],      /* 线程栈起始地址 */
+                   &rt_thread2_stack[0],      /* 线程栈起始地址 */
                    sizeof(rt_thread2_stack)); /* 线程栈大小 */
     /* 将线程插入就绪列表 */
     rt_list_insert_before(&(rt_thread_priority_table[1]), &(rt_thread2.tlist));
-
+    
     /* 启动系统调度器 */
     rt_system_scheduler_start();
 }

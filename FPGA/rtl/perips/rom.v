@@ -43,9 +43,9 @@ module rom(
     reg[`INST_ADDR_BUS]    pc_addr_reg;
     
     // 读取需要固化在rom里面的程序，方便仿真
-    //initial begin
-    //    $readmemh("D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/serial_utils/inst.data", _rom);
-    //end
+    initial begin
+        $readmemh("D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/serial_utils/inst.data", _rom);
+    end
     
     reg[`INST_DATA_BUS] _rom[0:`ROM_NUM - 1];                               
     

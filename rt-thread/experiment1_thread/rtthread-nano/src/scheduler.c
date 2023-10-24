@@ -16,7 +16,7 @@ void rt_system_scheduler_init(void)
     register rt_base_t offset;
 
     /* 线程就绪列表初始化 */
-    for (offset = 0; offset < RT_THREAD_PRIORITY_MAX; offset ++)
+    for (offset = 0; offset < RT_THREAD_PRIORITY_MAX; offset++)
     {
         rt_list_init(&rt_thread_priority_table[offset]);
     }
