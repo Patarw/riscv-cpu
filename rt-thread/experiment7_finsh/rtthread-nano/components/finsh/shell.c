@@ -43,7 +43,15 @@ const char *finsh_get_prompt()
 
 static int finsh_getchar(void)
 {
-	return uart_getc();
+	int ch = uart_getc();
+    
+    /* 如果未获取到字符，则让出处理器 */
+    if (ch < 0)
+    {
+        rt_thread_delay(1);
+    }
+
+    return ch;
 }
 
 extern void delay(unsigned int);
@@ -56,6 +64,8 @@ void finsh_thread_entry(void *parameter)
     /* normal is echo mode */
     shell->echo_mode = 1;
     
+    printf("Welcome to RT-Thread's World!\r\n");
+
     printf(FINSH_PROMPT);
 
     while (1)
@@ -156,7 +166,7 @@ int finsh_system_init(void)
                             &finsh_thread_stack[0],
                             sizeof(finsh_thread_stack),
                             FINSH_THREAD_PRIORITY,
-                            2);
+                            10);
     
     if (tid != NULL && result == RT_EOK)
         rt_thread_startup(tid);

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_prj
-Tue Oct 24 14:34:01 2023
+Thu Oct 26 16:24:21 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -72,7 +72,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Oct 24 14:34:01 2023            ;
+; Analysis & Synthesis Status        ; Successful - Thu Oct 26 16:24:20 2023            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; cpu_prj                                          ;
 ; Top-level Entity Name              ; RISCV_SOC_TOP                                    ;
@@ -185,66 +185,66 @@ applicable agreement for further details.
 ; Maximum allowed            ; 14          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ; < 0.1%      ;
-;     Processors 7-20        ;   0.0%      ;
+;     Processors 2-8         ; < 0.1%      ;
+;     Processors 9-20        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                ;
-+------------------------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                                 ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                   ; Library ;
-+------------------------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------+---------+
-; ../rtl/perips/timer.v                                            ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/timer.v                            ;         ;
-; ../rtl/core/clint.v                                              ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/clint.v                              ;         ;
-; ../rtl/core/gpr.v                                                ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/gpr.v                                ;         ;
-; ../rtl/core/csr.v                                                ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/csr.v                                ;         ;
-; ../rtl/perips/gpio.v                                             ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/gpio.v                             ;         ;
-; ../rtl/core/div.v                                                ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/div.v                                ;         ;
-; ../rtl/core/mul.v                                                ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/mul.v                                ;         ;
-; ../rtl/debug/uart_debug.v                                        ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug/uart_debug.v                        ;         ;
-; ../rtl/core/rib.v                                                ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/rib.v                                ;         ;
-; ../rtl/utils/delay_buffer.v                                      ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/utils/delay_buffer.v                      ;         ;
-; ../rtl/top/RISCV_SOC_TOP.v                                       ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RISCV_SOC_TOP.v                       ;         ;
-; ../rtl/top/RISCV.v                                               ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RISCV.v                               ;         ;
-; ../rtl/top/RF_UNIT.v                                             ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RF_UNIT.v                             ;         ;
-; ../rtl/top/IF_UNIT.v                                             ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/IF_UNIT.v                             ;         ;
-; ../rtl/top/ID_UNIT.v                                             ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/ID_UNIT.v                             ;         ;
-; ../rtl/top/EX_UNIT.v                                             ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/EX_UNIT.v                             ;         ;
-; ../rtl/perips/uart.v                                             ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/uart.v                             ;         ;
-; ../rtl/perips/rom.v                                              ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/rom.v                              ;         ;
-; ../rtl/perips/ram.v                                              ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/ram.v                              ;         ;
-; ../rtl/core/pc.v                                                 ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/pc.v                                 ;         ;
-; ../rtl/core/if_id.v                                              ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/if_id.v                              ;         ;
-; ../rtl/core/id_ex.v                                              ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/id_ex.v                              ;         ;
-; ../rtl/core/id.v                                                 ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/id.v                                 ;         ;
-; ../rtl/core/defines.v                                            ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/defines.v                            ;         ;
-; ../rtl/core/cu.v                                                 ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/cu.v                                 ;         ;
-; ../rtl/core/alu.v                                                ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/alu.v                                ;         ;
-; /users/desktop/fpga/tinyriscv_cpu/cpu_prj/serial_utils/inst.data ; yes             ; Auto-Found Unspecified File                           ; /users/desktop/fpga/tinyriscv_cpu/cpu_prj/serial_utils/inst.data                               ;         ;
-; altsyncram.tdf                                                   ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/altsyncram.tdf                             ;         ;
-; stratix_ram_block.inc                                            ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/stratix_ram_block.inc                      ;         ;
-; lpm_mux.inc                                                      ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/lpm_mux.inc                                ;         ;
-; lpm_decode.inc                                                   ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/lpm_decode.inc                             ;         ;
-; aglobal130.inc                                                   ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/aglobal130.inc                             ;         ;
-; a_rdenreg.inc                                                    ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/a_rdenreg.inc                              ;         ;
-; altrom.inc                                                       ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/altrom.inc                                 ;         ;
-; altram.inc                                                       ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/altram.inc                                 ;         ;
-; altdpram.inc                                                     ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/altdpram.inc                               ;         ;
-; db/altsyncram_olg1.tdf                                           ; yes             ; Auto-Generated Megafunction                           ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/db/altsyncram_olg1.tdf            ;         ;
-; db/cpu_prj.ram0_rom_1d582.hdl.mif                                ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/db/cpu_prj.ram0_rom_1d582.hdl.mif ;         ;
-; db/altsyncram_2mc1.tdf                                           ; yes             ; Auto-Generated Megafunction                           ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/db/altsyncram_2mc1.tdf            ;         ;
-; lpm_mult.tdf                                                     ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/lpm_mult.tdf                               ;         ;
-; lpm_add_sub.inc                                                  ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/lpm_add_sub.inc                            ;         ;
-; multcore.inc                                                     ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/multcore.inc                               ;         ;
-; bypassff.inc                                                     ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/bypassff.inc                               ;         ;
-; altshift.inc                                                     ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/altshift.inc                               ;         ;
-; db/mult_7dt.tdf                                                  ; yes             ; Auto-Generated Megafunction                           ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/db/mult_7dt.tdf                   ;         ;
-+------------------------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                 ;
++-------------------------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                  ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                                   ; Library ;
++-------------------------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------+---------+
+; ../rtl/perips/timer.v                                             ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/timer.v                            ;         ;
+; ../rtl/core/clint.v                                               ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/clint.v                              ;         ;
+; ../rtl/core/gpr.v                                                 ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/gpr.v                                ;         ;
+; ../rtl/core/csr.v                                                 ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/csr.v                                ;         ;
+; ../rtl/perips/gpio.v                                              ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/gpio.v                             ;         ;
+; ../rtl/core/div.v                                                 ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/div.v                                ;         ;
+; ../rtl/core/mul.v                                                 ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/mul.v                                ;         ;
+; ../rtl/debug/uart_debug.v                                         ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/debug/uart_debug.v                        ;         ;
+; ../rtl/core/rib.v                                                 ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/rib.v                                ;         ;
+; ../rtl/utils/delay_buffer.v                                       ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/utils/delay_buffer.v                      ;         ;
+; ../rtl/top/RISCV_SOC_TOP.v                                        ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RISCV_SOC_TOP.v                       ;         ;
+; ../rtl/top/RISCV.v                                                ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RISCV.v                               ;         ;
+; ../rtl/top/RF_UNIT.v                                              ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/RF_UNIT.v                             ;         ;
+; ../rtl/top/IF_UNIT.v                                              ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/IF_UNIT.v                             ;         ;
+; ../rtl/top/ID_UNIT.v                                              ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/ID_UNIT.v                             ;         ;
+; ../rtl/top/EX_UNIT.v                                              ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/top/EX_UNIT.v                             ;         ;
+; ../rtl/perips/uart.v                                              ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/uart.v                             ;         ;
+; ../rtl/perips/rom.v                                               ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/rom.v                              ;         ;
+; ../rtl/perips/ram.v                                               ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/perips/ram.v                              ;         ;
+; ../rtl/core/pc.v                                                  ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/pc.v                                 ;         ;
+; ../rtl/core/if_id.v                                               ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/if_id.v                              ;         ;
+; ../rtl/core/id_ex.v                                               ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/id_ex.v                              ;         ;
+; ../rtl/core/id.v                                                  ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/id.v                                 ;         ;
+; ../rtl/core/defines.v                                             ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/defines.v                            ;         ;
+; ../rtl/core/cu.v                                                  ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/cu.v                                 ;         ;
+; ../rtl/core/alu.v                                                 ; yes             ; User Verilog HDL File                                 ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/rtl/core/alu.v                                ;         ;
+; /users/desktop/fpga/tinyriscv_cpu/cpu_prj/rt-thread/rtthread.inst ; yes             ; Auto-Found Unspecified File                           ; /users/desktop/fpga/tinyriscv_cpu/cpu_prj/rt-thread/rtthread.inst                              ;         ;
+; altsyncram.tdf                                                    ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/altsyncram.tdf                             ;         ;
+; stratix_ram_block.inc                                             ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/stratix_ram_block.inc                      ;         ;
+; lpm_mux.inc                                                       ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/lpm_mux.inc                                ;         ;
+; lpm_decode.inc                                                    ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/lpm_decode.inc                             ;         ;
+; aglobal130.inc                                                    ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/aglobal130.inc                             ;         ;
+; a_rdenreg.inc                                                     ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/a_rdenreg.inc                              ;         ;
+; altrom.inc                                                        ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/altrom.inc                                 ;         ;
+; altram.inc                                                        ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/altram.inc                                 ;         ;
+; altdpram.inc                                                      ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/altdpram.inc                               ;         ;
+; db/altsyncram_olg1.tdf                                            ; yes             ; Auto-Generated Megafunction                           ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/db/altsyncram_olg1.tdf            ;         ;
+; db/cpu_prj.ram0_rom_1d582.hdl.mif                                 ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/db/cpu_prj.ram0_rom_1d582.hdl.mif ;         ;
+; db/altsyncram_2mc1.tdf                                            ; yes             ; Auto-Generated Megafunction                           ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/db/altsyncram_2mc1.tdf            ;         ;
+; lpm_mult.tdf                                                      ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/lpm_mult.tdf                               ;         ;
+; lpm_add_sub.inc                                                   ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/lpm_add_sub.inc                            ;         ;
+; multcore.inc                                                      ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/multcore.inc                               ;         ;
+; bypassff.inc                                                      ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/bypassff.inc                               ;         ;
+; altshift.inc                                                      ; yes             ; Megafunction                                          ; d:/software/quartus/quartus/libraries/megafunctions/altshift.inc                               ;         ;
+; db/mult_7dt.tdf                                                   ; yes             ; Auto-Generated Megafunction                           ; D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/db/mult_7dt.tdf                   ;         ;
++-------------------------------------------------------------------+-----------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------+
@@ -1379,7 +1379,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:15     ;
+; Top            ; 00:00:16     ;
 +----------------+--------------+
 
 
@@ -1389,7 +1389,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Tue Oct 24 14:33:43 2023
+    Info: Processing started: Thu Oct 26 16:24:03 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_prj -c cpu_prj
 Info (11104): Parallel Compilation has detected 20 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 14 of the 14 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file /users/desktop/fpga/tinyriscv_cpu/cpu_prj/fpga/rtl/perips/timer.v
@@ -1469,7 +1469,7 @@ Info (12128): Elaborating entity "uart_debug" for hierarchy "uart_debug:u_uart_d
 Info (12128): Elaborating entity "delay_buffer" for hierarchy "uart_debug:u_uart_debug|delay_buffer:u_delay_buffer"
 Info (12128): Elaborating entity "rib" for hierarchy "rib:u_rib"
 Info (12128): Elaborating entity "rom" for hierarchy "rom:u_rom"
-Warning (10850): Verilog HDL warning at rom.v(47): number of words (911) in memory file does not match the number of elements in the address range [0:4095]
+Warning (10850): Verilog HDL warning at rom.v(51): number of words (3504) in memory file does not match the number of elements in the address range [0:4095]
 Info (12128): Elaborating entity "ram" for hierarchy "ram:u_ram"
 Info (12128): Elaborating entity "uart" for hierarchy "uart:u_uart"
 Info (12128): Elaborating entity "gpio" for hierarchy "gpio:u_gpio"
@@ -1550,8 +1550,6 @@ Info (12133): Instantiated megafunction "rom:u_rom|altsyncram:_rom_rtl_0" with t
     Info (12134): Parameter "INIT_FILE" = "db/cpu_prj.ram0_rom_1d582.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_olg1.tdf
     Info (12023): Found entity 1: altsyncram_olg1
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/db/cpu_prj.ram0_rom_1d582.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/db/cpu_prj.ram0_rom_1d582.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Info (12130): Elaborated megafunction instantiation "ram:u_ram|altsyncram:_ram_rtl_0"
 Info (12133): Instantiated megafunction "ram:u_ram|altsyncram:_ram_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -1599,9 +1597,9 @@ Info (21057): Implemented 7314 device resources after synthesis - the final reso
     Info (21061): Implemented 7201 logic cells
     Info (21064): Implemented 96 RAM segments
     Info (21062): Implemented 8 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 10 warnings
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 8 warnings
     Info: Peak virtual memory: 4687 megabytes
-    Info: Processing ended: Tue Oct 24 14:34:01 2023
+    Info: Processing ended: Thu Oct 26 16:24:21 2023
     Info: Elapsed time: 00:00:18
     Info: Total CPU time (on all processors): 00:00:08
 

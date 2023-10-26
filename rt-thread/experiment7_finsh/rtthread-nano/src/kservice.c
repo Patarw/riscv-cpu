@@ -3,6 +3,35 @@
 
 
 /**
+ * This function will copy memory content from source address to destination
+ * address.
+ *
+ * @param dst the address of destination memory
+ * @param src  the address of source memory
+ * @param count the copied length
+ *
+ * @return the address of destination memory
+ */
+void *rt_memcpy(void *dst, const void *src, rt_ubase_t count)
+{
+    char *tmp = (char *)dst, *s = (char *)src;
+    rt_ubase_t len;
+
+    if (tmp <= s || tmp > (s + count))
+    {
+        while (count--)
+            *tmp ++ = *s ++;
+    }
+    else
+    {
+        for (len = count; len > 0; len --)
+            tmp[len - 1] = s[len - 1];
+    }
+
+    return dst;
+}
+
+/**
  * This function will set the content of memory to specified value
  *
  * @param s the address of source memory

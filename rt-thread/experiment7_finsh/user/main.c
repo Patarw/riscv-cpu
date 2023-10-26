@@ -41,7 +41,7 @@ int main(void)
     /* 初始化空闲线程 */
     rt_thread_idle_init();
 
-    /* 初始化 shell 线程 */
+    /* 初始化 finsh 线程 */
     finsh_system_init();
 
     /* 初始化线程1 */
@@ -52,7 +52,7 @@ int main(void)
                    &rt_thread1_stack[0],      /* 线程栈起始地址 */
                    sizeof(rt_thread1_stack),  /* 线程栈大小 */
                    6,                         /* 线程优先级 */
-                   2);                        /* 线程时间片 */
+                   1);                        /* 线程时间片 */
     /* 启动线程1 */
     rt_thread_startup(&rt_thread1);
 
@@ -64,7 +64,7 @@ int main(void)
                    &rt_thread2_stack[0],      /* 线程栈起始地址 */
                    sizeof(rt_thread2_stack),  /* 线程栈大小 */
                    6,                         /* 线程优先级 */
-                   2);                        /* 线程时间片 */
+                   1);                        /* 线程时间片 */
     /* 启动线程2 */
     rt_thread_startup(&rt_thread2);
 

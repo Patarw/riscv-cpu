@@ -229,8 +229,8 @@ struct rt_thread
     char        name[RT_NAME_MAX];              /* 对象名称 */
     rt_uint8_t  type;                           /* 对象类型 */
     rt_uint8_t  flags;                          /* 对象状态 */
-
     rt_list_t   list;                           /* 对象的 list 节点 */
+
     rt_list_t   tlist;                          /* 线程的 list 节点 */
 
     /* stack point and entry */

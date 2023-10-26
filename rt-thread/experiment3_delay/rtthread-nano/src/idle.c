@@ -24,7 +24,7 @@ static void rt_thread_idle_entry(void *parameter)
     {
         /* 这里暂时只打印信息 */
         printf("The idle thread is running...\n");
-	    delay(100);
+	    delay(30);
     }
 }
 

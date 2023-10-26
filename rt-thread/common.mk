@@ -31,7 +31,7 @@ C_OBJS := $(C_SRCS:.c=.o)
 LINK_OBJS += $(ASM_OBJS) $(C_OBJS)
 LINK_DEPS += $(LINKER_SCRIPT)
 
-CLEAN_OBJS += $(TARGET) $(LINK_OBJS) $(TARGET).dump $(TARGET).bin
+CLEAN_OBJS += $(TARGET) $(LINK_OBJS) $(TARGET).dump $(TARGET).bin ../$(TARGET).inst
 
 CFLAGS += -march=$(RISCV_ARCH)
 CFLAGS += -mabi=$(RISCV_ABI)
@@ -41,6 +41,7 @@ $(TARGET): $(LINK_OBJS) $(LINK_DEPS) Makefile
 	$(RISCV_GCC) $(CFLAGS) $(INCLUDES) $(LINK_OBJS) -o $@ $(LDFLAGS)
 	$(RISCV_OBJCOPY) -O binary $@ $@.bin
 	$(RISCV_OBJDUMP) --disassemble-all $@ > $@.dump
+	python ../../tools/bin_to_mem.py $@.bin ../$@.inst
 
 $(ASM_OBJS): %.o: %.S
 	$(RISCV_GCC) $(CFLAGS) $(INCLUDES) -c -o $@ $<

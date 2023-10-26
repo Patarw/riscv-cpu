@@ -89,5 +89,6 @@ rt_int32_t rt_strncmp(const char *cs, const char *ct, rt_ubase_t count);
 char *rt_strncpy(char *dest, const char *src, rt_ubase_t n);
 int __rt_ffs(int value);
 void *rt_memset(void *src, int c, rt_ubase_t n);
+void *rt_memcpy(void *dst, const void *src, rt_ubase_t count);
 
 #endif

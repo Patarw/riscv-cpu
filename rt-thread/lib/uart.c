@@ -44,12 +44,17 @@ void uart_puts(char *s)
 
 char uart_getc()
 {
+	int ch = -1;
+
 	// wait RI to 1
-	while ((uart_read_reg(UART_CTRL) & (1 << 0)) != (1 << 0));
+	if ((uart_read_reg(UART_CTRL) & (1 << 0)) != (1 << 0))
+		return -1;
 	// set RI to 0
 	uart_write_reg(UART_CTRL, (uart_read_reg(UART_CTRL) & ~(1 << 0)));
 	// read receive buf
-	return uart_read_reg(UART_RX_DATA_BUF);
+	ch = uart_read_reg(UART_RX_DATA_BUF);
+
+	return ch;
 }
 
 void uart_gets(char *s, uint8_t len){

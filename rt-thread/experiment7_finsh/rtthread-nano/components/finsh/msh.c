@@ -92,8 +92,6 @@ static int msh_split(char *cmd, rt_size_t length, char *argv[FINSH_ARG_MAX])
     return argc;
 }
 
-extern long hello(void);
-
 static cmd_function_t msh_get_cmd(char *cmd, int size)
 {
     struct finsh_syscall *index;

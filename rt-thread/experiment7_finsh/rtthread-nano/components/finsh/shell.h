@@ -12,7 +12,7 @@
 const char* finsh_get_prompt(void);
 
 #ifndef FINSH_THREAD_NAME
-#define FINSH_THREAD_NAME   "tshell"
+#define FINSH_THREAD_NAME   "tshell "
 #endif
 
 enum input_stat

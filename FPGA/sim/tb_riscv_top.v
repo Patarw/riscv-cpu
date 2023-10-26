@@ -42,7 +42,7 @@ module tb_riscv_top;
         
         wait(ex_end_flag == 32'h1); //wait sim end
     
-        fd = $fopen("../../../../tests/output/rv32i/I-SB-01.elf.out");
+        fd = $fopen("../../../../tests/output/rv32i/I-ADD-01.elf.out");
         for (r = begin_signature; r < end_signature; r = r + 4) begin
             $fdisplay(fd, "%x", riscv_soc_top_0.u_rom._rom[r[31:2]]);
         end
@@ -58,7 +58,7 @@ module tb_riscv_top;
     
     // read mem data
     initial begin
-        $readmemh("../../../../tests/test_case/rv32i/I-SB-01.elf.data", riscv_soc_top_0.u_rom._rom);
+        $readmemh("../../../../tests/test_case/rv32i/I-ADD-01.elf.data", riscv_soc_top_0.u_rom._rom);
     end
 
     RISCV_SOC_TOP riscv_soc_top_0(

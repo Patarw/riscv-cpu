@@ -80,7 +80,11 @@ void thread_1_entry(void *p_arg)
 
     for ( ;; ) 
     {
-        printf("Thread 1 running...\n");
+        for(int i = 0;i < 5;i++)
+        {
+            printf("Thread 1 running...\n");
+            delay(10);
+        }
 
         tick = rt_tick_get();
         printf("the thread1 tick before is %d\n", tick);
@@ -96,18 +100,10 @@ void thread_1_entry(void *p_arg)
 /* 线程 2 入口函数 */
 void thread_2_entry(void *p_arg)
 {
-    rt_tick_t tick;
     for ( ;; ) 
     {
         printf("Thread 2 running...\n");
-
-        tick = rt_tick_get();
-        printf("the thread2 tick before is %d\n", tick);
-
-        delay(100);
-
-        tick = rt_tick_get();
-        printf("the thread2 tick after is %d\n", tick);
+        delay(30);
     }
 }
 

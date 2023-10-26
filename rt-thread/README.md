@@ -1,7 +1,29 @@
 # RT-Thread 实验
-本目录用于学习 RT-Thread 源码，从零开始重写一遍 RT-Thread nano 内核，并且移植到本 cpu 上运行，基于野火《RT-Thread 内核实现与应用开发实战—基于STM32》，书籍的 pdf 在 doc 目录下。目前正在实时更新中~
+本目录用于学习 RT-Thread 源码，从零开始重写一遍 RT-Thread nano 内核，并且移植到本 cpu 上运行，基于**野火《RT-Thread 内核实现与应用开发实战—基于STM32》**，书籍的 pdf 在 doc 目录下。目前已经开发完毕~
 
-**编译环境**：
+## 目录结构
+1.  include：公共头文件目录；
+2.  lib：公共函数目录；
+3.  start.S：启动文件；
+4.  link.lds：链接脚本；
+5.  common.mk：Makefile 的公共部分（Windows 平台下）；
+6.  common_ubuntu.mk：Makefile 的公共部分（Ubuntu 平台下）；
+7.  experiment1_thread：实验 1，对应书籍第一部分《第6章 线程的定义与线程切换的实现》；
+8.  experiment2_container：实验 2，对应《第7章 临界段的保护》《第8章 对象容器的实现》两章；
+9.  experiment3_delay：实验 3，对应《第9章 空闲线程与阻塞延时的实现》
+10. experiment4_muti_priority：实验 4，对应《第10章 多优先级》
+11. experiment5_timer：实验 5，对应《第11章 定时器的实现》
+12. experiment6_timeslice：实验6，对应《第12章 支持时间片》
+13. experiment7_finsh：实验7，自己移植的 Finsh 组件
+
+## 编译环境
+### Windows 平台下环境搭建
+1. GNU 工具链（链接：https://pan.baidu.com/s/1Bdmn-FH0T7ekm2kMxkzJTw?pwd=qn69 提取码：qn69），百度云下载解压后，将 bin 目录添加到环境变量里即可。
+2. make 工具（链接：https://pan.baidu.com/s/1X-F1BVPMa3-B-V1EHB4tEQ?pwd=418d 提取码：418d），百度云下载解压后，将 bin 目录添加到环境变量里即可。
+3. Python 3.7
+
+### Ubuntu 平台下环境搭建
+Ubuntu 版本：
 ```
 $ lsb_release -a
 No LSB modules are available.
@@ -19,32 +41,25 @@ $ uname -r
 sudo apt update
 sudo apt install build-essential gcc make perl dkms git gcc-riscv64-unknown-elf
 ```
+并且要将 Makefile 里面的 ```include ../common.mk``` 修改为 ```include ../common_ubuntu.mk```。
+## 使用说明
 
-**使用说明**
-
-cd 到指定目录下（如 experiment1_thread），使用 make 指令生成 rtthread.bin 文件，将 rtthread.bin 文件复制到 cpu_prj\serial_utils 目录下，然后使用 serial_send.py 脚本烧录 .bin 文件（先按住板子的 key1 不动，然后在 windows cmd 执行如下指令，烧录完成后即可松开）：
+进入到指定目录下（如 experiment1_thread），执行如下命令：
 ```
-python .\serial_send.py <串口号> rtthread.bin
+make
+``` 
+编译工程后会生成二进制程序 rtthread.bin，以及 16 进制指令序列文件 rtthread.inst（在 rt-thread 目录下），用前面介绍的两种方法来运行程序，通过串口工具即可看到现象。可以使用生成的 rtthread.dump 文件来查看程序的汇编指令。
+
+使用如下命令来清除生成的文件。
 ```
-烧录完成后打开串口调试助手，按下板子的复位键即可看到对应现象。（如果没有出现现象或者现象不正确可以重新烧录）
-
-**目录结构**：
-1.  include：公共头文件目录；
-2.  lib：公共函数目录；
-3.  experiment1_thread：RT-Thread 实验 1，对应书籍第一部分《第6章 线程的定义与线程切换的实现》；
-4.  experiment2_container：RT-Thread 实验 2，对应书籍《第7章 临界段的保护》《第8章 对象容器的实现》两章；
-5.  experiment3_delay：RT-Thread 实验 3，对应书籍《第9章 空闲线程与阻塞延时的实现》
-6.  start.S：启动文件，进行初始化以及数据的搬运；
-7.  link.lds：链接脚本；
-8.  common.mk：Makefile 的公共部分；
-
+make clean
+```
+ 
 ## 1. experiment1_thread（线程的定义与线程切换的实现）
 **目录结构**：
 1.  rtthread-nano：源码目录，附带注释，与官方源码一起食用更佳；
 2.  user：用户程序目录，定义用户线程；
 3.  Makefile：编译脚本，执行 make 或 make clean；
-4.  rtthread.bin：二进制程序，可以用 serial_utils 目录下的烧录工具烧录到 cpu 中；
-5.  rtthread.dump：反汇编结果；
 
 **实验现象**：
 用串口工具连上开发板，打开串口，按下复位键后，可以看到两个线程轮流打印信息：
@@ -55,3 +70,113 @@ Thread 1 running...
 Thread 2 running...
 ...
 ```
+## 2. experiment2_container（临界段的保护，对象容器的实现）
+**实验现象**：
+用串口工具连上开发板，打开串口，按下复位键后，可以看到线程1会打印所有的线程对象信息：
+```
+Thread 1 running...
+the name of thread object: thread2
+the type of thread object: 129
+the flag of thread object: 0
+the name of thread object: thread1
+the type of thread object: 129
+the flag of thread object: 0
+Thread 2 running...
+...
+```
+## 3. experiment3_delay（空闲线程与阻塞延时的实现）
+**实验现象**：
+用串口工具连上开发板，打开串口，按下复位键后，可以看到在线程1和线程2阻塞延时后，空闲线程开始执行，5个 tick 后，线程1和2重新开始执行：
+```
+Thread 1 running...
+the thread1 tick before is 0
+Thread 2 running...
+the thread2 tick before is 0
+The idle thread is running...
+The idle thread is running...
+the thread1 tick after is 5
+...
+```
+## 4. experiment4_muti_priority（多优先级）
+**实验现象**：
+用串口工具连上开发板，打开串口，按下复位键后，可以看到线程1会一直执行（线程1的优先级比线程2高），直到线程1阻塞后，线程2才会出来执行：
+```
+Thread 1 running...
+Thread 1 running...
+Thread 1 running...
+Thread 1 running...
+Thread 1 running...
+the thread1 tick before is 4
+Thread 2 running...
+Thread 2 running...
+Thread 2 running...
+the thread1 tick after is 9
+...
+```
+## 5. experiment5_timer（定时器的实现）
+**实验现象**：
+用串口工具连上开发板，打开串口，按下复位键后，可以看到线程1会先执行，然后延时5个 tick，其次是线程2执行，然后延时2个 tick，最后是线程3执行：
+```
+Thread 1 running...
+the thread1 tick before is 0
+Thread 2 running...
+the thread2 tick before is 0
+Thread 3 running...
+Thread 3 running...
+the thread2 tick after is 2
+Thread 2 running...
+the thread2 tick before is 2
+Thread 3 running...
+Thread 3 running...
+the thread2 tick after is 4
+Thread 2 running...
+the thread2 tick before is 4
+Thread 3 running...
+the thread1 tick after is 5
+Thread 1 running...
+...
+```
+## 6. experiment6_timeslice（支持时间片）
+**实验现象**：
+用串口工具连上开发板，打开串口，按下复位键后，可以看到因为引入了时间片，三个线程会轮流执行：
+```
+Thread 1 running...
+Thread 2 running...
+Thread 3 running...
+Thread 1 running...
+Thread 2 running...
+Thread 3 running...
+...
+```
+
+## 7. experiment7_finsh（Finsh 组件）
+**实验现象**：
+使用 MobaXterm 或者 XShell 等工具连接串口，按下复位键后可以看到显示如下信息：
+```
+Welcome to RT-Thread's World!
+msh >
+```
+输入 list 命令列出当前支持的所有命令：
+```
+msh >list
+--Function List:
+hello: say hello world
+list: list all command
+list_thread: list all thread
+```
+输入 hello 命令可以打印一行信息：
+```
+msh >hello
+Hello RT-Thread!
+```
+输入 list_thread 命令会打印当前操作系统所运行的所有线程信息：
+```
+msh >list_thread
+name       pri   status       sp       stack size   used   left tick   error
+--------   ---   ------   ----------   ----------   ----   ---------   -----
+thread2     6    ready    0x100012d0      512B      164B       1        0
+thread1     6    ready    0x100010d0      512B      164B       1        0
+tshell      6    ready    0x10000570      1024B      540B       7        0
+tidle       7    ready    0x10000130      256B      128B       32        0
+```
+并且在 cmd.c 文件内支持自定义命令！

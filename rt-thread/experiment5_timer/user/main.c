@@ -132,19 +132,10 @@ void thread_2_entry(void *p_arg)
 /* 线程 3 入口函数 */
 void thread_3_entry(void *p_arg)
 {
-    rt_tick_t tick;
     for ( ;; ) 
     {
         printf("Thread 3 running...\n");
-
-        tick = rt_tick_get();
-        printf("the thread3 tick before is %d\n", tick);
-
-        /* 阻塞线程 2s */
-        rt_thread_delay(2);
-
-        tick = rt_tick_get();
-        printf("the thread3 tick after is %d\n", tick);
+        delay(10);
     }
 }
 
