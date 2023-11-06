@@ -31,7 +31,6 @@ module id(
     input   wire[`INST_DATA_BUS]    ins_i          , 
     input   wire[`INST_ADDR_BUS]    ins_addr_i     , 
     
-    // 译码得到的opcode funct3 funct7
     output  wire[`INST_DATA_BUS]    ins_o          ,     
     
     // 传给RF模块的寄存器地址，用于取数据

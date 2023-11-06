@@ -105,7 +105,7 @@ module EX_UNIT(
     assign funct3 = ins_i[14:12];
     assign funct7 = ins_i[31:25];
     
-    // 内存读地址延迟一个时钟周期
+    // 读出的数据延后的一个时钟周期，所以内存读地址也需要延迟一个时钟周期
     always @ (posedge clk or negedge rst_n) begin
         if(!rst_n) begin
             mem_rd_addr <= `ZERO_WORD;

@@ -158,6 +158,8 @@ QQ 交流群：892873718
 
 [RISC-V处理器的设计与实现（三）—— 上板验证（基于野火征途Pro开发板）](https://blog.csdn.net/qq_51103378/article/details/131430334?spm=1001.2014.3001.5502)
 
+[RISC-V处理器设计（四）—— Verilog 代码设计](https://blog.csdn.net/qq_51103378/article/details/134175814?spm=1001.2014.3001.5501)
+
 
 下面是 tinyriscv 这个开源项目的地址，本项目很多思路和设计都参考了 tinyriscv 开源项目：
 

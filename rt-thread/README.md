@@ -54,6 +54,8 @@ make
 ```
 make clean
 ```
+
+**注：目前 experiment1_thread 与 experiment2_container 只能用前面介绍的第一种方法来运行，即直接作为 FPGA 比特流的一部分下载到板子上。其他的实验使用前面的两种方法都是没问题的。**
  
 ## 1. experiment1_thread（线程的定义与线程切换的实现）
 **目录结构**：
