@@ -43,9 +43,9 @@ module rom(
     reg[`INST_ADDR_BUS]    pc_addr_reg;
     
     // 读取需要固化在rom里面的程序，方便仿真
-    initial begin
-        $readmemh("../../serial_utils/binary/led_flow.inst", _rom);
-    end
+    //initial begin
+    //    $readmemh("../../serial_utils/binary/led_flow.inst", _rom);
+    //end
     
     //initial begin
     //    $readmemh("../../rt-thread/rtthread.inst", _rom);

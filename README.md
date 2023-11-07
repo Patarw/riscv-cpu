@@ -81,7 +81,7 @@ sudo apt install build-essential gcc make perl dkms git gcc-riscv64-unknown-elf
     ```
     python ../../tools/bin_to_mem.py led_flow.bin led_flow.inst
     ```
-2. 再将 FPGA/rtl/perips/rom.v 文件里面的路径改为生成的指令文件 led_flow.inst 的路径：
+2. 再将 FPGA/rtl/perips/rom.v 文件里面的如下部分的注释打开，并且将路径改为生成的指令文件 led_flow.inst 的路径：
 ![](./doc/img/2023-10-26-14-32-31.png)
 3. 重新编译后，直接烧录到板子上即可，烧录后出现流水灯现象即为成功：
 ![](./doc/img/2023-10-26-14-44-47.png)
@@ -96,9 +96,9 @@ sudo apt install build-essential gcc make perl dkms git gcc-riscv64-unknown-elf
     python .\serial_send.py COM3 .\binary\led_flow.bin
     ```
     ![](./doc/img/2023-10-26-14-58-08.png)
-3. 烧录完成后，若发现板子上 led 交替闪烁，即为成功。
+3. 烧录完成后，**按下复位键**，若发现板子上 led 交替闪烁，即为成功。
 
-两种方法相比，第一种方法更为稳妥，第二种方法更为灵活，这里更建议大家使用第一种方法，在程序出问题的时候，第一种方法还可以使用 modelsim 仿真调试。
+两种方法相比，第一种方法更为稳妥，第二种方法更为灵活，这里更建议大家使用第一种方法，在程序出问题的时候，第一种方法还可以使用 modelsim 仿真调试。第二种方法目前还不太稳定，如果遇到第二种方法烧录失败可以多烧录几次（可能因为接触不良），或者尝试一下第一种方法。
 ## 3.4 运行指令测试程序
 测试集存放在 ```tests/test_case``` 目录下，以 **I-ADD-01.elf.data** 为例，首先修改仿真文件 **tb_riscv_top** 的文件路径：
 

@@ -1,5 +1,5 @@
 Flow report for cpu_prj
-Thu Oct 26 16:24:59 2023
+Tue Nov 07 10:45:36 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -40,17 +40,17 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Flow Summary                                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Flow Status                        ; Successful - Thu Oct 26 16:24:59 2023            ;
+; Flow Status                        ; Successful - Tue Nov 07 10:45:36 2023            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; cpu_prj                                          ;
 ; Top-level Entity Name              ; RISCV_SOC_TOP                                    ;
 ; Family                             ; Cyclone IV E                                     ;
 ; Device                             ; EP4CE10F17C8                                     ;
 ; Timing Models                      ; Final                                            ;
-; Total logic elements               ; 6,554 / 10,320 ( 64 % )                          ;
-;     Total combinational functions  ; 5,461 / 10,320 ( 53 % )                          ;
-;     Dedicated logic registers      ; 2,547 / 10,320 ( 25 % )                          ;
-; Total registers                    ; 2547                                             ;
+; Total logic elements               ; 6,423 / 10,320 ( 62 % )                          ;
+;     Total combinational functions  ; 5,370 / 10,320 ( 52 % )                          ;
+;     Dedicated logic registers      ; 2,483 / 10,320 ( 24 % )                          ;
+; Total registers                    ; 2483                                             ;
 ; Total pins                         ; 9 / 180 ( 5 % )                                  ;
 ; Total virtual pins                 ; 0                                                ;
 ; Total memory bits                  ; 327,680 / 423,936 ( 77 % )                       ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/26/2023 16:24:03 ;
+; Start date & time ; 11/07/2023 10:44:21 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cpu_prj             ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +--------------------------------------+---------------------------------------+---------------+---------------+----------------+
 ; Assignment Name                      ; Value                                 ; Default Value ; Entity Name   ; Section Id     ;
 +--------------------------------------+---------------------------------------+---------------+---------------+----------------+
-; COMPILER_SIGNATURE_ID                ; 150241227357473.169830864302456       ; --            ; --            ; --             ;
+; COMPILER_SIGNATURE_ID                ; 150241227357473.169932506113892       ; --            ; --            ; --             ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --            ; tb_riscv_top   ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; tb_riscv_top                          ; --            ; --            ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                           ; --            ; --            ; eda_simulation ;
@@ -101,12 +101,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:17     ; 1.0                     ; 4687 MB             ; 00:00:08                           ;
-; Fitter                    ; 00:00:25     ; 5.5                     ; 5952 MB             ; 00:00:12                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 4570 MB             ; 00:00:00                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.3                     ; 4852 MB             ; 00:00:02                           ;
-; EDA Netlist Writer        ; 00:00:04     ; 1.0                     ; 4612 MB             ; 00:00:01                           ;
-; Total                     ; 00:00:51     ; --                      ; --                  ; 00:00:23                           ;
+; Analysis & Synthesis      ; 00:00:17     ; 1.0                     ; 4687 MB             ; 00:00:06                           ;
+; Fitter                    ; 00:00:33     ; 5.1                     ; 5968 MB             ; 00:00:14                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 4574 MB             ; 00:00:00                           ;
+; TimeQuest Timing Analyzer ; 00:00:04     ; 2.0                     ; 4839 MB             ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:05     ; 1.0                     ; 4607 MB             ; 00:00:01                           ;
+; Total                     ; 00:01:00     ; --                      ; --                  ; 00:00:23                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
