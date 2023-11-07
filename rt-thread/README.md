@@ -8,13 +8,14 @@
 4.  link.lds：链接脚本；
 5.  common.mk：Makefile 的公共部分（Windows 平台下）；
 6.  common_ubuntu.mk：Makefile 的公共部分（Ubuntu 平台下）；
-7.  experiment1_thread：实验 1，对应书籍第一部分《第6章 线程的定义与线程切换的实现》；
-8.  experiment2_container：实验 2，对应《第7章 临界段的保护》《第8章 对象容器的实现》两章；
-9.  experiment3_delay：实验 3，对应《第9章 空闲线程与阻塞延时的实现》
-10. experiment4_muti_priority：实验 4，对应《第10章 多优先级》
-11. experiment5_timer：实验 5，对应《第11章 定时器的实现》
-12. experiment6_timeslice：实验6，对应《第12章 支持时间片》
-13. experiment7_finsh：实验7，自己移植的 Finsh 组件
+7.  demo：用户可以在本目录下编写能在本 CPU 上运行的 C 程序；
+8.  experiment1_thread：实验 1，对应书籍第一部分《第6章 线程的定义与线程切换的实现》；
+9.  experiment2_container：实验 2，对应《第7章 临界段的保护》《第8章 对象容器的实现》两章；
+10. experiment3_delay：实验 3，对应《第9章 空闲线程与阻塞延时的实现》
+11. experiment4_muti_priority：实验 4，对应《第10章 多优先级》
+12. experiment5_timer：实验 5，对应《第11章 定时器的实现》
+13. experiment6_timeslice：实验6，对应《第12章 支持时间片》
+14. experiment7_finsh：实验7，自己移植的 Finsh 组件
 
 ## 编译环境
 ### Windows 平台下环境搭建
@@ -44,7 +45,7 @@ sudo apt install build-essential gcc make perl dkms git gcc-riscv64-unknown-elf
 并且要将 Makefile 里面的 ```include ../common.mk``` 修改为 ```include ../common_ubuntu.mk```。
 ## 使用说明
 
-进入到指定目录下（如 experiment1_thread），执行如下命令：
+进入到指定目录下（如 experiment1_thread 目录），执行如下命令：
 ```
 make
 ``` 
@@ -56,7 +57,30 @@ make clean
 ```
 
 **注：目前 experiment1_thread 与 experiment2_container 只能用前面介绍的第一种方法来运行，即直接作为 FPGA 比特流的一部分下载到板子上。其他的实验使用前面的两种方法都是没问题的。**
- 
+
+## demo 目录
+本目录可以供用户在 main.c 文件中编写自己的 C 程序。
+
+使用方法和其他 experiment 目录一样，使用 make 命令编译生成 demo.bin 和 demo.inst 文件，再利用前面介绍的方法运行程序即可。
+
+默认的 main.c 代码为一个简单的加法操作：
+```
+int main(void)
+{
+    int a = 1;
+    int b = 2;
+    int c = a + b;
+    printf("The result of c: %d\n", c);
+
+    /* stop here */
+    while(1){};
+}
+```
+烧录后使用串口看到的现象为：
+```
+The result of c: 3
+```
+
 ## 1. experiment1_thread（线程的定义与线程切换的实现）
 **目录结构**：
 1.  rtthread-nano：源码目录，附带注释，与官方源码一起食用更佳；
