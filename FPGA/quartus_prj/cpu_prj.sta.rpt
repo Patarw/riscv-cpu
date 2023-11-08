@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for cpu_prj
-Tue Nov 07 10:45:29 2023
+Wed Nov 08 19:13:34 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -112,12 +112,12 @@ applicable agreement for further details.
 ; Number detected on machine ; 20          ;
 ; Maximum allowed            ; 14          ;
 ;                            ;             ;
-; Average used               ; 2.00        ;
+; Average used               ; 1.67        ;
 ; Maximum used               ; 14          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-3         ;  50.0%      ;
+;     Processors 2-3         ;  33.3%      ;
 ;     Processors 4-14        ; < 0.1%      ;
 ;     Processors 15-20       ;   0.0%      ;
 +----------------------------+-------------+
@@ -128,7 +128,7 @@ applicable agreement for further details.
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; cpu_prj.sdc   ; OK     ; Tue Nov 07 10:45:26 2023 ;
+; cpu_prj.sdc   ; OK     ; Wed Nov 08 19:13:31 2023 ;
 +---------------+--------+--------------------------+
 
 
@@ -268,8 +268,8 @@ No paths to report.
 ; -12.602 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.231      ; 28.881     ;
 ; -12.602 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[1] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a5~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.270      ; 28.920     ;
 ; -12.598 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a8~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.255      ; 28.901     ;
-; -12.595 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a22~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.244      ; 28.887     ;
 ; -12.595 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a5~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.240      ; 28.883     ;
+; -12.595 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a22~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.244      ; 28.887     ;
 ; -12.595 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[1] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a8~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.255      ; 28.898     ;
 ; -12.588 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a8~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.225      ; 28.861     ;
 ; -12.575 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[5] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a9~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.248      ; 28.871     ;
@@ -309,6 +309,9 @@ No paths to report.
 +-------+---------------------------------------------------------------------+-----------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node                                                           ; To Node                                                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+---------------------------------------------------------------------+-----------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.452 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_busy_o             ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_busy_o         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state.BUSY         ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state.BUSY     ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
+; 0.452 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_res_ready_o        ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_res_ready_o    ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
 ; 0.452 ; uart_debug:u_uart_debug|byte_cnt[0]                                 ; uart_debug:u_uart_debug|byte_cnt[0]                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
 ; 0.452 ; uart_debug:u_uart_debug|byte_cnt[1]                                 ; uart_debug:u_uart_debug|byte_cnt[1]                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
 ; 0.452 ; uart_debug:u_uart_debug|byte_cnt[2]                                 ; uart_debug:u_uart_debug|byte_cnt[2]                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
@@ -321,16 +324,6 @@ No paths to report.
 ; 0.452 ; uart:u_uart|uart_rx_state.IDLE                                      ; uart:u_uart|uart_rx_state.IDLE                                  ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
 ; 0.452 ; uart:u_uart|uart_ctrl[0]                                            ; uart:u_uart|uart_ctrl[0]                                        ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
 ; 0.452 ; uart:u_uart|uart_ctrl[1]                                            ; uart:u_uart|uart_ctrl[1]                                        ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
-; 0.452 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_busy_o             ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_busy_o         ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
-; 0.452 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state.BUSY         ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_state.BUSY     ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
-; 0.452 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_res_ready_o        ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_res_ready_o    ; clk          ; clk         ; 0.000        ; 0.082      ; 0.746      ;
-; 0.453 ; uart_debug:u_uart_debug|bit_cnt[1]                                  ; uart_debug:u_uart_debug|bit_cnt[1]                              ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.453 ; uart_debug:u_uart_debug|bit_cnt[3]                                  ; uart_debug:u_uart_debug|bit_cnt[3]                              ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.453 ; uart_debug:u_uart_debug|uart_state.BEGIN                            ; uart_debug:u_uart_debug|uart_state.BEGIN                        ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.453 ; uart_debug:u_uart_debug|uart_state.SEND_BYTE                        ; uart_debug:u_uart_debug|uart_state.SEND_BYTE                    ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.453 ; uart_debug:u_uart_debug|uart_state.END                              ; uart_debug:u_uart_debug|uart_state.END                          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.453 ; timer:u_timer|timer_ctrl[2]                                         ; timer:u_timer|timer_ctrl[2]                                     ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.453 ; timer:u_timer|timer_ctrl[0]                                         ; timer:u_timer|timer_ctrl[0]                                     ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; uart:u_uart|uart_tx_state.BEGIN                                     ; uart:u_uart|uart_tx_state.BEGIN                                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; uart:u_uart|uart_tx_state.TX_BYTE                                   ; uart:u_uart|uart_tx_state.TX_BYTE                               ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; uart:u_uart|uart_tx_state.END                                       ; uart:u_uart|uart_tx_state.END                                   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
@@ -340,25 +333,32 @@ No paths to report.
 ; 0.453 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[0]           ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[0]       ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; uart:u_uart|tx_data_rd                                              ; uart:u_uart|tx_data_rd                                          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.453 ; uart:u_uart|uart_tx_state.IDLE                                      ; uart:u_uart|uart_tx_state.IDLE                                  ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
-; 0.464 ; uart:u_uart|rx_bit_cnt[0]                                           ; uart:u_uart|rx_bit_cnt[0]                                       ; clk          ; clk         ; 0.000        ; 0.082      ; 0.758      ;
+; 0.453 ; uart_debug:u_uart_debug|bit_cnt[1]                                  ; uart_debug:u_uart_debug|bit_cnt[1]                              ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; uart_debug:u_uart_debug|bit_cnt[3]                                  ; uart_debug:u_uart_debug|bit_cnt[3]                              ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; uart_debug:u_uart_debug|uart_state.BEGIN                            ; uart_debug:u_uart_debug|uart_state.BEGIN                        ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; uart_debug:u_uart_debug|uart_state.SEND_BYTE                        ; uart_debug:u_uart_debug|uart_state.SEND_BYTE                    ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; uart_debug:u_uart_debug|uart_state.END                              ; uart_debug:u_uart_debug|uart_state.END                          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; timer:u_timer|timer_ctrl[2]                                         ; timer:u_timer|timer_ctrl[2]                                     ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; timer:u_timer|timer_ctrl[0]                                         ; timer:u_timer|timer_ctrl[0]                                     ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
 ; 0.464 ; RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|cycle[0]               ; RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|cycle[0]           ; clk          ; clk         ; 0.000        ; 0.082      ; 0.758      ;
+; 0.464 ; uart:u_uart|rx_bit_cnt[0]                                           ; uart:u_uart|rx_bit_cnt[0]                                       ; clk          ; clk         ; 0.000        ; 0.082      ; 0.758      ;
 ; 0.465 ; uart_debug:u_uart_debug|bit_cnt[0]                                  ; uart_debug:u_uart_debug|bit_cnt[0]                              ; clk          ; clk         ; 0.000        ; 0.081      ; 0.758      ;
 ; 0.493 ; uart:u_uart|rx_bit_cnt[1]                                           ; uart:u_uart|rx_bit_cnt[2]                                       ; clk          ; clk         ; 0.000        ; 0.082      ; 0.787      ;
 ; 0.499 ; uart:u_uart|delay_buffer:u_delay_buffer|buffer[0][0]                ; uart:u_uart|delay_buffer:u_delay_buffer|buffer[1][0]            ; clk          ; clk         ; 0.000        ; 0.082      ; 0.793      ;
-; 0.501 ; uart_debug:u_uart_debug|uart_state.IDLE                             ; uart_debug:u_uart_debug|uart_state.BEGIN                        ; clk          ; clk         ; 0.000        ; 0.081      ; 0.794      ;
 ; 0.501 ; uart:u_uart|delay_buffer:u_delay_buffer|buffer[1][0]                ; uart:u_uart|delay_buffer:u_delay_buffer|buffer[2][0]            ; clk          ; clk         ; 0.000        ; 0.082      ; 0.795      ;
 ; 0.501 ; RISCV:u_RISCV|clint:u_clint|div_ins_addr[22]                        ; RISCV:u_RISCV|clint:u_clint|ins_addr[22]                        ; clk          ; clk         ; 0.000        ; 0.081      ; 0.794      ;
+; 0.501 ; uart_debug:u_uart_debug|uart_state.IDLE                             ; uart_debug:u_uart_debug|uart_state.BEGIN                        ; clk          ; clk         ; 0.000        ; 0.081      ; 0.794      ;
 ; 0.502 ; uart:u_uart|uart_tx_state.IDLE                                      ; uart:u_uart|uart_tx_state.BEGIN                                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.795      ;
 ; 0.509 ; uart:u_uart|delay_buffer:u_delay_buffer|buffer[3][0]                ; uart:u_uart|uart_rx_delay                                       ; clk          ; clk         ; 0.000        ; 0.098      ; 0.819      ;
 ; 0.509 ; uart_debug:u_uart_debug|data_rd_flag                                ; uart_debug:u_uart_debug|mem_wr_en_o                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.803      ;
 ; 0.516 ; uart_debug:u_uart_debug|byte_cnt[2]                                 ; uart_debug:u_uart_debug|data_rd_flag                            ; clk          ; clk         ; 0.000        ; 0.082      ; 0.810      ;
 ; 0.516 ; uart_debug:u_uart_debug|byte_cnt[0]                                 ; uart_debug:u_uart_debug|byte_cnt[1]                             ; clk          ; clk         ; 0.000        ; 0.082      ; 0.810      ;
 ; 0.526 ; uart:u_uart|uart_rx_data_buf_temp[3]                                ; uart:u_uart|uart_rx_data_buf_temp[2]                            ; clk          ; clk         ; 0.000        ; 0.081      ; 0.819      ;
+; 0.527 ; RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|mepc[27]               ; RISCV:u_RISCV|clint:u_clint|int_addr_o[27]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 0.819      ;
 ; 0.527 ; uart:u_uart|uart_rx_data_buf_temp[7]                                ; uart:u_uart|uart_rx_data_buf_temp[6]                            ; clk          ; clk         ; 0.000        ; 0.081      ; 0.820      ;
 ; 0.527 ; uart:u_uart|uart_rx_data_buf_temp[4]                                ; uart:u_uart|uart_rx_data_buf_temp[3]                            ; clk          ; clk         ; 0.000        ; 0.081      ; 0.820      ;
-; 0.527 ; RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|mepc[27]               ; RISCV:u_RISCV|clint:u_clint|int_addr_o[27]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 0.819      ;
-; 0.528 ; uart:u_uart|uart_rx_data_buf_temp[6]                                ; uart:u_uart|uart_rx_data_buf_temp[5]                            ; clk          ; clk         ; 0.000        ; 0.081      ; 0.821      ;
 ; 0.528 ; RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|mepc[18]               ; RISCV:u_RISCV|clint:u_clint|int_addr_o[18]                      ; clk          ; clk         ; 0.000        ; 0.080      ; 0.820      ;
+; 0.528 ; uart:u_uart|uart_rx_data_buf_temp[6]                                ; uart:u_uart|uart_rx_data_buf_temp[5]                            ; clk          ; clk         ; 0.000        ; 0.081      ; 0.821      ;
 ; 0.534 ; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|ins_addr_o[17]     ; RISCV:u_RISCV|clint:u_clint|div_ins_addr[17]                    ; clk          ; clk         ; 0.000        ; 0.081      ; 0.827      ;
 ; 0.558 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[29] ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[29]      ; clk          ; clk         ; 0.000        ; 0.081      ; 0.851      ;
 ; 0.641 ; uart_debug:u_uart_debug|wr_data_reg[4]                              ; uart_debug:u_uart_debug|mem_wr_data_o[4]                        ; clk          ; clk         ; 0.000        ; 0.081      ; 0.934      ;
@@ -373,8 +373,8 @@ No paths to report.
 ; 0.674 ; RISCV:u_RISCV|clint:u_clint|csr_state.CSR_MCAUSE                    ; RISCV:u_RISCV|clint:u_clint|int_addr_o[12]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 0.967      ;
 ; 0.675 ; RISCV:u_RISCV|clint:u_clint|csr_state.CSR_MCAUSE                    ; RISCV:u_RISCV|clint:u_clint|int_addr_o[26]                      ; clk          ; clk         ; 0.000        ; 0.081      ; 0.968      ;
 ; 0.690 ; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|pc:u_pc|pc_o[31]                 ; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|pc:u_pc|pc_o[31]             ; clk          ; clk         ; 0.000        ; 0.080      ; 0.982      ;
-; 0.700 ; uart:u_uart|uart_rx_data_buf_temp[0]                                ; uart:u_uart|uart_rx_data_buf[0]                                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.993      ;
 ; 0.700 ; RISCV:u_RISCV|clint:u_clint|div_ins_addr[3]                         ; RISCV:u_RISCV|clint:u_clint|ins_addr[3]                         ; clk          ; clk         ; 0.000        ; 0.081      ; 0.993      ;
+; 0.700 ; uart:u_uart|uart_rx_data_buf_temp[0]                                ; uart:u_uart|uart_rx_data_buf[0]                                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.993      ;
 ; 0.704 ; RISCV:u_RISCV|clint:u_clint|ins_addr[9]                             ; RISCV:u_RISCV|clint:u_clint|wr_data_o[9]                        ; clk          ; clk         ; 0.000        ; 0.079      ; 0.995      ;
 ; 0.705 ; uart:u_uart|uart_rx_data_buf_temp[1]                                ; uart:u_uart|uart_rx_data_buf[1]                                 ; clk          ; clk         ; 0.000        ; 0.081      ; 0.998      ;
 ; 0.706 ; uart:u_uart|uart_rx_data_buf_temp[5]                                ; uart:u_uart|uart_rx_data_buf_temp[4]                            ; clk          ; clk         ; 0.000        ; 0.081      ; 0.999      ;
@@ -389,17 +389,17 @@ No paths to report.
 ; 0.722 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[50]          ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[51]      ; clk          ; clk         ; 0.000        ; 0.082      ; 1.016      ;
 ; 0.722 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[34]          ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[35]      ; clk          ; clk         ; 0.000        ; 0.082      ; 1.016      ;
 ; 0.722 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[61]          ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[62]      ; clk          ; clk         ; 0.000        ; 0.082      ; 1.016      ;
-; 0.723 ; uart_debug:u_uart_debug|byte_data[0]                                ; uart_debug:u_uart_debug|wr_data_reg[24]                         ; clk          ; clk         ; 0.000        ; 0.081      ; 1.016      ;
-; 0.723 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[16]          ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[17]      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.016      ;
 ; 0.723 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[43]          ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[44]      ; clk          ; clk         ; 0.000        ; 0.082      ; 1.017      ;
 ; 0.723 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[52]          ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[53]      ; clk          ; clk         ; 0.000        ; 0.082      ; 1.017      ;
 ; 0.723 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[39]          ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[40]      ; clk          ; clk         ; 0.000        ; 0.082      ; 1.017      ;
 ; 0.723 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[20]          ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[21]      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.016      ;
 ; 0.723 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[25]          ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[26]      ; clk          ; clk         ; 0.000        ; 0.082      ; 1.017      ;
 ; 0.723 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[7]           ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[8]       ; clk          ; clk         ; 0.000        ; 0.081      ; 1.016      ;
-; 0.724 ; uart:u_uart|uart_rx_state.RX_BYTE                                   ; uart:u_uart|rx_bit_cnt[1]                                       ; clk          ; clk         ; 0.000        ; 0.082      ; 1.018      ;
+; 0.723 ; uart_debug:u_uart_debug|byte_data[0]                                ; uart_debug:u_uart_debug|wr_data_reg[24]                         ; clk          ; clk         ; 0.000        ; 0.081      ; 1.016      ;
+; 0.723 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[16]          ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[17]      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.016      ;
 ; 0.724 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[23]          ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[24]      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.017      ;
 ; 0.724 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[6]           ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[7]       ; clk          ; clk         ; 0.000        ; 0.081      ; 1.017      ;
+; 0.724 ; uart:u_uart|uart_rx_state.RX_BYTE                                   ; uart:u_uart|rx_bit_cnt[1]                                       ; clk          ; clk         ; 0.000        ; 0.082      ; 1.018      ;
 ; 0.725 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[11]          ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[12]      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.018      ;
 ; 0.725 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[4]           ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[5]       ; clk          ; clk         ; 0.000        ; 0.081      ; 1.018      ;
 ; 0.726 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[28]          ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data1[29]      ; clk          ; clk         ; 0.000        ; 0.081      ; 1.019      ;
@@ -727,8 +727,8 @@ No paths to report.
 ; -10.246 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[3] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a12~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.218      ; 26.503     ;
 ; -10.245 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a22~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.217      ; 26.501     ;
 ; -10.244 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[3] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a13~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.218      ; 26.501     ;
-; -10.231 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[5] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a8~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.206      ; 26.476     ;
 ; -10.231 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a18~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.227      ; 26.497     ;
+; -10.231 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[5] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a8~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.206      ; 26.476     ;
 ; -10.228 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[5] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.215      ; 26.482     ;
 +---------+--------------------------------------------------------------------+-------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
 
@@ -1068,16 +1068,16 @@ No paths to report.
 ; 3.102 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a9~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.121      ; 13.028     ;
 ; 3.106 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a9~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.110      ; 13.013     ;
 ; 3.110 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a13~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.120      ; 13.019     ;
-; 3.114 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a13~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.109      ; 13.004     ;
 ; 3.114 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[0] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a0~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.101      ; 12.996     ;
+; 3.114 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a13~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.109      ; 13.004     ;
 ; 3.119 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a0~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.113      ; 13.003     ;
 ; 3.122 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[0] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a8~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.102      ; 12.989     ;
 ; 3.122 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[1] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a0~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.113      ; 13.000     ;
 ; 3.126 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a12~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.119      ; 13.002     ;
 ; 3.127 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a8~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.114      ; 12.996     ;
 ; 3.128 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.121      ; 13.002     ;
-; 3.130 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a12~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.108      ; 12.987     ;
 ; 3.130 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[1] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a8~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.114      ; 12.993     ;
+; 3.130 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a12~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.108      ; 12.987     ;
 ; 3.132 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.110      ; 12.987     ;
 ; 3.135 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a9~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.122      ; 12.996     ;
 ; 3.135 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[0] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a16~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.104      ; 12.978     ;
@@ -1095,8 +1095,8 @@ No paths to report.
 ; 3.167 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a18~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.114      ; 12.956     ;
 ; 3.169 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a16~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.108      ; 12.948     ;
 ; 3.170 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[3] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a8~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.114      ; 12.953     ;
-; 3.183 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.114      ; 12.940     ;
 ; 3.183 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[3] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a16~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.116      ; 12.942     ;
+; 3.183 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.114      ; 12.940     ;
 ; 3.185 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a9~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.110      ; 12.934     ;
 ; 3.190 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a9~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.122      ; 12.941     ;
 ; 3.191 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[5] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a0~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.107      ; 12.925     ;
@@ -1111,9 +1111,9 @@ No paths to report.
 ; 3.212 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[5] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a16~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.110      ; 12.907     ;
 ; 3.212 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.116      ; 12.913     ;
 ; 3.214 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a12~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.120      ; 12.915     ;
-; 3.216 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a8~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.111      ; 12.904     ;
 ; 3.216 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.122      ; 12.915     ;
 ; 3.216 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.105      ; 12.898     ;
+; 3.216 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a8~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.111      ; 12.904     ;
 ; 3.217 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[1] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a12~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.120      ; 12.912     ;
 ; 3.219 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[1] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a17~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.122      ; 12.912     ;
 ; 3.220 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a8~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.100      ; 12.889     ;
@@ -1126,8 +1126,8 @@ No paths to report.
 ; 3.229 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a0~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.107      ; 12.887     ;
 ; 3.231 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a12~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.105      ; 12.883     ;
 ; 3.232 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[6] ; ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated|ram_block1a8~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.102      ; 12.879     ;
-; 3.233 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.107      ; 12.883     ;
 ; 3.233 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg2_rd_data_o[3] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a9~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.122      ; 12.898     ;
+; 3.233 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a4~portb_address_reg0  ; clk          ; clk         ; 16.000       ; 0.107      ; 12.883     ;
 ; 3.235 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[2] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a23~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.108      ; 12.882     ;
 ; 3.237 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[0] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a21~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.104      ; 12.876     ;
 ; 3.239 ; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|reg1_rd_data_o[4] ; rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated|ram_block1a23~portb_address_reg0 ; clk          ; clk         ; 16.000       ; 0.097      ; 12.867     ;
@@ -1613,7 +1613,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Tue Nov 07 10:45:25 2023
+    Info: Processing started: Wed Nov 08 19:13:30 2023
 Info: Command: quartus_sta cpu_prj -c cpu_prj
 Info: qsta_default_script.tcl version: #1
 Info (11104): Parallel Compilation has detected 20 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 14 of the 14 physical processors detected instead.
@@ -1675,9 +1675,9 @@ Info (332146): Worst-case minimum pulse width slack is 7.370
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4839 megabytes
-    Info: Processing ended: Tue Nov 07 10:45:29 2023
+    Info: Peak virtual memory: 4837 megabytes
+    Info: Processing ended: Wed Nov 08 19:13:34 2023
     Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:03
 
 

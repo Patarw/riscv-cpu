@@ -49,7 +49,7 @@ sudo apt install build-essential gcc make perl dkms git gcc-riscv64-unknown-elf
 ```
 make
 ``` 
-编译工程后会生成二进制程序 rtthread.bin，以及 16 进制指令序列文件 rtthread.inst（在 rt-thread 目录下），用前面介绍的两种方法来运行程序，通过串口工具即可看到现象。可以使用生成的 rtthread.dump 文件来查看程序的汇编指令。
+编译工程后会生成二进制程序 rtthread.bin，以及 16 进制指令序列文件 rtthread.inst（在 rt-thread 目录下），用前面介绍的两种方法来运行程序，通过串口工具（**波特率为 19200**）即可看到现象。可以使用生成的 rtthread.dump 文件来查看程序的汇编指令。
 
 使用如下命令来清除生成的文件。
 ```

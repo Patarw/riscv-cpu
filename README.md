@@ -162,6 +162,7 @@ QQ 交流群：892873718
 
 [RISC-V处理器设计（四）—— Verilog 代码设计](https://blog.csdn.net/qq_51103378/article/details/134175814?spm=1001.2014.3001.5501)
 
+[RISC-V处理器设计（五）—— 在 RISC-V 处理器上运行 C 程序](https://blog.csdn.net/qq_51103378/article/details/134282705?spm=1001.2014.3001.5501)
 
 下面是 tinyriscv 这个开源项目的地址，本项目很多思路和设计都参考了 tinyriscv 开源项目：
 
