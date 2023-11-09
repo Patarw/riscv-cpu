@@ -53,14 +53,25 @@ module uart_debug(
     reg                         data_rd_flag;  // 数据就绪标志位
     reg[3:0]                    bit_cnt;       // 比特计数
     
-    // 将输入rx延迟4个时钟周期，减少亚稳态的影响
+    wire                        debug_en_i_delay; // 延迟后的按键输入
+    
+    // 延迟4个时钟周期，减少亚稳态的影响
     delay_buffer #(
         .DEPTH(4),
         .DATA_WIDTH(1)
-    ) u_delay_buffer(
-        .clk           (clk),   //  Master Clock
-        .data_i        (uart_rx),   //  Data Input
-        .data_o        (uart_rx_temp)    //  Data Output
+    ) u_delay_buffer1(
+        .clk           (clk),  
+        .data_i        (uart_rx),  
+        .data_o        (uart_rx_temp)   
+    );
+    
+    delay_buffer #(
+        .DEPTH(4),
+        .DATA_WIDTH(1)
+    ) u_delay_buffer2(
+        .clk           (clk),   
+        .data_i        (debug_en_i),   
+        .data_o        (debug_en_i_delay)   
     );
     
     
@@ -73,7 +84,7 @@ module uart_debug(
         if(!rst_n) begin 
             rib_wr_req_o <= 1'b0;
         end
-        else if(debug_en_i == 1'b0) begin
+        else if(debug_en_i_delay == 1'b0) begin
             rib_wr_req_o <= 1'b0;
         end
         else if(data_rd_flag == 1'b1) begin
@@ -89,7 +100,7 @@ module uart_debug(
         if(!rst_n) begin 
             baud_cnt <= 13'd0;
         end
-        else if(debug_en_i == 1'b0) begin
+        else if(debug_en_i_delay == 1'b0) begin
             baud_cnt <= 13'd0;
         end
         else if(uart_state == IDLE || baud_cnt == BAUD_CNT_MAX - 1) begin
@@ -105,7 +116,7 @@ module uart_debug(
         if(!rst_n) begin 
             byte_cnt <= 3'd0;
         end
-        else if(debug_en_i == 1'b0) begin
+        else if(debug_en_i_delay == 1'b0) begin
             byte_cnt <= 3'd0;
         end
         else if(byte_cnt == 3'd4) begin
@@ -124,7 +135,7 @@ module uart_debug(
         if(!rst_n) begin 
             data_rd_flag <= 1'b0;
         end
-        else if(debug_en_i == 1'b0) begin
+        else if(debug_en_i_delay == 1'b0) begin
             data_rd_flag <= 1'b0;
         end
         else if(byte_cnt == 3'd4) begin
@@ -140,7 +151,7 @@ module uart_debug(
         if(!rst_n) begin 
             wr_data_reg <= 32'd0;
         end
-        else if(debug_en_i == 1'b0) begin
+        else if(debug_en_i_delay == 1'b0) begin
             wr_data_reg <= 32'd0;
         end
         else if(uart_state == END && byte_cnt != 3'd0 && baud_cnt == 13'd1) begin
@@ -157,7 +168,7 @@ module uart_debug(
             mem_wr_en_o <= 1'b0;
             mem_wr_data_o <= 32'd0;
         end
-        else if(debug_en_i == 1'b0) begin
+        else if(debug_en_i_delay == 1'b0) begin
             mem_wr_en_o <= 1'b0;
             mem_wr_data_o <= 32'd0;
         end
@@ -176,7 +187,7 @@ module uart_debug(
         if(!rst_n) begin 
             mem_wr_addr_o <= 32'd0;
         end
-        else if(debug_en_i == 1'b0) begin
+        else if(debug_en_i_delay == 1'b0) begin
             mem_wr_addr_o <= 32'd0;
         end
         // 待数据写入后，地址+4
@@ -195,7 +206,7 @@ module uart_debug(
             byte_data <= 8'd0;
             bit_cnt <= 4'd0;
         end
-        else if(debug_en_i == 1'b0) begin
+        else if(debug_en_i_delay == 1'b0) begin
             uart_state <= IDLE;
             byte_data <= 8'd0;
             bit_cnt <= 4'd0;
