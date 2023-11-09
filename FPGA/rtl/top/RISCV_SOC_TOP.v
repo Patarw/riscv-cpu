@@ -25,7 +25,7 @@
 module RISCV_SOC_TOP(
 
     input   wire                        clk                 ,
-    input   wire                        rst_n               ,
+    input   wire                        sys_rst_n           ,
     
     input   wire                        uart_debug_pin      , // uart_debug使能引脚
     input   wire                        uart_rx             , // uart接收引脚
@@ -34,6 +34,7 @@ module RISCV_SOC_TOP(
     output  wire[3:0]                   gpio_pins             // led引脚资源               
     
     );
+    
     
     wire                     rib_hold_flag_o;
     
@@ -106,6 +107,15 @@ module RISCV_SOC_TOP(
     // 中断信号
     wire[`INT_BUS]           int_flag;
     assign int_flag = {6'h0, uart_int_flag_o, timer_int_flag_o};
+    
+    // 同步后的复位信号
+    wire rst_n;
+    
+    rst_ctrl u_rst_ctrl(
+        .clk          (clk),
+        .sys_rst_n    (sys_rst_n),  
+        .rst_n        (rst_n)       
+    );
     
     RISCV u_RISCV(
         .clk               (clk),

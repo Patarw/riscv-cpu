@@ -1,6 +1,6 @@
 |RISCV_SOC_TOP
-clk => clk.IN8
-rst_n => rst_n.IN8
+clk => clk.IN9
+sys_rst_n => sys_rst_n.IN1
 uart_debug_pin => _.IN1
 uart_rx => uart_rx.IN2
 uart_tx <= uart:u_uart.uart_tx
@@ -8,6 +8,14 @@ gpio_pins[0] <= gpio:u_gpio.gpio_pins
 gpio_pins[1] <= gpio:u_gpio.gpio_pins
 gpio_pins[2] <= gpio:u_gpio.gpio_pins
 gpio_pins[3] <= gpio:u_gpio.gpio_pins
+
+
+|RISCV_SOC_TOP|rst_ctrl:u_rst_ctrl
+clk => rst_reg.CLK
+clk => rst_n~reg0.CLK
+sys_rst_n => rst_reg.ACLR
+sys_rst_n => rst_n~reg0.ACLR
+rst_n <= rst_n~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |RISCV_SOC_TOP|RISCV:u_RISCV
