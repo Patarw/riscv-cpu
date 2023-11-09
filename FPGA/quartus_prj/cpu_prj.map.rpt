@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cpu_prj
-Thu Nov 09 16:09:33 2023
+Thu Nov 09 16:27:07 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -73,15 +73,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Nov 09 16:09:33 2023            ;
+; Analysis & Synthesis Status        ; Successful - Thu Nov 09 16:27:07 2023            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; cpu_prj                                          ;
 ; Top-level Entity Name              ; RISCV_SOC_TOP                                    ;
 ; Family                             ; Cyclone IV E                                     ;
-; Total logic elements               ; 6,805                                            ;
-;     Total combinational functions  ; 5,400                                            ;
-;     Dedicated logic registers      ; 2,488                                            ;
-; Total registers                    ; 2488                                             ;
+; Total logic elements               ; 6,817                                            ;
+;     Total combinational functions  ; 5,411                                            ;
+;     Dedicated logic registers      ; 2,489                                            ;
+; Total registers                    ; 2489                                             ;
 ; Total pins                         ; 9                                                ;
 ; Total virtual pins                 ; 0                                                ;
 ; Total memory bits                  ; 327,680                                          ;
@@ -186,12 +186,12 @@ applicable agreement for further details.
 ; Maximum allowed            ; 14          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 8           ;
+; Maximum used               ; 5           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ; < 0.1%      ;
-;     Processors 9-20        ;   0.0%      ;
+;     Processors 2-5         ; < 0.1%      ;
+;     Processors 6-20        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -252,28 +252,28 @@ applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 6,805     ;
+; Estimated Total logic elements              ; 6,817     ;
 ;                                             ;           ;
-; Total combinational functions               ; 5400      ;
+; Total combinational functions               ; 5411      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 3609      ;
-;     -- 3 input functions                    ; 980       ;
-;     -- <=2 input functions                  ; 811       ;
+;     -- 4 input functions                    ; 3608      ;
+;     -- 3 input functions                    ; 997       ;
+;     -- <=2 input functions                  ; 806       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 4573      ;
+;     -- normal mode                          ; 4584      ;
 ;     -- arithmetic mode                      ; 827       ;
 ;                                             ;           ;
-; Total registers                             ; 2488      ;
-;     -- Dedicated logic registers            ; 2488      ;
+; Total registers                             ; 2489      ;
+;     -- Dedicated logic registers            ; 2489      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
 ; I/O pins                                    ; 9         ;
 ; Total memory bits                           ; 327680    ;
 ; Embedded Multiplier 9-bit elements          ; 8         ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 2584      ;
-; Total fan-out                               ; 30075     ;
+; Maximum fan-out                             ; 2585      ;
+; Total fan-out                               ; 30115     ;
 ; Average fan-out                             ; 3.75      ;
 +---------------------------------------------+-----------+
 
@@ -283,40 +283,40 @@ applicable agreement for further details.
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                ; Library Name ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------+--------------+
-; |RISCV_SOC_TOP                            ; 5400 (0)          ; 2488 (0)     ; 327680      ; 8            ; 0       ; 4         ; 9    ; 0            ; |RISCV_SOC_TOP                                                                                     ; work         ;
-;    |RISCV:u_RISCV|                        ; 4471 (0)          ; 1879 (0)     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV                                                                       ; work         ;
-;       |EX_UNIT:INST_EX_UNIT|              ; 2087 (101)        ; 195 (18)     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT                                                  ; work         ;
-;          |alu:u_alu|                      ; 727 (727)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu                                        ; work         ;
-;          |cu:u_cu|                        ; 603 (603)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu                                          ; work         ;
+; |RISCV_SOC_TOP                            ; 5411 (0)          ; 2489 (0)     ; 327680      ; 8            ; 0       ; 4         ; 9    ; 0            ; |RISCV_SOC_TOP                                                                                     ; work         ;
+;    |RISCV:u_RISCV|                        ; 4476 (0)          ; 1879 (0)     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV                                                                       ; work         ;
+;       |EX_UNIT:INST_EX_UNIT|              ; 2094 (101)        ; 195 (18)     ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT                                                  ; work         ;
+;          |alu:u_alu|                      ; 730 (730)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|alu:u_alu                                        ; work         ;
+;          |cu:u_cu|                        ; 607 (607)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|cu:u_cu                                          ; work         ;
 ;          |div:u_div|                      ; 383 (383)         ; 177 (177)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div                                        ; work         ;
 ;          |mul:u_mul|                      ; 273 (194)         ; 0 (0)        ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul                                        ; work         ;
 ;             |lpm_mult:Mult0|              ; 79 (0)            ; 0 (0)        ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|lpm_mult:Mult0                         ; work         ;
 ;                |mult_7dt:auto_generated|  ; 79 (79)           ; 0 (0)        ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|mul:u_mul|lpm_mult:Mult0|mult_7dt:auto_generated ; work         ;
-;       |ID_UNIT:INST_ID_UNIT|              ; 578 (0)           ; 197 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT                                                  ; work         ;
-;          |id:u_id|                        ; 176 (176)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id                                          ; work         ;
-;          |id_ex:u_id_ex|                  ; 402 (402)         ; 197 (197)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex                                    ; work         ;
-;       |IF_UNIT:INST_IF_UNIT|              ; 104 (0)           ; 62 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT                                                  ; work         ;
-;          |if_id:u_if_id|                  ; 73 (73)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id                                    ; work         ;
+;       |ID_UNIT:INST_ID_UNIT|              ; 576 (0)           ; 197 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT                                                  ; work         ;
+;          |id:u_id|                        ; 175 (175)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id:u_id                                          ; work         ;
+;          |id_ex:u_id_ex|                  ; 401 (401)         ; 197 (197)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex                                    ; work         ;
+;       |IF_UNIT:INST_IF_UNIT|              ; 103 (0)           ; 62 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT                                                  ; work         ;
+;          |if_id:u_if_id|                  ; 72 (72)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id                                    ; work         ;
 ;          |pc:u_pc|                        ; 31 (31)           ; 30 (30)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|pc:u_pc                                          ; work         ;
-;       |RF_UNIT:INST_RF_UNIT|              ; 1560 (0)          ; 1282 (0)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT                                                  ; work         ;
-;          |csr:u_csr|                      ; 142 (142)         ; 258 (258)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr                                        ; work         ;
-;          |gpr:u_gpr|                      ; 1418 (1418)       ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|gpr:u_gpr                                        ; work         ;
+;       |RF_UNIT:INST_RF_UNIT|              ; 1561 (0)          ; 1282 (0)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT                                                  ; work         ;
+;          |csr:u_csr|                      ; 141 (141)         ; 258 (258)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr                                        ; work         ;
+;          |gpr:u_gpr|                      ; 1420 (1420)       ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|gpr:u_gpr                                        ; work         ;
 ;       |clint:u_clint|                     ; 142 (142)         ; 143 (143)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|RISCV:u_RISCV|clint:u_clint                                                         ; work         ;
 ;    |gpio:u_gpio|                          ; 37 (37)           ; 68 (68)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|gpio:u_gpio                                                                         ; work         ;
 ;    |ram:u_ram|                            ; 0 (0)             ; 55 (55)      ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|ram:u_ram                                                                           ; work         ;
 ;       |altsyncram:_ram_rtl_0|             ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|ram:u_ram|altsyncram:_ram_rtl_0                                                     ; work         ;
 ;          |altsyncram_2mc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|ram:u_ram|altsyncram:_ram_rtl_0|altsyncram_2mc1:auto_generated                      ; work         ;
-;    |rib:u_rib|                            ; 591 (591)         ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rib:u_rib                                                                           ; work         ;
-;    |rom:u_rom|                            ; 9 (9)             ; 114 (114)    ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom                                                                           ; work         ;
+;    |rib:u_rib|                            ; 599 (599)         ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rib:u_rib                                                                           ; work         ;
+;    |rom:u_rom|                            ; 8 (8)             ; 114 (114)    ; 262144      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom                                                                           ; work         ;
 ;       |altsyncram:_rom_rtl_0|             ; 0 (0)             ; 0 (0)        ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_0                                                     ; work         ;
 ;          |altsyncram_emc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_0|altsyncram_emc1:auto_generated                      ; work         ;
 ;       |altsyncram:_rom_rtl_1|             ; 0 (0)             ; 0 (0)        ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_1                                                     ; work         ;
 ;          |altsyncram_emc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 131072      ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rom:u_rom|altsyncram:_rom_rtl_1|altsyncram_emc1:auto_generated                      ; work         ;
 ;    |rst_ctrl:u_rst_ctrl|                  ; 0 (0)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|rst_ctrl:u_rst_ctrl                                                                 ; work         ;
-;    |timer:u_timer|                        ; 72 (72)           ; 100 (100)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|timer:u_timer                                                                       ; work         ;
+;    |timer:u_timer|                        ; 71 (71)           ; 100 (100)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|timer:u_timer                                                                       ; work         ;
 ;    |uart:u_uart|                          ; 100 (100)         ; 134 (130)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart:u_uart                                                                         ; work         ;
 ;       |delay_buffer:u_delay_buffer|       ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart:u_uart|delay_buffer:u_delay_buffer                                             ; work         ;
-;    |uart_debug:u_uart_debug|              ; 120 (119)         ; 132 (128)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart_debug:u_uart_debug                                                             ; work         ;
+;    |uart_debug:u_uart_debug|              ; 120 (119)         ; 133 (129)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart_debug:u_uart_debug                                                             ; work         ;
 ;       |delay_buffer:u_delay_buffer2|      ; 1 (1)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |RISCV_SOC_TOP|uart_debug:u_uart_debug|delay_buffer:u_delay_buffer2                                ; work         ;
 +-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
@@ -440,7 +440,6 @@ Encoding Type:  One-Hot
 ; uart_debug:u_uart_debug|delay_buffer:u_delay_buffer1|buffer[3][0]  ; Merged with uart:u_uart|delay_buffer:u_delay_buffer|buffer[3][0]           ;
 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data2_temp[31]    ; Merged with RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data2_sign    ;
 ; RISCV:u_RISCV|clint:u_clint|cause[30]                              ; Stuck at GND due to stuck port data_in                                     ;
-; uart_debug:u_uart_debug|mem_wr_en_o                                ; Merged with uart_debug:u_uart_debug|rib_wr_req_o                           ;
 ; RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data2[32]         ; Merged with RISCV:u_RISCV|EX_UNIT:INST_EX_UNIT|div:u_div|div_data2_temp[0] ;
 ; RISCV:u_RISCV|IF_UNIT:INST_IF_UNIT|if_id:u_if_id|hold_flag_reg[0]  ; Lost fanout                                                                ;
 ; uart:u_uart|uart_rx_state~9                                        ; Lost fanout                                                                ;
@@ -455,7 +454,7 @@ Encoding Type:  One-Hot
 ; RISCV:u_RISCV|clint:u_clint|csr_state~10                           ; Lost fanout                                                                ;
 ; RISCV:u_RISCV|clint:u_clint|csr_state~11                           ; Lost fanout                                                                ;
 ; RISCV:u_RISCV|clint:u_clint|wr_addr_o[0]                           ; Merged with RISCV:u_RISCV|clint:u_clint|csr_state.CSR_MSTATUS              ;
-; Total Number of Removed Registers = 180                            ;                                                                            ;
+; Total Number of Removed Registers = 179                            ;                                                                            ;
 +--------------------------------------------------------------------+----------------------------------------------------------------------------+
 
 
@@ -526,10 +525,10 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2488  ;
+; Total registers                              ; 2489  ;
 ; Number of registers using Synchronous Clear  ; 215   ;
 ; Number of registers using Synchronous Load   ; 161   ;
-; Number of registers using Asynchronous Clear ; 1134  ;
+; Number of registers using Asynchronous Clear ; 1135  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 1782  ;
 ; Number of registers using Preset             ; 0     ;
@@ -542,9 +541,9 @@ Encoding Type:  One-Hot
 ; Inverted Register                                              ; Fan out ;
 +----------------------------------------------------------------+---------+
 ; uart:u_uart|uart_tx                                            ; 2       ;
-; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[4]      ; 46      ;
-; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[1]      ; 8       ;
-; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[0]      ; 8       ;
+; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[4]      ; 48      ;
+; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[1]      ; 7       ;
+; RISCV:u_RISCV|ID_UNIT:INST_ID_UNIT|id_ex:u_id_ex|ins_o[0]      ; 7       ;
 ; RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|privilege_mode[1] ; 1       ;
 ; RISCV:u_RISCV|RF_UNIT:INST_RF_UNIT|csr:u_csr|privilege_mode[0] ; 1       ;
 ; RISCV:u_RISCV|clint:u_clint|wr_privilege_o[1]                  ; 1       ;
@@ -1264,7 +1263,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Thu Nov 09 16:09:17 2023
+    Info: Processing started: Thu Nov 09 16:26:51 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu_prj -c cpu_prj
 Info (11104): Parallel Compilation has detected 20 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 14 of the 14 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file /users/desktop/fpga/tinyriscv_cpu/cpu_prj/fpga/rtl/core/rst_ctrl.v
@@ -1463,17 +1462,17 @@ Info (17049): 12 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file D:/Users/Desktop/FPGA/tinyriscv_cpu/cpu_prj/FPGA/quartus_prj/cpu_prj.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 7274 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 7286 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 4 input pins
     Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 7161 logic cells
+    Info (21061): Implemented 7173 logic cells
     Info (21064): Implemented 96 RAM segments
     Info (21062): Implemented 8 DSP elements
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 4702 megabytes
-    Info: Processing ended: Thu Nov 09 16:09:33 2023
+    Info: Peak virtual memory: 4687 megabytes
+    Info: Processing ended: Thu Nov 09 16:27:07 2023
     Info: Elapsed time: 00:00:16
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Total CPU time (on all processors): 00:00:09
 
 
 +------------------------------------------+

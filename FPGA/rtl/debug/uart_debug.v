@@ -87,11 +87,8 @@ module uart_debug(
         else if(debug_en_i_delay == 1'b0) begin
             rib_wr_req_o <= 1'b0;
         end
-        else if(data_rd_flag == 1'b1) begin
-            rib_wr_req_o <= 1'b1;
-        end
         else begin
-            rib_wr_req_o <= 1'b0;
+            rib_wr_req_o <= 1'b1;
         end
     end
     
